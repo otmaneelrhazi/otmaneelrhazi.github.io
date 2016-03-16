@@ -1,0 +1,179 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+    background: #fff;
+    font-size: 16px;
+    font-family: "Helvetica";
+    margin:0;
+    padding:0;
+}
+
+#container {
+    background: #fff;
+    width:340px;
+}
+
+p {
+	line-height: 20px;
+}
+
+#main-content {
+    border: none;
+    text-align: left;
+    margin: 0 10px;
+}
+
+h1, h1 a, h2, h2 a, h4, h4 a {
+    font-size: 21px;
+    text-decoration: none;
+    font-weight: normal;
+    font-family: "Futura Medium BT", Helvetica, sans-serif;
+    text-shadow: 1px 1px 2px #aaa;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+h1, h1 a {
+    text-align: left;
+}
+
+#title, #title a {
+    margin:0;
+    padding: 14px 0;
+    text-align:center;
+    font-size: 21px;
+    text-decoration: none;
+    font-family: "Futura Medium BT", Helvetica, sans-serif;
+    text-shadow: 1px 1px 3px #999;
+}
+
+.attributes {
+    font-size: 14px;
+    margin-top:-14px;
+}
+
+img {
+    border: 0;
+}
+
+a {
+    color: #005981;
+    background: transparent;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.caption {
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.iphone-ads {
+    margin: 5px auto;
+    padding: 0;
+}
+
+.entry-content {
+    margin-bottom: 20px;
+}
+
+.divider {
+    height: 2px;
+    background-color: #005981;
+}
+
+.txpCommentInputMessage, .comment_web_input, .comment_email_input, .comment_name_input {
+    width: 310px;
+}
+
+#search, #sidebar, #bio, #accessibility {
+    display: none;
+}
+
+/*=== post-specific attributes===*/
+
+span.left {
+	float: left;
+	margin: 5px 0px 5px 0px;
+}
+
+span.right {
+	float: right;
+	margin: 5px 0px 5px 0px;
+}
+
+span.center {
+	display: block;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+span.tilt-l {
+    -webkit-transform: rotate(-3deg);
+    -moz-transform: rotate(-3deg);
+    -moz-box-shadow: 2px 5px 7px #555;
+    -webkit-box-shadow: 2px 5px 7px #555;
+}
+
+span.tilt-r {
+    -webkit-transform: rotate(3deg);
+    -moz-transform: rotate(3deg);
+    -moz-box-shadow: 2px 5px 7px #555;
+    -webkit-box-shadow: 2px 5px 7px #555;
+}
+
+span.caption {
+	display: block; /* put the caption under the image (not next to it) */
+    font-family: "Helvetica", sans-serif;
+	font-size: 10px;
+	line-height: 11px;
+	padding: 5px;
+}
+
+.inline {
+	border: 2px solid #eee;
+}
+
+p.meta {
+	color: #a0a2a3;
+	font-weight: normal;
+	font-size: 0.9em;
+	padding: 0.3em;
+	margin-bottom: 5em;
+}
+
+/*=== Menu for mobile ===*/
+
+#menumobile ul {
+    list-style: none;
+    margin: 10px;
+    padding: 0;
+}
+#menumobile ul li a {
+    background-color: #eee;
+    border: 1px solid #005981;
+    color: #005981;
+    display: block;
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: -1px;
+    padding: 12px 10px;
+    text-decoration: none;
+}
+
+#menumobile ul li:first-child a {
+    -webkit-border-top-left-radius: 8px;
+    -webkit-border-top-right-radius: 8px;
+}
+#menumobile ul li:last-child a {
+    -webkit-border-bottom-left-radius: 8px;
+    -webkit-border-bottom-right-radius: 8px;
+}
+
+pre {
+    white-space: pre-wrap;       /* css-3 */
+ }
