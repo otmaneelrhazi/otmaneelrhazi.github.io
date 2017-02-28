@@ -1,0 +1,443 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0264-0265.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0269-0270.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-266"><P>Page 266</P></A>
+
+
+<P>Some complex imake macros require generated
+make variables local to each invocation of the macro, often because their
+value depends on parameters passed to the macro. Such variables can be created by using an
+imake variable of the form XVARdefn, where n is a single digit. A unique
+make variable will be substituted. Later occurrences of the variable
+XVARusen will be replaced by the variable created by the corresponding
+XVARdefn.
+</P>
+
+<P>On systems whose cpp reduces multiple tabs and spaces to a single space,
+imake attempts to put back any necessary tabs
+(make is very picky about the difference between tabs and spaces). For this reason, colons
+(:) in command lines must be preceded by a backslash
+(\).
+</P>
+
+<P><B>
+USE WITH THE X WINDOW SYSTEM
+</B></P>
+
+<P>The X Window System uses imake extensively, for both full builds within the source tree and external software. As
+mentioned earlier, two special variables, TOPDIR and
+CURDIR, are set to make referencing FILES using relative pathnames easier.
+For example, the following command is generated automatically to build the
+Makefile in the directory lib/X/ (relative to the
+top of the sources):
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+% ../.././config/imake _I../.././config \
+_DTOPDIR=../../. _DCURDIR=./lib/X
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>When building X programs outside the source tree, a special symbol
+UseInstalled is defined and TOPDIR and CURDIR are omitted. If the configuration FILES have been properly installed, the script
+xmkmf(1) may be used.
+</P>
+
+<P><B>
+INPUT FILES
+</B></P>
+
+<P>Here is a summary of the FILES read by imake as used by X. The indentation shows which FILES include which other FILES.
+</P>
+
+<!-- CODE //-->
+<PRE>
+Imake.tmpl generic variables
+site.def site-specific, BeforeVendorCF defined
+.cf machine-specific
+Lib.rules shared library rules
+site.def site-specific, AfterVendorCF defined
+Imake.rules rules
+Project.tmpl X-specific variables
+Lib.tmpl shared library variables
+Imakefile
+Library.tmpl library rules
+Server.tmpl server rules
+Threads.tmpl multi-threaded rules
+</PRE>
+<!-- END CODE //-->
+
+
+<P>
+Note that site.def is included twice, once before the
+*.cf file and once after. Although most site customizations should
+be specified after the *.cf file, some, such as the choice of compiler, need to be specified before, because other variable
+settings may depend on them.
+</P>
+
+<P>The first time site.def is included, the variable
+BeforeVendorCF is defined, and the second time, the variable
+AfterVendorCF is defined. All code in site.def should be inside a
+#ifdef for one of these symbols.
+</P>
+
+<P><B>
+FILES
+</B></P>
+
+
+<TABLE>
+
+<TR><TD>
+Imakefile.c
+</TD><TD>
+Temporary input file for cpp
+</TD></TR><TR><TD>
+/tmp/Imf.XXXXXX
+</TD><TD>
+Temporary Makefile for -s
+</TD></TR><TR><TD>
+/tmp/IIf.XXXXXX
+</TD><TD>
+Temporary Imakefile if specified
+Imakefile uses # comments
+</TD></TR><TR><TD>
+/lib/cpp
+</TD><TD>
+Default C preprocessor
+</TD></TR></TABLE>
+
+<P><B>
+SEE ALSO
+</B></P>
+
+<P>make(1), xmkmf(1)
+</P>
+
+<P>S. I. Feldman, Make&#151;A Program for Maintaining Computer Programs.
+</P>
+
+<A NAME="PAGENUM-267"><P>Page 267</P></A>
+
+
+
+<P><B>
+ENVIRONMENT VARIABLES
+</B></P>
+
+<P>The following ENVIRONMENT variables may be set; however, their use is not recommended as they introduce dependencies
+that are not readily apparent when imake is run.
+</P>
+
+<TABLE>
+
+<TR><TD>
+IMAKEINCLUDE
+</TD><TD>
+If defined, this should be a valid include argument for the C preprocessor. Example:
+</TD></TR></TABLE>
+
+<!-- CODE SNIP //-->
+<PRE>
+_I/usr/include/local
+</PRE>
+<!-- END CODE SNIP //-->
+
+<TABLE>
+
+<TR><TD>
+</TD><TD>
+Actually, any valid cpp argument will work here.
+</TD></TR><TR><TD>
+IMAKECPP
+</TD><TD>
+If defined, this should be a valid path to a preprocessor program. Example:
+</TD></TR></TABLE>
+
+<!-- CODE SNIP //-->
+<PRE>
+/usr/local/cpp
+</PRE>
+<!-- END CODE SNIP //-->
+
+<TABLE>
+
+<TR><TD>
+</TD><TD>
+By default, imake will use /lib/cpp.
+</TD></TR><TR><TD>
+IMAKEMAKE
+</TD><TD>
+If defined, this should be a valid path to a make program, such as
+</TD></TR></TABLE>
+
+<!-- CODE SNIP //-->
+<PRE>
+/usr/local/make
+</PRE>
+<!-- END CODE SNIP //-->
+
+<TABLE>
+
+<TR><TD>
+</TD><TD>
+By default, imake will use whatever make program is found using
+execvp(3). This variable is only used if the _e option is specified.
+</TD></TR></TABLE>
+
+
+<P><B>
+AUTHORs
+</B></P>
+
+<P>Todd Brunhoff, Tektronix and MIT Project Athena
+</P>
+
+<P>Jim Fulton, MIT X Consortium
+</P>
+
+<P>
+X Version 11 Release 6
+</P>
+
+<H3><A NAME="ch01_ 120">
+imgtoppm
+</A></H3>
+
+<P>imgtoppm&#151;Convert an Img-whatnot file into a portable pixmap
+</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>
+imgtoppm [imgfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+<P>imgtoppm reads an Img-whatnot file as input and produces a portable pixmap as output. The
+Img-whatnot toolkit is available for FTP on
+venera.isi.edu, along with numerous images in this format.
+</P>
+
+<P><B>
+SEE ALSO
+</B></P>
+
+<P>ppm(5)
+</P>
+
+<P><B>
+AUTHOR
+</B></P>
+
+<P>Based on a simple conversion program posted to
+comp.graphics by Ed Falk.
+</P>
+
+<P>Copyright&quot; 1989 by Jef Poskanzer.
+</P>
+
+<P>
+    5 September 1989
+</P>
+
+<H3><A NAME="ch01_ 121">
+inews
+</A></H3>
+
+<P>inews&#151;Send a Usenet article to the local news server for distribution
+</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>
+inews [ _h ][_D ][_O ][_R ][_S ][header_flags ][input ]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<A NAME="PAGENUM-268"><P>Page 268</P></A>
+
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+<P>Inews reads a Usenet news article (perhaps with headers) from the named file or standard input if no file is given. It
+adds some headers and performs some consistency checks. If the article does not meet these checks (for example, too
+much quoting of old articles, or posting to nonexistent newsgroups), then the article is rejected. If it passes the checks,
+inews sends the article to the local news server as specified in the
+inn.conf(5) file for distribution.
+</P>
+
+<P>In the standard mode of operation, the input consists of the article headers, a blank line, and the message body. For
+com-patibility with older software, the _h flag must be used. If there are no headers in the message, then this flag may be omitted.
+</P>
+
+<P>Several headers may be specified on the command line, shown in the SYNOPSIS above as header flags. Each of these flags
+takes a single parameter; if the value is more than one word (for example, almost all Subject lines) then quotes must be used
+to prevent the shell from splitting it into multiple words. The OPTIONS, and their equivalent headers, are as follows:
+</P>
+
+
+<TABLE>
+
+<TR><TD>
+a
+</TD><TD>
+Approved
+</TD></TR><TR><TD>
+c
+</TD><TD>
+Control
+</TD></TR><TR><TD>
+d
+</TD><TD>
+Distribution
+</TD></TR><TR><TD>
+e
+</TD><TD>
+Expires
+</TD></TR><TR><TD>
+f
+</TD><TD>
+From
+</TD></TR><TR><TD>
+w
+</TD><TD>
+Followup-To
+</TD></TR><TR><TD>
+n
+</TD><TD>
+Newsgroups
+</TD></TR><TR><TD>
+r
+</TD><TD>
+Reply-To
+</TD></TR><TR><TD>
+t
+</TD><TD>
+Subject
+</TD></TR><TR><TD>
+F
+</TD><TD>
+References
+</TD></TR><TR><TD>
+o
+</TD><TD>
+Organization
+</TD></TR><TR><TD>
+x
+</TD><TD>
+Path prefix
+</TD></TR></TABLE>
+
+
+<P>The Path header is built according to the following rules. If the
+_x flag is used, then its value will be the start of the
+header. Any other host will see the site in the header, and therefore not offer the article to that site. If the
+pathhost configuration parameter is specified in the
+inn.conf(5) file, then it will be added to the Path. Otherwise, if the
+server configuration parameter is specified, then the full domain name of the local host will be added to the Path. The Path will always end<BR>
+not-for-mail.
+</P>
+
+<P>The default Organization header will be provided if none is present in the article or if the
+_o flag is not used. To prevent adding the default, use the
+_O flag.
+</P>
+
+<P>As a debugging aide, if the _D flag is used, the consistency checks will be performed, and the article will be sent to
+the standard output, rather then sent to the server.
+</P>
+
+<P>For compatibility with C News, inews accepts, but ignores, the
+_A, _V, and _W flags. The C News _N flag is treated as the
+_D flag.
+</P>
+
+<P>If a file named .signature exists in the user's home directory,
+inews will try to append it to the end of the article. If the
+file cannot be read, or if it is too long (for example, more than four lines or one standard I/O buffer), or if some other
+problem occurs, then the article will not be posted. To suppress this action, use the
+_S flag.
+</P>
+
+<P>If the _R flag is used then inews will reject any attempts to post control messages.
+</P>
+
+<P>If an unapproved posting is made to a moderated newsgroup,
+inews will try to mail the article to the moderator for
+posting. It uses the moderators(5) file to determine the mailing address. If no address is found, it will use the
+inn.conf file to determine a &quot;last-chance&quot; host to try.
+</P>
+
+<P>If the NNTP server needs to authenticate the client,
+inews will use the NNTPsendpass-word(3) routine to authenticate itself.
+In order to do this, the program will need read access to the
+passwd.nntp(5) file. This is typically done by having the file
+group-readable and making inews run setgid to that group.
+</P>
+
+<P>Inews exits with a zero status if the article was successfully posted or mailed, or with a nonzero status if the article could
+not be delivered.
+</P>
+
+
+
+
+<P><CENTER>
+<a href="0264-0265.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0269-0270.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

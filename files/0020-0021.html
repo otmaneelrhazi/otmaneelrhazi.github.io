@@ -1,0 +1,268 @@
+<HTML>
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0018-0019.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0022-0022.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-20"><P>Page 20</P></A>
+
+
+
+<TABLE>
+
+<TR><TD>
+${parameter:_word}
+</TD><TD>
+Use default values. If
+parameter is unset or null, the expansion of word is substituted. Otherwise,
+the value of parameter is substituted.
+</TD></TR><TR><TD>
+${parameter:=word}
+</TD><TD>
+Assign default values. If
+parameter is unset or null, the expansion of word is assigned to
+parameter. The value of parameter is then substituted. Positional parameters and special parameters may not
+be assigned to in this way.
+</TD></TR><TR><TD>
+${parameter:?word}
+</TD><TD>
+Display Error if null or unset. If
+parameter is null or unset, the expansion of word (or a message
+to that effect if word is not present) is written to the standard error and the shell, if it is not
+interactive, exits. Otherwise, the value of
+parameter is substituted.
+</TD></TR><TR><TD>
+${parameter:+word}
+</TD><TD>
+Use Alternate Value. If
+parameter is null or unset, nothing is substituted; otherwise, the
+expansion of word is substituted.
+</TD></TR><TR><TD>
+${#parameter}
+</TD><TD>
+The length in characters of the value of
+parameter is substituted. If parameter is * or @, the
+length substituted is the length of * expanded within double quotes.
+</TD></TR><TR><TD>
+${parameter#word}<br>
+${parameter##word}
+</TD><TD>
+The word is expanded to produce a pattern just as in pathname expansion. If the pattern matches<br>
+the beginning of the value of
+parameter, then the expansion is the value of
+parameter with the shortest matching pattern deleted (the
+# case) or the longest matching pattern deleted (the
+## case).
+</TD></TR><TR><TD>
+${parameter%word}<br>
+${parameter%%word}
+</TD><TD>
+The word is expanded to
+produce a pattern just as in pathname expansion. If the pattern matches a
+trailing portion of the value of
+parameter, then the expansion is the value of
+parameter with the shortest matching pattern deleted (the
+% case) or the longest matching pattern deleted (the
+%% case).
+</TD></TR></TABLE>
+
+<P>
+<b>COMMAND SUBSTITUCION</b>
+</P>
+
+<P>Command substitution allows the output of a command to replace the command name.</P>
+
+<P>There are two forms:</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+$(command )
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>or
+
+<!-- CODE SNIP //-->
+<PRE>
+`command'
+</PRE>
+<!-- END CODE SNIP //-->
+</P>
+
+<P>performs the expansion by executing command and replacing the command substitution with the standard output of
+the command, with any trailing newlines deleted.</P>
+
+<P>When the old_style backquote form of substitution is used, backslash retains its literal meaning except when followed by
+$, `, or \. When using the $(command) form, all characters between the parentheses make up the command; none are
+treated specially.</P>
+
+<P>Command substitutions may be nested. To nest when using the old form, escape the inner backquotes with backslashes.</P>
+
+<P>If the substitution appears within double quotes, word splitting and pathname expansion are not performed on the results.</P>
+
+<P>
+<b>ARITHMETIC EXPANSION</b>
+</P>
+
+<P>Arithmetic expansion allows the evaluation of an arithmetic expression and the substitution of the result. There are
+two formats for arithmetic expansion:</P>
+<!-- CODE SNIP //-->
+<PRE>
+$[expression]
+$((expression))
+</PRE>
+<!-- END CODE SNIP //-->
+<P>The expression is treated as if it were within double quotes, but a double quote inside the braces or parentheses is not
+treated specially. All tokens in the expression undergo parameter expansion, command substitution, and quote removal.
+Arithmetic substitutions may be nested.</P>
+
+<P>The evaluation is performed according to the rules listed under &quot;Arithmetic Evaluation,&quot; later in this section. If
+expression is invalid, bash prints a message indicating failure and no substitution occurs.</P>
+
+
+<P>
+<B>PROCESS SUBSTITUTION</B>
+</P>
+
+<P>Process substitution is supported on systems that support named pipes (FIFOs) or the
+/dev/fd method of naming open files. It takes the form of
+&lt;(list) or &gt;(list). The process list is run with its input or output connected to a FIFO or some file in
+/
+</P>
+
+
+<A NAME="PAGENUM-21"><P>Page 21</P></A>
+
+
+<P>dev/fd. The name of this file is passed as an argument to the current command as the result of the expansion. If
+the &gt;(list) form is used, writing to the file will provide input for list. If the
+&lt;(list) form is used, the file passed as an argument
+should be read to obtain the output of list.</P>
+
+<P>On systems that support it, process substitution is performed simultaneously with parameter and variable
+expansion, command substitution, and arithmetic expansion.
+</P>
+
+<P>
+<b>WORD SPLITTING</b>
+</P>
+
+<P>The shell scans the results of parameter expansion, command substitution, and arithmetic expansion that did not
+occur within double quotes for word splitting.</P>
+
+<P>The shell treats each character of IFS as a delimiter, and splits the results of the other expansions into words on
+these characters. If the value of IFS is exactly
+&lt;space&gt;&lt;tab&gt;&lt;newline&gt;, the default, then any sequence of
+IFS characters serves to delimit words. If IFS has a value other than the default, then sequences of the whitespace characters space and tab are
+ignored at the beginning and end of the word, as long as the whitespace character is in the value of
+IFS (an IFS whitespace character). Any character in
+IFS that is not IFS whitespace, along with any adjacent
+IFS whitespace characters, delimits a field. A sequence of
+IFS whitespace characters is also treated as a delimiter. If the value of
+IFS is null, no word splitting occurs. IFS cannot be unset.</P>
+
+<P>Explicit null arguments (&quot;&quot; or `') are retained. Implicit null arguments, resulting from the expansion of parameters that
+have no values, are removed.</P>
+
+<P>Note that if no expansion occurs, no splitting is performed.</P>
+
+<P>
+<b>PATHNAME EXPANSION</b>
+</P>
+
+<P>After word splitting, unless the _f option has been set,
+bash scans each word for the characters *, ?, and
+[. If one of these characters appears, then the word is regarded as a pattern and replaced with an alphabetically sorted list of
+pathnames matching the pattern. If no matching pathnames are found, and the shell variable
+allow_null_glob_expansion is unset, the word is left unchanged. If the variable is set, and no matches are found, the word is removed. When a pattern is used
+for pathname generation, the character (.) at the start of a name or immediately following a slash must be matched
+explicitly, unless the shell variable
+glob_dot_filenames is set. The slash character must always be matched explicitly. In other cases,
+the (.) character is not treated specially.</P>
+
+<P>The special pattern characters have the following meanings:</P>
+
+<TABLE>
+
+<TR><TD>
+*
+</TD><TD>
+Matches any string, including the null string.
+</TD></TR><TR><TD>
+?
+</TD><TD>
+Matches any single character.
+</TD></TR><TR><TD>
+[...]
+</TD><TD>
+Matches any one of the enclosed characters. A pair of characters separated by a minus sign denotes a
+range; any character lexically between those two characters, inclusive, is matched. If the first character
+following the [ is a ! or a ^, then any character not enclosed is matched. A
+_ or ] may be matched by including it as the first or last character in the set.
+</TD></TR></TABLE>
+
+<P>
+<b>QUOTE REMOVAL</b>
+</P>
+
+<P>After the preceding expansions, all unquoted occurrences of the characters
+\, `, and &quot; are removed.
+</P>
+
+<B>
+<b>REDIRECTION</b>
+</B>
+
+<P>Before a command is executed, its input and output may be redirected using a special notation interpreted by the
+shell. Redirection may also be used to open and close files for the current shell execution environment. The following
+redirection operators may precede or appear anywhere within a simple command or may follow a command. Redirections are
+processed in the order they appear, from left to right.</P>
+<P>In the following descriptions, if the file descriptor number is omitted, and the first character of the
+redirection operator is &lt;, the redirection refers to the standard input (file descriptor
+0). If the first character of the redirection operator is
+&gt;, the redirection refers to the standard output (file descriptor 1).
+</P>
+
+
+
+<P><CENTER>
+<a href="0018-0019.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0022-0022.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

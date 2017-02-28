@@ -1,0 +1,149 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0186-0187.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0189-0190.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-188"><P>Page 188</P></A>
+
+
+<P><B>
+OPTIMIZATION OPTIONS
+</B>
+</P>
+
+<P>These options control various sorts of optimizations:
+</P>
+
+<TABLE>
+
+<TR><TD>
+_O, _O1
+</TD><TD>
+Optimize. Optimizing compilation takes somewhat more time, and a lot more memory for
+a large function.<BR>
+Without _O, the compiler's goal is to reduce the cost of compilation and to make
+debugging produce the expected results. Statements are independent: If you stop the program with
+a breakpoint between statements, you can then assign a new value to any variable or change
+the program counter to any other statement in the function and get exactly the results you
+would expect from the source code.<BR>
+Without _O, only variables declared register are allocated in registers. The resulting
+compiled code is a little worse than produced by PCC without
+_O.<BR>
+ With _O, the compiler tries to reduce code size and execution time.<BR>
+When you specify _O, the two options
+_fthread_jumps and _fdefer_pop are turned on. On machines that have delay slots, the
+_fdelayed_branch option is turned on. For those
+machines that can support debugging even without a frame pointer, the
+_fomit_frame_pointer option is turned on. On some machines other flags may also be turned on.
+</TD></TR><TR><TD>
+_O2
+</TD><TD>
+Optimize even more. Nearly all supported optimizations that do not involve a
+space-speed tradeoff are performed. Loop unrolling and function inlining are not done, for example.
+As compared to _O, this option increases both compilation time and the performance of
+the generated code.
+</TD></TR><TR><TD>
+_O3
+</TD><TD>
+Optimize yet more. This turns on everything
+_O2 does, along with also turning on
+_finline_functions.
+</TD></TR><TR><TD>
+_O0
+</TD><TD>
+Do not optimize.<BR>
+If you use multiple _O options, with or without level numbers, the last such option is the
+one that is effective.
+</TD></TR></TABLE>
+
+<P>Options of the form _f flag specify machine-independent flags. Most flags have both positive and negative forms;
+the negative form of _ffoo would be _fno_foo. The following list shows only one form&#151;the one which is not the default.
+You can figure out the other form by either removing
+no_ or adding it.
+</P>
+
+
+
+<TABLE>
+
+<TR><TD>
+_ffloat_store
+</TD><TD>
+Do not store floating-point variables in registers. This prevents undesirable excess precision
+on machines such as the 68000 where the floating registers (of the 68881) keep more
+precision than a double is supposed to have.<BR>
+For most programs, the excess precision does only good, but a few programs rely on the
+precise definition of IEEE floating point. Use
+_ffloat_store for such programs.
+</TD></TR><TR><TD>
+_fmemorize_lookups
+</TD><TD>
+Use heuristics to compile faster (C++ only). These heuristics are not enabled by default,
+</TD></TR><TR><TD>
+_fsave_memorized
+</TD><TD>
+since they are only effective for certain input files. Other input files compile more slowly.<BR>
+The first time the compiler must build a call to a member function (or reference to a
+data member), it must (1) determine whether the class implements member functions of that
+name; (2) resolve which member function to call (which involves figuring out what sorts of
+type conversions need to be made); and (3) check the visibility of the member function to the
+caller. All of this adds up to slower compilation. Normally, the second time a call is made to
+that member function (or reference to that data member), it must go through the same
+lengthy process again. This means that code like this:
+cout &lt;&lt; &quot;This &quot; &lt;&lt; p &lt;&lt; &quot;has&quot;&lt;&lt; \ &lt;&lt; &quot; legs.\n&quot;
+makes six passes through all three steps. By using a software cache, a hit significantly
+reduces this cost. Unfortunately, using the cache introduces another layer of mechanisms which
+must be implemented, and so incurs its own overhead.
+_fmemorize_ lookups enables the software cache.<BR>
+Because access privileges (visibility) to members and member functions may differ from
+one function context to the next, g++ may need to flush the cache. With the
+_fmemorize_lookups flag, the cache is flushed after every function that is compiled. The
+_fsave_memorized flag
+</TD></TR></TABLE>
+
+
+
+
+<P><CENTER>
+<a href="0186-0187.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0189-0190.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

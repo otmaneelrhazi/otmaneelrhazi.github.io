@@ -1,0 +1,285 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0169-0170.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0173-0175.html">Next</A></CENTER></P>
+
+
+
+
+
+
+
+
+
+<A NAME="PAGENUM-171"><P>Page 171</P></A>
+
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+
+
+<!-- CODE SNIP //-->
+<PRE>
+egrep(1), getpid(2), getppid(2), getpgrp(2), getuid(2), geteuid(2), getgid(2), getegid(2), get-groups(2)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>The AWK Programming Language, Alfred V. Aho, Brian W. Kernighan, Peter J. Weinberger, Addison-Wesley, 1988.
+ISBN 0-201-07981-X.
+</P>
+
+<P>The GAWK Manual, Edition 0.15, published by the Free Software Foundation, 1993.
+</P>
+
+<P><B>
+POSIX COMPATIBILITY
+</B>
+</P>
+
+
+<P>A primary goal for gawk is compatibility with the standard, as well as with the latest version of
+awk. To this end, gawk incorporates the following user-visible features that are not described in the
+awk book, but are part of awk in System V Release 4, and are in the standard.
+</P>
+
+
+<P>The _v option for assigning variables before program execution starts is new. The book indicates that command-line
+variable assignment happens when awk would otherwise open the argument as a file, which is after the
+BEGIN block is executed. However, in earlier implementations, when such an assignment appeared before any filenames, the assignment would
+happen before the BEGIN block was run. Applications came to depend on this &quot;feature.&quot; When
+awk was changed to match its documentation, this option was added to accommodate applications that depended upon the old behavior. (This feature
+was agreed on by both the AT&amp;T and GNU developers.)
+</P>
+
+
+<P>The _W option for implementation-specific features is from the standard.
+</P>
+
+<P>When processing arguments, gawk uses the special option
+__ to signal the end of arguments. In compatibility mode, it
+will warn about, but otherwise ignore, undefined options. In normal operation, such arguments are passed on to the
+awk program for it to process.
+</P>
+
+
+<P>The awk book does not define the return value of
+srand(). The System V Release 4 version of awk (and the standard) has
+it return the seed it was using, to allow keeping track of random number sequences. Therefore,
+srand() in gawk also returns its current seed.
+</P>
+
+
+<P>Other new features are: the use of multiple _f options (from MKS
+awk); the ENVIRON array; the \a, and \v escape
+sequences (done originally in gawk and fed back into AT&amp;T's version); the
+tolower() and toupper() built-in functions (from
+AT&amp;T); and the C conversion specifications in
+printf (done first in AT&amp;T's version).
+</P>
+
+<P><B>
+GNU EXTENSIONS
+</B>
+</P>
+
+
+<P>gawk has some extensions to awk. They are described in this section. All the extensions described here can be disabled
+by invoking gawk with the _W compat option.
+</P>
+
+<P>The following features of gawk are not available in awk:<BR>
+The \x escape sequence.<BR>
+The systime() and strftime() functions.<BR>
+The special filenames available for I/O redirection are not recognized.<BR>
+The ARGIND and ERRNO variables are not special.<BR>
+The IGNORECASE variable and its side effects.<BR>
+The FIELDWIDTHS variable and fixed width field splitting.<BR>
+No path search is performed for files named via the_f option. Therefore, the AWKPATH environment variable is not special.<BR>
+The use of next file to abandon processing of the current input file.<BR>
+The use of delete array to delete the entire contents of an array.<BR>
+</P>
+
+<P>The awk book does not define the return value of the
+close() function. gawk's close() returns the value from
+fclose(3), or pclose(3), when closing a file or pipe, respectively.
+</P>
+
+<P>When gawk is invoked with the _W compat option, if the
+fs argument to the _F option is t, then FS will be set to the
+tab character. Since this is a rather ugly special case, it is not the default behavior. This behavior also does not occur if
+_Wposix has been specified.
+</P>
+
+<A NAME="PAGENUM-172"><P>Page 172</P></A>
+
+
+<P><B>
+HISTORICAL FEATURES
+</B>
+</P>
+
+
+
+<P>There are two features of historical awk implementations that
+gawk supports. First, it is possible to call the
+length() built-in function not only with no argument, but even without parentheses! Thus, this:
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+a = length
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>is the same as either of these:
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+a = length()
+a = length($0)
+</PRE>
+<!-- END CODE SNIP //-->
+<P>This feature is marked as &quot;deprecated&quot; in the standard, and
+gawk will issue a warning about its use if _W lint is specified
+on the command line.
+</P>
+
+<P>The other feature is the use of either the continue or the break statements outside the body of a
+while, for, or do loop. Traditional awk implementations have treated such usage as equivalent to the next statement.
+gawk will support this usage
+if _W compat has been specified.
+</P>
+
+<P><B>
+ENVIRONMENT VARIABLES
+</B>
+</P>
+
+
+
+<P>If POSIXLY_CORRECT exists in the environment, then
+gawk behaves exactly as if &#151; -posix had been specified on the
+command line. If &#151;-lint has been specified,
+gawk will issue a warning message to this effect.
+</P>
+
+<P><B>
+BUGS
+</B>
+</P>
+
+
+
+<P>The _F option is not necessary given the command-line variable assignment feature; it remains only for backwards
+compatibility.
+</P>
+
+<P>If your system actually has support for /dev/fd and the associated
+/dev/stdin, /dev/stdout, and /dev/stderr files, you may
+get different output from gawk than you would get on a system without those files. When
+gawk interprets these files internally, it synchronizes output to the standard output with output to
+/dev/stdout, while on a system with those files, the output
+is actually to different open files. Caveat emptor.
+</P>
+
+
+<P><B>
+VERSION INFORMATION
+</B>
+</P>
+
+
+<P>This man page documents gawk, version 2.15.
+</P>
+
+<P>Starting with the 2.15 version of gawk, the _c,
+_V, _C, _D, _a, and _e options of the 2.11 version are no longer recognized.
+This fact will not even be documented in the manual page for the next major version.
+</P>
+
+
+<P><B>
+AUTHORS
+</B>
+</P>
+
+
+<P>The original version of awk was designed and implemented by Alfred Aho, Peter Weinberger, and Brian Kernighan of
+AT&amp;T Bell Labs. Brian Kernighan continues to maintain and enhance it.
+</P>
+
+<P>Paul Rubin and Jay Fenlason, of the Free Software Foundation, wrote
+gawk, to be compatible with the original version of
+awk distributed in the seventh edition. John Woods contributed a number of bug fixes. David Trueman, with contributions
+from Arnold Robbins, made gawk compatible with the new version of
+awk. Arnold Robbins is the current maintainer.
+</P>
+
+<P>The initial DOS port was done by Conrad Kwok and Scott Garfinkle. Scott Deifik is the current DOS maintainer.
+Pat Rankin did the port to VMS, and Michal Jaegermann did the port to the Atari ST. The port to OS/2 was done by Kai
+Uwe Rommel, with contributions and help from Darrel Hankerson.
+</P>
+
+
+<P><B>
+BUG REPORTS
+</B>
+</P>
+
+
+<P>If you find a bug in gawk, please send electronic mail to
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+bug-gnu-utils@prep.ai.mit.edu,
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>with a copy to arnold@gnu.ai.mit.edu. Please include your operating system and its revision, the version of
+gawk, what C compiler you used to compile it, and a test program and data that are as small as possible for reproducing the problem.
+</P>
+
+
+
+<P><CENTER>
+<a href="0169-0170.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0173-0175.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

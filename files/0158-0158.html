@@ -1,0 +1,163 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0156-0157.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0159-0161.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-158"><P>Page 158</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+</TD><TD>
+variables you declared may not exist at all; flow of control may briefly move
+where you did not expect it; some statements may not be executed because they
+compute constant results or their values were already at hand; some statements may execute
+in different places because they were moved out of loops.
+</TD></TR><TR><TD>
+</TD><TD>
+Nevertheless, it proves possible to debug optimized output. This makes it
+reasonable to use the optimizer for programs that might have bugs.
+</TD></TR><TR><TD>
+_Idir
+</TD><TD>
+Append directory dir to the list of directories searched for include files.
+</TD></TR><TR><TD>
+_Ldir
+</TD><TD>
+Add directory dir to the list of directories to be searched for
+_l.
+</TD></TR><TR><TD>
+_llibrary
+</TD><TD>
+Use the library named library when linking. (C++ programs often require
+_lg++ for successful linking.)
+</TD></TR><TR><TD>
+_nostdinc
+</TD><TD>
+Do not search the standard system directories for header files. Only the
+directories you have specified with _I options (and the current directory, if appropriate)
+are searched.
+</TD></TR><TR><TD>
+_nostdinc++
+</TD><TD>
+Do not search for header files in the standard directories specific to C++, but do
+still search the other standard directories. (This option is used when building
+libg++.)
+</TD></TR><TR><TD>
+_O
+</TD><TD>
+Optimize. Optimizing compilation takes somewhat more time, and a lot
+more memory for a large function.
+</TD></TR><TR><TD>
+_o file
+</TD><TD>
+Place output in file file.
+</TD></TR><TR><TD>
+_S
+</TD><TD>
+Stop after the stage of compilation proper; do not assemble. The output is
+an assembler code file for each nonassembler input file specified.
+</TD></TR><TR><TD>
+_traditional
+</TD><TD>
+Attempt to support some aspects of traditional C compilers. Specifically, for both
+C and C++ programs:
+</TD></TR><TR><TD>
+</TD><TD>
+In the preprocessor, comments convert to nothing at all, rather than to a space.
+This allows traditional token concatenation.
+</TD></TR><TR><TD>
+</TD><TD>
+In the preprocessor, macro arguments are recognized within string constants in
+a macro definition (and their values are stringified, though without additional
+quote marks, when they appear in such a context). The preprocessor always considers
+a string constant to end at a newline.
+</TD></TR><TR><TD>
+</TD><TD>
+The preprocessor does not predefine the macro
+STDC when you use _traditional, but still predefines
+GNUC (since the GNU extensions indicated by GNUC are not affected
+by _traditional). If you need to write header files that work differently depending
+on whether _traditional is in use, by testing both of these predefined macros you
+can distinguish four situations: GNU C, traditional GNU C, other ANSI C
+compilers, and other old C compilers.
+</TD></TR><TR><TD>
+</TD><TD>
+In the preprocessor, comments convert to nothing at all, rather than to a space.
+This allows traditional token concatenation.
+</TD></TR><TR><TD>
+</TD><TD>
+String &quot;constants&quot; are not necessarily constant; they are stored in writable space,
+and identical looking constants are allocated separately. For C++ programs only (not
+C), _traditional has one additional effect: assignment to this is permitted. This is
+the same as the effect of _fthis_is_variable.
+</TD></TR><TR><TD>
+_Umacro
+</TD><TD>
+Undefine macro macro.
+</TD></TR><TR><TD>
+_Wall
+</TD><TD>
+Issue warnings for conditions that pertain to usage that we recommend avoiding
+and that we believe is easy to avoid, even in conjunction with macros.
+</TD></TR><TR><TD>
+_Wenum_clash
+</TD><TD>
+Warn when converting between different enumeration types.
+</TD></TR><TR><TD>
+_Woverloaded_virtual
+</TD><TD>
+In a derived class, the definitions of virtual functions must match the type
+signature of a virtual function declared in the base class. Use this option to request
+warnings when a derived class declares a function that may be an erroneous attempt to
+define a virtual function; that is, warn when a function with the same name as a
+virtual function in the base class, but with a type signature that doesn't match any
+virtual functions from the base class.
+</TD></TR></TABLE>
+
+
+
+<P><CENTER>
+<a href="0156-0157.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0159-0161.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

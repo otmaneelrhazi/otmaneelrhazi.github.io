@@ -1,0 +1,266 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0213-0214.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0217-0218.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-215"><P>Page 215</P></A>
+
+<P>can also be used; this will produce the arguments formatted according to
+format, which should be a string as described in
+printf(3), appropriate for the number of arguments supplied, using only the
+e, f, g, or % format characters.
+</P>
+<P>The thickness of the lines used to draw objects is controlled by the
+linethick variable. This gives the thickness of lines
+in points. A negative value means use the default thickness: in output mode, this means use a thickness of 8 milli-inches;
+in output mode with the -c option, this means use the line thickness specified by
+.ps lines; in troff output mode, this means use a thickness proportional to the
+point size. A zero value means draw the thinnest possible line supported by the
+output device. Initially, it has a value of -1. There is also a
+thick[ness] attribute. For example,
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+circle thickness 1.5
+</PRE>
+<!-- END CODE SNIP //-->
+<P>would draw a circle using a line with a thickness of 1.5 points. The thickness of lines is not affected by the value of the
+scale variable, nor by the width or height given in the
+.PS line.
+</P>
+<P>Boxes (including boxes with rounded corners), circles, and ellipses can be filled by giving then an attribute of
+fill[ed]. This takes an optional argument of an expression with a value between
+0 and 1; 0 will fill it with white, 1 with black, values
+in between with a proportionally gray shade. A value greater than
+1 can also be used: this means fill with the shade of gray
+that is currently being used for text and lines. Normally this will be black, but output devices may provide a mechanism
+for changing this. Without an argument, then the value of the variable
+fillval will be used. Initially, this has a value of
+0.5. The invisible attribute does not affect the filling of objects. Any text associated with a filled object will be added after the
+object has been filled, so that the text will not be obscured by the filling.
+</P>
+<P>Arrowheads will be drawn as solid triangles if the variable
+arrowhead is nonzero and either mode is enabled or the
+_x option has been given. Initially, arrowhead has a value of
+1.
+</P>
+<P>The troff output of pic is device-independent. The
+_T option is therefore redundant. All numbers are taken to be in
+inches; numbers are never interpreted to be in
+troff machine units.
+</P>
+<P>Objects can have an aligned attribute. This will only work when the postprocessor is
+grops. Any text associated with an object having the
+aligned attribute will be rotated about the center of the object so that it is aligned in the direction from
+the start point to the end point of the object. Note that this attribute will have no effect for objects whose start and end
+points are coincident.
+</P>
+<P>In places where nth is allowed, expr'th is also allowed. Note that
+`th is a single token: no space is allowed between the
+` and the th. For example,
+<!-- CODE SNIP //-->
+<PRE>fori =1 to 4 do{
+line from `i'th box.nw to `i+1'th box.se
+}
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+FILE
+</B>
+</P>
+
+
+<P>/usr/lib/groff/tmac/tmac.pic     Sample definitions of the PS and PE macros.
+</P>
+<P><B>
+SEE ALSO
+</B>
+</P>
+
+
+<P>gtroff(1), groff_out(5), tex(1)
+</P>
+<P>TPIC: PIC for AT&amp;T Bell Laboratories, Computing Science Technical Report No. 116,
+PIC&#151;A Graphics Language for Typesetting. (This can be obtained by sending an e-mail message to
+netlib@research.att.com with a body of &quot;send 116
+from research/cstr.&quot;)
+</P>
+<P><B>
+BUGS
+</B>
+</P>
+
+
+<P>Input characters that are illegal for groff (those with ASCII code 0 or between 013 and 037 octal or between 0200 and
+0237 octal) are rejected even in mode.
+</P>
+<P>The interpretation of fillval is incompatible with the
+pic in 10th edition UNIX, which interprets 0 as black and
+1 as white.
+</P>
+
+<A NAME="PAGENUM-216"><P>Page 216</P></A>
+
+
+<H3><A NAME="ch01_ 94">
+gprof
+</A></H3>
+<P>gprof&#151;Display call graph profile data
+</P>
+
+<P><B>
+SINOPSIS
+</B>
+</P>
+
+
+<!-- CODE SNIP //-->
+<PRE>
+gprof [ _abcsz ] [ _ej_E name ] [_fj_F name ][_k fromname toname ] [ objfile [ gmon.out ]]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+
+
+
+<P>gprof produces an execution profile of C, Pascal, or Fortran77 programs. The effect of called routines is incorporated in
+the profile of each caller. The profile data is taken from the call graph profile file
+(gmon.out default), which is created by programs that are compiled with the
+_pg option of cc(1), pc(1),and f77(1). The _pg option also links in versions of the library
+routines that are compiled for profiling. gprof reads the given object file (the default is
+a.out) and establishes the relation between its symbol table and the call graph profile from
+gmon.out. If more than one profile file is specified, the
+gprof output shows the sum of the profile information in the given profile files.
+</P>
+<P>gprof calculates the amount of time spent in each routine. Next, these times are propagated along the edges of the call
+graph. Cycles are discovered, and calls into a cycle are made to share the time of the cycle. The first listing shows the
+functions sorted according to the time they represent, including the time of their call graph descendants. Below each function entry
+is shown its (direct) call graph children, and how their times are propagated to this function. A similar display above
+the function shows how this function's time and the time of its descendants is propagated to its (direct) call graph parents.
+</P>
+<P>Cycles are also shown, with an entry for the cycle as a whole and a listing of the members of the cycle and their
+contributions to the time and call counts of the cycle.
+</P>
+<P>Second, a flat profile is given, similar to that provided by
+prof(1). This listing gives the total execution times, the call
+counts, the time in milliseconds, the call spent in the routine itself, and the time in milliseconds the call spent in the routine
+itself, including its descendants.
+</P>
+<P>Finally, an index of the function names is provided.
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+
+
+<P>The following options are available:
+</P>
+<TABLE>
+
+<TR><TD>
+_a
+</TD><TD>
+Suppresses the printing of statically declared functions. If this option is given, all relevant
+information about the static function (for example, time samples, calls to other functions, calls from
+other functions) belongs to the function loaded just before the static function in the
+objfile file.
+</TD></TR><TR><TD>
+_b
+</TD><TD>
+Suppresses the printing of a description of each field in the profile.
+</TD></TR><TR><TD>
+_c
+</TD><TD>
+The static call graph of the program is discovered by a heuristic that examines the text space of
+the object file. Static-only parents or children are shown with call counts of
+0.
+</TD></TR><TR><TD>
+_e name
+</TD><TD>
+Suppresses the printing of the graph profile entry for routine
+name and all its descendants (unless they have other ancestors that aren't suppressed). More than one
+_e option may be given. Only one name may be given with each
+_e option.
+</TD></TR><TR><TD>
+_E name
+</TD><TD>
+Suppresses the printing of the graph profile entry for routine
+name (and its descendants) as _e, previously and also excludes the time spent in
+name (and its descendants) from the total and
+percentage time computations. (For example, _E mcount
+_E mcleanup is the default.)
+</TD></TR><TR><TD>
+_f name
+</TD><TD>
+Prints the graph profile entry of only the specified routine
+name and its descendants. More than one _f option may be given. Only one
+name may be given with each _f option.
+</TD></TR><TR><TD>
+_F name
+</TD><TD>
+Prints the graph profile entry of only the routine
+name and its descendants (as _f, previously) and
+also uses only the times of the printed routines in total time and percentage computations. More than one <BR>
+_F option may be given. Only one name may be given with each
+_F option. The _F option overrides the _E option.
+</TD></TR><TR><TD>
+_k fromname toname
+</TD><TD>
+Will delete any arcs from routine
+fromname to routine toname. This can be used to break
+undesired cycles. More than one _k option may be given. Only one pair of routine names may be given with
+each _k option.
+</TD></TR></TABLE>
+
+
+
+<P><CENTER>
+<a href="0213-0214.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0217-0218.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

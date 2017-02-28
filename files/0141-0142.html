@@ -1,0 +1,431 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0139-0140.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0143-0145.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-141"><P>Page 141</P></A>
+
+
+
+<P>Time fields:
+</P>
+
+<TABLE>
+
+<TR><TD>
+</TD><TD>
+H
+</TD><TD>
+Hour (00..23)
+</TD></TR><TR><TD>
+</TD><TD>
+I
+</TD><TD>
+Hour (01..12)
+</TD></TR><TR><TD>
+</TD><TD>
+k
+</TD><TD>
+Hour (0..23)
+</TD></TR><TR><TD>
+</TD><TD>
+l
+</TD><TD>
+Hour (1..12)
+</TD></TR><TR><TD>
+</TD><TD>
+M
+</TD><TD>
+Minute (00..59)
+</TD></TR><TR><TD>
+</TD><TD>
+p
+</TD><TD>
+Locale's a.m. or p.m.
+</TD></TR><TR><TD>
+</TD><TD>
+r
+</TD><TD>
+Time, 12-hour (hh:mm:ss [AP]M)
+</TD></TR><TR><TD>
+</TD><TD>
+u
+</TD><TD>
+Second (00..61)
+</TD></TR><TR><TD>
+</TD><TD>
+T
+</TD><TD>
+Time, 24-hour (hh:mm:ss)
+</TD></TR><TR><TD>
+</TD><TD>
+X
+</TD><TD>
+Locale's time representation
+(H:M:S)
+</TD></TR><TR><TD>
+</TD><TD>
+Z
+</TD><TD>
+Time zone (for example, EDT), or nothing if no time zone is <BR>
+determinable
+</TD></TR></TABLE>
+
+
+<P>Date fields:
+</TBL>
+
+
+<TABLE>
+
+<TR><TD>
+</TD><TD>
+a
+</TD><TD>
+Locale's abbreviated weekday name
+(Sun..Sat)
+</TD></TR><TR><TD>
+</TD><TD>
+A
+</TD><TD>
+Locale's full weekday name, variable length
+(Sunday..Saturday)
+</TD></TR><TR><TD>
+</TD><TD>
+b
+</TD><TD>
+Locale's abbreviated month name
+(Jan..Dec)
+</TD></TR><TR><TD>
+</TD><TD>
+B
+</TD><TD>
+Locale's full month name, variable length
+(January.. December)
+</TD></TR><TR><TD>
+</TD><TD>
+c
+</TD><TD>
+Locale's date and time (Sat Nov 04 12:02:33 EST
+1989)
+</TD></TR><TR><TD>
+</TD><TD>
+d
+</TD><TD>
+Day of month (01..31)
+</TD></TR><TR><TD>
+</TD><TD>
+D
+</TD><TD>
+Date (mm/dd/yy)
+</TD></TR><TR><TD>
+</TD><TD>
+h
+</TD><TD>
+Same as b
+</TD></TR><TR><TD>
+</TD><TD>
+j
+</TD><TD>
+Day of year (001..366)
+</TD></TR><TR><TD>
+</TD><TD>
+m
+</TD><TD>
+Month (01..12)
+</TD></TR><TR><TD>
+</TD><TD>
+U
+</TD><TD>
+Week number of year with Sunday as first day of week
+(00..53)
+</TD></TR><TR><TD>
+</TD><TD>
+w
+</TD><TD>
+Day of week (0..6)
+</TD></TR><TR><TD>
+</TD><TD>
+W
+</TD><TD>
+Week number of year with Monday as first day of week
+(00..53)
+</TD></TR><TR><TD>
+</TD><TD>
+x
+</TD><TD>
+Locale's date representation
+(mm/dd/yy)
+</TD></TR><TR><TD>
+</TD><TD>
+y
+</TD><TD>
+Last two digits of year (00..99)
+</TD></TR><TR><TD>
+</TD><TD>
+Y
+</TD><TD>
+Year (1970...)
+</TD></TR></TABLE>
+
+
+<TABLE>
+
+<TR><TD>
+</TD><TD>
+%b
+</TD><TD>
+File's size in 512-byte blocks (rounded up).
+</TD></TR><TR><TD>
+</TD><TD>
+%c
+</TD><TD>
+File's last status change time in the format returned by the C
+ctime function.
+</TD></TR><TR><TD>
+</TD><TD>
+%Ck
+</TD><TD>
+File's last status change time in the format specified by
+k, which is the same as for %A.
+</TD></TR><TR><TD>
+</TD><TD>
+%d
+</TD><TD>
+File's depth in the directory tree;
+0 means the file is a command-line argument.
+</TD></TR><TR><TD>
+</TD><TD>
+%f
+</TD><TD>
+File's name with any leading directories removed (only the last element).
+</TD></TR><TR><TD>
+</TD><TD>
+%F
+</TD><TD>
+Type of the filesystem the file is on; this value can be used for
+_fstype.
+</TD></TR><TR><TD>
+</TD><TD>
+%g
+</TD><TD>
+File's group name, or numeric group ID if the group has no name.
+</TD></TR><TR><TD>
+</TD><TD>
+%G
+</TD><TD>
+File's numeric group ID.
+</TD></TR><TR><TD>
+</TD><TD>
+%h
+</TD><TD>
+Leading directories of file's name (all but the last element).
+</TD></TR><TR><TD>
+</TD><TD>
+%H
+</TD><TD>
+Command-line argument under which file was found.
+</TD></TR><TR><TD>
+</TD><TD>
+%i
+</TD><TD>
+File's inode number (in decimal).
+</TD></TR><TR><TD>
+</TD><TD>
+%k
+</TD><TD>
+File's size in 1K blocks (rounded up).
+</TD></TR><TR><TD>
+</TD><TD>
+%l
+</TD><TD>
+Object of symbolic link (empty string if file is not a symbolic link).
+</TD></TR></TABLE>
+
+<A NAME="PAGENUM-142"><P>Page 142</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+</TD><TD>
+%m
+</TD><TD>
+File's permission bits (in octal).
+</TD></TR><TR><TD>
+</TD><TD>
+%n
+</TD><TD>
+Number of hard links to file.
+</TD></TR><TR><TD>
+</TD><TD>
+%p
+</TD><TD>
+File's name.
+</TD></TR><TR><TD>
+</TD><TD>
+%P
+</TD><TD>
+File's name with the name of the command-line argument under which it was
+found removed.
+</TD></TR><TR><TD>
+</TD><TD>
+%s
+</TD><TD>
+File's size in bytes.
+</TD></TR><TR><TD>
+</TD><TD>
+%t
+</TD><TD>
+File's last modification time in the format returned by the C
+ctime function.
+</TD></TR><TR><TD>
+</TD><TD>
+%Tk
+</TD><TD>
+File's last modification time in the format specified by
+k, which is the same as for %A.
+</TD></TR><TR><TD>
+</TD><TD>
+%u
+</TD><TD>
+File's username, or numeric user ID if the user has no name.
+</TD></TR><TR><TD>
+</TD><TD>
+%U
+</TD><TD>
+File's numeric user ID.
+</TD></TR><TR><TD>
+</TD><TD>
+</TD><TD>
+A % character followed by any other character is discarded (but the other character
+is printed).
+</TD></TR></TABLE>
+
+<TABLE>
+
+<TR><TD>
+_prune
+</TD><TD>
+If _depth is not given, True; do not descend the current directory.
+</TD></TR><TR><TD>
+</TD><TD>
+If _depth is given, False; no effect.
+</TD></TR><TR><TD>
+_ls
+</TD><TD>
+True; list current file in ls _dils format on standard output. The block counts are of 1K
+blocks, unless the environment variable
+POSIXLY_CORRECT is set, in which case 512- byte blocks are used.
+</TD></TR></TABLE>
+
+<P><B>
+OPERATORS
+</B></P>
+
+<P>Listed in order of decreasing precedence:
+</P>
+
+<!-- CODE //-->
+<PRE>
+( expr )     Force precedence.
+! expr     True if expr is false.
+_not expr     Same as ! expr.
+expr1 expr2     And (implied); expr2 is not evaluated if
+expr1 is false.
+expr1 _a expr2     Same as expr1 expr2.
+expr1 _and expr2     Same as expr1 expr2.
+expr1 _o expr2     Or; expr2 is not evaluated if
+expr1 is true.
+expr1 _or expr2     Same as expr1 _o expr2.
+expr1, expr2     List; both expr1 and expr2 are always evaluated. The value of
+expr1 is discarded; the value of the list is the value of
+expr2.
+</PRE>
+<!-- END CODE //-->
+
+
+<P><B>
+SEE ALSO
+</B></P>
+
+<P>locate(1L), locatedb(5L), updatedb(1L), xargs(1L) Finding Files (online in
+info, or printed)
+</P>
+
+<P>GNU File Utilities
+</P>
+
+<H3><A NAME="ch01_ 68">
+fitstopnm
+</A></H3>
+
+<P>fitstopnm&#151;Convert a FITS file into a portable anymap
+</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>
+fitstopnm [-image N][-noraw][-scanmax][-printmax][-min f][-max f][FITSfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+<P>Reads a FITS file as input. Produces a portable pixmap if the FITS file consists of 3 image planes
+(NAXIS = 3 and NAXIS3 = 3), a portable graymap if the FITS file consists of 2 image planes
+(NAXIS = 2), or whenever the _image flag is specified.
+The results may need to be flipped top for bottom; if so, just pipe the output through
+pnmflip -tb.
+</P>
+
+
+
+<P><CENTER>
+<a href="0139-0140.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0143-0145.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

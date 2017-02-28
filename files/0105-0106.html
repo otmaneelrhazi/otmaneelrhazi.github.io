@@ -1,0 +1,381 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0103-0104.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0107-0108.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-105"><P>Page 105</P></A>
+
+
+<P>Files in working directories:</P>
+
+
+<TABLE>
+
+<TR><TD>
+CVS
+</TD><TD>
+A directory of cvs administrative files. Do not delete.
+</TD></TR><TR><TD>
+CVS/Entries
+</TD><TD>
+List and status of files in your working directory.
+</TD></TR><TR><TD>
+CVS/Entries.Backup
+</TD><TD>
+A backup of CVS/Entries.
+</TD></TR><TR><TD>
+CVS/Entries.Static
+</TD><TD>
+Flag: do not add more entries on cvs update.
+</TD></TR><TR><TD>
+CVS/Root
+</TD><TD>
+Pathname to the repository
+(CVSROOT) location at the time of checkout. This file is used
+instead of the CVSROOT environment variable if the environment variable is not set. A warning
+message will be issued when the contents of this file and the
+CVSROOT environment variable differ. The file may be overridden by the presence of the
+CVS_IGNORE_REMOTE_ROOT environment variable.
+</TD></TR><TR><TD>
+CVS/Repository
+</TD><TD>
+Pathname to the corresponding directory in the source repository.
+</TD></TR><TR><TD>
+CVS/Tag
+</TD><TD>
+Contains the per-directory sticky tag or date information. This file is created/updated when
+you specify -r or _D to the checkout or update commands, and no files are specified.
+</TD></TR><TR><TD>
+CVS/Checkin.prog
+</TD><TD>
+Name of program to run on cvs commit.
+</TD></TR><TR><TD>
+CVS/Update.prog
+</TD><TD>
+Name of program to run on cvs update.
+</TD></TR></TABLE>
+
+<P>Files in source repositories:</P>
+
+
+<TABLE>
+
+<TR><TD>
+$CVSROOT/CVSROOT
+</TD><TD>
+Directory of global administrative files for repository.
+</TD></TR><TR><TD>
+CVSROOT/commitinfo,v
+</TD><TD>
+Records programs for filtering cvs commit requests.
+</TD></TR><TR><TD>
+CVSROOT/cvswrappers,v
+</TD><TD>
+Records cvs wrapper commands to be used when checking files into and out of the
+repository. Wrappers allow the file or directory to be processed on the way in and out of
+CVS. The intended uses are many; one possible use would be to reformat a C file before the file is checked in, so
+all of the code in the repository looks the same.
+</TD></TR><TR><TD>
+CVSROOT/editinfo,v
+</TD><TD>
+Records programs for editing/validating cvs commit log entries.
+</TD></TR><TR><TD>
+CVSROOT/history
+</TD><TD>
+Log file of cvs transactions.
+</TD></TR><TR><TD>
+CVSROOT/loginfo,v
+</TD><TD>
+Records programs for piping cvs commit log entries.
+</TD></TR><TR><TD>
+CVSROOT/modules,v
+</TD><TD>
+Definitions for modules in this repository.
+</TD></TR><TR><TD>
+CVSROOT/rcsinfo,v
+</TD><TD>
+Records pathnames to templates used during a cvs commit operation.
+</TD></TR><TR><TD>
+CVSROOT/taginfo,v
+</TD><TD>
+Records programs for validating/logging cvs tag and cvs rtag operations.
+</TD></TR><TR><TD>
+MODULE/Attic
+</TD><TD>
+Directory for removed source files.
+</TD></TR><TR><TD>
+#cvs.lock
+</TD><TD>
+A lock directory created by cvs when doing sensitive changes to the RCS source repository.
+</TD></TR><TR><TD>
+#cvs.tfl.pid
+</TD><TD>
+Temporary lock file for repository.
+</TD></TR><TR><TD>
+#cvs.rfl.pid
+</TD><TD>
+A read lock.
+</TD></TR><TR><TD>
+#cvs.wfl.pid
+</TD><TD>
+A write lock.
+</TD></TR></TABLE>
+
+<P><B>
+ENVIRONMENT VARIABLES
+</B></P>
+
+<TABLE>
+
+<TR><TD>
+CVSROOT
+</TD><TD>
+Should contain the full pathname to the root of
+the cvs source repository (where the RCS files are kept). This information must be available to
+cvs for most commands to execute; if CVSROOT is not set, or if you wish to override it for one invocation, you can supply it on the
+command line: cvs _d cvsroot cvs command.... You may not need to set
+CVSROOT if your cvs binary has the right path compiled in; use
+cvs _v to display all compiled-in paths.
+</TD></TR><TR><TD>
+CVSREAD
+</TD><TD>
+If this is set, checkout and update will try hard to make the files in your working directory
+read-only. When this is not set, the default behavior is to permit modification of your working files.
+</TD></TR><TR><TD>
+RCSBIN
+</TD><TD>
+Specifies the full pathname where to find RCS programs, such as
+co(1)and ci(1). If not set, a compiled-in value is used; see the display from
+cvs _v.
+</TD></TR><TR><TD>
+CVSEDITOR
+</TD><TD>
+Specifies the program to use for recording log messages during
+commit. If not set, the EDITOR environment variable is used instead. If
+EDITOR is not set either, the default is
+/usr/ucb/vi.
+</TD></TR><TR><TD>
+CVS_IGNORE_REMOTE_ROOT
+</TD><TD>
+If this variable is set, then
+cvs will ignore all references to remote repositories in the
+CVS/Root file.
+</TD></TR></TABLE>
+
+<A NAME="PAGENUM-106"><P>Page 106</P></A>
+
+<TABLE>
+
+<TR><TD>
+CVS_RSH
+</TD><TD>
+cvs uses the contents of this variable to determine the name of the remote shell command to
+use when starting a cvs server. If this variable is not set then
+rsh is used.
+</TD></TR><TR><TD>
+CVS_SERVER
+</TD><TD>
+cvs uses the contents of this variable to determine the name of the
+cvs server command. If this variable is not set then
+cvs is used.
+</TD></TR><TR><TD>
+CVSWRAPPERS
+</TD><TD>
+This variable is used by the
+cvswrappers script to determine the name of the wrapper file,
+in addition to the wrappers defaults contained in the repository
+(CVSROOT/cvswrappers) and the user's home directory
+(~/.cvswrappers).
+</TD></TR></TABLE>
+
+<P><B>
+AUTHORS
+</B></P>
+
+
+<TABLE>
+
+<TR><TD>
+Dick Grune
+</TD><TD>
+Original author of the cvs shell script version posted to
+comp.sources.unix in the volume 6 release of December, 1986. Credited with much of the
+cvs conflict resolution algorithms.
+</TD></TR><TR><TD>
+Brian Berliner
+</TD><TD>
+Coder and designer of the
+cvs program itself in April, 1989, based on the original work done
+by Dick.
+</TD></TR><TR><TD>
+Jeff Polk
+</TD><TD>
+Helped Brian with the design of the
+cvs module and vendor branch support and author of
+the checkin(1) shell script (the ancestor of cvs
+import).
+</TD></TR></TABLE>
+
+<P><B>
+SEE ALSO
+</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>
+ci(1), co(1), cvs(5), cvsbug(8), diff(1), grep(1),
+patch(1), rcs(1), rcsdiff(1), rcsmerge(1), rlogbug(8)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>
+                                                  13 March 1996
+</P>
+
+<H3><A NAME="ch01_ 50">
+date
+</A></H3>
+
+<P>date&#151;Show and set date and time</P>
+
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+
+<!-- CODE SNIP //-->
+<PRE>
+date [ _u ][_c ][_n ][_d dsttype ] [ _t minutes-west ] [ _a [+|-]sss.fff ][+format ][
+[yyyy]mmddhhmm[yy][.ss]]
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+<P>Date without arguments writes the date and time to the standard output in the form:</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+Wed Mar 8 14:54:40 EST 1989
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>with EST replaced by the local time zone's abbreviation (or by the abbreviation for the time zone specified in the
+TZ environment variable if set). The exact output format depends on the locale.
+</P>
+
+
+<P>If a command-line argument starts with a plus sign
+(+), the rest of the argument is used as a format that controls
+what appears in the output. In the format, when a percent sign
+(%) appears, it and the character after it are not output, but
+rather identify part of the date or time to be output in a particular way (or identify a special character to output):
+</P>
+
+
+<TABLE>
+
+<TR><TD>
+Argument
+</TD><TD>
+Sample output
+</TD><TD>
+Explanation
+</TD></TR><TR><TD>
+%a
+</TD><TD>
+Wed
+<CAbbreviated weekday name*</TD><TD>
+%A
+</TD></TR><TR><TD>
+Wednesday
+</TD><TD>
+Full weekday name*
+</TD><TD>
+%b
+</TD></TR><TR><TD>
+Mar
+</TD><TD>
+Abbreviated month name*
+</TD><TD>
+%B
+</TD></TR><TR><TD>
+March
+</TD><TD>
+Full month name*
+</TD><TD>
+%c
+</TD></TR><TR><TD>
+Wed Mar 08 14:54:40 1989
+</TD><TD>
+Date and time*
+</TD><TD>
+%C
+</TD></TR><TR><TD>
+19
+</TD><TD>
+Century
+</TD><TD>
+%d
+</TD></TR><TR><TD>
+08
+</TD><TD>
+Day of month (always two digits)
+</TD><TD>
+%D
+</TD></TR><TR><TD>
+03/08/89
+</TD><TD>
+Month/day/year (eight characters)
+</TD></TR></TABLE>
+
+
+
+
+
+<P><CENTER>
+<a href="0103-0104.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0107-0108.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

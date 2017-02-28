@@ -1,0 +1,385 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0394-0396.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0400-0402.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-397"><P>Page 397</P></A>
+
+
+<P><B>
+AUTHOR
+</B></P>
+<P>Copyright &quot; 1989 by Wilson H. Bent
+(whb@hoh-2.att.com), with modifications by Alberto
+Accomazzi (alberto@cfa.harvard.edu).
+</P>
+
+<P>5 December 1992
+</P>
+
+<H3><A NAME="ch01_ 286">
+pnmtops
+</A></H3>
+<P>pnmtops&#151;Convert portable anymap to PostScript
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pnmtops [-scale s][-turn|-noturn][-rle|-runlength][-dpi n][-width n][-height n]
+[-center|-nocenter][pnmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pnmtops reads a portable anymap as input and produces encapsulated PostScript as output.
+</P>
+<P>If the input file is in color (PPM), a color PostScript file gets written. Some PostScript interpreters can't handle
+color PostScript. If you have one of these, you will need to run your image through
+ppmtopgm first.
+</P>
+<P>Note that there is no pstopnm tool; this transformation is one-way, because a
+pstopnm tool would be a full-fledged PostScript interpreter, which is beyond the scope of this package. However, see the
+psidtopgm tool, which can read grayscale non-run-length PostScript image data. Also, if you're willing to install the fairly large GhostScript package, it comes with a
+pstoppm script.
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+<P>The -scale flag controls the scale of the result. The default scale is
+1, which on a 300dpi printer such as the Apple LaserWriter makes the output look about the same size as the input would if it was displayed on a typical 72dpi screen.
+To get one PNM pixel per 300dpi printer pixel, use
+-scale 0.25.</P>
+<P>The -turn and -noturn flags control whether the image gets turned 90 degrees. Normally, if an image is wider than it is
+tall, it gets turned automatically to better fit the page. If the
+-turn flag is specified, it will be turned no matter what its shape;
+and if the -noturn flag is specified, it will not be turned no matter what its shape.
+<P>The -rle or -runlength flag specifies run-length compression. This may save time if the host-to-printer link is slow;
+but normally the printer's processing time dominates, so
+-rle makes things slower.</P>
+<P>The -dpi flag lets you specify the dots per inch of your output device. The default is
+300dpi. In theory PostScript is device-independent and you don't have to worry about this, but in practice its raster rendering can have unsightly bands if
+the device pixels and the image pixels aren't in sync.
+</P>
+<P>The -width and -height flags let you specify the size of the page. The default is 8.5 inches by 11 inches.
+</P>
+<P>With the -nocenter flag, the output is not centered on the page; it appears in the upper-left corner. This is useful
+for programs that can include PostScript files, but can't cope with pictures that are not positioned in the upper-left corner.
+The default is -center--the image is centered on the page.
+</P>
+<P>All flags can be abbreviated to their shortest unique prefix.
+</P>
+
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>pnm(5), psidtopgm(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright &quot; 1989, 1991 by Jef Poskanzer. Modified November 1993 by Wolfgang Stuerzlinger
+(wrzl@gup.uni-linz.ac.at).
+</P>
+
+<P>26 October 1991
+</P>
+
+<A NAME="PAGENUM-398"><P>Page 398</P></A>
+
+
+<H3><A NAME="ch01_ 287">
+pnmtorast
+</A></H3>
+<P>pnmtorast&#151;Convert a portable pixmap into a Sun raster file
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pnmtorast [-standard|-rle][pnmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pnmtorast reads a portable pixmap as input and produces a Sun raster file as output.
+</P>
+
+<P>Color values in Sun raster files are eight bits wide, so
+pnmtorast will automatically scale colors to have a
+maxval of 255. An extra pnmdepth step is not necessary.
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+<P>The -standard flag forces the result to be in
+RT_STANDARD form; the -rle flag, RT_BYTE_ENCODED, which is smaller but, well,
+less standard. The default is -rle.
+</P>
+<P>All flags can be abbreviated to their shortest unique prefix.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+rasttopnm(1), pnm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright &quot; 1989, 1991 by Jef Poskanzer.
+</P>
+
+<P>12 January 1991
+</P>
+
+<H3><A NAME="ch01_ 288">
+pnmtosgi
+</A></H3>
+<P>pnmtosgi&#151;Convert a portable anymap to an SGI image file
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pnmtosgi [-verbatim|-rle][-imagename Name][pnmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pnmtosgi reads a portable anymap as input and produces an SGI image file as output. The SGI image will be
+two-dimensional (one channel) for PBM and PGM input, and three-dimensional (three channels) for PPM.
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+<TABLE>
+
+<TR><TD>
+-verbatim
+</TD><TD>
+Write an uncompressed file.
+</TD></TR><TR><TD>
+-rle (default)
+</TD><TD>
+Write a compressed (run-length_encoded) file.
+</TD></TR><TR><TD>
+-imagename name
+</TD><TD>
+Write the string name into the
+imagename field of the header. The name string is limited to 79 characters.
+If no name is given, pnmtosgi writes no name into this field.
+</TD></TR></TABLE>
+
+<P><B>
+BUGS
+</B>
+</P>
+<P>Probably.
+</P>
+
+<P><B>
+REFERENCES
+</B>
+</P>
+<P>SGI image file format documentation (draft v0.95) by Paul Haeberli
+(paul@sgi.com). Available via FTP at
+sgi.com:graphics/SGIIMAGESPEC.
+</P>
+
+<A NAME="PAGENUM-399"><P>Page 399</P></A>
+
+
+<P><B>
+See Also
+</B></P>
+<!-- CODE SNIP //-->
+<PRE>pnm(5), sgitopnm(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright &quot; 1994 by Ingo Wilken
+(Ingo.Wilken@informatik.uni-oldenburg.de).
+</P>
+<P>29 January 1994
+</P>
+
+<H3><A NAME="ch01_ 289">
+pnmtosir
+</A></H3>
+<P>pnmtosir&#151;Convert a portable anymap into a Solitaire format
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pnmtosir [pnmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pnmtosir reads a portable anymap as input and produces a Solitaire image recorder format.
+</P>
+<P>pnmtosir produces an MGI TYPE 17 file for PBM and PGM files. For
+ppm, it writes an MGI TYPE 11 file.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+sirtopnm(1), pnm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright &quot; 1991 by Marvin Landis.
+</P>
+
+<P>20 March 1991
+</P>
+
+<H3><A NAME="ch01_ 290">
+pnmtotiff
+</A></H3>
+<P>pnmtotiff&#151;Convert a portable anymap into a TIFF file
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pnmtotiff [-none|-packbits| -lzw|-g3|-g4][-2d][-fill][-predictor n]
+[-msb2lsb|-lsb2msb] [-rowsperstrip n][pnmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pnmtotiff reads a portable anymap as input. Produces a TIFF file as output.
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+<P>By default, pnmtotiff creates a TIFF file with LZW compression. This is your best bet most of the time. However,
+some TIFF readers can't deal with it. If you want to try another compression scheme or tweak some of the other even
+more obscure output options, there are a number of flags to play with.
+</P>
+<P>The -none, -packbits, -lzw, -g3,and-g4 options are used to override the default and set the compression scheme used
+in creating the output file. The CCITT Group 3 and Group 4 compression algorithms can only be used with bilevel data.
+The -2d and -fill options are meaningful only with Group 3 compression:
+-2d requests two-dimensional encoding, while -fill
+requests that each encoded scanline be zero-filled to a byte boundary. The
+-predictor option is only meaningful with LZW compression: a predictor value of 2 causes each scanline
+of the output image to undergo horizontal differencing before it
+is encoded; a value of 1 forces each scanline to be encoded without differencing. By default,
+pnmtotiff creates a TIFF file with msb-to-lsb fill order. The
+-msb2lsb and -lsb2msb options are used to override the default and set the fill order used
+in creating the file. The -rowsperstrip option can be used to set the number of rows (scanlines) in each strip of data in
+the
+</P>
+
+
+
+<P><CENTER>
+<a href="0394-0396.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0400-0402.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

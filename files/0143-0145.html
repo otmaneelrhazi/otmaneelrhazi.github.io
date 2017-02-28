@@ -1,0 +1,416 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0141-0142.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0146-0148.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-143"><P>Page 143</P></A>
+
+
+
+<P><B>
+OPTIONS
+</B></P>
+
+<P>The -image option is for FITS files with three axes. The assumption is that the third axis is for multiple images, and
+this option lets you select which one you want.
+</P>
+
+<P>Flags -min and -max can be used to override the min and max values as read from the FITS header or the image data if
+no DATAMIN and DATAMAX keywords are found. Flag
+-scanmax can be used to force the program to scan the data even when
+DATAMIN and DATAMAX are found in the header. If
+-printmax is specified, the program will just print the min and max values and
+quit. Flag -noraw can be used to force the program to produce an ASCII portable anymap.
+</P>
+
+<P>The program will tell what kind of anymap is writing. All flags can be abbreviated to their shortest unique prefix.
+</P>
+
+<P><B>
+REFERENCES
+</B></P>
+
+<P>FITS stands for Flexible Image Transport System. A full description can be found in
+Astronomy &amp; Astrophysics Supplement Series 44 (1981), page 363.
+</P>
+
+<P><B>
+SEE ALSO
+</B></P>
+
+<P>pnmtofits(1), pgm(5), pnmflip(1)
+</P>
+
+<P><B>
+AUTHOR
+</B></P>
+
+<P>Copyright &quot; 1989 by Jef Poskanzer, with modifications by Daniel Briggs
+(dbriggs@nrao.edu) and Alberto Accomazzi
+(alberto@cfa.harvard.edu)
+</P>
+
+<P>20 September 1989
+</P>
+
+
+<H3><A NAME="ch01_ 69">
+fmt
+</A></H3>
+
+<P>fmt&#151;Adjust line-length for paragraphs of text
+</P>
+
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>
+fmt [_width][files]...
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+<P>fmt is a simple text formatter. It inserts or deletes newlines, as necessary, to make all lines in a paragraph be approximately
+the same width. It preserves indentation and word spacing.
+</P>
+
+<P>The default line width is 72 characters. You can override this with the
+_width flag. If you don't name any files on the command line, then
+fmt will read from stdin.
+</P>
+
+<P>It is typically used from within vi to adjust the line breaks in a single paragraph. To do this, move the cursor to the top
+of the paragraph, type !gfmt, and press Return.
+</P>
+
+<P><B>
+AUTHOR
+</B></P>
+
+<P>Steve Kirkendall (kirkenda@cs.pdx.edu)
+</P>
+
+<H3><A NAME="ch01_ 70">
+fold
+</A></H3>
+
+<P>fold&#151;Wrap each input line to fit in specified width
+</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>
+fold [_bs] [_w width] [&#151;bytes] [&#151;spaces] [&#151;width=width] [&#151;help]
+[&#151;version] [file...]
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+<A NAME="PAGENUM-144"><P>Page 144</P></A>
+
+
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+<P>This manual page documents the GNU version of
+fold. fold prints the specified files, or the standard input when no files
+are given or the filename _ is encountered, on the standard output. It breaks long lines into multiple shorter lines by inserting
+a newline at column 80. It counts screen columns, so tab characters usually take more than one column, backspace
+characters decrease the column count, and carriage return characters set the column count back to zero.
+</P>
+
+<P><B>
+0PTIONS
+</B></P>
+
+<TABLE>
+
+<TR><TD>
+_b, &#151;bytes
+</TD><TD>
+Count bytes rather than columns, so that tabs, backspaces, and carriage returns are each counted
+as taking up one column, just like other characters.
+</TD></TR><TR><TD>
+_s, &#151;spaces
+</TD><TD>
+Break at word boundaries. If the line contains any blanks, the line is broken after the last blank
+that falls within the maximum line length. If there are no blanks, the line is broken at the
+maximum line length, as usual.
+</TD></TR><TR><TD>
+_w, &#151;width width
+</TD><TD>
+Use a maximum line length of width columns instead of
+80.
+</TD></TR><TR><TD>
+&#151;help
+</TD><TD>
+Print a usage message and exit with a nonzero status.
+</TD></TR><TR><TD>
+&#151;version
+</TD><TD>
+Print version information on standard output then exit.
+</TD></TR></TABLE>
+
+<P>GNU Text Utilities
+</P>
+
+<H3><A NAME="ch01_ 71">
+free
+</A></H3>
+
+<P>free&#151;Display amount of free and used memory in the system
+</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>
+free [-b | -k | -m] [-o] [-s delay] [-t]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+<P>free displays the total amount of free and used physical and swap memory in the system, as well as the shared memory
+and buffers used by the kernel.
+</P>
+
+
+<P><B>
+OPTIONS
+</B></P>
+
+<P>The -b switch displays the amount of memory in bytes; the
+-k switch (set by default) displays it in kilobytes; the
+-m switch displays it in megabytes.
+</P>
+
+<P>The -t switch displays a line containing the totals.
+</P>
+
+<P>The -o switch disables the display of a &quot;buffer adjusted&quot; line. Unless specified free subtracts/adds buffer memory from/to
+the used/free memory reports (respectively!).
+</P>
+
+<P>The -s switch activates continuous polling delay seconds apart. You may actually specify any floating point number
+for delay, usleep(3) is used for microsecond resolution delay times.
+</P>
+
+<P><B>
+FILES
+</B></P>
+
+<TABLE>
+
+<TR><TD>
+/proc/meminfo
+</TD><TD>
+Memory information
+</TD></TR></TABLE>
+
+<P><B>
+SEE ALSO
+</B></P>
+
+<P>ps(1), top(1)
+</P>
+
+<P><B>
+AUTHORS
+</B></P>
+
+<P><B>BRIAN EDMONDS
+</P></B>
+
+<P>Cohesive Systems, 20 March 1993
+</P>
+
+<A NAME="PAGENUM-145"><P>Page 145</P></A>
+
+
+
+<H3><A NAME="ch01_ 72">
+fsinfo
+</A></H3>
+
+<P>fsinfo&#151;X font server information utility
+</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>
+fsinfo [_server servername]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+<P>fsinfo is a utility for displaying information about an X font server. It is used to examine the capabilities of a server,
+the predefined values for various parameters used in communicating between clients and the server, and the font catalogues
+and alternate servers that are available.
+</P>
+
+<P><B>
+EXAMPLE
+</B></P>
+
+<P>The following is a sample produced by fsinfo.
+</P>
+
+<!-- CODE //-->
+<PRE>
+name of server: hansen:7100
+version number: 1
+vendor string: Font Server Prototype
+vendor release number: 17
+maximum request size: 16384 longwords (65536 bytes)
+number of catalogues: 1
+all
+Number of alternate servers: 2
+#0 hansen:7101
+#1 hansen:7102
+number of extensions: 0
+</PRE>
+<!-- END CODE //-->
+
+
+<P><B>
+ENVIRONMENT
+</B></P>
+
+<TABLE>
+
+<TR><TD>
+FONTSERVER
+</TD><TD>
+To get the default fontserver
+</TD></TR></TABLE>
+
+<P><B>
+SEE ALSO
+</B></P>
+
+<P>xfs(1), fslsfonts(1)
+</P>
+
+<P><B>
+AUTHOR
+</B></P>
+
+<P>Dave Lemke (Network Computing Devices, Inc.)
+</P>
+
+<P>X Version 11 Release 6
+</P>
+
+<H3><A NAME="ch01_ 73">
+fslsfonts
+</A></H3>
+
+<P>fslsfonts&#151;List fonts served by X font server
+</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>
+fslsfonts [_options ...] [_fn pattern]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+<P>fslsfonts lists the fonts that match the given pattern. The wildcard character
+* may be used to match any sequence of characters (including none), and
+? to match any single character. If no pattern is given,
+* is assumed.
+</P>
+
+<P>The * and ? characters must be quoted to prevent them from being expanded by the shell.
+</P>
+
+<P><B>
+OPTIONS
+</B></P>
+
+<TABLE>
+
+<TR><TD>
+_server host:port
+</TD><TD>
+This option specifies the X font server to contact.
+</TD></TR><TR><TD>
+_l
+</TD><TD>
+Lists some attributes of the font on one line in addition to its name.
+</TD></TR></TABLE>
+
+
+
+<P><CENTER>
+<a href="0141-0142.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0146-0148.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

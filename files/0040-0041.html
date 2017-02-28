@@ -1,0 +1,318 @@
+<HTML>
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0039-0039.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0042-0043.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-40"><P>Page 40</P></A>
+
+<TABLE>
+
+<TR><TD>
+</TD><TD>
+If the popd command is successful, a dirs is performed as well, and the return
+status is 0. popd returns False if an illegal option is encountered, the directory stack
+is empty, a nonexistent directory stack entry is specified, or the directory change fails.
+</TD></TR><TR><TD>
+pushd [dir] pushd +/_n
+</TD><TD>
+Adds a directory to the top of the directory stack, or rotates the stack, making
+the new top of the stack the current working directory. With no arguments,
+exchanges the top two directories and returns 0, unless the directory stack is empty.
+</TD></TR></TABLE>
+
+
+<TABLE>
+
+<TR><TD>
++n
+</TD><TD>
+Rotates the stack so that the nth directory (counting from
+the left of the list shown by dirs) is at the top.
+</TD></TR><TR><TD>
+_n
+</TD><TD>
+Rotates the stack so that the nth directory (counting from
+the right) is at the top.
+</TD></TR><TR><TD>
+dir
+</TD><TD>
+Adds dir to the directory stack at the top, making it the
+new current working directory.
+</TD></TR></TABLE>
+
+<TABLE>
+
+<TR><TD>
+</TD><TD>
+If the pushd command is successful, a dirs is performed as well.
+If the first form is used, pushd returns 0 unless the
+cd to dir fails. With the second form, pushd returns
+0 unless the directory stack is empty, a nonexistent directory stack element is
+specified, or the directory change to the specified new current directory fails.
+</TD></TR><TR><TD>
+pwd
+</TD><TD>
+Print the absolute pathname of the current working directory. The path
+printed contains no symbolic links if the _P option to the
+set builtin command is set. (See also the description of
+nolinks under &quot;Shell Variables,&quot; earlier in this manual
+page.) The return status is 0 unless an error occurs while reading the pathname of
+the current directory.
+</TD></TR><TR><TD>
+read [_r][name ...]
+</TD><TD>
+One line is read from the standard input, and the first word is assigned to the
+first name, the second word to the second name, and so on, with leftover words
+assigned to the last name. Only the characters in
+IFS are recognized as word delimiters. If no names are supplied, the line read is assigned to the variable
+REPLY. The return code is zero, unless end-of-file is encountered. If the
+-r option is given, a backslash-newline pair is not ignored, and the backslash is considered to be part of the line.
+</TD></TR><TR><TD>
+readonly [_f][name ...]
+</TD><TD>
+The given names are marked
+readonly and the values of these names may not be
+</TD></TR><TR><TD>
+readonly -p
+</TD><TD>
+changed by subsequent assignment. If the
+_f option is supplied, the functions corresponding to the names are so marked. If no arguments are given, or if the <BR>
+_p option is supplied, a list of all readonly names is printed. An argument of
+&#151; disables option checking for the rest of the arguments. The return status is
+0 unless an illegal option is encountered, one of the names is not a legal shell variable
+name, or _f is supplied with a name that is not a function.
+</TD></TR><TR><TD>
+return [n]
+</TD><TD>
+Causes a function to exit with the return value specified by
+n. If n is omitted, the return status is that of the last command executed in the function body. If
+used outside a function, but during execution of a script by the
+. (source) command, it causes the shell to stop executing that script and return
+either n or the exit status of the last command executed within the script as the exit status of the script. If
+used outside a function and not during execution of a script by
+(. , the return status is False.
+</TD></TR><TR><TD>
+set [&#151;abefhkmnptuvxldCHP]
+</TD><TD>
+</TD></TR><TR><TD>
+[-o option][arg ...]
+
+</TD></TR></TABLE>
+
+<TABLE>
+
+<TR><TD>
+</TD><TD>
+_a
+</TD><TD>
+Automatically mark variables that are modified or created
+for export to the environment of subsequent commands.
+</TD></TR><TR><TD>
+</TD><TD>
+_b
+</TD><TD>
+Cause the status of terminated background jobs to be
+reported immediately, rather than before the next primary
+prompt. (Also see notify under &quot;Shell Variables.&quot;)
+</TD></TR><TR><TD>
+</TD><TD>
+_e
+</TD><TD>
+Exit immediately if a simple command (see &quot;Shell
+Grammar,&quot; earlier in this manual page) exits with a non_zero status.
+The shell does not exit if the command that fails is part of an
+until
+</TD></TR></TABLE>
+
+
+<A NAME="PAGENUM-41"><P>Page 41</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+</TD><TD>
+</TD><TD>
+or while loop, part of an if statement, part of a
+&amp;&amp; or || list, or if the command's return value is being inverted via!.
+</TD></TR><TR><TD>
+</TD><TD>
+_f
+</TD><TD>
+Disable pathname expansion.
+</TD></TR><TR><TD>
+</TD><TD>
+_h
+</TD><TD>
+Locate and remember function commands as functions
+are defined. Function commands are normally looked up
+when the function is executed.
+</TD></TR><TR><TD>
+</TD><TD>
+_k
+</TD><TD>
+All keyword arguments are placed in the environment for
+a command, not just those that precede the command name.
+</TD></TR><TR><TD>
+</TD><TD>
+_m
+</TD><TD>
+Monitor mode. Job control is enabled. This flag is on
+by default for interactive shells on systems that support it.
+(See &quot;Job Control,&quot; earlier in this manual page.)
+Background processes run in a separate process group and a line
+containing their exit status is printed upon their completion.
+</TD></TR><TR><TD>
+</TD><TD>
+_n
+</TD><TD>
+Read commands but do not execute them. This may be
+used to check a shell script for syntax errors. This is ignored
+for interactive shells.
+</TD></TR><TR><TD>
+</TD><TD>
+_o option-name
+</TD><TD>
+The option-name can be one of the following:
+</TD></TR><TR><TD>
+</TD><TD>
+</TD><TD>
+allexport&#151;Same as _a.
+</TD></TR><TR><TD>
+</TD><TD>
+</TD><TD>
+braceexpand&#151;The shell performs brace expansion. (See
+&quot;Brace Expansion,&quot; earlier in this manual page.) This is on by default.
+</TD></TR><TR><TD>
+</TD><TD>
+</TD><TD>
+emacs&#151;Use an emacs-style command line editing
+interface. This is enabled by default when the shell is interactive,
+unless the shell is started with the
+_nolineediting option.
+</TD></TR><TR><TD>
+</TD><TD>
+</TD><TD>
+errexit&#151;Same as _e.
+</TD></TR><TR><TD>
+</TD><TD>
+</TD><TD>
+histexpand&#151;Same as _H.
+</TD></TR><TR><TD>
+</TD><TD>
+</TD><TD>
+ignoreeof&#151;The effect is as if the shell
+command `IGNOREEOF=10' had been executed. (See &quot;Shell Variables.&quot;)
+</TD></TR><TR><TD>
+</TD><TD>
+</TD><TD>
+interactive_comments&#151;Allow a word beginning
+with # to cause that word and all remaining characters on that line to
+be ignored in an interactive shell. (See &quot;Comments,&quot; earlier
+in this manual page.)
+</TD></TR><TR><TD>
+</TD><TD>
+</TD><TD>
+monitor&#151;Same as _m.
+</TD></TR><TR><TD>
+</TD><TD>
+</TD><TD>
+noclobber&#151;Same as _C.
+</TD></TR><TR><TD>
+</TD><TD>
+</TD><TD>
+noexec&#151;Same as _n.
+</TD></TR><TR><TD>
+</TD><TD>
+</TD><TD>
+noglob&#151;Same as _f.
+</TD></TR><TR><TD>
+</TD><TD>
+</TD><TD>
+nohash&#151;Same as _d.
+</TD></TR><TR><TD>
+</TD><TD>
+</TD><TD>
+notify&#151;Same as _b.
+</TD></TR><TR><TD>
+</TD><TD>
+</TD><TD>
+nounset&#151;Same as _u.
+</TD></TR><TR><TD>
+</TD><TD>
+</TD><TD>
+physical&#151;Same as _P.
+</TD></TR><TR><TD>
+</TD><TD>
+</TD><TD>
+posix&#151;Change the behavior of bash where the
+default operation differs from the POSIX 1003.2 standard to
+match the standard.
+</TD></TR><TR><TD>
+</TD><TD>
+</TD><TD>
+privileged&#151;Same as _p.
+</TD></TR><TR><TD>
+</TD><TD>
+</TD><TD>
+verbose&#151;Same as _v.
+</TD></TR><TR><TD>
+</TD><TD>
+</TD><TD>
+vi&#151;Use a vi-style command line editing interface.
+</TD></TR><TR><TD>
+</TD><TD>
+</TD><TD>
+xtrace&#151;Same as _x.
+</TD></TR><TR><TD>
+</TD><TD>
+</TD><TD>
+If no option-name is supplied, the values of the current
+options are printed.
+</TD></TR></TABLE>
+
+
+
+
+<P><CENTER>
+<a href="0039-0039.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0042-0043.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

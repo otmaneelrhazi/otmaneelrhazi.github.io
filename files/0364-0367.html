@@ -1,0 +1,551 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0359-0363.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0368-0370.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-364"><P>Page 364</P></A>
+
+
+<H3><A NAME="ch01_ 227">
+pbmtopgm
+</A></H3>
+<P>pbmtopgm&#151;Convert portable bitmap to portable graymap by averaging areas
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pbmtopgm &lt;width&gt;&lt;height&gt; [pbmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pbmtopgm reads a portable bitmap as input and outputs a portable graymap created by averaging the number of pixels within
+a sample area of width by height around each point.
+pbmtopgm is similar to a special case of ppmconvol. A
+ppmsmooth step may be needed after pbmtopgm.
+</P>
+
+<P>pbmtopgm has the effect of antialiasing bitmaps that contain distinct line features.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>pbm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright &quot; 1990 by Angus Duggan. Copyright
+&quot; 1989 by Jef Poskanzer.
+</P>
+
+<P><B>
+NOTES
+</B>
+</P>
+<P>pbmtopgm works best with odd sample widths and heights.
+</P>
+
+<H3><A NAME="ch01_ 228">
+pbmtopi3
+</A></H3>
+<P>pbmtopi3&#151;Convert a portable bitmap into an Atari Degas PI3 file
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pbmtopi3 [pbmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pbmtopi3 reads a portable bitmap as input and produces an Atari Degas PI3 file as output.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>pi3topbm(1), pbm(5), ppmtopi1(1), pi1toppm(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright &quot; 1988 by David Beckemeyer (bdt!david) and Jef Poskanzer.
+</P>
+<P>11 March 1990
+</P>
+
+<H3><A NAME="ch01_ 229">
+pbmtopk
+</A></H3>
+<P>pbmtopk&#151;Convert a portable bitmap into a packed (PK) format font
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE //-->
+<PRE>
+pbmtopk pkfile[.pk] tfmfile[.tfm] resolution [-s designsize] [-p num param...]
+[-C cod-ingscheme] [-F family] [-f optfile] [-c num] [-W width] [-H height]
+[-D depth] [-I ital] [-h horiz] [-v vert] [-x xoff] [-y yoff] [pbmfile]...
+</PRE>
+<!-- END CODE //-->
+
+<A NAME="PAGENUM-365"><P>Page 365</P></A>
+
+
+<P><B>
+DESCRIPTION
+</B></P>
+<P>pbmtopk reads portable bitmaps as input and produces a packed (PK) font file and a TFM (TeX font metric) file as
+output. The resolution parameter indicates the resolution of the font, in dots per inch. If the filename
+- is used for any of the filenames, the standard input stream (or standard output, where appropriate) will be used.
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+
+<TABLE>
+
+<TR><TD>
+-s designsize
+</TD><TD>
+Sets the design size of the font, in TeX's points (72.27 points to the inch). The default design size is
+1. The TFM parameters are given as multiples of the design size.
+</TD></TR><TR><TD>
+-p num param...
+</TD><TD>
+Sets the first num font parameters for the font. The first seven parameters are the slant, interword
+spacing, interword space stretchability, interword space shrinkability, x-height, quad width, and post-sentence
+extra space of the font. Math and symbol fonts may have more parameters; see
+The TeXbook for a list of these. Reasonable default values are chosen for parameters that are not specified.
+</TD></TR><TR><TD>
+-C codingscheme
+</TD><TD>
+Sets the coding scheme comment in the TFM file.
+</TD></TR><TR><TD>
+-F family
+</TD><TD>
+Sets the font family comment in the TFM file.
+</TD></TR><TR><TD>
+-f optfile
+</TD><TD>
+Reads the file optfile, which should contain a line of the form:
+</TD></TR></TABLE>
+
+<!-- CODE SNIP //-->
+<PRE>
+filename xoff yoff horiz vert width height depth ital
+</PRE>
+<!-- END CODE SNIP //-->
+
+<TABLE>
+
+<TR><TD>
+</TD><TD>
+The PBM files specified by the filename parameters are inserted consecutively in the font with
+the specified attributes. If any of the attributes are omitted, or replaced with *, a default value will
+be calculated from the size of the bitmap. The settings of the
+-W, -H, -D, -I, -h, -v, -x, and -y options do not affect characters created in this way. The character number can be changed by including a line
+starting with =, followed by the new number. Lines beginning with
+% or # are ignored.
+</TD></TR><TR><TD>
+-c num
+</TD><TD>
+Sets the character number of the next bitmap encountered to num.
+</TD></TR><TR><TD>
+-W width
+</TD><TD>
+Sets the TFM width of the next character to
+width (in design size multiples).
+</TD></TR><TR><TD>
+-H height
+</TD><TD>
+Sets the TFM height of the next character to
+height (in design size multiples).
+</TD></TR><TR><TD>
+-D depth
+</TD><TD>
+Sets the TFM depth of the next character to
+depth (in design size multiples).
+</TD></TR><TR><TD>
+-I ital
+</TD><TD>
+Sets the italic correction of the next character to
+ital (in design size multiples).
+</TD></TR><TR><TD>
+-h horiz
+</TD><TD>
+Sets the horizontal escapement of the next character to
+horiz (in pixels).
+</TD></TR><TR><TD>
+-v vert
+</TD><TD>
+Sets the vertical escapement of the next character to
+vert (in pixels).
+</TD></TR><TR><TD>
+-x xoff
+</TD><TD>
+Sets the horizontal offset of the next character to
+xoff (in pixels).
+</TD></TR><TR><TD>
+-y yoff
+</TD><TD>
+Sets the vertical offset of the next character to
+yoff (in pixels, from the top row).
+</TD></TR></TABLE>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>pktopbm(1), pbm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Adapted from Tom Rokicki's pxtopk by Angus Duggan (ajcd@dcs.ed.ac.uk).
+</P>
+
+<P>6 August 1990
+</P>
+
+<H3><A NAME="ch01_ 230">
+pbmtoplot
+</A></H3>
+<P>pbmtoplot&#151;Convert a portable bitmap into a UNIX plot(5) file
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pbmtoplot [pbmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+
+<P>pbmtoplot reads a portable bitmap as input and produces a UNIX
+plot file.
+</P>
+
+<P>Note that there is no plottopbm tool; this transformation is one way.
+</P>
+
+
+<A NAME="PAGENUM-366"><P>Page 366</P></A>
+
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<P>pbm(5), plot(5)
+</P>
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright &quot; 1990 by Arthur David Olson.
+</P>
+
+<P>1 September 1990
+</P>
+
+<H3><A NAME="ch01_ 231">
+pbmtoptx
+</A></H3>
+<P>pbmtoptx&#151;Convert a portable bitmap into Printronix printer graphics
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pbmtoptx [pbmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pbmtoptx reads a portable bitmap as input and produces a file of Printronix printer graphics as output.
+</P>
+<P>Note that there is no ptxtopbm tool; this transformation is one-way.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>pbm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright&quot; 1988 by Jef Poskanzer
+</P>
+
+<P>31 August 1988
+</P>
+
+<H3><A NAME="ch01_ 232">
+pbmtox10bm
+</A></H3>
+
+<P>pbmtox10bm&#151;Convert a portable bitmap into an X10 bitmap
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pbmtox10bm [pbmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pbmtox10bm reads a portable bitmap as input and produces an X10 bitmap as output. This older format is maintained
+for compatibility.
+</P>
+<P>Note that there is no x10bmtopbm tool because xbmtopbm
+can read both X11 and X10 bitmaps.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>pbmtoxbm(1), xbmtopbm(1), pbm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright&quot; 1988 by Jef Poskanzer.
+</P>
+
+<P>31 August 1988
+</P>
+
+<A NAME="PAGENUM-367"><P>Page 367</P></A>
+
+
+<H3><A NAME="ch01_ 233">
+pbmtoxbm
+</A></H3>
+<P>pbmtoxbm&#151;Convert a portable bitmap into an X11 bitmap
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pbmtoxbm [pbmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pbmtoxbm reads a portable bitmap as input and produces an X11 bitmap as output.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>pbmtox10bm(1), xbmtopbm(1), pbm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright &quot; 1988 by Jef Poskanzer.
+</P>
+
+<P>31 August 1988
+</P>
+
+<H3><A NAME="ch01_ 234">
+pgmtoybm
+</A></H3>
+<P>pgmtoybm&#151;Convert a portable bitmap into a Bennet Yee &quot;face&quot; file
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pbmtoybm [pbmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pgmtoybm reads a portable bitmap as input and produces as output a file acceptable to the
+face and xbm programs by Bennet Yee
+(bsy+@cs.cmu.edu).
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>ybmtopbm(1), pbm(5), face(1), face(5), xbm(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+<P><B>
+AUTHORS
+</B></P>
+<P>Copyright &quot; 1991 by Jamie Zawinski and Jef Poskanzer.
+</P>
+
+<P>6 March 1990
+</P>
+
+<H3><A NAME="ch01_ 235">
+pbmtozinc
+</A></H3>
+<P>pbmtozinc&#151;Convert a portable bitmap into a Zinc bitmap
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pbmtozinc [pbmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pbmtozinc reads a portable bitmap as input and produces a bitmap in the format used by the Zinc Interface Library
+(ZIL) version 1.0 as output.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<P>pbm(5)
+</P>
+
+
+
+<P><CENTER>
+<a href="0359-0363.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0368-0370.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

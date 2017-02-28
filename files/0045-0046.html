@@ -1,0 +1,259 @@
+<HTML>
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0044-0044.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0047-0050.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-45"><P>Page 45</P></A>
+
+<TABLE>
+
+<TR><TD>
+</TD><TD>
+which are unscaled values. The return status is 0 unless an illegal option is
+encountered, a non-numeric argument other than
+unlimited is supplied as limit, or an error occurs while setting a new limit.
+</TD></TR><TR><TD>
+umask [_S][mode]
+</TD><TD>
+The user file-creation mask is set to
+mode. If mode begins with a digit, it is
+interpreted as an octal number; otherwise, it is interpreted as a symbolic mode mask similar
+to that accepted by chmod(1). If mode is omitted, or if the
+_S option is supplied, the current value of the mask is printed. The
+_S option causes the mask to be printed in symbolic form; the default output is an octal number. An argument of
+&#151; disables option checking for the rest of the arguments. The return status is
+0 if the mode was successfully changed or if no
+mode argument was supplied, and False otherwise.
+</TD></TR><TR><TD>
+unalias [_a][name ...]
+</TD><TD>
+Remove names from the list of defined aliases. If
+_a is supplied, all alias definitions are removed. The return value is
+True unless a supplied name is not a defined alias.
+</TD></TR><TR><TD>
+unset [_fv][name ...]
+</TD><TD>
+For each name, remove the corresponding variable or, given the
+_f option, function. An argument of &#151; disables option checking for the rest of the arguments. Note
+that PATH, IFS, PPID, PS1, PS2, UID, and EUID cannot be unset. If any of
+RANDOM, SECONDS, LINENO, or HISTCMD are unset, they lose their special properties, even if they
+are subsequently reset. The exit status is True unless a name does not exist or is
+non-unsettable.
+</TD></TR><TR><TD>
+wait [n]
+</TD><TD>
+Wait for the specified process and return its termination status.
+n may be a process ID or a job specification; if a job spec is given, all processes in that job's pipeline
+are waited for. If n is not given, all currently active child processes are waited for, and
+the return status is zero. If n specifies a nonexistent process or job, the return status
+is 127. Otherwise, the return status is the exit status of the last process or job
+waited for.
+</TD></TR></TABLE>
+
+<P><B>
+INVOCATION
+</B></P>
+
+
+<P>A login shell is one whose first character of argument zero is a
+_, or one started with the _login flag.
+</P>
+
+
+<P>An interactive shell is one whose standard input and output are both connected to terminals (as determined by
+isatty(3)), or one started with the _i option. PS1 is set and includes
+i if bash is interactive, allowing a shell script or a startup file to test
+this state.
+</P>
+
+<!-- CODE //-->
+<PRE>
+Login shells:
+On login (subject to the _noprofile option):
+if /etc/profile exists, source it.
+if ~/.bash_profile exists, source it,
+else if ~/.bash_login exists, source it,
+else if ~/.profile exists, source it.
+On exit:
+if ~/.bash_logout exists, source it.
+Non-login interactive shells:
+On startup (subject to the _norc and _rcfile options):
+if ~/.bashrc exists, source it.
+Non-interactive shells:
+On startup:
+if the environment variable ENV is non-null, expand
+it and source the file it names, as if the command
+if [ &quot;$ENV&quot; ]; then . $ENV; fi
+had been executed, but do not use PATH to search
+for the pathname. When not started in Posix mode, bash
+looks for BASH_ENV before ENV.
+</PRE>
+<!-- END CODE //-->
+
+<P>If Bash is invoked as sh, it tries to mimic the behavior of
+sh as closely as possible. For a login shell, it attempts to source only
+/etc/profile and ~/.profile, in that order. The
+_noprofile option may still be used to disable this behavior. A shell
+invoked as sh does not attempt to source any other startup files.
+</P>
+
+
+<A NAME="PAGENUM-46"><P>Page 46</P></A>
+
+
+<P>When bash is started in posix mode, as with the
+_posix command line option, it follows the POSIX standard for startup
+files. In this mode, the ENV variable is expanded and that file sourced; no other startup files are read.
+</P>
+
+<P><B>
+SEE ALSO
+</B></P>
+
+
+<P>Bash Features, Brian Fox and Chet Ramey
+<P>The Gnu Readline Library, Brian Fox and Chet Ramey
+<P>The Gnu History Library, Brian Fox and Chet Ramey
+<P>A System V Compatible Implementation of 4.2BSD Job
+Control, David Lennert
+<P>Portable Operating System Interface (POSIX) Part 2: Shell and
+Utilities, IEEE
+<P>sh(1), ksh(1), csh(1), emacs(1), vi(1) readline(3)
+
+<P><B>
+FILES
+</B></P>
+
+<TABLE>
+
+<TR><TD>
+/bin/bash
+</TD><TD>
+The bash executable
+</TD></TR><TR><TD>
+/etc/profile
+</TD><TD>
+The systemwide initialization file, executed for login shells
+</TD></TR><TR><TD>
+/.bash_profile
+</TD><TD>
+The personal initialization file, executed for login shells
+</TD></TR><TR><TD>
+/.bashrc
+</TD><TD>
+The individual per-interactive-shell startup file
+</TD></TR><TR><TD>
+/.inputrc
+</TD><TD>
+Individual readline initialization file
+</TD></TR></TABLE>
+
+
+
+<P><B>
+AUTHORS
+</B></P>
+
+
+<P>Brian Fox (Free Software Foundation; primary author;
+bfox@ai.MIT.Edu), Chet Ramey (Case Western Reserve
+University; chet@ins.CWRU.Edu)
+</P>
+
+
+<P><B>
+COPYRIGHT
+</B></P>
+
+
+<P>Copyright &quot; 1989, 1991 by the Free Software Foundation, Inc.
+</P>
+
+<B>
+BUG REPORTS
+</B>
+
+<P>If you find a bug in bash, you should report it. But first, you should make sure that it really is a bug, and that it appears
+in the latest version of bash that you have.
+</P>
+
+<P>Once you have determined that a bug actually exists, mail a bug report to bash_maintainers@prep.ai.MIT.Edu. If you have
+a fix, you are welcome to mail that as well! Suggestions and &quot;philosophical&quot; bug reports may be mailed to
+bug-bash@prep.ai.MIT.Edu or posted to the Usenet newsgroup
+gnu.bash.bug.
+</P>
+
+
+<P>ALL bug reports should include the following:</P>
+<P>The version number of bash</P>
+<P>The hardware and operating system</P>
+<P>The compiler used to compile</P>
+<P>A description of the bug behavior</P>
+<P>A short script or &quot;recipe&quot; that exercises the bug</P>
+
+<P>Comments and bug reports concerning this manual page should be directed to
+chet@ins.cwru.edu.
+</P>
+
+
+<B>
+BUGS
+</B>
+
+
+
+<P>It's too big and too slow.
+</P>
+<P>There are some subtle differences between bash and traditional versions of
+sh, mostly because of the POSIX specification.
+</P>
+<P>Aliases are confusing in some uses.</P>
+
+<P>GNU, 9 March 1995
+</P>
+
+
+
+
+<P><CENTER>
+<a href="0044-0044.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0047-0050.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

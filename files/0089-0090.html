@@ -1,0 +1,340 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands :EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0087-0088.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0091-0092.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-89"><P>Page 89</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+~p from to, ~%put from to
+</TD><TD>
+Send a file to a remote UNIX system. This runs the appropriate commands on the
+remote system.
+</TD></TR><TR><TD>
+~t from to, ~%take from to
+</TD><TD>
+Retrieve a file from a remote UNIX system. This runs the appropriate commands on
+the remote system.
+</TD></TR><TR><TD>
+~s variable value
+</TD><TD>
+Set a cu variable to the given
+value. If value is not given, the variable is set to
+True.
+</TD></TR><TR><TD>
+~! variable
+</TD><TD>
+Set a cu variable to False.
+</TD></TR><TR><TD>
+~z
+</TD><TD>
+Suspend the cu session. This is only supported on some systems. On systems for which
+^Z may be used to suspend a job, ~^Z will also suspend the session.
+</TD></TR><TR><TD>
+~%nostop
+</TD><TD>
+Turn off XON/XOFF handling.
+</TD></TR><TR><TD>
+~%stop
+</TD><TD>
+Turn on XON/XOFF handling.
+</TD></TR><TR><TD>
+~v
+</TD><TD>
+List all the variables and their values.
+</TD></TR><TR><TD>
+~?
+</TD><TD>
+List all commands.
+</TD></TR><TR><TD>
+</TD><TD>
+cu also supports several variables. They may be listed with the
+~v command, and set with the ~s or ~! commands.
+</TD><TR><TR><TD>
+escape
+</TD><TD>
+The escape character. Initially ~ (tilde).
+</TD><TR><TR><TD>
+delay
+</TD><TD>
+If this variable is True, cu will delay for a second after recognizing the escape character
+before printing the name of the local system. The default is
+True.
+</TD><TR><TR><TD>
+eol
+</TD><TD>
+The list of characters which are considered to finish a line. The escape character is
+only recognized after one of these is seen. The default is carriage return,
+^U, ^C, ^O, ^D, ^S, ^Q, ^R.
+</TD><TR><TR><TD>
+binary
+</TD><TD>
+Whether to transfer binary data when sending a file. If this is
+False, then newlines in the file being sent are converted to carriage returns. The default is
+False.
+</TD><TR><TR><TD>
+binary-prefix
+</TD><TD>
+A string used before sending a binary character in a file transfer, if the binary variable
+is True. The default is ^Z.
+</TD><TR><TR><TD>
+echo-check
+</TD><TD>
+Whether to check file transfers by examining what the remote system echoes back.
+This probably doesn't work very well. The default is
+False.
+</TD><TR><TR><TD>
+echonl
+</TD><TD>
+The character to look for after sending each line in a file. The default is carriage return.</P>
+</TD><TR><TR><TD>
+timeout
+</TD><TD>
+The timeout to use, in seconds, when looking for a character, either when doing
+echo checking or when looking for the echonl character. The default is
+30.
+</TD><TR><TR><TD>
+kill
+</TD><TD>
+The character to use to delete a line if the
+echo check fails. The default is ^U.
+</TD><TR><TR><TD>
+resend
+</TD><TD>
+The number of times to resend a line if the
+echo check continues to fail. The default is 10.
+</TD><TR><TR><TD>
+eofwrite
+</TD><TD>
+The string to write after sending a file with the
+~&gt; command. The default is ^D.
+</TD><TR><TR><TD>
+eofread
+</TD><TD>
+The string to look for when receiving a file with the
+~&lt; command. The default is $, which is intended to be a typical shell prompt.
+</TD><TR><TR><TD>
+verbose
+</TD><TD>
+Whether to print accumulated information during a file transfer. The default is
+True.
+</TD></TR></TABLE>
+
+<P><B>
+OPTIONS
+</B></P>
+
+<P>The following options may be given to cu:</P>
+
+<TABLE>
+
+<TR><TD>
+_e, &#151;parity=even
+</TD><TD>
+Use even parity.
+</TD></TR><TR><TD>
+_o, &#151;parity=odd
+</TD><TD>
+Use odd parity.
+</TD></TR><TR><TD>
+&#151;parity=none
+</TD><TD>
+Use no parity. No parity is also used if
+both _e and _o are given.
+</TD></TR><TR><TD>
+_h, &#151;halfduplex
+</TD><TD>
+Echo characters locally (half-duplex mode).
+</TD></TR><TR><TD>
+_z system, &#151;system system
+</TD><TD>
+The system to call.
+</TD></TR><TR><TD>
+_c phone-number, &#151;phone phone-number
+</TD><TD>
+The phone number to call.
+</TD></TR><TR><TD>
+_p port, &#151;port port
+</TD><TD>
+Name the port to use.
+</TD></TR><TR><TD>
+_a port
+</TD><TD>
+Equivalent to &#151;port port.
+</TD></TR><TR><TD>
+_l line, &#151;line line
+</TD><TD>
+Name the line to use by giving a device name. This may be used to dial out
+on ports that are not listed in the UUCP configuration files. Write access to the
+device is required.
+</TD></TR></TABLE>
+
+
+<A NAME="PAGENUM-90"><P>Page 90</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+_s speed, &#151;speed speed
+</TD><TD>
+The speed (baud rate) to use.
+</TD></TR><TR><TD>
+_#
+</TD><TD>
+Where # is a number, equivalent to &#151;speed #.
+</TD></TR><TR><TD>
+_n, &#151;prompt
+</TD><TD>
+Prompt for the phone number to use.
+</TD></TR><TR><TD>
+_d
+</TD><TD>
+Enter debugging mode. Equivalent to _debug all.
+</TD><TR><TR><TD>
+_x type, &#151;debug type
+</TD><TD>
+Turn on particular debugging types. The following types are recognized:
+abnormal, chat, handshake, uucpproto, proto, port,
+config, spooldir, execute, incoming, outgoing. Only
+abnormal, chat, handshake, port, config, incoming and
+outgoing are meaningful for cu. Multiple types may be given, separated by commas, and the
+&#151;debug option may appear multiple times. A number may also be given, which
+will turn on that many types from the foregoing list; for example,
+&#151;debug 2 is equivalent to &#151;debug
+abnormal,chat. &#151;debug all may be used to turn on
+all debugging options.
+</TD><TR><TR><TD>
+_I file, &#151;config file
+</TD><TD>
+Set configuration file to use. This option may not be available, depending
+upon how cu was compiled.
+</TD><TR><TR><TD>
+_v, &#151;version
+</TD><TD>
+Report version information and exit.
+</TD><TR><TR><TD>
+&#151;help
+</TD><TD>
+Print a help message and exit.
+</TD></TR></TABLE>
+
+
+<P><B>
+BUGS
+</B></P>
+
+<P>This program does not work very well.</P>
+
+<P><B>
+FILES
+</B></P>
+
+
+<P>The filename may be changed at compilation time, so this is only an approximation. Configuration file:</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+/usr/lib/uucp/config
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B></P>
+
+<P>Ian Lance Taylor (ian@airs.com)</P>
+
+<P>
+                                            Taylor UUCP 1.05
+</P>
+
+<H3><A NAME="ch01_ 48">
+cut
+</A></H3>
+
+<P>cut&#151;Remove sections from each line of files</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+<!-- CODE //-->
+<PRE>
+cut {_b byte-list, &#151;bytes=byte-list} [_n] [&#151;help] [&#151;version] [file...]
+
+cut {_c character-list, &#151;characters=character-list} [&#151;help] [&#151;version] [file...]
+
+cut {_f field-list, &#151;fields=field-list} [_d delim] [_s] [&#151;delimiter=delim]
+[&#151;only-delimited] [&#151;help] [&#151;version] [file...]
+</PRE>
+<!-- END CODE //-->
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+<P>This manual page documents the GNU version of
+cut. cut prints sections of each line of each input file, or the
+standard input if no files are given. A filename of
+- means standard input. The sections to be printed are selected by the options.
+</P>
+
+<P><B>
+OPTIONS
+</B></P>
+
+<P>The byte-list, character-list, and field-list options are one or more numbers or ranges (two numbers separated by
+a dash) separated by commas. The first byte, character, and field are numbered
+1. Incomplete ranges may be given: _m means 1_m;
+n_ means n through end of line or last field.
+</P>
+
+
+
+<P><CENTER>
+<a href="0087-0088.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0091-0092.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

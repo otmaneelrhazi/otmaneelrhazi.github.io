@@ -1,0 +1,388 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0350-0352.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0356-0358.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-353"><P>Page 353</P></A>
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pbmlife reads a portable bitmap as input, applies the Rules of Life to it for one generation, and produces a portable bitmap
+as output.
+</P>
+<P>A white pixel in the image is interpreted as a live beastie, and a black pixel as an empty space.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>pbm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright &quot; 1988, 1991 by Jef Poskanzer
+</P>
+
+<P>21 February 1991
+</P>
+
+<H3><A NAME="ch01_ 205">
+pbmmake
+</A></H3>
+<P>pbmmake&#151;Create a blank bitmap of a specified size
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pbmmake [-white|-black|-gray ] width height
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pbmmake produces a portable bitmap of the specified width and height. The color defaults to
+white.
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+
+<P>In addition to the usual -white and -black, this program implements
+-gray. This gives a simple 50 percent gray pattern
+with 1's and 0's alternating.
+</P>
+
+<P>All flags can be abbreviated to their shortest unique prefix.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>pbm(5), ppmmake(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright &quot; 1989 by Jef Poskanzer
+</P>
+<P>22 February 1989
+</P>
+
+<H3><A NAME="ch01_ 206">
+pbmmask
+</A></H3>
+<P>pbmmask&#151;Create a mask bitmap from a regular bitmap
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pbmmask [-expand][pbmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pbmmask reads a portable bitmap as input and creates a corresponding mask bitmap and writes it out.
+</P>
+<P>The color to be interpreted as background is determined automatically. Regardless of which color is background, the
+mask will be white where the background is white and black where the figure is black.
+</P>
+
+<A NAME="PAGENUM-354"><P>Page 354</P></A>
+
+
+<P>This lets you do a masked paste like this, for objects with a black background:
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pbmmask obj &gt; objmask
+pnmpaste &lt; dest -and objmask &lt;x&gt;&lt;y&gt;|pnmpaste -or obj &lt;x&gt;&lt;y&gt;
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>For objects with a white background, you can either invert them or add a step:
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pbmmask obj &gt; objmask
+pnminvert objmask | pnmpaste -and obj 0 0 &gt; blackback
+pnmpaste &lt; dest -and objmask &lt;x&gt;&lt;y&gt;|pnmpaste -or blackback &lt;x&gt;&lt;y&gt;
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>Note that this three-step version works for objects with black backgrounds, too, if you don't care about the wasted time.
+</P>
+
+<P>You can also use masks with graymaps and pixmaps, using the
+pnmarith tool. For instance:
+</P>
+<!-- CODE //-->
+<PRE>
+ppmtopgm obj.ppm | pgmtopbm -threshold | pbmmask &gt; objmask.pbm
+pnmarith -multiply dest.ppm objmask.pbm &gt; t1.ppm
+pnminvert objmask.pbm | pnmarith -multiply obj.ppm - &gt; t2.ppm
+pnmarith -add t1.ppm t2.ppm
+</PRE>
+<!-- END CODE //-->
+
+<P>An interesting variation on this is to pipe the mask through the
+pnmsmooth script before using it. This makes the
+boundary between the two images less sharp.
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+<P>-expand     Expands the mask by one pixel out from the image. This is useful if you want a little white border around
+your image. (A better solution might be to turn the
+pbmlife tool into a general cellular automaton tool&#133;)
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>pnmpaste(1), pnminvert(1), pbm(5), pnmarith(1), pnmsmooth(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright &quot; 1988 by Jef Poskanzer
+</P>
+<P>8 August 1989
+</P>
+
+<H3><A NAME="ch01_ 207">
+pbmpscale
+</A></H3>
+<P>pbmpscale&#151;Enlarge a portable bitmap with edge smoothing
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pbmpscale N [ pbmfile ]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pbmpscale reads a portable bitmap as input and outputs a portable bitmap enlarged N times. Enlargement is done by
+pixel replication, with some additional smoothing of corners and edges.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>pnmenlarge(1), ppmscale(1), pbm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright &quot; 1990 by Angus Duggan. Copyright
+&quot; 1989 by Jef Poskanzer.
+</P>
+
+<P><B>
+NOTES
+</B>
+</P>
+
+<P>pbmpscale works best for enlargements of 2. Enlargements greater than 2 should be done by as many enlargements of 2
+as possible, followed by an enlargement by the remaining factor.
+</P>
+
+<A NAME="PAGENUM-355"><P>Page 355</P></A>
+
+
+<H3><A NAME="ch01_ 208">
+pbmreduce
+</A></H3>
+<P>pbmreduce&#151;Read a portable bitmap and reduce it N times
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pbmreduce [-floyd|-fs|-threshold ][-value val] N [pbmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pbmreduce reads a portable bitmap as input, reduces it by a factor of
+N, and produces a portable bitmap as output.
+</P>
+
+<P>pbmreduce duplicates a lot of the functionality of
+pgmtopbm; you could do something like pnmscale |
+pgmtopbm, but pbmreduce is a lot faster.
+</P>
+<P>pbmreduce can be used to &quot;re-halftone&quot; an image. Say you have a scanner that only produces black and white, not
+grayscale, and it does a terrible job of halftoning (most black-and-white scanners fit this description). One way to fix the halftoning
+is to scan at the highest possible resolution, say 300dpi, and then reduce by a factor of three or so using
+pbmreduce.You can even correct the brightness of an image, by using the
+-value flag.
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+<P>By default, the halftoning after the reduction is done via boustrophedonic Floyd-Steinberg error diffusion; however, the
+-threshold flag can be used to specify simple thresholding. This gives better results when reducing line drawings.
+
+<P>The -value flag alters the thresholding value for all quantizations. It should be a real number between 0 and 1. Above
+0.5 means darker images; below 0.5 means lighter.
+</P>
+
+<P>All flags can be abbreviated to their shortest unique prefix.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>pnmenlarge(1), pnmscale(1), pgmtopbm(1), pbm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright &quot; 1988 by Jef Poskanzer
+</P>
+<P>2 August 1989
+</P>
+
+<H3><A NAME="ch01_ 209">
+pbmtext
+</A></H3>
+<P>pbmtext&#151;Render text into a bitmap
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pbmtext [_font fontfile][_builtin fontname][text]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pbmtext takes the specified text, either a single line from the command line or multiple lines from standard input, and
+renders it into a bitmap.
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+<P>By default, pbmtext uses a built-in font called bdf (about a 10-point Times Roman font). You can use a fixed-width font
+by specifying _builtin fixed.
+</P>
+
+<P>You can also specify your own font with the -font
+flag. The fontfile is either a BDF file from the X Window System or
+a PBM file.
+</P>
+
+
+
+<P><CENTER>
+<a href="0350-0352.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0356-0358.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

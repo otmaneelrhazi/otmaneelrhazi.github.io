@@ -1,0 +1,478 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0208-0209.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0213-0214.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-210"><P>Page 210</P></A>
+
+
+<P><B>
+FILES
+</B>
+</P>
+
+
+<C>
+filename.i
+<C>
+Index
+<C>
+Ind.i
+<C>
+Default index name
+<C>
+/usr/lib/groff/eign
+<C>
+List of common words
+<C>
+indxbibXXXXXX
+<C>
+Temporary file
+</TBL>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+
+
+<!-- CODE SNIP //-->
+<PRE>grefer(1), lkbib(1), glookbib(1)
+</PRE>
+<!-- END CODE SNIP //-->
+<P>Groff Version 1.09, 16 April 1993
+</P>
+
+<H3><A NAME="ch01_ 89">
+glookbib
+</A></H3>
+<P>glookbib&#151;Search bibliographic databases
+</P>
+
+<P><B>
+SINOPSIS
+</B>
+</P>
+
+
+<!-- CODE SNIP //-->
+<PRE>
+glookbib [ _v ][_istring ][_tn ] filename ...
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+
+
+<P>glookbib prints a prompt on the standard error (unless the standard input is not a terminal), reads from the standard input
+a line containing a set of keywords, searches the bibliographic databases
+filename ... for references containing those
+keywords, prints any references found on the standard output, and repeats this process until the end of input. For each
+database filename to be searched, if an index
+filename.i created by gindxbib(1) exists, then it will be searched instead; each index
+can cover multiple databases.
+</P>
+<P><B>
+OPTIONS
+</B>
+</P>
+
+
+<TABLE>
+
+<TR><TD>
+_v
+</TD><TD>
+Print the version number.
+</TD></TR><TR><TD>
+_istring
+</TD><TD>
+When searching files for which no index exists, ignore the contents of fields whose names are in
+string.
+</TD></TR><TR><TD>
+_tn
+</TD><TD>Only require the first n characters of keys to be given. Initially,
+n is 6.
+</TD></TR></TABLE>
+
+<P><B>
+FILE
+</B>
+</P>
+
+<TABLE>
+
+<TR><TD>
+filename.i
+</TD><TD>
+Index files
+</TD></TR></TABLE>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+
+
+<P>grefer(1), lkbib(1), gindxbib(1)
+</P>
+
+<H3><A NAME="ch01_ 90">
+gnroff
+</A></H3>
+<P>gnroff&#151;Emulate nroff command with groff
+</P>
+
+<P><B>
+SINOPSIS
+</B>
+</P>
+
+
+<!-- CODE SNIP //-->
+<PRE>
+gnroff [ _h ][_i ][_mname ][_nnum ][_olist ][_rcn ][_Tname ][file...]
+</PRE>
+<!-- END CODE SNIP //-->
+<P><B>
+DESCRIPTION
+</B>
+</P>
+
+
+<P>The gnroff script emulates the nroff command using
+groff. The _T option with an argument other than
+ascii and latin1 will be ignored. The _h option is equivalent to the
+grotty _h option. The _i, _n, _m, _o, and _r options have the
+effect described in gtroff(1). In addition, gnroff silently ignores options of
+_e, _q, or _s.
+</P>
+
+<A NAME="PAGENUM-211"><P>Page 211</P></A>
+
+
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+
+<P>groff(1), gtroff(1), grotty(1)
+</P>
+<P>Groff Version 1.09, 17 May 1993
+</P>
+<H3><A NAME="ch01_ 91">
+gouldtoppm
+</A></H3>
+
+<P>gouldtoppm&#151;Convert Gould scanner file into a portable pixmap
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+gouldtoppm[gouldfile]
+</PRE>
+<!-- END CODE SNIP //-->
+<P><B>
+DESCRIPTION
+</B>
+</P>
+
+<P>Reads a file produced by the Gould scanner as input. Produces a portable pixmap as output.
+</P>
+<P><B>
+SEE ALSO
+</B>
+</P>
+
+
+<P>ppm(5)
+</P>
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright&quot; 1990 by Stephen Paul Lesniewski
+</P>
+<P>20 May 1990
+</P>
+<H3><A NAME="ch01_ 92">
+gpic
+</A></H3>
+<P>gpic&#151;Compile pictures for troff or TeX
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+gpic [ _nvC ][filename ... ] gpic _t [ _cvzC ][filename ... ]
+</PRE>
+<!-- END CODE SNIP //-->
+<P><B>
+DESCRIPTION
+</B>
+</P>
+
+
+<P>This manual page describes the GNU version of
+pic, which is part of the groff document formatting system.
+pic compiles descriptions of pictures embedded within
+troff or TeX input files into commands that are understood by TeX or
+troff. Each picture starts with a line beginning with
+.PS and ends with a line beginning with .PE. Anything outside of
+.PS and .PE is passed through without change.
+</P>
+<P>It is the user's responsibility to provide appropriate definitions of the
+PS and PE macros. When the macro package being
+used does not supply such definitions (for example, old versions of
+_ms), appropriate definitions can be obtained with
+_mpic: These will center each picture.
+</P>
+<P><B>
+OPTIONS
+</B>
+</P>
+
+
+<P>Options that do not take arguments may be grouped behind a single
+_. The special option __ can be used to mark the end
+of the options. A filename of _ refers to the standard input.
+</P>
+<TABLE>
+
+<TR><TD>
+_C
+</TD><TD>
+Recognize .PS and .PE even when followed by a character other than space or newline.
+</TD></TR><TR><TD>
+_n
+</TD><TD>
+Don't use the groff extensions to the
+troff drawing commands. You should use this if you are using
+a postprocessor that doesn't support these extensions. The extensions are described in
+groff_out(5). The _n option also causes pic not to use zero-length lines to draw dots in
+troff mode.
+</TD></TR><TR><TD>
+_t
+</TD><TD>
+TeX mode.
+</TD></TR><TR><TD>
+_c
+</TD><TD>
+Be more compatible with tpic. Implies _t. Lines beginning with
+n are not passed through transparently. Lines beginning with
+. are passed through with the initial . changed to
+\. A line beginning with .ps is given special
+</TD></TR></TABLE>
+
+<A NAME="PAGENUM-212"><P>Page 212</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+</TD><TD>
+treatment: It takes an optional integer argument specifying the line thickness (pen size) in milli-inches; a
+missing argument restores the previous line thickness; the default line thickness is 8 milli-inches. The line thickness
+thus specified takes effect only when a nonnegative line thickness has not been specified by use of the
+thickness attribute or by setting the linethick variable.
+</TD></TR><TR><TD>
+_v
+</TD><TD>
+Print the version number.
+</TD></TR><TR><TD>
+_z
+</TD><TD>
+In TeX mode draw dots using zero-length lines.
+</TD></TR></TABLE>
+
+
+<P>The following options supported by other versions of
+pic are ignored:
+</P>
+
+<TABLE>
+
+<TR><TD>
+_D
+</TD><TD>
+Draw all lines using the \D escape sequence.
+pic always does this.
+</TD></TR><TR><TD>
+_Tdev
+</TD><TD>
+Generate output for the troff device
+dev. This is unnecessary because the troff output generated by
+pic is device-independent.
+</TD></TR></TABLE>
+
+<P><B>
+USAGE
+</B>
+</P>
+
+<P>This section describes only the differences between GNU
+pic and the original version of pic. Many of these differences
+also apply to newer versions of UNIX pic.
+
+<H4><A NAME="ch01_ 93">
+mode
+</A></H4>
+
+<P>mode is enabled by the _t option. In mode, pic will define a
+vbox called ngraph for each picture. You must yourself print
+that vbox using, for example, the command:
+<!-- CODE SNIP //-->
+<PRE>
+\centerline{\box\graph}
+</PRE>
+<!-- END CODE SNIP //-->
+<P>Actually, since the vbox has a height of zero, this will produce slightly more vertical space above the picture than below it,
+the line
+<!-- CODE SNIP //-->
+<PRE>
+\centerline{\raise 1em\box\graph}
+</PRE>
+<!-- END CODE SNIP //-->
+<P>would avoid this.
+</P>
+<P>You must use a driver that supports the tpic specials, version 2.
+</P>
+<P>Lines beginning with \are passed through transparently; a
+% is added to the end of the line to avoid unwanted spaces.
+You can safely use this feature to change fonts or to change the value of
+\baselineskip. Anything else may well produce
+undesirable results; use at your own risk. Lines beginning with a period are not given any special treatment.
+</P>
+<P><B>
+COMMANDS
+</B>
+</P>
+
+<TABLE>
+
+<TR><TD>
+for variable = expr1 to expr2
+</TD><TD>
+While the value of variable is less than or equal to expr2, do body and increment
+</TD></TR><TR><TD>
+by [*]expr3] do X body X
+</TD><TD>
+variable by expr3; if by is not given, increment variable by 1. If expr3
+is prefixed
+</TD></TR><TR><TD>
+[Set variable to expr1
+</TD><TD>
+by * then variable will instead be multiplied by
+expr3. X can be any character not occurring in
+body.
+</TD></TR><TR><TD>
+if expr then X if-true X
+</TD><TD>
+Evaluate expr; if it is nonzero,do
+if-true; otherwise, do if-false. u can be any
+</TD></TR><TR><TD>
+[else Y if-false Y]
+</TD><TD>
+character not occurring in if-true. Y can be any character not occurring in
+if-false.
+</TD></TR><TR><TD>
+print arg ...
+</TD><TD>
+Concatenate the arguments and print as a line on
+stderr. Each arg must be an expression, a position, or text. This is useful for debugging.
+</TD></TR><TR><TD>
+command arg ...
+</TD><TD>
+Concatenate the arguments and pass them through as a line to
+troff or TeX. Each arg must be an expression, a position, or text. This has a similar effect to a
+line beginning with . or \, but allows the values of variables to be passed through.
+</TD></TR><TR><TD>
+sh X command X
+</TD><TD>
+Pass command to a shell. X can be
+any character not occurring in command.
+</TD></TR><TR><TD>
+copy &quot;filename&quot;
+</TD><TD>
+Include filename at this point in the file.
+</TD></TR><TR><TD>
+copy [&quot;filename&quot;] thru X body X
+</TD><TD>
+This construct does
+body once for each line of filename; the line is split into blank-
+</TD></TR><TR><TD>
+[until &quot;word&quot;]
+</TD><TD>
+delimited words, and occurrences of
+$ i in body, for i between 1 and 9, are replaced
+</TD></TR><TR><TD>
+copy [&quot;filename&quot;] thru macro
+</TD><TD>
+by the
+i-th word of the line. If filename is not given, lines are taken from the current
+</TD></TR><TR><TD>
+[until &quot;word&quot;]
+</TD><TD>
+input up to .PE. If an
+until clause is specified, lines will be read only until a line
+the first word of which is word; that line will then be discarded.
+X can be any character not occurring in body. For example,
+</TD></TR></TABLE>
+
+
+
+<P><CENTER>
+<a href="0208-0209.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0213-0214.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

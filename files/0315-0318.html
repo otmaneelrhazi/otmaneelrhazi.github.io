@@ -1,0 +1,492 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0314-0314.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0319-0322.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-315"><P>Page 315</P></A>
+
+<!-- CODE SNIP //-->
+<PRE>&lt;text&gt;
+...
+#table &lt;tablename&gt;
+...]
+[#file &lt;filename&gt;
+...]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>You may have one or more #file directives. Each
+#file may have one or more #table directives.
+</P>
+
+<P>The #prefix directive determines the string that
+makestr will prefix to each definition.
+</P>
+
+<P>The #feature directive determines the string that
+makestr will use for the feature-test macro, for example,
+X&#153;STRINGDEFINES.
+</P>
+
+<P>The #externref directive determines the string that
+makestr will use for the extern clause; typically this will be
+extern, but Motif wants it to be externalref.
+</P>
+
+<P>The #externdef directive determines the string that
+makestr will use for the declaration; typically, this will be the null
+string, and Motif will use externaldef(_xmstrings).
+</P>
+
+<P>The #ctmpl directive determines the name of the file used as a template for the C source file that is generated.
+</P>
+
+<P>Each #file &lt;filename&gt; directive will result in a corresponding header file by that name containing the appropriate
+definitions as specified by command-line OPTIONS. A single C source file containing the declarations for the definitions in all the
+headers will be printed to stdout.
+</P>
+
+<P>The #htmpl directive determines the name of the file used as a template for the C header file that is generated.
+</P>
+
+<P>Each #table &lt;tablename&gt; directive will be processed in accordance with the ABI. On most platforms, all tables will
+be catenated into a single table with the name of the first table for that file. To conform to the Intel ABI, separate tables will
+be generated with the names indicated.
+</P>
+
+<P>The template FILES specified by the #ctmpl and
+#htmpl directives are processed by copying line for line from the template
+file to the appropriate output file. The line containing the string
+&lt;&lt;&lt;STRING_TABLE_GOES_HERE&gt;&gt;&gt; is not copied to the output
+file. The appropriate data is then copied to the output file and then the remainder of the template file is copied to the output file.
+</P>
+
+<P><B>BUGS</B></P>
+
+
+<P>makestrs is not very forgiving of syntax errors. Sometimes you need a trailing space after
+# directives, other times they will mess you up. No warning messages are emitted.
+</P>
+
+<P><B>SEE ALSO</B></P>
+
+<P>SPARC Compliance Definition 2.2, SPARC International Inc., 535 Middlefield Road, Suite 210, Menlo Park, CA 94025
+</P>
+
+<P>System V Application Binary Interface, Third Edition, ISBN 0-13-100439-5, UNIX Press, PTR Prentice Hall, 113
+Sylvan Avenue, Englewood Cliffs, NJ 07632
+</P>
+
+<P>System V Application Binary Interface, Third Edition, Intel386 Architecture Processor Supplement, ISBN
+0-13-104670-5, UNIX Press, PTR Prentice Hall, 113 Sylvan Avenue, Englewood Cliffs, NJ 07632
+</P>
+
+<P>System V Application Binary Interface, Third Edition, SPARCArchitecture Processor Supplement, ISBN
+0-13-104696-9, UNIX Press, PTR Prentice Hall, 113 Sylvan Avenue, Englewood Cliffs, NJ 07632
+</P>
+
+<P>X Version 11 Release 6
+</P>
+
+<H3><A NAME="ch01_ 160">
+mattrib
+</A></H3>
+
+<P>mattrib&#151;Change MS-DOS file attribute flags
+</P>
+
+<P><B>SYNOPSIS</B></P>
+
+
+<!-- CODE SNIP //-->
+<PRE>mattrib [ -a|+a ][-h|+h ][-r|+r ][-s|+s ] msdosfile [ msdosFILES... ]
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+<A NAME="PAGENUM-316"><P>Page 316</P></A>
+
+<P><B>DESCRIPTION</B></P>
+
+<P>mattrib adds attribute flags to an MS-DOS file (with the
++ operator) or removes attribute flags (with the - operator).
+</P>
+
+<P>mattrib allows the following command-line OPTIONS:
+</P>
+
+<TABLE>
+
+<TR><TD>
+a
+</TD><TD>
+Archive bit. Used by some backup programs to indicate a new file.
+</TD></TR><TR><TD>
+r
+</TD><TD>
+Read-only bit. Used to indicate a read-only file. FILES with this bit set cannot be erased by
+DEL or modified.
+</TD></TR><TR><TD>
+s
+</TD><TD>
+System bit. Used by MS-DOS to indicate an operating system file.
+</TD></TR><TR><TD>
+h
+</TD><TD>
+Hidden bit. Used to make FILES hidden from
+DIR.
+</TD></TR></TABLE>
+
+<P><B>SEE ALSO</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>mtools(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>Local
+</P>
+
+<H3><A NAME="ch01_ 161">
+mbadblocks
+</A></H3>
+
+<P>mbadblocks&#151;Scan an MS-DOS floppy and mark its unused bad blocks as bad.
+</P>
+
+<P><B>SYNOPSIS</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>mbadblocks drive:
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>DESCRIPTION</B></P>
+
+<P>mbadblocks scans an MS-DOS floppy for bad blocks. All unused bad blocks are marked as such in the FAT. This is
+intended to be used right after mformat. It is not intended to salvage bad disks.
+</P>
+
+<P><B>SEE ALSO</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>mtools(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>BUGS</B></P>
+
+<P>This should (but doesn't :-( ) also try to salvage bad blocks that are in use by reading them repeatedly, and then mark
+them bad.
+</P>
+
+
+<H3><A NAME="ch01_ 162">
+mcd
+</A></H3>
+
+<P>mcd&#151;Change MS-DOS directory
+</P>
+
+<P><B>SYNOPSIS</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>mcd [ msdosdirectory ]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>DESCRIPTION</B></P>
+
+<P>Without arguments, mcd will report the current device and working directory. Otherwise,
+mcd changes the current device and current working directory relative to an MS-DOS FILESystem.
+</P>
+
+<P>The ENVIRONMENTal variable MCWD may be used to locate the file where the device and current working directory information
+is stored. The default is $HOME/.mcwd. Information in this file is ignored if the file is more than six hours old.
+</P>
+
+<P>MS-DOS subdirectory names are supported with either the
+/ or \ separator. The use of the \ separator or wildcards
+will require the directory name to be enclosed in quotes to protect it from the shell.
+</P>
+
+
+<P>mcd returns 0 on success or 1 on failure.
+</P>
+
+<P><B>SEE ALSO</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>mdir(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<A NAME="PAGENUM-317"><P>Page 317</P></A>
+
+
+<P><B>BUGS</B></P>
+
+<P>Unlike MS-DOS versions of CD, mcd can be used to change to another device.
+</P>
+
+<P>It may be wise to remove old .mcwd FILES at logout.
+</P>
+
+<P>Local
+</P>
+
+<H3><A NAME="ch01_ 163">
+mcookie
+</A></H3>
+
+<P>mcookie&#151;Generate magic cookies for xauth
+</P>
+
+<P><B>SYNOPSIS</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>mcookie
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>DESCRIPTION</B></P>
+
+<P>mcookie generates a 128-bit random hexadecimal number for use with the X AUTHORity system. Typical usage:
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>xauth add :0 . `mcookie'
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>SEE ALSO</B></P>
+
+<P>X(1), xauth(1)
+</P>
+
+<P>12 February 1995
+</P>
+
+<H3><A NAME="ch01_ 164">
+mcopy
+</A></H3>
+
+<P>mcopy&#151;Copy MS-DOS FILES to/from UNIX
+</P>
+
+<P><B>SYNOPSIS</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>mcopy [ -tnvmoOsSrRA ] sourcefile targetfile
+mcopy [ -tnvmoOsSrRA ] sourcefile [ sourceFILES... ] targetdirectory
+mcopy [ -tnvm ] MSDOSsourcefile
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>DESCRIPTION</B></P>
+
+
+<P>mcopy copies the specified file to the named file, or copies multiple FILES to the named directory. The source and target can
+be either MS-DOS or UNIX FILES.
+</P>
+
+<P>The use of a drive letter designation on the MS-DOS
+FILES&#151;a: for example&#151;determines the direction of the transfer.
+A missing drive designation implies a UNIX file whose path starts in the current directory. If a source drive letter is
+specified with no attached filename (for example, mcopy a:
+.), all FILES are copied from that drive.
+</P>
+
+<P>If only a single, MS-DOS source parameter is provided (for example,
+mcopy a:foo.exe), an implied destination of the
+current directory (.) is assumed.
+</P>
+
+<P>A filename of - means standard input or standard output, depending on its position on the command line.
+</P>
+
+<P>mcopy will allow the following command-line OPTIONS:
+
+<TABLE>
+
+<TR><TD>
+t
+</TD><TD>
+Text file transfer. mcopy will translate incoming carriage return/line feeds to line feeds.
+</TD></TR><TR><TD>
+n
+</TD><TD>
+No warning. mcopy will not warn the user when overwriting an existing file.
+</TD></TR><TR><TD>
+v
+</TD><TD>
+Verbose mode.
+</TD></TR><TR><TD>
+m
+</TD><TD>
+Preserve the file modification time.
+</TD></TR></TABLE>
+
+
+<P>If the target file already exists, and the -n option is not in effect,
+mcopy asks whether to overwrite the file or to rename the
+new file. (See the mtools(1) man page for details.)
+</P>
+
+
+<A NAME="PAGENUM-318"><P>Page 318</P></A>
+
+
+<P><B>SEE ALSO</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>mtools(1), mread(1), mwrite(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>BUGS</B></P>
+
+
+<P>Unlike MS-DOS, the + operator (append) from MS-DOS is not supported.
+</P>
+
+<P>Local
+</P>
+
+<H3><A NAME="ch01_ 165">
+md5sum
+</A></H3>
+
+
+<P>md5sum&#151;Generate/check MD5 message digests
+</P>
+
+<P><B>SYNOPSIS</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>md5sum [_bv][_c [ file ]]
+md5sum file ...
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>DESCRIPTION</B></P>
+
+
+<P>md5sum generates and checks MD5 message digests, as described in RFC-1321. The message digest produced can be
+thought of as a 128-bit &quot;signature&quot; of the input file. Typically,
+md5sum is used to verify the integrity of FILES made available
+for distribution via anonymous FTP (for example, announcements for new versions of
+irc(1) usually contain MD5 signatures). Message digests for a tree of FILES can be generated with a command similar to the following:
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>find . -type f -print | xargs md5sum
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>The output of this command is suitable as input for the
+_c option.
+</P>
+
+<P><B>OPTIONS</B></P>
+
+
+<TABLE>
+
+<TR><TD>
+_c [file]
+</TD><TD>
+Check message digests. Input is taken from
+stdin or from the specified file. The input should be in
+the same format as the output generated by md5sum.
+</TD></TR><TR><TD>
+_v
+</TD><TD>
+Verbose. Print filenames when checking.
+</TD></TR><TR><TD>
+_b
+</TD><TD>
+Read FILES in binary mode; otherwise, end-of-file conventions will be ignored.
+</TD></TR></TABLE>
+
+<P><B>HISTORY</B></P>
+
+<P>The md5sum program was written by Branko Lankester and may be freely distributed. The original source code is in the
+MIT PGP 2.6.2 distribution. Those concerned about the integrity of this version should obtain the original sources and
+compile their own version.
+</P>
+
+<P>The underlying implementation of Ron Rivest's MD5 algorithm was written by Colin Plumb and is in the public
+domain. (Equivalent code is also available from RSA Data Security, Inc.)
+</P>
+
+<P><B>SEE ALSO</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>sum(1), cksum(1), pgp(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>Linux 1.0, 11 February 1995
+</P>
+
+<H3><A NAME="ch01_ 166">
+mdel
+</A></H3>
+
+<P>mdel&#151;Delete an MS-DOS file
+</P>
+
+<P><B>SYNOPSIS</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>mdel [ -v ] msdosfile [ msdosFILES... ]
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+
+
+<P><CENTER>
+<a href="0314-0314.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0319-0322.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

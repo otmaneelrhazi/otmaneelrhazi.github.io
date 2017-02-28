@@ -1,0 +1,461 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0074-0077.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0081-0082.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-78"><P>Page 78</P></A>
+
+
+<B>
+SEE ALSO
+</B>
+
+
+<!-- CODE SNIP //-->
+<PRE>awk(1), column(1), expand(1), paste(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+<P><B>
+HISTORY
+</B></P>
+
+
+<P>The colrm command appeared in BSD 3.0.
+</P>
+
+<P>BSD 3, 14 March 1991
+</P>
+
+
+<H3><A NAME="ch01_ 39">
+column
+</A></H3>
+
+
+<P>column&#151;Columnate lists
+</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+
+<!-- CODE SNIP //-->
+<PRE>
+column [_tx] [_ccolumns] [_ssep] [...file]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+
+<P>The column utility formats its input into multiple columns. Rows are filled before columns. Input is taken from file
+operands, or, by default, from the standard input. Empty lines are ignored.
+</P>
+
+
+<P>The options are as follows:</P>
+
+<TABLE>
+
+<TR><TD>
+_c
+</TD><TD>
+Output is formatted for a display columns wide.
+</TD></TR><TR><TD>
+-s
+</TD><TD>
+Specify a set of characters to be used to delimit columns for the
+-t option.
+</TD></TR><TR><TD>
+-t
+</TD><TD>
+Determine the number of columns the input contains and create a table. Columns are delimited
+with whitespace, by default, or with the characters supplied using the
+-s option. Useful for pretty-printing displays.
+</TD></TR><TR><TD>
+-x
+</TD><TD>
+Fill columns before filling rows.
+</TD></TR></TABLE>
+
+<P>Column exits 0 on success, &gt;0 if an error occurred.</P>
+
+
+<P><B>
+ENVIRONMENT
+</B></P>
+
+
+<P>The environment variable COLUMNS is used to determine the size of the screen if no other information is available.</P>
+
+
+<P><B>
+EXAMPLES
+</B></P>
+
+
+<!-- CODE SNIP //-->
+<PRE>
+(printf &quot;PERM LINKS OWNER SIZE MONTH DAY HH:MM/YEAR NAME&quot;; ls -l j sed 1d) j column -t
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+<P><B>
+SEE ALSO
+</B></P>
+
+
+<P>colrm(1), ls(1), paste(1), sort(1)
+
+
+<P><B>
+HISTORY
+</B></P>
+
+
+<P>The column command appeared in BSD 4.3 Reno.
+</P>
+
+
+<P>6 June 1993
+</P>
+
+
+<H3><A NAME="ch01_ 40">
+comm
+</A></H3>
+
+
+<P>comm&#151;Compare two sorted files line by line</P>
+
+
+<B>
+SYNOPSIS
+</B>
+<!-- CODE SNIP //-->
+<PRE>
+comm [_123] [&#151;help] [&#151;version] file1 file2
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<A NAME="PAGENUM-79"><P>Page 79</P></A>
+<P><B>
+DESCRIPTION
+</B></P>
+
+
+<P>This manual page documents the GNU version of
+comm. comm prints lines that are common, and lines that are unique, to
+two input files. The two files must be sorted before
+comm can be used. The filename _ means the standard input.
+</P>
+
+<P>With no options, comm produces three column output. Column one contains lines unique to
+file1, column two contains lines unique to file2, and column three contains lines common to both files.
+</P>
+
+
+<P><B>
+OPTIONS
+</B></P>
+
+
+<P>The options _1, _2, and _3 suppress printing of the corresponding columns.
+</P>
+
+<TABLE>
+
+<TR><TD>
+&#151;help
+</TD><TD>
+Print a usage message and exit with a nonzero status.
+</TD></TR><TR><TD>
+&#151;version
+</TD><TD>
+Print version information on standard output then exit.
+</TD></TR></TABLE>
+
+<P>GNU Text Utilities
+</P>
+
+
+<H3><A NAME="ch01_ 41">
+convdate
+</A></H3>
+
+
+
+<P>convdate&#151;Convert time/date strings and numbers
+</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>
+convdate [ _c ][_n ][_s ] arg...
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+
+<P>convdate translates the date/time strings specified as arguments on its command line, outputting the results one to a line.
+</P>
+<P>If the _s flag is used, then each argument is taken as a date string to be parsed by
+parse-date(3) and is output as a string formatted by
+ctime(3). This is the default.
+</P>
+
+<P>If the _n flag is used, then each argument is converted the same way but is output as a time
+t; see time(2).</P>
+
+<P>If the _c flag is used, then each argument is taken to be a time
+t and is output in ctime format.
+</P>
+
+<P>Here's an example:</P>
+
+
+<!-- CODE //-->
+<PRE>
+% convdate `feb 10 10am'
+Sun Feb 10 10:00:00 1991
+
+% convdate 12pm 5/4/90
+Fri Dec 13 00:00:00 1991
+Fri May 4 00:00:00 1990
+
+% convdate -n `feb 10 10am' '12pm 5/4/90'
+666198000
+641880000
+% convdate -c 666198000
+Sun Feb 10 10:00:00 1991
+</PRE>
+<!-- END CODE //-->
+
+
+<P><B>
+HISTORY
+</B></P>
+
+<P>Written by Rich $alz (rsalz@uunet.uu.net).
+
+<P><B>
+SEE ALSO
+</B></P>
+
+<P>parsedate(3)
+</P>
+
+
+<A NAME="PAGENUM-80"><P>Page 80</P></A>
+
+
+<H3><A NAME="ch01_ 42">
+cp
+</A></H3>
+
+
+<P>cp&#151;Copy files
+</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+
+<!-- CODE SNIP //-->
+<PRE>
+cp [options] source dest
+cp [options] source... directory
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+<P>Options:</P>
+
+
+<!-- CODE //-->
+<PRE>
+[_abdfilprsuvxPR] [_S backup-suffix] [_V fnumbered,existing,simpleg] [&#151;backup]
+[&#151;no-dereference] [&#151;force] [&#151;interactive] [&#151;one-file-system] [&#151;preserve]
+[&#151;recursive][&#151;update] [&#151;verbose] [&#151;suffix=backup-suffix]
+[&#151;version-control=fnumbered,existing,simpleg] [&#151;archive] [&#151;parents] [&#151;link]
+[&#151;symbolic-link] [&#151;help] [&#151;version]
+</PRE>
+<!-- END CODE //-->
+
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+
+
+<P>This manual page documents the GNU version of
+cp. If the last argument names an existing directory,
+cp copies each other given file into a file with the same name in that directory. Otherwise, if only two files are given, it copies the first onto
+the second. It is an error if the last argument is not a directory and more than two files are given. By default, it does not
+copy directories.
+</P>
+
+<P><B>
+OPTIONS
+</B></P>
+
+<TABLE>
+
+<TR><TD>
+_a, &#151;archive
+</TD><TD>
+Preserve as much as possible of the structure and attributes of the original files in the
+copy. The same as _dpR.
+</TD></TR><TR><TD>
+_b, &#151;backup
+</TD><TD>
+Make backups of files that are about to be overwritten or removed.
+</TD></TR><TR><TD>
+_d, &#151;no-dereference
+</TD><TD>
+Copy symbolic links as symbolic links rather than copying the files that they point to,
+and preserve hard link relationships between source files in the copies.
+</TD></TR><TR><TD>
+_f, &#151;force
+</TD><TD>
+Remove existing destination files.
+</TD></TR><TR><TD>
+-i, &#151;interactive
+</TD><TD>
+Prompt whether to overwrite existing regular destination files.
+</TD></TR><TR><TD>
+_l, &#151;link
+</TD><TD>
+Make hard links instead of copies of nondirectories.
+</TD></TR><TR><TD>
+_P, &#151;parents
+</TD><TD>
+Form the name of each destination file by appending to the target directory a slash and
+the specified name of the source file. The last argument given to
+cp must be the name of an existing directory. For example, the command
+cp &#151;parents a/b/c existing_dir copies the
+file a/b/c to existing_dir/a/b/c, creating any missing intermediate directories.
+</TD></TR><TR><TD>
+_p, &#151;preserve
+</TD><TD>
+Preserve the original files' owner, group, permissions, and timestamps.
+</TD></TR><TR><TD>
+-r
+</TD><TD>
+Copy directories recursively, copying all nondirectories as if they were regular files.
+</TD></TR><TR><TD>
+_s, &#151;symbolic-link
+</TD><TD>
+Make symbolic links instead of copies of nondirectories. All source filenames must
+be absolute (starting with /) unless the destination files are in the current directory.
+This option produces an error message on systems that do not support symbolic links.
+</TD></TR><TR><TD>
+_u, &#151;update
+</TD><TD>
+Do not copy a nondirectory that has an existing destination with the same or
+newer modification time.
+</TD></TR><TR><TD>
+_v, &#151;verbose
+</TD><TD>
+Print the name of each file before copying it.
+</TD></TR><TR><TD>
+_x, &#151;one-file-system
+</TD><TD>
+Skip subdirectories that are on different filesystems from the one that the copy started on.
+</TD></TR><TR><TD>
+_R, &#151;recursive
+</TD><TD>
+Copy directories recursively.
+</TD></TR><TR><TD>
+&#151;help
+</TD><TD>
+Print a usage message on standard output and exit successfully.
+</TD></TR><TR><TD>
+&#151;version
+</TD><TD>
+Print version information on standard output then exit successfully.
+</TD></TR><TR><TD>
+_S, &#151;suffix backup-suffix
+</TD><TD>
+The suffix used for making simple backup files can be set with the
+SIMPLE_BACKUP_SUFFIX environment variable, which can be overridden by this option. If neither of those is
+given, the default is ~, as it is in emacs.
+</TD></TR></TABLE>
+
+
+
+
+<P><CENTER>
+<a href="0074-0077.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0081-0082.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

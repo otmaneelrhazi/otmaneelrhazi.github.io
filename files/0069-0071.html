@@ -1,0 +1,487 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0068-0068.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0072-0073.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-69"><P>Page 69</P></A>
+
+
+<P><B>
+SEE ALSO
+</B></P>
+
+<P>co(1), emacs(1), ident(1), make(1), rcs(1),
+rcsclean(1), rcsdiff(1), rcsintro(1), rcsmerge(1),
+rlog(1), setuid(2), rcsfile(5)
+</P>
+
+
+<P>Walter F. Tichy, &quot;RCS&#151;A System for Version Control,&quot;
+Software Practice &amp; Experience 15, 7 (July 1985), 637_654.
+</P>
+
+<P>GNU, 16 June 1995
+</P>
+
+
+<H3><A NAME="ch01_ 31">
+cidentd
+</A></H3>
+
+<P>cidentd&#151;identd server</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>
+cidentd [_usqvnah] [_f file] [_l file] [_t seconds]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+
+<P>cidentd gives authentication information.</P>
+<P>cidentd is an RFC 1314- and 931-compliant
+identd daemon. It accepts connections on a port
+(113 default) and answers queries for port owner of a connection. command;
+</P>
+
+<P>cidentd normally terminates when the remote command does. The options are as follows:
+</P>
+
+<TABLE>
+
+<TR><TD>
+_u
+</TD><TD>
+Turns on the use of the .authlie file in the user's home directory to give the requesting system
+whatever information the user provides. This file is overridden by the
+-a option and the system file the format is as follows:
+
+</TD></TR></TABLE>
+
+<TABLE>
+
+<TR><TD>
+</TD><TD>
+mynameis
+</TD><TD>
+name-to-be-given
+</TD><TD>
+# give this userid
+</TD></TR><TR><TD>
+</TD><TD>
+hideme
+</TD><TD>
+</TD><TD>
+# hide user id
+</TD></TR><TR><TD>
+</TD><TD>
+host-ip
+</TD><TD>
+name-to-be-given
+</TD><TD>
+# userid for them
+</TD></TR><TR><TD>
+</TD><TD>
+host-ip
+</TD><TD>
+no-info
+</TD><TD>
+# hide you to them
+</TD></TR></TABLE>
+
+
+
+<P>host-ip can be an ip in dot notation or a name. The file is set so that whatever comes last is what they get.
+
+<TABLE>
+
+<TR><TD>
+_s
+</TD><TD>
+Closes the connection after a single query.
+</TD></TR><TR><TD>
+_q
+</TD><TD>
+Quits the daemon after 1 connection (default in 1.0b).
+</TD></TR><TR><TD>
+_v
+</TD><TD>
+Turns on verbose logging to the syslogs.
+</TD></TR><TR><TD>
+_n
+</TD><TD>
+Makes cident act like the old school
+identd with nothing special.
+</TD></TR><TR><TD>
+_a
+</TD><TD>
+Enables the /etc/cident.users file for options, which overrides the user files if
+-u is specified. The format is as follows:
+</TD></TR></TABLE>
+
+<TABLE>
+
+<TR><TD>
+</TD><TD>
+username
+</TD><TD>
+name-to-send
+</TD><TD>
+# send this for username
+</TD></TR><TR><TD>
+</TD><TD>
+username
+</TD><TD>
+</TD><TD>
+# must send there username
+</TD></TR><TR><TD>
+</TD><TD>
+all
+</TD><TD>
+name-to-send
+</TD><TD>
+# send for every query
+</TD></TR><TR><TD>
+</TD><TD>
+all
+</TD><TD>
+no-info
+</TD><TD>
+# send nothing every query
+</TD></TR><TR><TD>
+</TD><TD>
+host-ip
+</TD><TD>
+name-to-send
+</TD><TD>
+# send to that host
+</TD></TR><TR><TD>
+</TD><TD>
+host-ip
+</TD><TD>
+no-info
+</TD><TD>
+# send nothing to them
+
+</TD></TR></TABLE>
+
+<P>host-ip can be an ip in dot notation or a name. The file is set so that whatever comes last is what they get.
+</P>
+<TABLE>
+
+<TR><TD>
+_h
+</TD><TD>
+Displays the help list to the screen you might not want to do this from some terminal types.</P>
+</TD></TR><TR><TD>
+_f
+</TD><TD>
+Sets the file to find the ports and ids of connections. Use this to specify a file other than
+/proc/net/tcp.
+</TD></TR><TR><TD>
+_l
+</TD><TD>
+Used to specify a file other than
+/etc/cident.users must be used with the -a option unless you
+like redundancy.
+</TD></TR><TR><TD>
+_t
+</TD><TD>
+Sets the time out of a connection in seconds. This does not work in this version to
+cidentd.
+</TD></TR></TABLE>
+
+
+<A NAME="PAGENUM-70"><P>Page 70</P></A>
+
+
+<P>If no arguments are specified, the program just runs as normal, almost like the
+_n.</P>
+
+<P>cidentd _t 30 _a sets timer to 30 seconds and tells it to look at
+.authlie files.</P>
+
+<P><B>
+FILES
+</B></P>
+
+
+<!-- CODE SNIP //-->
+<PRE>
+/etc/cidentd.users
+$(HOME)/.authlie
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+SEE ALSO
+</B></P>
+
+<P>identd(1)</P>
+
+<P><B>
+BUGS
+</B></P>
+
+<P>None that I know of.
+
+<P>Linux/FreeBSD, May 1996
+</P>
+
+<H3><A NAME="ch01_ 32">
+cksum
+</A></H3>
+
+<P>cksum&#151;Checksum and count the bytes in a file
+</P>
+
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+
+<!-- CODE SNIP //-->
+<PRE>
+cksum [&#151;help] [&#151;version] [file...]
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+
+<P>This manual page documents the GNU version of
+cksum. cksum computes a cyclic redundancy check (CRC) for each
+named file, or the standard input if none are given or when a file named
+_ is given. It prints the CRC for each file along with
+the number of bytes in the file, and the filename unless no arguments were given.
+</P>
+
+
+<P>cksum is typically used to make sure that files transferred by unreliable means (such as netnews) have not been corrupted.
+This is accomplished by comparing the cksum output for the received files with the
+cksum output for the original files. The CRC algorithm is specified by the POSIX.2 standard. It is not compatible with the BSD or System V
+sum programs; it is more robust.
+</P>
+
+<P>Available options are</P>
+<TABLE>
+
+<TR><TD>
+&#151;help
+</TD><TD>
+Print a usage message and exit with a nonzero status.
+</TD></TR><TR><TD>
+&#151;version
+</TD><TD>
+Print version information on standard output then exit.
+</TD></TR></TABLE>
+
+
+<P>GNU Text Utilities
+</P>
+
+
+<H3><A NAME="ch01_ 33">
+clear
+</A></H3>
+
+
+<P>clear&#151;Clear terminal screen
+</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+
+<!-- CODE SNIP //-->
+<PRE>
+clear
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+
+<P>clear calls tput(1) with the clear argument. This causes
+tput to attempt to clear the screen, checking the data in
+/etc/termcap (for the GNU or BSD tput) or in the
+terminfo database (for the ncurses tput) and sending the appropriate sequence to
+the terminal. This command can be redirected to clear the screen of some other terminal.
+</P>
+
+
+<A NAME="PAGENUM-71"><P>Page 71</P></A>
+
+
+<P><B>
+SEE ALSO
+</B></P>
+
+<P>reset(1), stty(1), tput(1)
+</P>
+
+<P><B>
+AUTHOR
+</B></P>
+
+<P>Rik Faith (faith@cs.unc.edu)</P>
+<P>Linux 0.99, 10 October 1993
+</P>
+
+<H3><A NAME="ch01_ 34">
+cmuwmtopbm
+</A></H3>
+
+
+<P>cmuwmtopbm&#151;Convert a CMU window manager bitmap into a portable bitmap
+</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+
+<!-- CODE SNIP //-->
+<PRE>
+cmuwmtopbm [cmuwmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+
+<P>Reads a CMU window manager bitmap as input. Produces a portable bitmap as output.
+</P>
+
+
+<P><B>
+SEE ALSO
+</B></P>
+
+
+<P>pbmtocmuwm(1), pbm(5)
+</P>
+
+
+<P><B>
+AUTHOR
+</B></P>
+
+
+<P>Copyright &quot; 1989 by Jef Poskanzer</P>
+<P>15 April 1989
+</P>
+
+<H3><A NAME="ch01_ 35">
+co
+</A></H3>
+<P>co&#151;Check out RCS revisions</P>
+
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+
+<!-- CODE SNIP //-->
+<PRE>
+co [options] file ...
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+
+<P>co retrieves a revision from each RCS file and stores it into the corresponding working file.
+</P>
+
+<P>Pathnames matching an RCS suffix denote RCS files; all others denote working files. Names are paired as explained in
+ci(1).
+</P>
+
+<P>Revisions of an RCS file can be checked out locked or unlocked. Locking a revision prevents overlapping updates. A
+revision checked out for reading or processing (for example, compiling) need not be locked. A revision checked out for editing
+and later checkin must normally be locked. Checkout with locking fails if the revision to be checked out is currently locked
+by another user. (A lock can be broken with rcs(1).) Checkout with locking also requires the caller to be on the access list of
+the RCS file, unless he is the owner of the file or the superuser, or the access list is empty. Checkout without locking is
+not subject to access list restrictions, and is not affected by the presence of locks.
+</P>
+
+
+<P>A revision is selected by options for revision or branch number, checkin date/time, author, or state. When the
+selection options are applied in combination, co retrieves the latest revision that satisfies all of them. If none of the selection options
+is specified, co retrieves the latest revision on the default branch, normally the trunk; see the
+_b option of rcs(1). A revision or branch number can be attached to any of the options
+_f, _I, _l, _M, _p, _q, -r, or _u. The options _d (date),
+_s (state), and _w (author) retrieve from a single branch, the selected branch (which is specified by
+_f or _u), or the default branch.</P>
+<P>A co command applied to an RCS file with no revisions creates a zero-length working file.
+co always performs keyword substitution.
+</P>
+
+
+
+
+
+<P><CENTER>
+<a href="0068-0068.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0072-0073.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

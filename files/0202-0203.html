@@ -1,0 +1,338 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0200-0201.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0204-0205.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-202"><P>Page 202</P></A>
+
+
+<H3><A NAME="ch01_ 84">
+geqn
+</A></H3>
+
+<P>geqn&#151;Format equations for troff
+</P>
+
+<P><B>
+SINOPSIS
+</B>
+</P>
+
+
+<!-- CODE SNIP //-->
+<PRE>
+geqn [ _rvCNR ][_dcc ][_Tname ][_Mdir ][_fF ][_sn ][_pn ][_mn ][files ... ]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+
+
+
+<P>This manual page describes the GNU version of
+eqn, which is part of the groff document formatting system.
+eqn compiles descriptions of equations embedded within
+troff input files into commands that are understood by
+troff. Normally, it should be invoked using the _e option of
+groff. The syntax is quite compatible with UNIX
+eqn. The output of GNU eqn cannot be processed with UNIX
+troff; it must be processed with GNU troff. If no files are given on the command line,
+the standard input will be read. A filename of _ will cause the standard input to be read.
+</P>
+<P>eqn searches for the file eqnrc using the path
+.:/usr/lib/groff/tmac:/usr/lib/tmac. If it exists,
+eqn will process it before the other input files. The
+_R option prevents this.
+</P>
+<P>GNU eqn does not provide the functionality of
+neqn: it does not support low-resolution, typewriter-like devices (although
+it may work adequately for very simple input).
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+
+
+
+<TABLE>
+
+<TR><TD>
+_C
+</TD><TD>
+Recognize .EQ and .EN even when followed by a character other than space or newline.
+</TD></TR><TR><TD>
+_N
+</TD><TD>
+Don't allow newlines within delimiters. This option allows
+eqn to recover better from missing closing delimiters.
+</TD></TR><TR><TD>
+_v
+</TD><TD>
+Print the version number.
+</TD></TR><TR><TD>
+_r
+</TD><TD>
+Only one size reduction.
+</TD></TR><TR><TD>
+_mn
+</TD><TD>
+The minimum point-size is n. eqn will not reduce the size of subscripts or superscripts to a smaller size <BR>
+than n.
+</TD></TR><TR><TD>
+_Tname
+</TD><TD>
+The output is for device name. The only effect of this is to define a macro
+name with a value of 1. Typically, eqnrc will use this to provide definitions appropriate for the output device. The default output device is
+ps.
+</TD></TR><TR><TD>
+_Mdir
+</TD><TD>
+ Search dir for eqnrc before the default directories.
+</TD></TR><TR><TD>
+_R
+</TD><TD>
+Don't load eqnrc.
+</TD></TR><TR><TD>
+_fF
+</TD><TD>
+This is equivalent to a gfontF command.
+</TD></TR><TR><TD>
+_sn
+</TD><TD>
+This is equivalent to a gsizen command. This option is deprecated.
+eqn will normally set equations at whatever the current
+pointsize is when the equation is encountered.
+</TD></TR><TR><TD>
+_pn
+</TD><TD>
+This says that subscripts and superscripts should be
+n points smaller than the surrounding text. This
+option is deprecated. Normally, eqn makes sets subscripts and superscripts at 70 percent of the size of
+the surrounding text.
+</TD></TR></TABLE>
+
+<P><B>
+USAGE
+</B>
+</P>
+
+
+<P>Only the differences between GNU eqn and UNIX
+eqn are described here.
+</P>
+<P>Most of the new features of GNU eqn are based on TeX. There are some references to the differences between TeX
+and GNU eqn as follows; these may safely be ignored if you do not know TeX.
+</P>
+
+<P><B>
+AUTOMATIC SPACING
+</B>
+</P>
+
+<P>eqn gives each component of an equation a type, and adjusts the spacing between components using that type. Possible
+types are
+</P>
+
+<TABLE>
+
+<TR><TD>
+ordinary
+</TD><TD>
+An ordinary character such as 1 or
+x
+</TD></TR><TR><TD>
+operator
+</TD><TD>
+A large operator such as ;
+</TD></TR><TR><TD>
+binary
+</TD><TD>
+A binary operator such as +
+</TD></TR><TR><TD>
+relation
+</TD><TD>
+A relation such as =
+</TD></TR></TABLE>
+
+<A NAME="PAGENUM-203"><P>Page 203</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+opening
+</TD><TD>
+An opening bracket such as (
+</TD></TR><TR><TD>
+closing
+</TD><TD>
+A closing bracket such as )
+</TD></TR><TR><TD>
+punctuation
+</TD><TD>
+A punctuation character such as
+,
+</TD></TR><TR><TD>
+inner
+</TD><TD>
+A subformula contained within brackets
+</TD></TR><TR><TD>
+suppress
+</TD><TD>
+Spacing that suppresses automatic spacing adjustment
+</TD></TR></TABLE>
+
+<P>Components of an equation get a type in one of two ways:
+</P>
+
+<TABLE>
+
+<TR><TD>
+typete
+</TD><TD>
+This yields an equation component that contains
+e but that has type t, where t is one of the types mentioned previously. For example, times is defined as
+type &quot;binary&quot; \(mu
+The name of the type doesn't have to be quoted, but quoting protects from macro expansion.
+</TD></TR><TR><TD>
+chartypettext
+</TD><TD>
+Unquoted groups of characters are split up into individual characters, and the type of each character
+is looked up; this changes the type that is stored for each character; it says that the characters in
+text from now on have type t. For example
+chartype &quot;punctuation&quot; .,;:
+would make the characters .,;: have type
+punctuation whenever they subsequently appeared in
+an equation. The type t can also be letter or digit; in these cases,
+chartype changes the font type of the characters. See the &quot;Fonts&quot; section, later in this manual page.
+</TD></TR></TABLE>
+
+<P><B>
+NEW PRIMITIVES
+</B>
+</P>
+
+<TABLE>
+
+<TR><TD>
+e1smallovere2
+</TD><TD>
+This is similar to over;
+smallover reduces the size of e1 and e2; it also puts less vertical space between
+e1 or e2 and the fraction bar. The over primitive corresponds to the
+\over primitive in display styles; smallover corresponds to
+\over in nondisplay styles.
+</TD></TR><TR><TD>
+vcentere
+</TD><TD>
+This vertically centers e about the math axis. The math axis is the vertical position about which
+characters such as + and - are centered; also it is the vertical position used for the bar of fractions. For example,
+sum is defined as
+{ type &quot;operator&quot; vcenter size +5 \(*S }
+</TD></TR><TR><TD>
+e1accente2
+</TD><TD>
+This sets e2 as an accent over
+e1. e2 is assumed to be at the correct height for a lowercase letter;
+e2 will be moved down according if e1 is taller or shorter than a lowercase letter. For example,
+hat is defined as
+ accent { &quot;^&quot; }
+dotdot, dot, tilde, vec, and dyad are also defined using the
+accent primitive.
+</TD></TR><TR><TD>
+e1uaccente2
+</TD><TD>
+This sets e2 as an accent under
+e1. e2 is assumed to be at the correct height for a character without
+a descender; e2 will be moved down if e1 has a descender.
+utilde is predefined using uaccent as a tilde
+accent below the baseline.
+</TD></TR><TR><TD>
+splittext
+</TD><TD>
+This has the same effect as simply
+text, but text is not subject to macro expansion because it is
+quoted; text will be split up and the spacing between individual characters will be adjusted.
+</TD></TR><TR><TD>
+nosplittext
+</TD><TD>
+This has the same effect as
+text, but because text is not quoted it will be subject to macro expansion;
+text will not be split up and the spacing between individual characters will not be adjusted.
+</TD></TR><TR><TD>
+eopprime
+</TD><TD>
+This is a variant of prime that acts as an operator on
+e.It produces a different result from prime in a
+case such as Aopprimesub1: With opprime the 1 will be tucked under the prime as a subscript to the
+A (as is conventional in mathematical typesetting), whereas with
+prime the 1 will be a subscript to the prime character. The precedence of
+opprime is the same as that of bar and under, which is higher than that
+of everything except accent and uaccent. In unquoted text, a
+` that is not the first character will be treated like
+opprime.
+</TD></TR><TR><TD>
+specialtexte
+</TD><TD>
+This constructs a new object from
+e using a gtroff(1) macro named text. When the macro is called,
+the string 0s will contain the output for e, and the number registers
+0w, 0h, 0d, 0skern and 0skew will contain the width, height, depth, subscript kern, and skew of
+e. (The subscript kern of an object says how much
+a subscript on that object should be tucked in; the
+skew of an object says how far to the right of the center
+of the object an accent over the object should be placed.) The macro must modify
+0s so that it will output the desired result with its origin at the current point, and increase the current horizontal position by
+the width of the object. The number registers must also be modified so that they correspond to the result.
+</TD></TR></TABLE>
+
+
+
+<P><CENTER>
+<a href="0200-0201.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0204-0205.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

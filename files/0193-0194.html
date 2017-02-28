@@ -1,0 +1,321 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0191-0192.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0195-0195.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-193"><P>Page 193</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+_margcount
+</TD><TD>
+Generate code which puts an argument count in the word preceding each argument list.
+Some nonportable Convex and VAX programs need this word. (Debuggers don't, except
+for functions with variable-length argument lists; this information is in the symbol table.)
+</TD></TR><TR><TD>
+_mnoargcount
+</TD><TD>
+Omit the argument count word. This is the default if you use the unmodified sources.
+</TD></TR></TABLE>
+
+<P>These _m options are defined for the AMD Am29000:
+</P>
+
+<TABLE>
+
+<TR><TD>
+_mdw
+</TD><TD>
+Generate code that assumes the DW bit is set, that is, that byte and half-word operations
+are directly supported by the hardware. This is the default.
+</TD></TR><TR><TD>
+_mnodw
+</TD><TD>
+Generate code that assumes the DW bit is not set.
+</TD></TR><TR><TD>
+_mbw
+</TD><TD>
+Generate code that assumes the system supports byte and halfword write operations. This is
+the default.
+</TD></TR><TR><TD>
+_mnbw
+</TD><TD>
+Generate code that assumes the systems does not support byte and halfword write
+operations. This implies _mnodw.
+</TD></TR><TR><TD>
+_msmall
+</TD><TD>
+Use a small memory model that assumes that all function addresses are either within a
+single 256KB segment or at an absolute address of less than 256K. This allows the
+call instruction to be used instead of a const,
+consth, calli sequence.
+</TD></TR><TR><TD>
+_mlarge
+</TD><TD>
+Do not assume that the call instruction can be used; this is the default.
+</TD></TR><TR><TD>
+_m29050
+</TD><TD>
+Generate code for the Am29050.
+</TD></TR><TR><TD>
+_m29000
+</TD><TD>
+Generate code for the Am29000. This is the default.
+</TD></TR><TR><TD>
+_mkernel_registers
+</TD><TD>
+Generate references to registers
+gr64_gr95 instead of gr96_gr127. This option can be used
+when compiling kernel code that wants a set of global registers disjoint from that used by
+user-mode code.<BR>
+ Note that when this option is used, register names in
+_f flags must use the normal, user-mode, names.
+</TD></TR><TR><TD>
+_muser_registers
+</TD><TD>
+Use the normal set of global registers,
+gr96_gr127. This is the default.
+</TD></TR><TR><TD>
+_mstack_check
+</TD><TD>
+Insert a call to msp check after each stack adjustment. This is often used for kernel code.
+</TD></TR></TABLE>
+
+
+<P>These _m options are defined for Motorola 88K architectures:
+</P>
+
+<TABLE>
+
+<TR><TD>
+_m88000
+</TD><TD>
+Generate code that works well on both the m88100 and the m88110.
+</TD></TR><TR><TD>
+_m88100
+</TD><TD>
+Generate code that works best for the m88100, but that also runs on the m88110.
+</TD></TR><TR><TD>
+_m88110
+</TD><TD>
+Generate code that works best for the m88110, and may not run on the m88100.
+</TD></TR><TR><TD>
+_midentify_revision
+</TD><TD>
+Include an ident directive in the assembler output recording the source filename,
+compiler name and version, timestamp, and compilation flags used.
+</TD></TR><TR><TD>
+_mno_underscores
+</TD><TD>
+In assembler output, emit symbol names without adding an underscore character at
+the beginning of each name. The default is to use an underscore as prefix on each name.
+</TD></TR><TR><TD>
+_mcheck_zero_division
+</TD><TD>
+Early models of the 88K architecture had problems with division by zero; in particular, many of
+</TD></TR><TR><TD>
+_mno_check_zero_division
+</TD><TD>
+them didn't trap. Use these options to avoid including (or to include explicitly) additional
+code to detect division by zero and signal an exception. All
+gcc configurations for the 88K use <BR>
+_mcheck_zero_division by default.
+</TD></TR><TR><TD>
+_mocs_debug_info
+</TD><TD>
+Include (or omit) additional debugging information (about registers used in each stack frame)
+</TD></TR><TR><TD>
+_mno_ocs_debug_info
+</TD><TD>
+as specified in the 88Open Object Compatibility Standard, OCS. This extra information is
+not needed by GDB. The default for DG/UX, SVr4, and Delta 88 SVr3.2 is to include
+this information; other 88K configurations omit this information by default.
+</TD></TR><TR><TD>
+_mocs_frame_position
+</TD><TD>
+Force (or do not require) register values to be stored in a particular place in stack frames, as
+</TD></TR><TR><TD>
+_mno_ocs_frame_position
+</TD><TD>
+specified in OCS. The DG/UX,
+Delta88 SVr3.2, and BCS configurations use
+_mocs_frame_ position; other 88K configurations have the default
+_mno_ocs_ frame_position.
+</TD></TR><TR><TD>
+_moptimize_arg_area
+</TD><TD>
+Control how to store function arguments in stack frames.
+_moptimize_arg_area saves space, but
+</TD></TR><TR><TD>
+_mno_optimize_arg_area
+</TD><TD>
+may break some debuggers (not GDB).
+_mno_optimize_arg_area conforms better to
+standards. By default gcc does not optimize the argument area.
+</TD></TR></TABLE>
+
+
+<A NAME="PAGENUM-194"><P>Page 194</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+_mshort_data_num
+</TD><TD>
+Generate smaller data references by making them relative to
+r0, which allows loading a value using a single instruction (rather than the usual two). You control which data references
+are affected by specifying num with this option. For example, if you specify
+_mshort_data_512,
+then the data references affected are those involving displacements of less than 512 bytes. <BR>
+_mshort_data-num is not effective for num greater than 64K.
+</TD></TR><TR><TD>
+_mserialize-volatile
+</TD><TD>
+Do, or do not, generate code to guarantee sequential consistency of volatile memory references.
+</TD></TR><TR><TD>
+_mno-serialize-volatile
+</TD><TD>
+GNU CC always guarantees consistency by default, for the preferred processor submodel.
+How this is done depends on the submodel.
+The m88100 processor does not reorder memory references and so always provides
+sequential consistency. If you use _m88100, GNU CC does not generate any special instructions
+for sequential consistency.<BR>
+The order of memory references made by the m88110 processor does not always match
+the order of the instructions requesting those references. In particular, a load instruction
+may execute before a preceding store instruction. Such reordering violates sequential consistency
+of volatile memory references, when there are multiple processors. When you use
+_m88000 or
+_m88110, GNU CC generates special instructions when appropriate, to force execution in
+the proper order.<BR>
+The extra code generated to guarantee consistency may affect the performance of
+your application. If you know that you can safely forgo this guarantee, you may use the option <BR>
+_mno-serialize-volatile.<BR>
+If you use the _m88100 option but require sequential consistency when running on the
+m88110 processor, you should use
+_mserialize-volatile.
+</TD></TR><TR><TD>
+_msvr4, _msvr3
+</TD><TD>
+Turn on (_msvr4) or off
+(_msvr3) compiler extensions related to System V release 4 (SVr4).
+This controls the following:<BR>
+Which variant of the assembler syntax to emit (which you can select independently using <BR>
+_mversion_03.00).<BR>
+ _msvr4 makes the C preprocessor recognize #pragma weak.<BR>
+ _msvr4 makes gcc issue additional declaration directives used in SVr4.<BR>
+  _msvr3 is the default for all m88K configurations except the SVr4 configuration.
+</TD></TR><TR><TD>
+_mtrap_large_shift
+</TD><TD>
+Include code to detect bit-shifts of more than 31 bits; respectively, trap such shifts or emit code
+</TD></TR><TR><TD>
+_mhandle_large_shift
+</TD><TD>
+to handle them properly. By default,
+gcc makes no special provision for large bit shifts.
+</TD></TR><TR><TD>
+_muse_div_instruction
+</TD><TD>
+Very early models of the 88K architecture didn't have a divide instruction, so
+gcc avoids that instruction by default. Use this option to specify that it's safe to use the divide instruction.
+</TD></TR><TR><TD>
+_mversion_03.00
+</TD><TD>
+In the DG/UX configuration, there are two flavors of SVr4. This option modifies
+_msvr4 to select whether the hybrid-COFF or real-ELF flavor is used. All other configurations ignore
+this option.
+</TD></TR><TR><TD>
+_mwarn_passed_structs
+</TD><TD>
+Warn when a function passes a
+struct as an argument or result. Structure-passing
+conventions have changed during the evolution of the C language, and are often the source of
+portability problems. By default, gcc issues no such warning.
+</TD></TR></TABLE>
+
+<P>These options are defined for the IBM RS6000:
+</P>
+
+<TABLE>
+
+<TR><TD>
+_mfp_in_toc
+</TD><TD>
+Control whether or not floating-point constants go in the table of contents (TOC), a table of
+</TD></TR><TR><TD>
+_mno_fp_in_toc
+</TD><TD>
+all global variable and function addresses. By default
+gcc puts floating-point constants there; if the TOC overflows,
+_mno_fp_in_toc will reduce the size of the TOC, which may avoid
+the overflow.
+</TD></TR></TABLE>
+
+<P>These _m options are defined for the IBM RT PC:
+</P>
+
+<TABLE>
+
+<TR><TD>
+_min_line_mul
+</TD><TD>
+Use an inline code sequence for integer multiplies. This is the default.
+</TD></TR><TR><TD>
+_mcall_lib_mul
+</TD><TD>
+Call lmul$$ for integer multiples.
+</TD></TR><TR><TD>
+_mfull_fp_blocks
+</TD><TD>
+Generate full-size floating-point data blocks, including the minimum amount of scratch
+space recommended by IBM. This is the default.
+</TD></TR></TABLE>
+
+
+
+<P><CENTER>
+<a href="0191-0192.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0195-0195.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

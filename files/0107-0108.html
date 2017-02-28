@@ -1,0 +1,409 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0105-0106.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0109-0110.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-107"><P>Page 107</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+Argument
+</TD><TD>
+Sample output
+</TD><TD>
+Explanation
+</TD></TR><TR><TD>
+%e
+</TD><TD>
+8
+</TD><TD>
+Day of month (leading zero blanked)
+</TD></TR><TR><TD>
+%h
+</TD><TD>
+Mar
+</TD><TD>
+Abbreviated month name*
+</TD></TR><TR><TD>
+%H
+</TD><TD>
+14
+</TD><TD>
+24-hour-clock hour (two digits)
+</TD></TR><TR><TD>
+%I
+</TD><TD>
+02
+</TD><TD>
+12-hour-clock hour (two digits)
+</TD></TR><TR><TD>
+%j
+</TD><TD>
+067
+</TD><TD>
+Julian day number (three digits)
+</TD></TR><TR><TD>
+%k
+</TD><TD>
+2
+</TD><TD>
+12-hour-clock hour (leading zero blanked)
+</TD></TR><TR><TD>
+%l
+</TD><TD>
+14
+</TD><TD>
+24-hour-clock hour (leading zero blanked)
+</TD></TR><TR><TD>
+%m
+</TD><TD>
+03
+</TD><TD>
+Month number (two digits)
+</TD></TR><TR><TD>
+%M
+</TD><TD>
+54
+</TD><TD>
+Minute (two digits)
+</TD></TR><TR><TD>
+%n
+</TD><TD>
+nn
+</TD><TD>
+Newline character
+</TD></TR><TR><TD>
+%p
+</TD><TD>
+PM
+</TD><TD>
+AM/PM designation
+</TD></TR><TR><TD>
+%r
+</TD><TD>
+02:54:40 PM
+</TD><TD>
+Hour:minute:second AM/PM designation
+</TD></TR><TR><TD>
+%R
+</TD><TD>
+14:54
+</TD><TD>
+Hour:minute
+</TD></TR><TR><TD>
+%S
+</TD><TD>
+40
+</TD><TD>
+Second (two digits)
+</TD></TR><TR><TD>
+%t
+</TD><TD>
+nt
+</TD><TD>
+Tab character
+</TD></TR><TR><TD>
+%T
+</TD><TD>
+14:54:40
+</TD><TD>
+Hour:minute:second
+</TD></TR><TR><TD>
+%U
+</TD><TD>
+10
+</TD><TD>
+Sunday-based week number (two digits)
+</TD></TR><TR><TD>
+%w
+</TD><TD>
+3
+</TD><TD>
+Day number (one digit, Sunday is 0)
+</TD></TR><TR><TD>
+%W
+</TD><TD>
+10
+</TD><TD>
+Monday-based week number (two digits)
+</TD></TR><TR><TD>
+%x
+</TD><TD>
+03/08/89
+</TD><TD>
+Date*
+</TD></TR><TR><TD>
+%X
+</TD><TD>
+14:54:40
+</TD><TD>
+Time*
+</TD></TR><TR><TD>
+%y
+</TD><TD>
+89
+</TD><TD>
+Last two digits of year
+</TD></TR><TR><TD>
+%Y
+</TD><TD>
+1989
+</TD><TD>
+Year in full
+</TD></TR><TR><TD>
+%Z
+</TD><TD>
+EST
+</TD><TD>
+Time zone abbreviation
+</TD></TR><TR><TD>
+%+
+</TD><TD>
+Wed Mar 8 14:54:40 EST 1989
+</TD><TD>
+Default output format*
+</TD></TR></TABLE>
+
+<P>* The exact output depends on the locale.</P>
+
+<P>
+If a character other than one of those shown in the preceding table appears after a percent sign in the format, that
+following character is output. All other characters in the format are copied unchanged to the output; a newline character is
+always added at the end of the output.
+</P>
+
+<P>In Sunday-based week numbering, the first Sunday of the year begins week 1; days preceding it are part of week 0.
+In Monday-based week numbering, the first Monday of the year begins week 1.
+</P>
+
+<P>To set the date, use a command-line argument with one of the following forms:</P>
+
+
+<TABLE>
+
+<TR><TD>
+1454
+</TD><TD>
+24-hour-clock hours (first two digits) and minutes
+</TD></TR><TR><TD>
+081454
+</TD><TD>
+Month day (first two digits), hours, and minutes
+</TD></TR><TR><TD>
+03081454
+</TD><TD>
+Month (two digits, January is 01), month day, hours, minutes
+</TD></TR><TR><TD>
+8903081454
+</TD><TD>
+Year, month, month day, hours, minutes
+</TD></TR><TR><TD>
+0308145489
+</TD><TD>
+Month, month day, hours, minutes, year (on System V-compatible systems)
+</TD></TR><TR><TD>
+030814541989
+</TD><TD>
+Month, month day, hours, minutes, four-digit year
+</TD></TR><TR><TD>
+198903081454
+</TD><TD>
+Four-digit year, month, month day, hours, minutes
+</TD></TR></TABLE>
+
+<A NAME="PAGENUM-108"><P>Page 108</P></A>
+
+
+<P>If the century, year, month, or month day is not given, the current value is used. Any of the preceding forms may
+be followed by a period and two digits that give the seconds part of the new time; if no seconds are given, zero is assumed.
+</P>
+
+<P>These options are available:</P>
+
+
+<TABLE>
+
+<TR><TD>
+_u or _c
+</TD><TD>
+Use GMT when setting and showing the date and time.
+</TD></TR><TR><TD>
+_n
+</TD><TD>
+Do not notify other networked systems of the time change.
+</TD></TR><TR><TD>
+_d dsttype
+</TD><TD>
+Set the kernel-stored Daylight Saving Time type to the given value. (The kernel-stored DST type
+is used mostly by &quot;old&quot; binaries.)
+</TD></TR><TR><TD>
+_t minutes-west
+</TD><TD>
+Set the kernel-stored &quot;minutes west of GMT&quot; value to the one given on the command line.
+(The kernel-stored DST type is used mostly by &quot;old&quot; binaries.)
+</TD></TR><TR><TD>
+_a adjustment
+</TD><TD>
+Change the time forward (or backward) by the number of seconds (and fractions thereof)
+specified in the adjustment argument. Either the seconds part or the fractions part of the argument (but
+not both) may be omitted. On BSD-based systems, the adjustment is made by changing the rate
+at which time advances; on System-V_based systems, the adjustment is made by changing the time.
+</TD></TR></TABLE>
+
+<P><B>
+FILES
+</B></P>
+
+<TABLE>
+
+<TR><TD>
+/usr/lib/locale/L/LC TIME
+</TD><TD>
+Description of time locale L
+</TD></TR><TR><TD>
+/usr/local/etc/zoneinfo
+</TD><TD>
+Time zone information directory
+</TD></TR><TR><TD>
+/usr/local/etc/zoneinfo/localtime
+</TD><TD>
+Local time zone file
+</TD></TR><TR><TD>
+/usr/local/etc/zoneinfo/posixrules
+</TD><TD>
+Used with POSIX-style TZs
+</TD></TR><TR><TD>
+/usr/local/etc/zoneinfo/GMT
+</TD><TD>
+For UTC leap seconds
+</TD></TR></TABLE>
+
+<P>If /usr/local/etc/zoneinfo/GMT is absent, UTC leap seconds are loaded from
+/usr/local/etc/zoneinfo/posixrules.</P>
+
+<H3><A NAME="ch01_ 51">
+dd
+</A></H3>
+
+<P>dd&#151;Convert a file while copying it (data dumper)</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+
+<!-- CODE //-->
+<PRE>
+dd [&#151;help] [&#151;version] [if=file] [of=file] [ibs=bytes] [obs=bytes] [bs=bytes]
+[cbs=bytes] [skip=blocks] [seek=blocks] [count=blocks] [conv={ascii,
+ebcdic, ibm, block, unblock, lcase, ucase, swab, noerror, notrunc, sync}]
+</PRE>
+<!-- END CODE //-->
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+<P>This manual page documents the GNU version of
+dd. dd copies a file (from the standard input to the standard output,
+by default) with a user-selectable blocksize, while optionally performing conversions on it.
+</P>
+
+
+<P><B>
+OPTIONS
+</B></P>
+
+<P>Numbers can be followed by a multiplier:</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+b=512, c=1, k=1024, w=2, xm=number m
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>These options are available:</P>
+
+
+<TABLE>
+
+<TR><TD>
+&#151;help
+</TD><TD>
+Print a usage message on standard output and exit successfully.
+</TD></TR><TR><TD>
+&#151;version
+</TD><TD>
+Print version information on standard output then exit successfully.
+</TD></TR><TR><TD>
+if=file
+</TD><TD>
+Read from file instead of the standard input.
+</TD></TR><TR><TD>
+of=file
+</TD><TD>
+Write to file instead of the standard output. Unless
+conv=notrunc is given, truncate file to the size specified by
+seek= (0 bytes if seek= is not given).
+</TD></TR><TR><TD>
+ibs=bytes
+</TD><TD>
+Read bytes bytes at a time.
+</TD></TR><TR><TD>
+obs=bytes
+</TD><TD>
+Write bytes bytes at a time.
+</TD></TR><TR><TD>
+bs=bytes
+</TD><TD>
+Read and write bytes bytes at a time. Override
+ibs and obs.
+</TD></TR></TABLE>
+
+
+
+<P><CENTER>
+<a href="0105-0106.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0109-0110.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

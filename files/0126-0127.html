@@ -1,0 +1,299 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0124-0125.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0128-0130.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-126"><P>Page 126</P></A>
+
+
+<!-- CODE //-->
+<PRE>
+                                Toggle class
+                          .
+                          .
+                          .
+                          Label namesLabel
+                          List namesList
+                          Label constraintLabel
+                          List constraintList
+                          Form valueForm
+                          Label valueLabel
+                          Text valueText
+                          Box commandBox
+                          Command setFile
+                          Command save
+                          Command apply
+                          Command saveAndApply
+                          Command cancel
+                          Grip grip
+              Grip grip
+</PRE>
+<!-- END CODE //-->
+
+
+<P><B>
+ENVIRONMENT
+</B></P>
+
+<TABLE>
+
+<TR><TD>
+DISPLAY
+</TD><TD>
+To get the default host and display number
+</TD></TR><TR><TD>
+XENVIRONMENT
+</TD><TD>
+To get the name of a resource file that overrides the global resources stored in the
+RESOURCE_MANAGER property.
+</TD></TR></TABLE>
+
+
+<P><B>
+FILES
+</B></P>
+
+<P>&lt;XRoot&gt;/lib/X11/app-defaults/Editres specifies required resources.</P>
+
+<P><B>
+SEE ALSO
+</B></P>
+
+<P>X(1), xrdb(1), Athena Widget Set</P>
+
+<P><B>
+RESTRICTIONS
+</B></P>
+
+<P>This is a prototype. There are lots of nifty features I would love to add, but I hope this will give you some ideas about what
+a resource editor can do.
+</P>
+
+<P><B>
+AUTHOR
+</B></P>
+
+<P>Chris D. Peterson (formerly MIT X Consortium)
+</P>
+
+<P>X Version 11 Release 6
+</P>
+
+<H3><A NAME="ch01_ 60">
+elvis, ex, vi, view, input
+</A></H3>
+
+<P>elvis, ex, vi, view, input&#151;The editor</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>
+elvis [flags][+cmd][files...]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+<P>elvis is a text editor that emulates vi/ex.
+<P>On systems which pass the program name as an argument, such as UNIX and Minix, you may also install
+elvis under the names ex, vi, view, and input. These extra names would normally be links to
+elvis; see the ln shell command.
+</P>
+
+<A NAME="PAGENUM-127"><P>Page 127</P></A>
+
+
+<P>
+When elvis is invoked as vi, it behaves exactly as though it was invoked as
+elvis. However, if you invoke elvis as view, then the
+readonly option is set as though you had given it the
+-R flag. If you invoke elvis as ex, then elvis will start up in
+the colon command mode instead of the visual command mode, as though you had given it the
+-e flag. If you invoke elvis as input or edit, then
+elvis will start up in input mode, as though the
+-i flag was given.
+</P>
+
+<P><B>
+OPTIONS
+</B></P>
+
+<TABLE>
+
+<TR><TD>
+-r
+</TD><TD>
+To the real vi, this flag means that a previous edit should be recovered.
+elvis, though, has a separate program, called
+elvrec(1), for recovering files. When you invoke
+elvis with -r, elvis will tell you to run elvrec.
+</TD></TR><TR><TD>
+-R
+</TD><TD>
+This sets the readonly option, so you won't accidentally overwrite a file.
+</TD></TR><TR><TD>
+-s
+</TD><TD>
+This sets the safer option, which disables many potentially harmful commands. It has not
+been rigorously proven to be absolutely secure, however.
+</TD></TR><TR><TD>
+-t tag
+</TD><TD>
+This causes elvis to start editing at the given tag.
+</TD></TR><TR><TD>
+-m [file]
+</TD><TD>
+elvis will search through file for something that looks like an error message from a compiler.
+It will then begin editing the source file that caused the error, with the cursor sitting on the line
+where the error was detected. If you don't explicitly name a file, then
+errlist is assumed.
+</TD></TR><TR><TD>
+-e
+</TD><TD>
+elvis will start up in colon command mode.
+</TD></TR><TR><TD>
+-v
+</TD><TD>
+elvis will start up in visual command mode.
+</TD></TR><TR><TD>
+-i
+</TD><TD>
+elvis will start up in input mode.
+</TD></TR><TR><TD>
+-w winsize
+</TD><TD>
+Sets the window option's value to winsize.
+</TD></TR><TR><TD>
++command or -c command
+</TD><TD>
+If you use the
++command parameter, then after the first file is loaded,
+command is executed as an EX command. A typical example would be
+elvis +237 foo, which would cause elvis to start
+editing foo and then move directly to line 237. The
+-c command variant was added for UNIX SysV compatibility.
+</TD></TR></TABLE>
+
+<P><B>
+FILES
+</B></P>
+
+<TABLE>
+
+<TR><TD>
+/tmp/elv*
+</TD><TD>
+During editing, elvis stores text
+in a temporary file. For UNIX, this file will usually be stored
+in the /tmp directory, and the first three characters will be
+elv. For other systems, the temporary files may be stored someplace else; see the version-specific section of the documentation.
+</TD></TR><TR><TD>
+tags
+</TD><TD>
+This is the database used by the :tags command and the
+-t option. It is usually created by the ctags(1) program.
+</TD></TR><TR><TD>
+.exrc or elvis.rc
+</TD><TD>
+On UNIX-like systems, a file called
+.exrc in your home directory is executed as a series of
+ex commands. A file by the same name may be executed in the current directory, too. On
+non-UNIX systems, .exrc is usually an invalid filename; there, the initialization file is called
+elvis.rc instead.
+</TD></TR></TABLE>
+
+
+<P><B>
+ENVIRONMENT
+</P></B>
+
+<TABLE>
+
+<TR><TD>
+TERM
+</TD><TD>
+This is the name of your terminal's entry in the
+termcap or terminfo database. The list of legal values varies from one system to another.
+</TD></TR><TR><TD>
+TERMCAP
+</TD><TD>
+Optional. If your system uses
+termcap, and the TERMCAP variable is unset, then
+elvis will read your terminal's definition from
+/etc/termcap. If TERMCAP is set to the full pathname of a file (starting
+with a /) then elvis will look in the named file instead of
+/etc/termcap. If TERMCAP is set to a value which doesn't start with a
+/, then its value is assumed to be the full
+termcap entry for your terminal.
+</TD></TR><TR><TD>
+TERMINFO
+</TD><TD>
+Optional. If your system uses
+terminfo, and the TERMINFO variable is unset, then
+elvis will read your terminal's definition from the database in the
+/usr/lib/terminfo database. If TERMINFO is set, then
+its value is used as the database name to use instead of
+/usr/lib/terminfo.
+</TD></TR><TR><TD>
+LINES, COLUMNS
+</TD><TD>
+Optional. These variables, if set, will override the screen size values given in the
+termcap/terminfo for your terminal. On windowing systems such as X,
+elvis has other ways of determining the screen size, so you should probably leave these variables unset.
+</TD></TR><TR><TD>
+EXINIT
+</TD><TD>
+Optional. This variable can hold EX commands which will be executed instead of the
+.exrc file in your home directory.
+</TD></TR></TABLE>
+
+
+
+<P><CENTER>
+<a href="0124-0125.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0128-0130.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

@@ -1,0 +1,280 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0102-0102.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0105-0106.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-103"><P>Page 103</P></A>
+
+
+<P>
+The symbolic tags are meant to permanently record which revisions of which files were used in creating a software
+distribution. The checkout, export, and update commands allow you to extract an exact copy of a tagged release at any time in
+the future, regardless of whether files have been changed, added, or removed since the release was tagged.
+</P>
+
+<P>You can use the standard -r and _D options to tag only those files that already contain a certain tag. This method would
+be used to rename a tag: tag only the files identified by the old tag, then delete the old tag, leaving the new tag on exactly
+the same files as the old tag.
+</P>
+
+<P>Specifying the _f flag in addition to the -r or
+_D flags will tag those files named on the command line even if they do
+not contain the old tag or did not exist on the specified date.
+<P>By default (without a -r or _D flag), the versions to be tagged are supplied implicitly by the
+cvs records of your working files' history rather than applied explicitly.
+</P>
+
+<P>If you use cvs tag _d symbolic tag..., the symbolic tag you specify is deleted instead of being added.</P>
+<P>
+<P>
+<P>
+<P>
+<P>
+
+<CENTER>
+<TABLE BGCOLOR="#FFFF99">
+<TR><TD><B>
+WARNING
+</B></TD></TR>
+<TR><TD>
+<BLOCKQUOTE>
+Be very certain of your ground before you delete a tag; doing this effectively discards some historical information,
+which may later turn out to have been valuable.
+</BLOCKQUOTE></TD></TR>
+</TABLE></CENTER>
+</P>
+<P>cvs tag will not move a tag that already exists. With the
+_F option, however, cvs tag will relocate any instance of
+symbolic tag that already exists on that file to the new repository versions. Without the
+_F option, attempting to use cvs tag to apply a tag that already exists on that file will produce an error message.
+</P>
+
+<P>The -b option makes the tag a branch tag, allowing concurrent, isolated development. This is most useful for creating a
+patch to a previously released software distribution.
+</P>
+
+<P>Normally, tag executes recursively through subdirectories; you can prevent this by using the standard
+_l option, or specify the recursion explicitly by using
+_R.
+</P>
+
+
+<!-- CODE SNIP //-->
+<PRE>
+update [_Adf lPpQqR][_d][_r tag|_D date]files...
+</PRE>
+<!-- END CODE SNIP //-->
+
+<TABLE>
+
+<TR><TD>
+Requires:
+</TD><TD>
+Repository, working directory
+</TD></TR><TR><TD>
+Changes:
+</TD><TD>
+Working directory
+</TD></TR></TABLE>
+
+<P>After you've run checkout to create your private copy of source from the common repository, other developers will
+continue changing the central source. From time to time, when it is convenient in your development process, you can use the
+update command from within your working directory to reconcile your work with any revisions applied to the source
+repository since your last checkout or update.
+</P>
+
+<P>update keeps you informed of its progress by printing a line for each file, prefaced with one of the characters
+U, A, R, M, C, or ? to indicate the status of the file:
+</P>
+
+
+<TABLE>
+
+<TR><TD>
+U file
+</TD><TD>
+The file was brought up-to-date with respect to the repository. This is done for any file that exists
+in the repository but not in your source, and for files that you haven't changed but are not the
+most recent versions available in the repository.
+</TD></TR><TR><TD>
+A file
+</TD><TD>
+The file has been added to your private copy of the sources, and will be added to the RCS
+source repository when you run cvs commit on the file. This is a reminder to you that the file needs to
+be committed.
+</TD></TR><TR><TD>
+R file
+</TD><TD>
+The file has been removed from your private copy of the sources, and will be removed from the
+RCS source repository when you run cvs commit on the file. This is a reminder to you that the file needs
+to be committed.
+</TD></TR><TR><TD>
+M file
+</TD><TD>
+The file is modified in your working directory.
+M can indicate one of two states for a file you're
+working on: either there were no modifications to the same file in the repository, so that your file remains
+as you last saw it; or there were modifications in the repository as well as in your copy, but they
+were merged successfully, without conflict, in your working directory.
+</TD></TR></TABLE>
+
+
+<A NAME="PAGENUM-104"><P>Page 104</P></A>
+
+<TABLE>
+
+<TR><TD>
+C file
+</TD><TD>
+A conflict was detected while trying to merge your changes to
+file with changes from the source repository. file (the copy in your working directory) is now the output of the
+rcsmerge(1) command on the two versions; an unmodified copy of your file is also in your working directory, with the
+name .#file.version, where version is the RCS revision that your modified file started from. (Note
+that some systems automatically purge files that begin with
+.# if they have not been accessed for a few days. If you intend to keep a copy of your original file, it is a very good idea to rename it.)
+</TD></TR><TR><TD>
+? file
+</TD><TD>
+file is in your working directory, but does not correspond to anything in the source repository, and
+is not in the list of files for cvs to ignore; see the description of the
+_I option.
+</TD></TR></TABLE>
+
+<P>Use the _A option to reset any sticky tags, dates, or
+_k options. (If you get a working copy of a file by using one of the
+-r, _D, or _k options, cvs remembers the corresponding
+tag, date, or kflag and continues using it on future updates; use the
+_A option to make cvs forget these specifications, and retrieve the
+head version of the file).
+</P>
+
+<P>The _jbranch option merges the changes made between the resulting revision and the revision that it is based on.
+(For example, if the tag refers to a branch, cvs will merge all changes made in that branch into your working file.)
+</P>
+
+<P>With two -j options, cvs will merge in the changes between the two respective revisions. This can be used to &quot;remove&quot;
+a certain delta from your working file. For example, if the file
+foo.c is based on revision 1.6 and I want to remove the
+changes made between 1.3 and 1.5, I might do this:
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+example% cvs update -j1.5 -j1.3 foo.c # note the order...
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>In addition, each -j option can contain on optional date specification which, when used with branches, can limit the
+chosen revision to one within a specific date. An optional date is specified by adding a colon
+(:) to the tag:
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+-jSymbolic Tag:Date Specifier
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>Use the _d option to create any directories that exist in the repository if they're missing from the working
+directory. (Normally, update acts only on directories and files that were already enrolled in your working directory.) This is useful
+for updating directories that were created in the repository since the initial checkout; but it has an unfortunate side effect. If
+you deliberately avoided certain directories in the repository when you created your working directory (either through use of
+a module name or by listing explicitly the files and directories you wanted on the command line), then updating with
+_d will create those directories, which may not be what you want.
+</P>
+
+<P>Use _I name to ignore files whose names match
+name (in your working directory) during the update. You can specify
+_I more than once on the command line to specify several files to ignore. By default,
+update ignores files whose names match any of the following:
+</P>
+
+<!-- CODE //-->
+<PRE>
+RCSLOG RCS SCCS
+CVS* cvslog.*
+tags TAGS
+.make.state .nse_depinfo
+~ #* .#* ,
+.old *.bak *.BAK *.orig *.rej .del_*
+.a *.o *.so *.Z *.elc *.ln core
+</PRE>
+<!-- END CODE //-->
+
+<P>Use _I! to avoid ignoring any files at all.</P>
+
+<P>The standard cvs command options _f, _k, _l, _P,
+_p, and _r are also available with update.
+</P>
+
+
+<P><B>
+FILES
+</B></P>
+
+<P>For more detailed information on cvs supporting files, see
+cvs(5).
+</P>
+
+<P>Files in home directories:</P>
+
+<TABLE>
+
+<TR><TD>
+.cvsrc
+</TD><TD>
+The cvs initialization file. Lines in this file can be used to specify default options for each
+cvs command. For example, the line diff _c will ensure that
+cvs diff is always passed the _c option in addition to any other options passed on the command line.
+</TD></TR><TR><TD>
+.cvswrappers
+</TD><TD>
+Specifies wrappers to be used in addition to those specified in the
+CVSROOT/cvswrappers file in the repository.
+</TD></TR></TABLE>
+
+
+
+<P><CENTER>
+<a href="0102-0102.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0105-0106.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

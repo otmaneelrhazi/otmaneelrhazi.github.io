@@ -1,0 +1,609 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0072-0073.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0078-0080.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-74"><P>Page 74</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+_xsuffixes
+</TD><TD>
+Uses suffixes to characterize RCS files. See
+ci(1) for details.
+</TD></TR><TR><TD>
+_zzone
+</TD><TD>
+Specifies the date output format in keyword substitution, and specifies the default time zone
+for date in the _ddate option. The zone should be empty, a numeric UTC offset, or the special
+string LT for local time. The default is an empty zone, which uses the traditional RCS format of
+UTC without any time zone indication and with slashes separating the parts of the date; otherwise,
+times are output in ISO 8601 format with time zone indication. For example, if local time is January
+11, 1990, 8 p.m. Pacific Standard Time, eight hours west of UTC, then the time is output as follows:
+
+</TD></TR></TABLE>
+
+
+<TABLE>
+
+<TR><TD>
+Option
+</TD><TD>
+Time Output
+</TD></TR><TR><TD>
+_z
+</TD><TD>
+1990/01/12 04:00:00 (default)
+</TD></TR><TR><TD>
+_zLT
+</TD><TD>
+1990-01-11 20:00:00_08
+</TD></TR><TR><TD>
+_z+05:30
+</TD><TD>
+1990-01-12 09:30:00+05:30
+</TD></TR></TABLE>
+
+
+
+<P>The _z option does not affect dates stored in RCS files, which are always UTC.
+</P>
+
+<P><B>
+KEYWORD SUBSTITUTION
+</B></P>
+
+
+
+<P>Strings of the form $ keyword $ and $ keyword : ...
+$ embedded in the text are replaced with strings of the form
+$ keyword : value $, where keyword and value are pairs in the following list. Keywords can be embedded in literal strings or
+comments to identify a revision.
+</P>
+
+<P>Initially, the user enters strings of the form
+$keyword$. On checkout, co replaces these strings with strings of the
+form $keyword : value$. If a revision containing strings of the latter form is checked back in, the
+value fields will be replaced during the next checkout. Thus, the keyword values are automatically updated on checkout. This automatic substitution
+can be modified by the _k options.
+</P>
+<P>Keywords and their corresponding values:
+</P>
+
+<TABLE>
+
+<TR><TD>
+$Author$
+</TD><TD>
+The login name of the user who checked in the revision.
+</TD></TR><TR><TD>
+$Date$
+</TD><TD>
+The date and time the revision was checked in. With
+_zzone, a numeric time zone offset is appended; otherwise, the date is UTC.
+</TD></TR><TR><TD>
+$Header$
+</TD><TD>
+A standard header containing the full pathname of the RCS file, the revision number, the date
+and time, the author, the state, and the locker (if locked). With
+_zzone, a numeric time zone offset is appended to the date; otherwise, the date is UTC.
+</TD></TR><TR><TD>
+$Id$
+</TD><TD>
+Same as $Header$, except that the RCS filename is without a path.
+</TD></TR><TR><TD>
+$Locker$
+</TD><TD>
+The login name of the user who locked the revision (empty if not locked).
+</TD></TR><TR><TD>
+$Log$
+</TD><TD>
+The log message supplied during checkin, preceded by a header containing the RCS filename,
+the revision number, the author, and the date and time. With
+_zzone a numeric time zone offset is appended; otherwise, the date is UTC. Existing log messages are not replaced. Instead, the new
+log message is inserted after $Log: ... $ . This is useful for accumulating a complete change log in
+a source file.
+</TD></TR></TABLE>
+
+
+
+<P>Each inserted line is prefixed by the string that prefixes the
+$Log$ line. For example, if the $Log$ line is // $Log: tan.cc
+$, RCS prefixes each line of the log with //. This is useful for languages with comments that go to the end of the line.
+The convention for other languages is to use a * prefix inside a multiline comment. For example, the initial log comment of a
+C program conventionally is of the following form:
+</P>
+
+
+<!-- CODE SNIP //-->
+<PRE>
+ /*
+* $Log$
+*/
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>For backwards compatibility with older versions of RCS, if the log prefix is
+/* or (* surrounded by optional whitespace, inserted log lines contain a space instead of
+/ or (; however, this usage is obsolescent and should not be relied on.
+</P>
+
+<TABLE>
+
+<TR><TD>
+$Name$
+</TD><TD>
+The symbolic name used to check out the revision, if any. For example,
+co -r Joe generates $Name: Joe $. Plain co generates just
+$Name: $.
+</TD></TR></TABLE>
+
+
+<A NAME="PAGENUM-75"><P>Page 75</P></A>
+
+<TABLE>
+
+<TR><TD>
+$RCSfile$
+</TD><TD>
+The name of the RCS file without a path.
+</TD></TR><TR><TD>
+$Revision$
+</TD><TD>
+The revision number assigned to the revision.
+</TD></TR><TR><TD>
+$Source$
+</TD><TD>
+The full pathname of the RCS file.
+</TD></TR><TR><TD>
+$State$
+</TD><TD>
+The state assigned to the revision with the
+_s option of rcs(1) or ci(1).
+
+</TD></TR></TABLE>
+
+<P>The following characters in keyword values are represented by escape sequences to keep keyword strings well-formed.
+</P>
+
+
+<TABLE>
+
+<TR><TD>
+Character
+</TD><TD>
+Escape Sequence
+</TD></TR><TR><TD>
+tab
+</TD><TD>
+\t
+</TD></TR><TR><TD>
+newline
+</TD><TD>
+\n
+</TD></TR><TR><TD>
+space
+</TD><TD>
+\040
+</TD></TR><TR><TD>
+$
+</TD><TD>
+\044
+</TD></TR><TR><TD>
+\
+</TD><TD>
+\\
+
+</TD></TR></TABLE>
+
+<P><B>
+FILE MODES 
+</B></P>
+
+
+<P>The working file inherits the read and execute permissions from the RCS file. In addition, the owner write permission
+is turned on, unless _kv is set or the file is checked out unlocked and locking is set to strict; see
+rcs(1).
+</P>
+
+<P>If a file with the name of the working file exists already and has write permission,
+co aborts the checkout, asking beforehand if possible. If the existing working file is not writable or
+_f is given, the working file is deleted without asking.
+</P>
+
+<P><B>
+FILES
+</B></P>
+
+
+<P>co accesses files much as ci(1) does, except that it does not need to read the working file unless a revision number of
+$ is specified.</P>
+
+
+<P><B>
+ENVIRONMENT
+</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>
+RCSINIT         Options prepended to the argument list, separated by spaces. See
+ci(1) for details.
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+<P><B>
+DIAGNOSTICS
+</B></P>
+
+
+<P>The RCS pathname, the working pathname, and the revision number retrieved are written to the diagnostic output. The
+exit status is zero if and only if all operations were successful.
+</P>
+
+
+<P><B>
+IDENTIFICATION 
+</B></P>
+
+
+<P>Author: Walter F. Tichy.</P>
+<P>Manual Page Revision: 5.13; Release Date: 1995/06/01.</P>
+<P>Copyright &quot; 1982, 1988, 1989 Walter F. Tichy.</P>
+<P>Copyright &quot; 1990, 1991, 1992, 1993, 1994, 1995 Paul Eggert.</P>
+
+
+<P><B>
+SEE ALSO
+</B></P>
+
+
+<!-- CODE SNIP //-->
+<PRE>rcsintro(1), ci(1), ctime(3), date(1), ident(1),
+make(1), rcs(1), rcsclean(1), rcsdiff(1),
+rc-smerge(1), rlog(1), rcsfile(5)</PRE>
+<!-- END CODE SNIP //-->
+
+
+<P>Walter F. Tichy, &quot;RCS&#151;A System for Version Control,&quot;
+Software Practice &amp; Experience 15, 7 (July 1985), 637-654.
+</P>
+
+<P><B>
+LIMITS
+</B></P>
+
+
+<P>Links to the RCS and working files are not preserved.</P>
+
+
+<P>There is no way to selectively suppress the expansion of keywords, except by writing them differently. In
+nroff and troff, this is done by embedding the null-character
+\&amp; into the keyword.</P>
+
+<P>GNU, 1 June 1995
+</P>
+
+
+
+<A NAME="PAGENUM-76"><P>Page 76</P></A>
+
+
+<H3><A NAME="ch01_ 36">
+col
+</A></H3>
+
+<P>col&#151;Filter reverse line feeds from input</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+
+<!-- CODE SNIP //-->
+<PRE>
+col [-bfx] [-l num]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+
+<P>col filters out reverse (and half-reverse) line feeds so the output is in the correct order with only forward and
+half-forward line feeds, and replaces whitespace characters with tabs where possible. This can be useful in processing the output
+of nroff(1) and tbl(1). col reads from standard input and writes to standard output.
+</P>
+
+<P>The options are as follows:
+
+<TABLE>
+
+<TR><TD>
+-b
+</TD><TD>
+Do not output any backspaces, printing only the last character written to each column position.
+</TD></TR><TR><TD>
+-f
+</TD><TD>
+Forward half-line feeds are permitted
+(fine mode). Normally characters printed on a half-line
+boundary are printed on the following line.
+</TD></TR><TR><TD>
+-x
+</TD><TD>
+Output multiple spaces instead of tabs.
+</TD></TR><TR><TD>
+-lnum
+</TD><TD>
+Buffer at least num lines in memory. By default, 128 lines are buffered.
+</TD></TR></TABLE>
+
+
+
+<P>The control sequences for carriage motion that
+col understands and their decimal values are listed in the following table:
+</P>
+
+<TABLE>
+
+<TR><TD>
+Control Sequence
+</TD><TD>
+Decimal Value
+</TD></TR><TR><TD>
+Esc+7
+</TD><TD>
+Reverse line feed (escape then 7)
+</TD></TR><TR><TD>
+Esc+8
+</TD><TD>
+Half-reverse line feed (escape then 8)
+</TD></TR><TR><TD>
+Esc+9
+</TD><TD>
+Half-forward line feed (escape then 9)
+</TD></TR><TR><TD>
+Backspace
+</TD><TD>
+Moves back one column (8); ignored in the first column
+</TD></TR><TR><TD>
+Carriage return
+</TD><TD>
+(13)
+</TD></TR><TR><TD>
+Newline
+</TD><TD>
+Forward line feed (10); also does carriage return
+</TD></TR><TR><TD>
+Shift in
+</TD><TD>
+Shift to normal character set (15)
+</TD></TR><TR><TD>
+Shift out
+</TD><TD>
+Shift to alternate character set (14)
+</TD></TR><TR><TD>
+Space
+</TD><TD>
+Moves forward one column (32)
+</TD></TR><TR><TD>
+Tab
+</TD><TD>
+Moves forward to next tab stop (9)
+</TD></TR><TR><TD>
+Vertical tab
+</TD><TD>
+Reverse line feed (11)
+</TD></TR></TABLE>
+
+
+
+<P>All unrecognized control characters and escape sequences are discarded.</P>
+
+<P>col keeps track of the character set as characters are read and makes sure the character set is correct when they are output.
+</P>
+
+<P>If the input attempts to back up to the last flushed line,
+col will display a warning message.
+</P>
+
+<P><B>
+SEE ALSO
+</B></P>
+
+
+<P>expand(1), nroff(1), tbl(1)
+</P>
+
+<P><B>
+HISTORY
+</B></P>
+
+
+
+<P>A col command appeared in version 6 AT&amp;T UNIX.</P>
+
+
+<P>17 June 1991
+</P>
+
+
+
+<A NAME="PAGENUM-77"><P>Page 77</P></A>
+
+
+
+<H3><A NAME="ch01_ 37">
+colcrt
+</A></H3>
+
+
+<P>colcrt&#151;Filter nroff output for CRT previewing
+</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>
+colcrt [_] [_2] [file ...]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+<P>colcrt provides virtual half-line and reverse-line feed sequences for terminals without such capability, and on
+which overstriking is destructive. Half-line characters and underlining (changed to dashing
+_) are placed on new lines in between the normal output lines.
+<P>Available options:
+
+<TABLE>
+
+<TR><TD>
+_
+</TD><TD>
+Suppress all underlining. This option is especially useful for previewing all boxed tables from
+tbl(1).
+</TD></TR><TR><TD>
+_2
+</TD><TD>
+Causes all half-lines to be printed, effectively double spacing the output. Normally, a minimal
+space output format is used which will suppress empty lines. The program never suppresses two
+consecutive empty lines, however. The -2 option is useful for sending output to the line printer when the
+output contains superscripts and subscripts that would otherwise be invisible.
+</TD></TR></TABLE>
+
+
+<P><B>
+EXAMPLES
+</B></P>
+
+<P>A typical use of colcrt would be
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+tbl exum2.n | nroff -ms | colcrt - | more
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+SEE ALSO
+</B></P>
+
+
+<!-- CODE SNIP //-->
+<PRE>nroff(1), troff(1), col(1), more(1), ul(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+<P><B>
+BUGS
+</B></P>
+
+
+<P>Should fold underlines onto blanks even with the
+- option so that a true underline character would show.
+</P>
+
+<P>Can't back up more than 102 lines.</P>
+
+<P>General overstriking is lost; as a special case
+| overstruck with `' or underline becomes +. Lines are trimmed to
+132 characters.</P>
+
+
+<P>Some provision should be made for processing superscripts and subscripts in documents that are already double-spaced.
+</P>
+
+<P><B>
+HISTORY
+</B></P>
+
+
+<P>The colcrt command appeared in BSD 3.0.</P>
+
+<P>BSD 3, 30 June 1993
+</P>
+
+<H3><A NAME="ch01_ 38">
+colrm
+</A></H3>
+
+<P>colrm&#151;Remove columns from a file
+</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+
+<!-- CODE SNIP //-->
+<PRE>
+colrm [startcol [endcol]]
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+
+<P>colrm removes selected columns from a file. Input is taken from standard input. Output is sent to standard output.
+<P>If called with one parameter, the columns of each line will be removed starting with the specified column. If called with
+two parameters, the columns from the first column to the last column will be removed.
+<P>Column numbering starts with column 1.
+
+
+<P><CENTER>
+<a href="0072-0073.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0078-0080.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

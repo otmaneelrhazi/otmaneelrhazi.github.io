@@ -1,0 +1,451 @@
+<HTML>
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0234-0234.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0238-0241.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-235"><P>Page 235</P></A>
+
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+
+
+<!-- CODE SNIP //-->
+<PRE>afmtodit(1), groff(1), gtroff(1), psbb(1),groff_out(5), groff_font(5), groff_char(7)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>Groff Version 1.09, 14 February 1995
+</P>
+
+<H3><A NAME="ch01_ 102">
+grotty
+</A></H3>
+<P>grotty&#151;groff driver for typewriter-like devices
+</P>
+
+<P><B>
+SINOPSIS
+</B>
+</P>
+
+
+<!-- CODE SNIP //-->
+<PRE>
+grotty [ _hfbuodBUv ][_Fdir ][files ... ]
+</PRE>
+<!-- END CODE SNIP //-->
+<P><B>
+DESCRIPTION
+</B>
+</P>
+
+
+<P>grotty translates the output of GNU troff into a form suitable for typewriter-like devices. Normally,
+grotty should invoked by using the groff command with a
+_Tascii or _Tlatin1 option. If no files are given,
+grotty will read the standard input. A filename of
+_ will also cause grotty to read the standard input. Output is written to the standard output.
+</P>
+<P>Normally, grotty prints a bold character c using the sequence
+`c BACKSPACE c' and an italic character c by the
+sequence `_BACKSPACE c'. These sequences can be displayed on a terminal by piping through
+ul(1). Pagers such as more(1) or less(1) are also able to display these sequences. Use either
+_B or _U when piping into less(1); use _b when piping into
+more(1). There is no need to filter the output through
+col(1) since grotty never outputs reverse line feeds.
+</P>
+<P>The font description file may contain a command:
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+internalnamen
+</PRE>
+<!-- END CODE SNIP //-->
+<P>where n is a decimal integer. If the 01 bit in
+n is set, then the font will be treated as an italic font; if the 02 bit is set, then
+it will be treated as a bold font. The code field in the font description field gives the code that will be used to output
+the character. This code can also be used in the
+\N escape sequence in troff.
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+
+
+<TABLE>
+
+<TR><TD>
+_Fdir
+</TD><TD>
+Search the directory dir/devname for font and device description files;
+name is the name of the device, usually ascii or
+latin1.
+</TD></TR><TR><TD>
+_h
+</TD><TD>
+Use horizontal tabs in the output. Tabs are assumed to be set every 8 columns.
+</TD></TR><TR><TD>
+_f
+</TD><TD>
+Use form feeds in the output. A form feed will be output at the end of each page that has no output on its
+last line.
+</TD></TR><TR><TD>
+_b
+</TD><TD>
+Suppress the use of overstriking for bold characters.
+</TD></TR><TR><TD>
+_u
+</TD><TD>
+Suppress the use of underlining for italic characters.
+</TD></TR><TR><TD>
+_B
+</TD><TD>
+Use only overstriking for bold-italic characters.
+</TD></TR><TR><TD>
+_U
+</TD><TD>
+Use only underlining for bold-italic characters.
+</TD></TR><TR><TD>
+_o
+</TD><TD>
+Suppress overstriking (other than for bold or underlined characters).
+</TD></TR><TR><TD>
+_d
+</TD><TD>
+Ignore all \D commands. Without this,
+grotty will render \D'l ...' commands that have at least one
+zero argument (and so are either horizontal or vertical) using
+_, |, and + characters.
+</TD></TR><TR><TD>
+_v
+</TD><TD>
+Print the version number.
+</TD></TR></TABLE>
+
+<P><B>
+FILES
+</B>
+</P>
+
+
+
+<TABLE>
+
+<TR><TD>
+/usr/lib/groff/font/devascii/DESC
+</TD><TD>
+Device description file for
+ascii device.
+</TD></TR><TR><TD>
+/usr/lib/groff/font/devascii/F
+</TD><TD>
+Font description file for font
+F of ascii device.
+</TD></TR><TR><TD>
+/usr/lib/groff/font/devlatin1/DESC
+</TD><TD>
+Device description file for
+latin1 device.
+</TD></TR><TR><TD>
+/usr/lib/groff/font/devlatin1/F
+</TD><TD>
+Font description file for font
+F of latin1 device.
+</TD></TR><TR><TD>
+/usr/lib/groff/tmac/tmac.tty
+</TD><TD>
+Macros for use with
+grotty.
+</TD></TR><TR><TD>
+/usr/lib/groff/tmac/tmac.tty-char
+</TD><TD>
+Additional kludgy character definitions for use with
+grotty.
+</TD></TR></TABLE>
+
+<A NAME="PAGENUM-236"><P>Page 236</P></A>
+
+
+<P><B>
+BUGS
+</B>
+</P>
+
+
+<P>grotty is intended only for simple documents.
+</P>
+<P>There is no support for fractional horizontal or vertical motions.
+</P>
+<P>There is no support for \D commands other than horizontal and vertical lines.
+</P>
+<P>Characters above the first line (that is, with a vertical position of
+0) cannot be printed.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+
+
+<!-- CODE SNIP //-->
+<PRE>groff(1), gtroff(1), groff_out(5),groff_font(5), groff_char(7), ul(1), more(1), less(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>Groff Version1.09, 14 February 1995
+</P>
+
+<H3><A NAME="ch01_ 103">
+gsoelim
+</A></H3>
+<P>gsoelim&#151;Interpret .so requests in groff input
+</P>
+<P><B>
+SINOPSIS
+</B>
+</P>
+
+
+<!-- CODE SNIP //-->
+<PRE>
+gsoelim [ _Cv ][files ... ]
+</PRE>
+<!-- END CODE SNIP //-->
+<P><B>
+DESCRIPTION
+</B>
+</P>
+
+
+<P>gsoelim reads files and replaces lines of the form
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+.sofile
+</PRE>
+<!-- END CODE SNIP //-->
+<P>by the contents of file. It is useful if files included with
+so need to be preprocessed. Normally, gsoelim should be
+invoked with the _s option of groff.
+</P>
+<P><B>
+OPTIONS
+</B>
+</P>
+
+
+
+<TABLE>
+
+<TR><TD>
+_C
+</TD><TD>
+Recognize .so even when followed by a character other than space or newline
+</TD></TR><TR><TD>
+_v
+</TD><TD>
+Print the version number
+</TD></TR></TABLE>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+
+
+
+<P>Groff Version1.09, 15 September 1992
+</P>
+
+<H3><A NAME="ch01_ 104">
+gtbl
+</A></H3>
+
+<P>gtbl&#151;Format tables for troff
+</P>
+
+<P><B>
+SINOPSIS
+</B>
+</P>
+
+
+<!-- CODE SNIP //-->
+<PRE>
+gtbl [ _Cv ][files ... ]
+</PRE>
+<!-- END CODE SNIP //-->
+<P><B>
+DESCRIPTION
+</B>
+</P>
+
+
+<P>This manual page describes the GNU version of
+tbl, which is part of the groff document formatting system.
+tbl compiles descriptions of tables embedded within
+troff input files into commands that are understood by
+troff. Normally, it should be invoked using the _t option of
+groff. It is highly compatible with UNIX tbl. The output generated by GNU
+tbl cannot be processed with UNIX troff; it must be processed with GNU
+troff. If no files are given on the command line,
+the standard input will be read. A filename of _ will cause the standard input to be read.
+</P>
+
+<A NAME="PAGENUM-237"><P>Page 237</P></A>
+
+
+<P><B>
+OPTIONS
+</B>
+</P>
+
+
+<TABLE>
+
+<TR><TD>
+_C
+</TD><TD>
+Recognize .TS and .TE even when followed by a character other than space or newline
+</TD></TR><TR><TD>
+_v
+</TD><TD>
+Print the version number
+</TD></TR></TABLE>
+
+<P><B>
+USAGE
+</B>
+</P>
+
+
+<P>Only the differences between GNU tbl and UNIX
+tbl are described here.
+</P>
+<P>Normally, tbl attempts to prevent undesirable breaks in the table by using diversions. This can sometimes interact
+badly with macro packages' own use of diversions, when footnotes, for example, are used. The
+nokeep option tells tbl not to try to prevent breaks in this way.
+</P>
+<P>The decimalpoint option specifies the character to be recognized as the decimal point character in place of the default
+period. It takes an argument in parentheses, which must be a single character, as for the tab option.
+</P>
+<P>The f format modifier can be followed by an arbitrary length font name in parentheses.
+</P>
+<P>There is a d format modifier that means that a vertically spanning entry should be aligned at the bottom of its range.
+</P>
+<P>There is no limit on the number of columns in a table, nor any limit on the number of text blocks. All the lines of a table
+are considered in deciding column widths, not just the first 200. Table continuation
+(.T&amp;) lines are not restricted to the first
+200 lines.
+</P>
+<P>Numeric and alphabetic items may appear in the same column.
+</P>
+<P>Numeric and alphabetic items may span horizontally.
+</P>
+<P>tbl uses register, string, macro and diversion names beginning with 3. When using
+tbl, you should avoid using any names beginning with a 3.
+</P>
+
+<P><B>
+BUGS
+</B>
+</P>
+
+
+<P>You should use .TSH/.TH in conjunction with a supporting macro package for
+all multipage boxed tables. If there is no header that you want to appear at the top of each page of the table, place the
+.TH line immediately after the format section. Do
+not enclose a multipage table within keep/release macros, or divert it in any other way.
+</P>
+<P>A text block within a table must be able to fit on one page.
+</P>
+<P>The bp request cannot be used to force a page-break in a multipage table. Instead, define
+BP as follows:
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+.de BP
+.ie `\\n(.z&quot; .bp \\$1
+.el \!.BP \\$1
+..
+</PRE>
+<!-- END CODE SNIP //-->
+<P>and use BP instead of bp.
+</P>
+<P><B>
+SEE ALSO
+</B>
+</P>
+
+
+<P>groff(1), gtroff(1)
+</P>
+<P>Groff Version 1.09, 1 April 1993
+</P>
+<H3><A NAME="ch01_ 105">
+gtroff
+</A></H3>
+<P>gtroff&#151;Format documents
+</P>
+<P><B>
+SINOPSIS
+</B>
+</P>
+
+
+<!-- CODE SNIP //-->
+<PRE>
+gtroff [_abivzCER] [_w name] [_W name] [_d cs] [_f fam] [_m name] [_n num] [_o list] [_r cn] [_T name] [_F dir] [_M dir] [nfiles...n]
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+
+<P><CENTER>
+<a href="0234-0234.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0238-0241.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

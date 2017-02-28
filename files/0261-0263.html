@@ -1,0 +1,454 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0259-0260.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0264-0265.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-261"><P>Page 261</P></A>
+
+
+
+<P><B>
+BUGS
+</B></P>
+
+<P>I still don't have enough information about the Photo-CD to take care of all data structures. The information I have is
+quite vague and this program was developed by staring at the hexdumps and using the famous trial-and-error-method. :-)
+If anything doesn't work, please send me a report and perhaps you could try to find out why it doesn't work.
+</P>
+
+<P><B>
+SEE ALSO
+</B></P>
+
+<P>ppm(5), ppmquant(1), ppmtopgm(1), ppmhist(1),
+pnmarith(1), ppmtorgb3(1), xv(1)
+</P>
+
+<P><B>
+AUTHOR
+</B></P>
+
+<P>Copyright&quot; 1992 by Hadmut Danisch
+(danisch@ira.uka.de). Permission to use and distribute this software and
+its documentation for noncommercial use and without fee is hereby granted, provided that the preceding copyright
+notice appear in all copies and that both that copyright notice and this permission notice appear in supporting documentation.<BR>
+This software may not be sold in any way. This software is not public domain.
+</P>
+
+<P>
+28 November 1992
+</P>
+
+<H3><A NAME="ch01_ 115">
+httpd
+</A></H3>
+
+<P>httpd&#151;Apache Hypertext Transfer Protocol server
+</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>
+httpd [ _vX? ][_d serverroot ][_f config ]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+<P>httpd is the Apache Hypertext Transfer Protocol (HTTP) server process. The server may be invoked by the Internet
+daemon inetd(1M) each time a connection to the HTTP service is made, or alternatively it may run as a daemon.
+</P>
+
+<P><B>
+OPTIONS
+</B></P>
+
+<TABLE>
+
+<TR><TD>
+_d serverroot
+</TD><TD>
+Set the initial value for the
+ServerRoot variable to serverroot. This can be overridden by the
+ServerRoot command in the configuration file. The default is
+/usr/local/etc/httpd.
+</TD></TR><TR><TD>
+_f config
+</TD><TD>
+Execute the commands in the file
+config on startup. If config does not begin with a
+/, then it is taken to be a path relative to the
+ServerRoot. The default is conf/httpd.conf.
+</TD></TR><TR><TD>
+_X
+</TD><TD>
+Run in single-process mode, for internal debugging purposes only; the daemon does not detach from
+the terminal or fork any children. Do not use this mode to provide ordinary
+Web service.
+</TD></TR><TR><TD>
+_v
+</TD><TD>
+Print the version of httpd, and then exit.
+</TD></TR><TR><TD>
+_?
+</TD><TD>
+Print a list of the httpd OPTIONS, and then exit.
+</TD></TR></TABLE>
+
+<P><B>
+FILES
+</B></P>
+
+<!-- CODE //-->
+<PRE>
+/usr/local/etc/httpd/conf/httpd.conf
+/usr/local/etc/httpd/conf/srm.conf
+/usr/local/etc/httpd/conf/access.conf
+/usr/local/etc/httpd/conf/mime.types
+/usr/local/etc/httpd/logs/error_log
+/usr/local/etc/httpd/logs/access_log
+/usr/local/etc/httpd/logs/httpd.pid
+</PRE>
+<!-- END CODE //-->
+
+<P><B>
+SEE ALSO
+</B></P>
+
+<P>inetd(1m)
+</P>
+
+<P>Documentation for the Apache HTTP server is available from
+<a href="http://www.apache.org.">
+http://www.apache.org.</A>
+</P>
+
+<P>
+October 1995
+</P>
+
+<A NAME="PAGENUM-262"><P>Page 262</P></A>
+
+
+<H3><A NAME="ch01_ 116">
+icontopbm
+</A></H3>
+
+<P>icontopbm&#151;Convert a Sun icon into a portable bitmap
+</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>
+icontopbm [iconfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+<P>icontopbm reads a Sun icon as input and produces a portable bitmap as output.
+</P>
+
+<P><B>
+SEE ALSO
+</B></P>
+
+<P>pbmtoicon(1), pbm(5)
+</P>
+
+<P><B>
+AUTHOR
+</B></P>
+
+<P>Copyright&quot; 1988 by Jef Poskanzer
+</P>
+
+<P>
+31 August 1988
+</P>
+
+<H3><A NAME="ch01_ 117">
+ident
+</A></H3>
+
+<P>ident&#151;Identify RCS keyword strings in FILES
+</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>
+ident [ _q ][_V ][file ... ]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+<P>ident searches for all instances of the pattern
+$ keyword : text $ in the named FILES or, if no FILES are named, the
+standard input.
+</P>
+
+<P>These patterns are normally inserted automatically by the RCS command
+co(1), but can also be inserted manually. The option
+_q suppresses the warning given if there are no patterns in a file. The option
+_V prints ident's version number.
+</P>
+
+<P>ident works on text FILES as well as object FILES and dumps. For example, if the C program in
+f.c contains
+</P>
+
+<!-- CODE //-->
+<PRE>
+#include &lt;stdio.h&gt;
+static char const rcsid[] =
+&quot;$Id: f.c,v 5.4 1993/11/09 17:40 eggert Exp $&quot;;
+int main() { return printf(&quot;%s\n&quot;, rcsid) == EOF; }
+</PRE>
+<!-- END CODE //-->
+
+<P>and f.c is compiled into f.o, then the command
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+ident f.c f.o
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>will output
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+f.c:
+$Id: f.c,v 5.4 1993/11/09 17:40 eggert Exp $
+f.o:
+$Id: f.c,v 5.4 1993/11/09 17:40 eggert Exp $
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>If a C program defines a string like the rcsid but does not use it,
+lint(1) may complain, and some C compilers will
+optimize away the string. The most reliable solution is to have the program use the
+rcsid string, as shown in the example.
+</P>
+
+<P>ident finds all instances of the $ keyword : text
+$ pattern, even if keyword is not actually an RCS-supported keyword.
+This gives you information about nonstandard keywords like
+$XConsortium$.
+</P>
+
+<A NAME="PAGENUM-263"><P>Page 263</P></A>
+
+
+
+<P><B>
+KEYWORDS
+</B></P>
+
+<P>Here is the list of keywords currently maintained by
+co(1). All times are given in Coordinated Universal Time
+(UTC, sometimes called GMT by default), but if the FILES were checked out with
+co's _zzone option, times are given with a numeric time zone indication appended.
+</P>
+
+<TABLE>
+
+<TR><TD>
+$AUTHOR$
+</TD><TD>
+The login name of the user who checked in the revision.
+</TD></TR><TR><TD>
+$Date$
+</TD><TD>
+The date and time the revision was checked in.
+</TD></TR><TR><TD>
+$Header$
+</TD><TD>
+A standard header containing the full pathname of the RCS file, the revision number, the date and
+time, the AUTHOR, the state, and the locker (if locked).
+</TD></TR><TR><TD>
+$Id$
+</TD><TD>
+Same as $Header$, except that the RCS filename is without a path.
+</TD></TR><TR><TD>
+$Locker$
+</TD><TD>
+The login name of the user who locked the revision (empty if not locked).
+</TD></TR><TR><TD>
+$Log$
+</TD><TD>
+The log message supplied during checkin. For
+ident's purposes, this is equivalent to $RCSfile$.
+</TD></TR><TR><TD>
+$Name$
+</TD><TD>
+The symbolic name used to check out the revision, if any.
+</TD></TR><TR><TD>
+$RCSfile$
+</TD><TD>
+The name of the RCS file without a path.
+</TD></TR><TR><TD>
+$Revision$
+</TD><TD>
+The revision number assigned to the revision.
+</TD></TR><TR><TD>
+$Source$
+</TD><TD>
+The full pathname of the RCS file.
+</TD></TR><TR><TD>
+$State$
+</TD><TD>
+The state assigned to the revision with the
+_s option of rcs(1) or ci(1).
+</TD></TR></TABLE>
+
+
+<P>co(1) represents the following characters in keyword values by escape sequences to keep keyword strings well formed.
+</P>
+
+<TABLE>
+
+<TR><TD>
+Character
+</TD><TD>
+Escape Sequence
+</TD></TR><TR><TD>
+Tab
+</TD><TD>
+\t
+</TD></TR><TR><TD>
+Newline
+</TD><TD>
+\n
+</TD></TR><TR><TD>
+Space
+</TD><TD>
+\040
+</TD></TR><TR><TD>
+$
+</TD><TD>
+\044
+</TD></TR><TR><TD>
+\
+</TD><TD>
+\\
+</TD></TR></TABLE>
+
+<P><B>
+IDENTIFICATION
+</B></P>
+
+<P>AUTHOR: Walter F. Tichy
+</P>
+
+<P>Manual Page Revision: 5.4; Release date September 11, 1993.
+</P>
+
+<P>Copyright&quot; 1982, 1988, 1989 Walter F. Tichy.
+Copyright&quot; 1990, 1992, 1993 Paul Eggert.
+</P>
+
+<P><B>
+SEE ALSO
+</B></P>
+
+<P>ci(1), co(1), rcs(1), rcsdiff(1), rcsintro(1),
+rcsmerge(1), rlog(1), rcsfile(5)
+</P>
+
+<P>Walter F. Tichy, RCS&#151;A System for Version
+Control, Software_Practice &amp; Experience 15, 7 (July 1985), 637_654.
+</P>
+
+<P>
+GNU, 9 November 1993
+</P>
+
+<H3><A NAME="ch01_ 118">
+ilbmtoppm
+</A></H3>
+
+<P>ilbmtoppm&#151;Convert an ILBM file into a portable pixmap
+</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>
+ilbmtoppm [-verbose][-ignore&lt;chunkID&gt;] [-isham|-isehb][-adjustcolors][ILBMfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+<P>ilbmtoppm reads an IFF ILBM file as input and produces a portable pixmap as output. Supported ILBM types are
+Normal ILBMs with 1_16 planes.
+</P>
+
+
+
+<P><CENTER>
+<a href="0259-0260.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0264-0265.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

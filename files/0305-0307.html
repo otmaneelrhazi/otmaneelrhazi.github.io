@@ -1,0 +1,478 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0303-0304.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0308-0309.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-305"><P>Page 305</P></A>
+
+
+<P><B>OPTIONS</B></P>
+
+<TABLE>
+
+<TR><TD>
+-R
+</TD><TD>
+Recursively list attributes of directories and their contents.
+</TD></TR><TR><TD>
+-a
+</TD><TD>
+List all FILES in directories, including FILES that start with period
+(.).
+</TD></TR><TR><TD>
+-d
+</TD><TD>
+List directories like other FILES, rather than listing their contents.
+</TD></TR><TR><TD>
+-v
+</TD><TD>
+List the FILES version.
+</TD></TR></TABLE>
+
+<P><B>AUTHOR</B></P>
+
+<P>lsattr has been written by Remy Card
+(card@masi.ibp.fr), the developer and maintainer of the
+ext2 fs.
+</P>
+
+<P><B>BUGS</B></P>
+
+<P>There are none :-).
+</P>
+
+<P><B>Availability</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>lsattr is available for anonymous FTP from
+ftp.ibp.fr and tsx-11.mit.edu in
+/pub/linux/packages/ext2fs.
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>SEE ALSO</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>chattr(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>Version 0.5b, November 1994
+</P>
+
+<H3><A NAME="ch01_ 154">
+lsmod
+</A></H3>
+
+<P>lsmod&#151;show the loaded modules
+</P>
+
+<P><B>SYNOPSIS</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>lsmod
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>DESCRIPTION</B></P>
+
+<P>lsmod shows information about all loaded modules. The format is
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>name size [list of referring modules]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>size is in 4Kb pages.
+</P>
+
+<P>This information is a copy of the contents of
+/proc/modules.
+</P>
+
+<P><B>SEE ALSO</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>insmod(1), modprobe(1), depmod(1), rmmod(1),
+ksyms(1), modules(2)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>HISTORY</B></P>
+
+<P>The module support was first conceived by Anonymous (as far as I know&#133;). Linux version by Bas
+Laarhoven (bas@vimec.nl), 0.99.14 version by Jon Tombs
+(jon@gtex02.us.es), extended by Bjorn Ekwall
+(bj0rn@blox.se).
+</P>
+
+<P><B>BUGS</B></P>
+
+<P>lsmod might have some, but they are well hidden.&#133;
+</P>
+
+<P>Linux, 14 May 1995
+</P>
+
+<A NAME="PAGENUM-306"><P>Page 306</P></A>
+
+
+<H3><A NAME="ch01_ 155">
+lynx
+</A></H3>
+
+<P>lynx&#151;A general-purpose distributed information browser for the World Wide Web
+</P>
+
+<P><B>SYNOPSIS</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>lynx [OPTIONS] [path or URL]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>Use lynx -help to display a complete list of current OPTIONS.
+</P>
+
+<P><B>DESCRIPTION</B></P>
+
+<P>lynx is a fully-featured World Wide Web (WWW) client for users running cursor-addressable, character-cell display
+devices (for example, vt100 terminals, vt100 emulators running on PCs or Macs, or any other &quot;curses-oriented&quot; display). It
+will display Hypertext Markup Language (HTML) documents containing links to FILES residing on the local system, as well
+as FILES residing on remote systems running Gopher, HTTP, FTP, WAIS, and NNTP servers. Current versions of
+lynx run on UNIX and VMS.
+</P>
+
+<P>lynx can be used to access information on the World Wide Web, or to build information systems intended primarily
+for local access. For example, lynx has been used to build several Campus Wide Information Systems (CWIS). In addition,
+lynx can be used to build systems isolated within a single LAN.
+</P>
+
+<P><B>OPTIONS</B></P>
+
+
+<P>At startup, lynx will load any local file or remote URL specified at the command line. For help with URLs, press
+? or h while running lynx. Then follow the link titled &quot;Help on URLs.&quot;
+</P>
+
+
+<TABLE>
+
+<TR><TD>
+-
+</TD><TD>
+If the only argument is -, then lynx expects to receive the arguments from
+stdin. This is to allow for the potentially very long command line that can be associated with the
+-get_data or -post_data arguments. (See entries for each later in this list.)
+</TD></TR><TR><TD>
+-anonymous
+</TD><TD>
+Used to specify the anonymous account.
+</TD></TR><TR><TD>
+-ascii
+</TD><TD>
+Disable kanji code translation when Japanese mode is on.
+</TD></TR><TR><TD>
+-auth=ID:PASSWD
+</TD><TD>
+Set AUTHORization ID and password for protected documents at startup.
+</TD></TR><TR><TD>
+-book
+</TD><TD>
+Use the bookmark page as the startfile. The default or command line startfile is still set for
+the Main screen command, and will be used if the bookmark page is unavailable or blank.
+</TD></TR><TR><TD>
+-buried_news
+</TD><TD>
+Toggles scanning of news articles for buried references, and converts them to news links.
+Not recommended because e-mail addresses enclosed in angle brackets will be converted to false
+news links, and uuencoded messages can be trashed.
+</TD></TR><TR><TD>
+-cache=NUMBER
+</TD><TD>
+Set the NUMBER of documents cached in memory. The default is
+10.
+</TD></TR><TR><TD>
+-case
+</TD><TD>
+Enable case-sensitive string searching.
+</TD></TR><TR><TD>
+-cfg=FILENAME
+</TD><TD>
+Specifies a lynx configuration file other than the default
+lynx.cfg.
+</TD></TR><TR><TD>
+-child
+</TD><TD>
+Exit on left-arrow in startfile, and disable save to disk.
+</TD></TR><TR><TD>
+-crawl
+</TD><TD>
+With -traversal, output each page to a file. With
+-dump, format output as with -traversal, but to
+stdout.
+</TD></TR><TR><TD>
+-display=DISPLAY
+</TD><TD>
+Set the display variable for X
+rexeced programs.
+</TD></TR><TR><TD>
+-dump
+</TD><TD>
+Dumps the formatted output of the default document or one specified on the command line
+to standard out. This can be used in the following way:
+lynx -dump <a href="http://www.w3.org/default.html.">
+http://www.w3.org/default.html.</A>
+</TD></TR><TR><TD>
+-editor=EDITOR
+</TD><TD>
+Enable Edit mode using the specified
+EDITOR  (vi, ed, emacs, and so on).
+</TD></TR><TR><TD>
+-emacskeys
+</TD><TD>
+Enable Emacs-like key movement.
+</TD></TR><TR><TD>
+-enable_scrollback
+</TD><TD>
+Toggle compatibility with comm programs' scrollback keys (may be incompatible with
+some packages).
+</TD></TR><TR><TD>
+-error_file=FILE
+</TD><TD>
+Define a file where lynx will report HTTP access codes.
+</TD></TR><TR><TD>
+-euc
+</TD><TD>
+Set kanji code to EUC when Japanese mode is on.
+</TD></TR><TR><TD>
+-fileversions
+</TD><TD>
+Include all versions of FILES in local VMS directory listings.
+</TD></TR><TR><TD>
+-force_html
+</TD><TD>
+Forces the first document to be interpreted as HTML.
+</TD></TR></TABLE>
+
+
+<A NAME="PAGENUM-307"><P>Page 307</P></A>
+
+<TABLE>
+
+<TR><TD>
+-ftp
+</TD><TD>
+Disable FTP access.
+</TD></TR><TR><TD>
+-get_data
+</TD><TD>
+Send form data from stdin using
+GET method and dump results.
+</TD></TR><TR><TD>
+-head
+</TD><TD>
+Send a HEAD request for the mime headers.
+</TD></TR><TR><TD>
+-help
+</TD><TD>
+Print this lynx command syntax usage message.
+</TD></TR><TR><TD>
+-historical
+</TD><TD>
+Toggles use of &gt; or _&gt; as a terminator for comments.
+</TD></TR><TR><TD>
+-homepage=URL
+</TD><TD>
+Set home page separate from start page.
+</TD></TR><TR><TD>
+-image_links
+</TD><TD>
+Toggles inclusion of links for all images.
+</TD></TR><TR><TD>
+-index=URL
+</TD><TD>
+Set the default index file to the specified URL.
+</TD></TR><TR><TD>
+-jpn
+</TD><TD>
+Toggles Japanese character translations on or off.
+</TD></TR><TR><TD>
+-link=UMBER
+</TD><TD>
+Starting count for lnk#.dat FILES produced by
+-crawl.
+</TD></TR><TR><TD>
+-localhost
+</TD><TD>
+Disable URLs that point to remote hosts.
+</TD></TR><TR><TD>
+-locexec
+</TD><TD>
+Enable local program execution from local FILES only (if
+lynx was compiled with local execution enabled).
+</TD></TR><TR><TD>
+-mime_header
+</TD><TD>
+Prints the MIME header of a fetched document along with its source.
+</TD></TR><TR><TD>
+-minimal
+</TD><TD>
+Toggles minimal versus valid comment parsing.
+</TD></TR><TR><TD>
+-nobrowse
+</TD><TD>
+Disable directory browsing.
+</TD></TR><TR><TD>
+-noexec
+</TD><TD>
+Disable local program execution (default).
+</TD></TR><TR><TD>
+-nolist
+</TD><TD>
+Disable the link list feature in dumps.
+</TD></TR><TR><TD>
+-nolog
+</TD><TD>
+Disable mailing of error messages to document owners.
+</TD></TR><TR><TD>
+-noprint
+</TD><TD>
+Disable print functions.
+</TD></TR><TR><TD>
+-noredir
+</TD><TD>
+Prevents automatic redirection and prints a message with a link to the new URL.
+</TD></TR><TR><TD>
+-nostatus
+</TD><TD>
+Disable the retrieval status messages.
+</TD></TR><TR><TD>
+-number_links
+</TD><TD>
+Force numbering of links.
+</TD></TR><TR><TD>
+-post_data
+</TD><TD>
+Send form data from stdin using
+POST method and dump results.
+</TD></TR><TR><TD>
+-print
+</TD><TD>
+Enable print functions (default).
+</TD></TR><TR><TD>
+-pseudo_inlines
+</TD><TD>
+Toggles pseudo-ALTs for inlines with no
+ALT string.
+</TD></TR><TR><TD>
+-realm
+</TD><TD>
+Restricts access to URLs in the starting realm.
+</TD></TR><TR><TD>
+-reload
+</TD><TD>
+Flushes the cache on a proxy server (only the first document affected).
+</TD></TR><TR><TD>
+-restrictions=[option]
+</TD><TD>
+Allows a list of services to be disabled selectively.
+The following list is printed if no OPTIONS are
+</TD></TR><TR><TD>
+[,option][,option]...
+</TD><TD>
+specified.
+</TD></TR><TR><TD>
+</TD><TD>
+all&#151;Restricts all OPTIONS.
+</TD></TR><TR><TD>
+</TD><TD>
+bookmark--Disallow changing the location of the bookmark file.
+</TD></TR><TR><TD>
+</TD><TD>
+bookmark_exec--Disallow execution links via the bookmark file.
+</TD></TR><TR><TD>
+</TD><TD>
+Change_exec_perms&#151;Disallow changing the execute permission on FILES (but still allow it
+for directories) when local file management is enabled.
+</TD></TR><TR><TD>
+</TD><TD>
+default--Same as command-line option
+-anonymous. Disables default services for anonymous
+users. Currently set to all restricted except for the following:
+inside_telnet, outside_telnet, inside_news,
+inside_ftp, outside_ftp, inside_rlogin,
+outside_rlogin, jump, mail, and goto. Defaults are
+settable within userdefs.h.
+</TD></TR><TR><TD>
+</TD><TD>
+dired_support&#151;Disallow local file management.
+</TD></TR><TR><TD>
+</TD><TD>
+disk_save&#151;Disallow saving binary FILES to disk in the download menu.
+</TD></TR><TR><TD>
+</TD><TD>
+download--Disallow downloaders in the download menu.
+</TD></TR><TR><TD>
+</TD><TD>
+editor&#151;Disallow editing.
+</TD></TR><TR><TD>
+</TD><TD>
+exec--Disable execution scripts.
+</TD></TR><TR><TD>
+</TD><TD>
+exec_frozen--Disallow the user from changing the local execution option.
+</TD></TR><TR><TD>
+</TD><TD>
+file_url--Disallow using goto to go to file: URLs.
+</TD></TR><TR><TD>
+</TD><TD>
+goto&#151;Disable the g (goto) command.
+</TD></TR></TABLE>
+
+
+
+<P><CENTER>
+<a href="0303-0304.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0308-0309.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

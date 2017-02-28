@@ -1,0 +1,289 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0338-0339.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0342-0342.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-340"><P>Page 340</P></A>
+
+<TABLE>
+
+<TR><TD>
+_p, --no_sort
+</TD><TD>
+Don't bother to sort the symbols in any order; just print them in the order encountered.
+</TD></TR><TR><TD>
+_P, --portability
+</TD><TD>
+Use the POSIX.2 standard output format instead of the default format. Equivalent to
+_f posix.
+</TD></TR><TR><TD>
+_s, --print_armap
+</TD><TD>
+When listing symbols from archive members, include the index, a mapping (stored in
+the archive by ar or ranlib) of which modules contain definitions for what names.
+</TD></TR><TR><TD>
+_r, --reverse_sort
+</TD><TD>
+Reverse the sense of the sort (whether numeric or alphabetic); let the last come first.
+</TD></TR><TR><TD>
+--size_sort
+</TD><TD>
+Sort symbols by size. The size is computed as the difference between the value of the
+symbol and the value of the symbol with the next higher value. The size of the symbol is
+printed, rather than the value.
+</TD></TR><TR><TD>
+_t radix, --radix=radix
+</TD><TD>
+Use radix as the radix for printing the symbol values. It must be
+d for decimal, o for octal, or x for hexadecimal.
+</TD></TR><TR><TD>
+--target=bfdname
+</TD><TD>
+Specify an object code format other than your system's default format. See
+objdump(1) for information on listing available FORMATS.
+</TD></TR><TR><TD>
+_u, --undefined_only
+</TD><TD>
+Display only undefined symbols (those external to each object file).
+</TD></TR><TR><TD>
+_V, --version
+</TD><TD>
+Show the version number of nm and exit.
+</TD></TR><TR><TD>
+--help
+</TD><TD>
+Show a summary of the OPTIONS to nm and exit.
+</TD></TR></TABLE>
+
+<P><B>SEE ALSO</B></P>
+
+<P>binutils entry in info; The GNU Binary
+Utilities, Roland H. Pesch (October 1991); ar(1),
+objdump(1), ranlib(1).
+</P>
+
+<P><B>COPYING</B></P>
+
+<P>Copyright &quot; 1991 Free Software Foundation, Inc. Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice are preserved on all copies.
+</P>
+
+<P>Permission is granted to copy and distribute modified versions of this manual under the conditions for verbatim
+copying, provided that the entire resulting derived work is distributed under the terms of a permission notice identical to this one.
+</P>
+
+<P>Permission is granted to copy and distribute translations of this manual into another language, under the above
+conditions for modified versions, except that this permission notice may be included in translations approved by the Free
+Software Foundation instead of in the original English.
+</P>
+
+<P>Cygnus support, 5 November 1991
+</P>
+
+<H3><A NAME="ch01_ 195">
+nntpget
+</A></H3>
+
+<P>nntpget&#151;Get Usenet articles from a remote NNTP server
+</P>
+
+
+<P><B>SYNOPSIS</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>nntpget [ _d dist ][_f file ][_n newsgroups ][_t timestring ][_o ][_u file ][_v ] host
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>DESCRIPTION</B></P>
+
+<P>nntpget connects to the NNTP server at the specified
+host and retrieves articles from it. The articles are sent to
+standard output.
+</P>
+
+<P>The _o flag may be used only if the command is executed on the host where the
+innd(8) server is running. If this flag is used,
+nntpget connects to the specified remote host to retrieve articles. Any article not present in the local HISTORY database is
+then fetched from the remote site and offered to the local server.
+</P>
+
+<P>If the _v flag is used with the _o flag, then the Message-ID of each article will be sent to standard output as it is processed.
+</P>
+
+<P>The list of article Message-IDs is normally read from standard input. If the
+_f flag is used, then a newnews command is used to retrieve all articles newer than the modification date of the specified
+file. The _u flag is the same except that if the
+transfer succeeded, the file will be updated with a statistics line, modifying its timestamp so that it can be used in later invocations.
+If the _t flag is used, then the specified
+timestring is used as the time and date parameter to the
+newnews command.
+</P>
+
+<A NAME="PAGENUM-341"><P>Page 341</P></A>
+
+
+<P>If either the _t or _f flags are used, then the _n flag may be used to specify a newsgroup list and the
+_d flag may be used to specify a distribution list. The default is
+* for all newsgroups, and no distribution list.
+</P>
+
+<P><B>BUGS</B></P>
+
+<P>Truncates articles at 512 lines.
+</P>
+
+<P><B>HISTORY</B></P>
+
+<P>Written by Rich $alz (rsalz@uunet.uu.net) for
+InterNetNews.
+</P>
+
+<P><B>SEE ALSO</B></P>
+
+
+<!-- CODE SNIP //-->
+<PRE>innd(8)
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+<H3><A NAME="ch01_ 196">
+objcopy
+</A></H3>
+
+<P>objcopy&#151;Copy and translate object FILES
+</P>
+
+<P><B>SYNOPSIS</B></P>
+
+
+<!-- CODE //-->
+<PRE>objcopy [ _Fbfdname|--target=bfdname ]
+[ _Ibfdname| --input_target=bfdname ] [ _Obfdname|
+--output_target=bfdname ] [ _Rsectionname|
+--remove_section=sectionname ] [ _S| --strip_all ][_g|
+--strip_debug ][_x|--discard_all ][_X|
+--discard_locals][_bbyte|--byte=byte ] [ _iinterleave|
+--interleave=interleave ] [ _v|--verbose][_V|
+--version ][--help ] infile [ outfile ]
+</PRE>
+<!-- END CODE //-->
+
+<P><B>DESCRIPTION</B></P>
+
+
+<P>The GNU objcopy utility copies the contents of an object file to another.
+objcopy uses the GNU BFD library to read and write the object FILES. It can write the destination object file in a format different from that of the source object file. The
+exact behavior of objcopy is controlled by command-line OPTIONS.
+<P>objcopy creates temporary FILES to do its translations and deletes them afterward.
+objcopy uses BFD to do all its translation work; it knows about all the FORMATS BFD knows about, and thus is able to recognize most FORMATS without being
+told explicitly.
+</P>
+
+
+<P>infile and outfile are the source and output FILES, respectively. If you do not specify
+outfile, objcopy creates a temporary file and destructively renames the result with the name of the input file.
+</P>
+
+<P><B>OPTIONS</B></P>
+
+<TABLE>
+
+<TR><TD>
+_I bfdname,
+</TD><TD>
+Consider the source file's object format to be
+bfdname, rather than attempting to deduce it.
+</TD></TR><TR><TD>
+--input_target=bfdname
+</TD><TD>
+</TD></TR><TR><TD>
+_O bfdname,
+</TD><TD>
+Write the output file using the object format
+bfdname.
+</TD></TR><TR><TD>
+--output_target=bfdname
+</TD><TD>
+</TD></TR><TR><TD>
+_F bfdname,
+</TD><TD>
+Use bfdname as the object format for both the input and the output file; that is, simply
+</TD></TR><TR><TD>
+--target=bfdname
+</TD><TD>
+transfer data from source to destination with no translation.
+</TD></TR><TR><TD>
+_R sectionname,
+</TD><TD>
+Remove the named section from the file. This option may be given more than once. Note
+</TD></TR><TR><TD>
+--remove-section, =sectionname
+</TD><TD>
+that using this option inappropriately may make the output file unusable.
+</TD></TR><TR><TD>
+_S, --strip_all
+</TD><TD>
+Do not copy relocation and symbol information from the source file.
+</TD></TR><TR><TD>
+_g, --strip_debug
+</TD><TD>
+Do not copy debugging symbols from the source file.
+</TD></TR><TR><TD>
+_x, --discard_all
+</TD><TD>
+Do not copy nonglobal symbols from the source file.
+</TD></TR><TR><TD>
+_X, --discard_locals
+</TD><TD>
+Do not copy compiler-generated local symbols. (These usually start with
+L or .).
+</TD></TR></TABLE>
+
+
+
+
+<P><CENTER>
+<a href="0338-0339.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0342-0342.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

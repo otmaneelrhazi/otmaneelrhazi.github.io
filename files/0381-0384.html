@@ -1,0 +1,542 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0378-0380.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0385-0388.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-381"><P>Page 381</P></A>
+
+
+<H3><A NAME="ch01_ 257">
+pjtoppm
+</A></H3>
+<P>pjtoppm&#151;Convert an HP PaintJet file to a portable pixmap
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pjtoppm [paintjet]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pjtoppm reads an HP PaintJet file as input and converts it into a portable pixmap. This was a quick hack to save some
+trees, and it only handles a small subset of the
+paintjet commands. In particular, it will only handle enough commands to
+convert most raster image files.
+</P>
+
+<P><B>
+REFERENCES
+</B>
+</P>
+<P>HP PaintJet XL Color Graphics Printer User's Guide
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>ppmtopj(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright&quot; 1991 by Christos Zoulas.
+</P>
+
+<P>14 July 1991
+</P>
+
+<H3><A NAME="ch01_ 258">
+pktopbm
+</A></H3>
+<P>pktopbm&#151;Convert packed (PK) format font into portable bitmap(s)
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pktopbm pkfile[.pk] [-c num] pbmfile ...
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pktopbm reads a packed (PK) font file as input and produces portable bitmaps as output. If the filename &quot;-&quot; is used for any
+of the filenames, the standard input stream (or standard output where appropriate) will be used.
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+<TABLE>
+
+<TR><TD>
+-c num
+</TD><TD>
+Sets the character number of the next bitmap written to
+num.
+</TD></TR></TABLE>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pbmtopk(1), pbm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Adapted from Tom Rokicki's pxtopk by Angus Duggan
+(ajcd@dcs.ed.ac.uk).
+</P>
+
+<P>6 August 1990
+</P>
+
+<H3><A NAME="ch01_ 259">
+pnmalias
+</A></H3>
+<P>pnmalias&#151;Antialias a portable anymap.
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pnmalias [-bgcolor color][-fgcolor color][-bonly][-fonly][-balias][-falias]
+[-weight w][pnmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+<A NAME="PAGENUM-382"><P>Page 382</P></A>
+
+
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pnmalias reads a portable anymap as input and applies antialiasing to background and foreground pixels. If the input file is
+a portable bitmap, the output antialiased image is promoted to a graymap, and a message is printed informing the user of
+the change in format.
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+<TABLE>
+
+<TR><TD>
+_bgcolor
+</TD><TD>
+colorb,
+</TD><TD>
+Set the background color to
+colorb, and the foreground to color to colorf. Pixels with these values
+</TD></TR><TR><TD>
+_fgcolor
+</TD><TD>
+colorf
+</TD><TD>
+will be antialiased. By default, the background color is taken to be black, and foreground color
+is assumed to be white. The colors can be specified in five ways:
+</TD></TR><TR><TD>
+</TD><TD>
+</TD><TD>
+n     A name, assuming that a pointer to an X11-style color names file was compiled in.
+</TD></TR><TR><TD>
+</TD><TD>
+</TD><TD>
+n     An X11-style hexadecimal specifier:
+rgb:r/g/b, where r, g, and b are each 1- to
+4-digit hexadecimal numbers.
+</TD></TR><TR><TD>
+</TD><TD>
+</TD><TD>
+n     An X11-style decimal specifier:
+rgbi:r/g/b, where r, g, and b are floating-point
+numbers between 0 and 1.
+</TD></TR><TR><TD>
+</TD><TD>
+</TD><TD>
+n     For backwards compatibility, an old-X11-style hexadecimal number:
+#rgb, #rrggbb, #rrrgggbbb, or #rrrrggggbbbb.
+</TD></TR><TR><TD>
+</TD><TD>
+</TD><TD>
+n     For backwards compatibility, a triplet of numbers separated by
+commas: r,g,b, where r, g, and b are floating-point numbers between 0 and 1. (This style was added before MIT
+came up with the similar rgbi style.)
+</TD></TR></TABLE>
+
+<P>Note that even when dealing with graymaps, background and foreground colors need to be specified in the fashion
+described in the preceding list. In this case, background and foreground pixel values are taken to be the value of the red component
+for the given color.
+</P>
+
+<TABLE>
+
+<TR><TD>
+_bonly,
+</TD><TD>
+_fonly
+</TD><TD>
+Apply antialiasing only to background
+(_bonly), or foreground (_fonly) pixels.
+</TD></TR><TR><TD>
+_balias,
+</TD><TD>
+_falias
+</TD><TD>
+Apply antialiasing to all pixels surrounding background
+(_balias), or foreground (_falias) pixels. By default, antialiasing takes place only among neighboring background and foreground pixels.
+</TD></TR><TR><TD>
+_weight w
+</TD><TD>
+</TD><TD>
+Use w as the central weight for the aliasing filter.
+w must be a real number in the range 0 &lt; w &lt;
+1. The lower the value of w is, the &quot;blurrier&quot; the output image is. The default is
+w = 1/3.
+</TD></TR></TABLE>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>pbmtext(1), pnmsmooth(1), pnm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright&quot; 1992 by Alberto Accomazzi, Smithsonian Astrophysical Observatory.
+</P>
+
+<P>30 April 1992
+</P>
+
+<H3><A NAME="ch01_ 260">
+pnmarith
+</A></H3>
+<P>pnmarith&#151;Perform arithmetic on two portable anymaps
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pnmarith -add|-subtract|-multiply|-difference pnmfile1 pnmfile2
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pnmarith reads two portable anymaps as input, performs the specified arithmetic operation, and produces a portable
+anymap as output. The two input anymaps must be the same width and height.
+</P>
+
+<P>The arithmetic is performed between corresponding pixels in the two anymaps, as if
+maxval was 1.0, black was 0.0, with a linear scale in between. Results that fall outside of
+[0..1) are truncated.
+</P>
+
+<A NAME="PAGENUM-383"><P>Page 383</P></A>
+
+
+<P>The operator -difference calculates the absolute value of
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+pnmarith -subtract pnmfile1 pnm-file2
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>In other words, no truncation is done.
+</P>
+<P>All flags can be abbreviated to their shortest unique prefix.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pbmmask(1), pnmpaste(1), pnminvert(1), pnm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright&quot; 1989, 1991 by Jef Poskanzer. Lightly modified by Marcel Wijkstra
+(wijkstra@fwi.uva.nl).
+</P>
+
+<P>26 August 1993
+</P>
+
+<H3><A NAME="ch01_ 261">
+pnmcat
+</A></H3>
+<P>pnmcat&#151;Concatenate portable anymaps
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pnmcat [-white|-black] -leftright|-lr [-jtop|-jbottom] pnmfile pnmfile ...
+pnmcat [-white|-black] -topbottom|-tb [-jleft|-jright] pnmfile pnmfile ...
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pnmcat reads portable anymaps as input, concatenates them either left to right or top to bottom, and produces a
+portable anymap as output.
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+<P>If the anymaps are not all the same height (left-right) or width (top-bottom), the smaller ones have to be justified with
+the largest. By default, they get centered, but you can specify one side or the other with one of the
+-j* flags. So, -topbottom -jleft would stack the anymaps on top of each other, flush with the left edge.
+</P>
+
+<P>The -white and -black flags specify which color to use to fill in the extra space when doing this justification. If neither
+is specified, the program makes a guess.
+</P>
+
+<P>All flags can be abbreviated to their shortest unique prefix.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pnm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright&quot; 1989 by Jef Poskanzer.
+</P>
+
+<P>12 March 1989
+</P>
+
+<H3><A NAME="ch01_ 262">
+pnmcomp
+</A></H3>
+<P>pnmcomp&#151;Composite two portable anymap files together
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pnmcomp [-invert][-xoffN] [-yoffN] [-alphapgmfile] overlay [pnm-input][pnm-output]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<A NAME="PAGENUM-384"><P>Page 384</P></A>
+
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pnmcomp reads in a portable anymap image and puts an overlay upon it, with optional alpha mask. The
+-alphapgmfile allows you to also add an alpha mask file to the compositing process; the range of
+max and min can be swapped by using the -invert option. The
+-xoff and -yoff arguments can be negative, allowing you to shift the overlay off the top corner of the screen.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pnm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright&quot; 1992 by David Koblas
+(koblas@mips.com).
+</P>
+
+<P>21 February 1989
+</P>
+
+<H3><A NAME="ch01_ 263">
+pnmconvol
+</A></H3>
+<P>pnmconvol&#151;General MxN convolution on a portable anymap
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pnmconvol convolutionfile [pnmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pnmconvol reads two portable anymaps as input, convolves the second using the first, and writes a portable anymap as output.
+</P>
+
+<P>Convolution means replacing each pixel with a weighted average of the nearby pixels. The weights and the area to average
+are determined by the convolution matrix. The unsigned numbers in the convolution file are offset by
+-maxval/2 to make signed numbers, and then normalized, so the actual values in the convolution file are only relative.
+</P>
+
+<P>Here is a sample convolution file; it does a simple average of the nine immediate neighbors, resulting in a smoothed image:
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+P2
+3 3
+18
+10 10 10
+10 10 10
+10 10 10
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>To see how this works, do the offset mentioned in the preceding paragraph: 10 _ 18/2 gives 1. The possible range of values
+is from 0 to 18, and after the offset that's -9 to 9. The normalization step makes the range -1 to 1, and the values get
+scaled correspondingly so they become 1/9&#151;exactly what you want. The equivalent matrix for
+5&#165;5 smoothing would have maxval 50 and be filled with
+26.</P>
+
+<P>The convolution file will usually be a graymap, so that the same convolution is applied to each color component. However,
+if you want to use a pixmap and do a different convolution to different colors, you can certainly do that.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pnmsmooth(1), pnm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright&quot; 1989, 1991 by Jef Poskanzer.
+</P>
+
+<P>13 January 1991
+</P>
+
+
+
+<P><CENTER>
+<a href="0378-0380.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0385-0388.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

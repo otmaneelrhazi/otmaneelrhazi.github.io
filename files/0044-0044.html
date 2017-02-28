@@ -1,0 +1,181 @@
+<HTML>
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0042-0043.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0045-0046.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-44"><P>Page 44</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+</TD><TD>
+values they had upon entrance to the shell). If
+arg is the null string, this signal is ignored by the shell and by the commands it invokes.
+sigspec is either a signal name defined in
+&lt;signal.h&gt;, or a signal number. If sigspec is
+EXIT (0), the command arg is executed on exit from the shell. With no arguments,
+trap prints the list of commands associated with each signal number. The
+_l option causes the shell to print a list of signal names and their corresponding numbers. An argument of
+&#151; disables option checking for the rest of the arguments. Signals ignored upon entry
+to the shell cannot be trapped or reset. Trapped signals are reset to their original
+values in a child process when it is created. The return status is
+False if either the trap name or number is invalid; otherwise, trap returns
+True.
+</TD></TR><TR><TD>
+type [_all][_type | _path]
+</TD><TD>
+With no options, indicate how each name would be interpreted if used as a
+</TD></TR><TR><TD>
+name [name ...]
+</TD><TD>
+command name. If the _type flag is used,
+type prints a phrase that is one of alias, keyword,
+function, builtin, or file if name is an alias, shell reserved word,
+function, builtin, or disk file, respectively. If the name is not found, then nothing is
+printed, and an exit status of False is returned. If the
+_path flag is used, type either returns the name of the disk file that would be executed if
+name were specified as a command name, or nothing if
+_type would not return file. If a command is hashed,
+_path prints the hashed value, not necessarily the file that appears first in
+PATH. If the _all flag is used, type prints all of the places that contain an executable named
+name. This includes aliases and functions, if and only if the
+_path flag is not also used. The table of hashed commands is
+not consulted when using _all. type accepts _a, _t, and
+_p in place of _all, _type, and _path, respectively. An argument of
+&#151; disables option checking for the rest of the arguments.
+type returns True if any of the arguments are found,
+False if none are found.
+</TD></TR><TR><TD>
+ulimit [_SHacdfmstpnuv [limit]]
+</TD><TD>
+ulimit provides control over the resources available to the shell and to
+processes started by it, on systems that allow such control. The value of
+limit can be a number in the unit specified for the resource, or the value
+unlimited. The H and S options specify that the hard or soft limit is set for the given resource. A hard limit cannot
+be increased once it is set; a soft limit may be increased up to the value of the
+hard limit. If neither H nor S is specified, the command applies to the soft limit. If
+limit is omitted, the current value of the soft limit of the resource is printed, unless the
+H option is given. When more than one resource is specified, the
+limit name and unit is printed before the value. Other options are interpreted as follows:
+</TD></TR></TABLE>
+
+<TABLE>
+
+<TR><TD>
+</TD><TD>
+_a
+</TD><TD>
+All current limits are reported.
+</TD></TR><TR><TD>
+</TD><TD>
+_c
+</TD><TD>
+The maximum size of core files created.
+</TD></TR><TR><TD>
+</TD><TD>
+_d
+</TD><TD>
+The maximum size of a process's data segment.
+</TD></TR><TR><TD>
+</TD><TD>
+_f
+</TD><TD>
+The maximum size of files created by the shell.
+</TD></TR><TR><TD>
+</TD><TD>
+_m
+</TD><TD>
+The maximum resident set size.
+</TD></TR><TR><TD>
+</TD><TD>
+_s
+</TD><TD>
+The maximum stack size.
+</TD></TR><TR><TD>
+</TD><TD>
+_t
+</TD><TD>
+The maximum amount of cpu time in seconds.
+</TD></TR><TR><TD>
+</TD><TD>
+_p
+</TD><TD>
+The pipe size in 512-byte blocks. (This may not be set.)
+</TD></TR><TR><TD>
+</TD><TD>
+_n
+</TD><TD>
+The maximum number of open file descriptors. (Most
+systems do not allow this value to be set, only displayed.)
+</TD></TR><TR><TD>
+</TD><TD>
+_u
+</TD><TD>
+The maximum number of processes available to a single user.
+</TD></TR><TR><TD>
+</TD><TD>
+_v
+</TD><TD>
+The maximum amount of virtual memory available to
+the shell.
+</TD></TR></TABLE>
+
+<TABLE>
+
+<TR><TD>
+</TD><TD>
+An argument of &#151; disables option checking for the rest of the arguments. If
+limit is given, it is the new value of the specified resource (the
+_a option is display only). If no option is given, then
+_f is assumed. Values are in 1024-byte increments,
+except for _t, which is in seconds; _p, which is in units of 512-byte blocks; and
+_n and _u,
+</TD></TR></TABLE>
+
+
+
+
+
+<P><CENTER>
+<a href="0042-0043.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0045-0046.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

@@ -1,0 +1,297 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0217-0218.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0221-0221.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-219"><P>Page 219</P></A>
+
+
+<P>The following options have no equivalent commands:
+</P>
+
+<TABLE>
+
+<TR><TD>
+_v
+</TD><TD>
+Print the version number
+</TD></TR><TR><TD>
+_R
+</TD><TD>
+Don't recognize lines beginning with
+.R1/.R2
+</TD></TR></TABLE>
+
+<P><B>
+USAGE<BR>
+BIBLIOGRAPRIC DATABASES
+</B>
+</P>
+
+<P>The bibliographic database is a text file consisting of records separated by one or more blank lines. Within each record,
+fields start with a % at the beginning of a line. Each field has a one-character name that immediately follows the
+%. It is best to use only uppercase and lowercase letters for the names of fields. The name of the field should be followed by exactly one
+space, and then by the contents of the field. Empty fields are ignored. The conventional meaning of each field is as follows:
+</P>
+
+<TABLE>
+
+<TR><TD>
+A
+</TD><TD>
+The name of an author. If the name contains a title such as Jr. at the end, it should be separated from
+the last name by a comma. There can be multiple occurrences of the
+A field. The order is significant. It is a good idea always to supply an
+A field or a Q field.
+</TD></TR><TR><TD>
+B
+</TD><TD>
+For an article that is part of a book, the title of the book.
+</TD></TR><TR><TD>
+C
+</TD><TD>
+The place (city) of publication.
+</TD></TR><TR><TD>
+D
+</TD><TD>
+The date of publication. The year should be specified in full. If the month is specified, the name
+rather than the number of the month should be used, but only the first three letters are required. It is a good
+idea always to supply a D field; if the date is unknown, a value such as
+in press or unknown can be used.
+</TD></TR><TR><TD>
+E
+</TD><TD>
+For an article that is part of a book, the name of an editor of the book. Where the work has editors and
+no authors, the names of the editors should be given as
+A fields (ed) or (eds) should be appended to the
+last author.
+</TD></TR><TR><TD>
+G
+</TD><TD>
+U.S. government ordering number.
+</TD></TR><TR><TD>
+I
+</TD><TD>
+The publisher (issuer).
+</TD></TR><TR><TD>
+J
+</TD><TD>
+For an article in a journal, the name of the journal.
+</TD></TR><TR><TD>
+K
+</TD><TD>
+Keywords to be used for searching.
+</TD></TR><TR><TD>
+L
+</TD><TD>
+Label.
+</TD></TR><TR><TD>
+N
+</TD><TD>
+Journal issue number.
+</TD></TR><TR><TD>
+O
+</TD><TD>
+Other information. This is usually printed at the end of the reference.
+</TD></TR><TR><TD>
+P
+</TD><TD>
+Page number. A range of pages can be specified as
+m_n.
+</TD></TR><TR><TD>
+Q
+</TD><TD>
+The name of the author, if the author is not a person. This will only be used if there are no
+A fields. There can only be one Q field.
+</TD></TR><TR><TD>
+R
+</TD><TD>
+Technical report number.
+</TD></TR><TR><TD>
+S
+</TD><TD>
+Series name.
+</TD></TR><TR><TD>
+T
+</TD><TD>
+Title. For an article in a book or journal, this should be the title of the article.
+</TD></TR><TR><TD>
+V
+</TD><TD>
+Volume number of the journal or book.
+</TD></TR><TR><TD>
+X
+</TD><TD>
+Annotation.
+</TD></TR></TABLE>
+
+
+<P>For all fields except A and E, if there is more than one occurrence of a particular field in a record, only the last such field
+will be used.
+</P>
+<P>If accent strings are used, they should follow the character to be accented. This means that the
+AM macro must be used with the _ms macros. Accent strings should not be quoted: use one
+\ rather than two.
+</P>
+
+<P><B>
+CITATIONS
+</B>
+</P>
+
+
+<P>The format of a citation is
+<!-- CODE SNIP //-->
+<PRE>
+.[opening-text
+flags keywords
+fields
+.]closing-text
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+<A NAME="PAGENUM-220"><P>Page 220</P></A>
+
+<P>The opening-text, closing-text, and flags components are optional. Only one of the
+keywords and fields components need be specified.
+</P>
+
+<P>The keywords component says to search the bibliographic databases for a reference that contains all the words in
+keywords. It is an error if more than one reference if found.
+</P>
+
+<P>The fields components specifies additional fields to replace or supplement those specified in the reference. When
+references are being accumulated and the keywords component is nonempty, then additional fields should be specified only on the
+first occasion that a particular reference is cited, and will apply to all citations of that reference.
+</P>
+
+<P>The opening-text and closing-text component specifies strings to be used to bracket the label instead of the strings
+specified in the bracket-label command. If either of these components is nonempty, the strings specified in
+the bracket-label command will not be used; this behavior can be altered using the
+[ and ] flags. Note that leading and trailing spaces
+are significant for these components.
+</P>
+
+<P>The flags component is a list of nonalphanumeric characters, each of which modifies the treatment of this
+particular citation. UNIX refer will treat these flags as part of the keywords and so will ignore them because they
+are nonalphanumeric. The following flags are currently recognized:
+</P>
+
+<TABLE>
+
+<TR><TD>
+#
+</TD><TD>
+This says to use the label specified by the
+short-label command, instead of that specified by the
+label command. If no short label has been specified, the normal label will be used. Typically, the short label is used with
+author-date labels and consists of only the date and possibly a disambiguating letter; the
+# is supposed to be suggestive of a numeric type of label.
+</TD></TR><TR><TD>
+[
+</TD><TD>
+Precede opening-text with the first string specified in the
+bracket-label command.
+</TD></TR><TR><TD>
+]
+</TD><TD>
+Follow closing-text with the second string specified in the
+bracket-label command.
+</TD></TR></TABLE>
+
+
+<P>One advantage of using the [ and ] flags rather than including the brackets in
+opening-text and closing-text is that you can change the style of bracket used in the document just by changing the
+bracket-label command. Another advantage is that sorting and merging of citations will not necessarily be inhibited if the flags are used.
+</P>
+
+<P>If a label is to be inserted into the text, it will be attached to the line preceding the
+.[ line. If there is no such line, then an extra line will be inserted before the
+.[ line and a warning will be given.
+</P>
+
+<P>There is no special notation for making a citation to multiple references. Just use a sequence of citations, one for
+each reference. Don't put anything between the citations. The labels for all the citations will be attached to the line preceding
+the first citation. The labels may also be sorted or merged. (See the description of the
+&lt;&gt; label expression, and of the sort-adjacent-
+labels and abbreviate-label-ranges command.) A label will not be merged if its citation has a nonempty
+opening-text or closing-text. However, the labels for a citation using the
+] flag and without any closing-text immediately
+followed by a citation using the [ flag and without any
+opening-text may be sorted and merged even though the first
+citation's opening-text or the second citation's
+closing-text is nonempty. (If you want to prevent this, just make the first
+citation's closing-text \&amp;.)
+</P>
+
+<P><B>
+COMMANDS
+</B>
+</P>
+
+<P>Commands are contained between lines starting with
+.R1 and .R2. Recognition of these lines can be prevented by the
+_R option. When an .R1 line is recognized, any accumulated references are flushed out. Neither
+.R1 nor .R2 lines, nor anything between them, is output.
+</P>
+
+<P>Commands are separated by newlines or semicolons.
+# introduces a comment that extends to the end of the line (but
+does not conceal the newline). Each command is broken up into words. Words are separated by spaces or tabs. A word that
+begins with an open quote (&quot;) extends to the next close quote (&quot;) that is not followed by another open quote (&quot;). If there is no
+such open quote (&quot;) the word extends to the end of the line. Pairs of open quotes (&quot;) in a word beginning with collapse to a
+single open quote (&quot;). Neither # nor ; is recognized inside open quotes (&quot;). A line can be continued by ending it with
+\; this works everywhere except after a #.
+</P>
+
+<P>Each command name that is marked with * has an associated negative command
+no-name that undoes the effect of name. For example, the
+no-sort command specifies that references should not be sorted. The negative commands take no arguments.
+</P>
+
+
+
+<P><CENTER>
+<a href="0217-0218.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0221-0221.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

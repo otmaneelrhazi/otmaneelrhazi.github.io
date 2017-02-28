@@ -1,0 +1,639 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0342-0342.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0347-0349.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-343"><P>Page 343</P></A>
+
+<TABLE>
+
+<TR><TD>
+_b bfdname,
+--target=bfdname
+</TD><TD>
+Specify the object-code format for the object FILES to be
+bfdname. This may not be necessary;
+objdump can automatically recognize many FORMATS. For example,
+objdump _b oasys _m vax _h fu.o displays summary information from the section headers
+(_h) of fu.o, which is explicitly identified (_m) as a Vax object file in the format produced by Oasys compilers.
+You can list the FORMATS available with the _i option.
+</TD></TR><TR><TD>
+_d, --disassemble
+</TD><TD>
+Display the assembler mnemonics for the machine instructions from
+objfile. This option only disassembles those sections that are expected to contain instructions.
+</TD></TR><TR><TD>
+_D, --disassemble-all
+</TD><TD>
+Like _d, but disassemble the contents of all sections, not just those expected to
+contain instructions.
+</TD></TR><TR><TD>
+_f, --file_headers
+</TD><TD>
+Display summary information from the overall header of each file in
+objfile.
+</TD></TR><TR><TD>
+_h, --section_headers,
+</TD><TD>
+Display summary information from the section headers of the object file.
+</TD></TR><TR><TD>
+--headers
+</TD><TD>
+</TD></TR><TR><TD>
+--help
+</TD><TD>
+Print a summary of the OPTIONS to
+objdump and exit.
+</TD></TR><TR><TD>
+_i, --info
+</TD><TD>
+Display a list showing all architectures and object FORMATS available for specification with
+_b or _m.
+</TD></TR><TR><TD>
+_j name, --section=name
+</TD><TD>
+Display information only for section name.
+</TD></TR><TR><TD>
+_l, --line_numbers
+</TD><TD>
+Label the display (using debugging information) with the filename and source line
+numbers corresponding to the object code shown. Only useful with
+_d or _D.
+</TD></TR><TR><TD>
+_m machine,
+</TD><TD>
+--architecture=machine
+Specify the object FILES
+objfile are for architecture  machine. You can list available architec-
+tures using the _i option.
+</TD><TR><TR><TD>
+_r, --reloc
+</TD><TD>
+Print the relocation entries of the file. If used with
+_d or _D, the relocations are printed interspersed with the disassembly.
+</TD><TR><TR><TD>
+_R, --dynamic_reloc
+</TD><TD>
+Print the dynamic relocation entries of the file. This is only meaningful for dynamic
+objects, such as certain types of shared libraries.
+</TD><TR><TR><TD>
+_s, --full_contents
+</TD><TD>
+Display the full contents of any sections requested.
+</TD><TR><TR><TD>
+--stabs
+</TD><TD>
+Display the contents of the .stab,
+.stab.index, and .stab.excl sections from an ELF
+file. This is only useful on systems (such as Solaris 2.0) in which
+.stab debugging symbol-table entries are carried in an ELF section. In most other file FORMATS, debugging
+symbol-table entries are interleaved with linkage symbols, and are visible in the
+--syms output.
+</TD><TR><TR><TD>
+_t, --syms
+</TD><TD>
+Symbol table. Print the symbol table entries of the file. This is similar to the
+information provided by the nm program.
+</TD><TR><TR><TD>
+_T, --dynamic_syms
+</TD><TD>
+Dynamic symbol table. Print the dynamic symbol table entries of the file. This is
+only meaningful for dynamic objects, such as certain types of shared libraries. This is similar
+to the information provided by the nm program when given the
+_D (--dynamic) option.
+</TD><TR><TR><TD>
+--version
+</TD><TD>
+Print the version number of
+objdump and exit.
+</TD><TR><TR><TD>
+_x, --all_headers
+</TD><TD>
+Display all available header information, including the symbol table and relocation
+entries. Using _x is equivalent to specifying all of
+_a _f _h _r _t.
+</TD></TR></TABLE>
+
+
+<P><B>SEE ALSO</B></P>
+
+<P>binutils entry in info; The GNU Binary
+Utilities, Roland H. Pesch (October 1991); nm(1).
+</P>
+
+<P><B>COPYING</B></P>
+
+
+<P>Copyright  &quot; 1991 Free Software Foundation, Inc. Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice are preserved on all copies.
+</P>
+
+<P>Permission is granted to copy and distribute modified versions of this manual under the conditions for verbatim
+copying, provided that the entire resulting derived work is distributed under the terms of a permission notice identical to this one.
+</P>
+
+<P>Permission is granted to copy and distribute translations of this manual into another language, under the above
+conditions for modified versions, except that this permission notice may be included in translations approved by the Free
+Software Foundation instead of in the original English.
+</P>
+
+<P>Cygnus support, 5 November 1991
+</P>
+
+<A NAME="PAGENUM-344"><P>Page 344</P></A>
+
+
+<H3><A NAME="ch01_ 198">
+oclock
+</A></H3>
+
+<P>oclock&#151;Round X clock
+</P>
+
+<P><B>SYNOPSIS</B></P>
+
+
+<!-- CODE SNIP //-->
+<PRE>oclock [_option ... ]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>DESCRIPTION</B></P>
+
+<P>oclock simply displays the current time on an analog display.
+</P>
+
+<P><B>OPTIONS</B></P>
+
+
+<TABLE>
+
+<TR><TD>
+_fg color
+</TD><TD>
+Choose a different color for both hands and the jewel on the clock
+</TD></TR><TR><TD>
+_bg color
+</TD><TD>
+Choose a different color for the background.
+</TD></TR><TR><TD>
+_jewel color
+</TD><TD>
+Choose a different color for the jewel on the clock.
+</TD></TR><TR><TD>
+_minute color
+</TD><TD>
+Choose a different color for the minute hand of the clock.
+</TD></TR><TR><TD>
+_hour color
+</TD><TD>
+Choose a different color for the hour hand of the clock.
+</TD></TR><TR><TD>
+_backing { WhenMapped
+</TD><TD>
+Select an appropriate
+level of backing store.
+</TD></TR><TR><TD>
+Always NotUseful}
+</TD><TD>
+</TD></TR><TR><TD>
+_geometry geometry
+</TD><TD>
+Define the initial window geometry; see
+X(1).
+</TD></TR><TR><TD>
+_display display
+</TD><TD>
+Specify the display to use; see
+X(1).
+</TD></TR><TR><TD>
+_bd color
+</TD><TD>
+Choose a different color for the window border.
+</TD></TR><TR><TD>
+_bw width
+</TD><TD>
+Choose a different width for the window border. As the Clock widget changes its border
+around quite a bit, this is most usefully set to zero.
+</TD></TR><TR><TD>
+_shape
+</TD><TD>
+Cause the clock to use the Shape extension to create an oval window. This is the default unless
+the shapeWindow resource is set to false.
+</TD></TR><TR><TD>
+_noshape
+</TD><TD>
+Cause the clock to not reshape itself and ancestors to exactly fit the outline of the clock.
+</TD></TR><TR><TD>
+_transparent
+</TD><TD>
+Cause the clock to consist only of the jewel, the hands, and the border.
+</TD></TR></TABLE>
+
+
+<P><B>COLORS</B></P>
+
+<P>If you would like your clock to be viewable in color, include the following in the
+#ifdef COLOR section you read with xrdb:
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>*customization: -color
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>This will cause oclock to pick up the colors in the app-defaults color customization file:
+&lt;XRoot&gt;/lib/X11/app-defaults/Clock-color. The default colors are
+</P>
+
+<TABLE>
+
+<TR><TD>
+Clock*Background
+</TD><TD>
+Gray
+</TD></TR><TR><TD>
+Clock*BorderColor
+</TD><TD>
+Light blue
+</TD></TR><TR><TD>
+Clock*hour
+</TD><TD>
+Yellow
+</TD></TR><TR><TD>
+Clock*jewel
+</TD><TD>
+Yellow
+</TD></TR><TR><TD>
+Clock*minute
+</TD><TD>
+Yellow
+</TD></TR></TABLE>
+
+<P><B>SEE ALSO</B></P>
+
+
+<P>X(1), X Toolkit documentation
+</P>
+
+
+<P><B>AUTHOR</B></P>
+
+<P>Keith Packard, MIT X Consortium
+</P>
+
+<P>X Version 11 Release 6
+</P>
+
+<A NAME="PAGENUM-345"><P>Page 345</P></A>
+
+<H3><A NAME="ch01_ 199">
+od
+</A></H3>
+
+<P>od&#151;Dump FILES in octal and other FORMATS
+</P>
+
+
+<P><B>SYNOPSIS</B></P>
+
+<!-- CODE //-->
+<PRE>od [_abcdfhiloxv] [_s[bytes]] [_w[bytes]] [_A radix] [_j bytes] [_N bytes]
+[_t type] [--skip_bytes=bytes] [--address_radix=radix] [--read_bytes=bytes]
+[--format=type] [--output_duplicates] [--strings[=bytes]] [--width[=bytes]]
+[--traditional] [--help] [--version] [file...]
+</PRE>
+<!-- END CODE //-->
+
+<P><B>DESCRIPTION</B></P>
+
+<P>This manual page documents the GNU version of
+od. od writes to the standard output the contents of the given FILES, or
+of the standard input if the name _ is given. Each line of the output consists of the offset in the input file in the
+leftmost column of each line, followed by one or more columns of data from the file, in a format controlled by the OPTIONS.
+By default, od prints the file offsets in octal and the file data as two-byte octal numbers.
+</P>
+
+<P><B>OPTIONS</B></P>
+
+<TABLE>
+
+<TR><TD>
+_A, --address_radix=radix
+</TD><TD>
+Select the base in which file offsets are printed.
+radix can be one of the following:
+</TD></TR></TABLE>
+
+<BLOCKQUOTE>
+<TABLE>
+
+<TR><TD>
+d
+</TD><TD>
+Decimal<BR>
+</TD></TR><TR><TD>
+o
+Octal<BR>
+</TD><TD>
+x
+</TD></TR><TR><TD>
+Hexadecimal<BR>
+</TD><TD>
+n
+</TD></TR><TR><TD>
+None (do not print offsets)<BR>
+</TD><TD>
+</TD></TR><TR><TD>
+The default is octal.
+</TD></TR></TABLE>
+</BLOCKQUOTE>
+
+<TABLE>
+<TR><TD>
+_j, --skip_bytes=bytes
+</TD><TD>
+Skip bytes input bytes before formatting and writing. If
+bytes begins with 0x or 0X, it is interpreted in hexadecimal; otherwise, if it begins with
+0, in octal; otherwise, in decimal. Appending b multiplies it by 512,
+k by 1024, and m by 1048576.
+</TD></TR><TR><TD>
+_N, --read_bytes=bytes
+</TD><TD>
+Only output up to
+bytes bytes of each input file. Any prefixes and suffixes on
+bytes are interpreted as for the _j option.
+</TD></TR><TR><TD>
+_t, --format=type
+</TD><TD>
+Select the format in which to output the file data.
+type is a string of one or more of the following type indicator characters. If you include more than one type indicator character
+in a single type string or use this option more than once,
+od writes one copy of each output line using each of the data types that you specified, in the order that you specified.
+</TD></TR>
+</TABLE>
+<BLOCKQUOTE>
+<TABLE>
+
+<TR><TD>
+a
+</TD><TD>
+Named character<BR>
+</TD></TR><TR><TD>
+c
+</TD><TD>
+ASCII character or backslash escape<BR>
+</TD></TR><TR><TD>
+d
+</TD><TD>
+Signed decimal<BR>
+</TD></TR><TR><TD>
+f
+</TD><TD>
+Floating point<BR>
+</TD></TR><TR><TD>
+o
+</TD><TD>
+Octal<BR>
+</TD></TR><TR><TD>
+u
+</TD><TD>
+Unsigned decimal<BR>
+</TD></TR><TR><TD>
+x
+</TD><TD>
+Hexadecimal
+</TD></TR></TABLE>
+</BLOCKQUOTE>
+
+
+<P>
+Except for types a and c, you can specify the number of bytes to use in interpreting
+each number in the given data type by following the type indicator character with a
+decimal integer. Alternately, you can specify the size of one of the C compiler's built-in data types
+by following the type indicator character with one of the following characters. For integers
+(d, o, u, x):
+</P>
+
+<BLOCKQUOTE>
+<TABLE>
+
+<TR><TD>
+C
+</TD><TD>
+char<BR>
+</TD></TR><TR><TD>
+S
+</TD><TD>
+short<BR>
+</TD></TR><TR><TD>
+I
+</TD><TD>
+int<BR>
+</TD></TR><TR><TD>
+L
+</TD><TD>
+long
+</TD></TR></TABLE>
+</BLOCKQUOTE>
+
+<A NAME="PAGENUM-346"><P>Page 346</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+</TD><TD>
+For floating point (f):
+</TD></TR><TR><TD>
+F
+</TD><TD>
+float<BR>
+</TD></TR><TR><TD>
+D
+</TD><TD>
+double<BR>
+</TD></TR><TR><TD>
+L
+</TD><TD>
+long double
+</TD></TR></TABLE>
+
+
+<TABLE>
+
+<TR><TD>
+_v, --output_duplicates
+</TD><TD>
+Output consecutive lines that are identical. By default, when two or more
+consecutive output lines would be equal, od outputs only the first line, and puts just an asterisk on
+the following line to indicate that identical lines have been elided.
+</TD></TR><TR><TD>
+_s, --strings[=bytes]
+</TD><TD>
+Instead of the normal output, output only string constants in the input, which are a run
+of at least bytes ASCII graphic (or formatting) characters, terminated by a
+NUL. If bytes is omitted, it defaults to 3.
+</TD></TR><TR><TD>
+_w, --width[=bytes]
+</TD><TD>
+The number of input
+bytes to format per output line. It must be a multiple of the
+least common multiple of the sizes associated with the specified output types. If
+bytes is omitted, it defaults to 32. If this option is not given, it defaults to
+16.
+</TD></TR><TR><TD>
+--help
+</TD><TD>
+Print a usage message and exit with a nonzero status.
+</TD></TR><TR><TD>
+--version
+</TD><TD>
+Print version information on standard output, then exit.
+</TD></TR>
+</TABLE>
+
+<P>The next several OPTIONS map the old, pre-POSIX format specification OPTIONS to the corresponding POSIX format
+specs. GNU od accepts any combination of old- and new-style OPTIONS. Format specification OPTIONS accumulate.
+</P>
+
+<TABLE>
+
+<TR><TD>
+_a
+</TD><TD>
+Output as named characters. Equivalent to
+_t a.
+</TD></TR><TR><TD>
+_b
+</TD><TD>
+Output as octal bytes. Equivalent to _t
+oC.
+</TD></TR><TR><TD>
+_c
+</TD><TD>
+Output as ASCII characters or backslash escapes. Equivalent to
+_t c.
+</TD></TR><TR><TD>
+_d
+</TD><TD>
+Output as unsigned decimal shorts. Equivalent to
+_t u2.
+</TD></TR><TR><TD>
+_f
+</TD><TD>
+Output as floats. Equivalent to _t fF.
+</TD></TR><TR><TD>
+_h
+</TD><TD>
+Output as hexadecimal shorts. Equivalent to
+_t x2.
+</TD></TR><TR><TD>
+_i
+</TD><TD>
+Output as decimal shorts. Equivalent to _t
+d2.
+</TD></TR><TR><TD>
+_l
+</TD><TD>
+Output as decimal longs. Equivalent to _t
+d4.
+</TD></TR><TR><TD>
+_o
+</TD><TD>
+Output as octal shorts. Equivalent to _t
+o2.
+</TD></TR><TR><TD>
+_x
+</TD><TD>
+Output as hexadecimal shorts. Equivalent to
+_t x2.
+</TD></TR><TR><TD>
+--traditional
+</TD><TD>
+Recognize the pre-POSIX nonoption arguments that some older versions of
+od accepted. The following syntax:
+</TD></TR></TABLE>
+<BLOCKQUOTE>
+<!-- CODE SNIP //-->
+<PRE>od --traditional [file] [[+]offset[.][b]
+[[+]label[.][b]]]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>
+can be used to specify at most one file and optional arguments specifying an offset and
+a pseudo-start address, label. By default, offset is interpreted as an octal number
+specifying how many input bytes to skip before formatting and writing. The optional trailing
+decimal point forces the interpretation of offset as a decimal number. If no decimal is specified
+and the offset begins with 0x or 0x, it is interpreted as a hexadecimal number. If there is a
+trailing b, the number of bytes skipped will be
+offset multiplied by 512. The label argument is interpreted just like
+offset, but it specifies an initial pseudo-address. The pseudo
+addresses are displayed in parentheses following any normal address.
+</P>
+</BLOCKQUOTE>
+<P>GNU Text Utilities
+</P>
+
+<H3><A NAME="ch01_ 200">
+passwd
+</A></H3>
+
+<P>passwd&#151;Change password
+</P>
+
+<P><B>SYNOPSIS</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>passwd [ name ]</PRE>
+<!-- END CODE SNIP //-->
+
+
+
+
+
+
+<P><CENTER>
+<a href="0342-0342.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0347-0349.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

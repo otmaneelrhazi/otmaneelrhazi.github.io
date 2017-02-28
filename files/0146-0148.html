@@ -1,0 +1,450 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0143-0145.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0149-0149.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-146"><P>Page 146</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+_ll
+</TD><TD>
+Lists font properties in addition to _l output.
+</TD></TR><TR><TD>
+_lll
+</TD><TD>
+Supported for compatibility with
+xlsfonts, but output is the same as for _ll.
+</TD></TR><TR><TD>
+_m
+</TD><TD>
+This option indicates that long listings should also print the minimum and maximum bounds
+of each font.
+</TD></TR><TR><TD>
+_C
+</TD><TD>
+This option indicates that listings should use multiple columns. This is the same as
+_n 0.
+</TD></TR><TR><TD>
+_1
+</TD><TD>
+This option indicates that listings should use a single column. This is the same as
+_n 1.
+</TD></TR><TR><TD>
+_w width
+</TD><TD>
+This option specifies the width in characters that should be used in figuring out how
+many columns to print. The default is 79.
+</TD></TR><TR><TD>
+_n columns
+</TD><TD>
+This option specifies the number of columns to use in displaying the output. The default is
+0, which will attempt to fit as many columns of font names into the number of character specified
+by _w width.
+</TD></TR><TR><TD>
+_u
+</TD><TD>
+This option indicates that the output should be left unsorted.
+</TD></TR></TABLE>
+
+<P><B>
+SEE ALSO 
+</B></P>
+
+<P>xfs(1), showfont(1), xlsfonts(1)
+</P>
+
+<P><B>
+ENVIRONMENT
+</B></P>
+
+<TABLE>
+
+<TR><TD>
+FONTSERVER
+</TD><TD>
+To get the default host and port to use
+</TD></TR></TABLE>
+
+<P><B>
+BUGS
+</B></P>
+
+<P>Doing fslsfonts _l can tie up your server for a very long time. This is really a bug with single-threaded
+nonpreemptable servers, not with this program.
+</P>
+
+<P><B>
+AUTHOR
+</B></P>
+
+<P>Dave Lemke (Network Computing Devices, Inc.)
+</P>
+
+<P>X Version 11 Release 6 1
+</P>
+
+<H3><A NAME="ch01_ 74">
+fstobdf
+</A></H3>
+
+<P>fstobdf&#151;Generate BDF font from X font server
+</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>
+fstobdf [ _server server ] _fn fontname
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+<P>The fstobdf program reads a font from a font server and prints a BDF file on the standard output that may be used
+to recreate the font. This is useful in testing servers, debugging font metrics, and reproducing lost BDF files.
+</P>
+
+<P><B>
+OPTIONS
+</B></P>
+
+<TABLE>
+
+<TR><TD>
+_server servername
+</TD><TD>
+This option specifies the server from which the font should be read.
+</TD></TR><TR><TD>
+_fn fontname
+</TD><TD>
+This option specifies the font for which a BDF file should be generated.
+</TD></TR></TABLE>
+
+<P><B>
+ENVIRONMENT
+</B></P>
+
+<TABLE>
+
+<TR><TD>
+FONTSERVER
+</TD><TD>
+Default server to use
+</TD></TR></TABLE>
+
+<P><B>
+SEE ALSO
+</B></P>
+
+<P>xfs(1), bdftopcf(1), fslsfonts(1)
+</P>
+
+<A NAME="PAGENUM-147"><P>Page 147</P></A>
+
+
+
+<P><B>
+AUTHOR
+</B></P>
+
+<P>Olaf Brandt (Network Computing Devices), Dave Lemke (Network Computing Devices), Jim Fulton (MIT X Consortium)
+X Version 11 Release 6
+</P>
+
+
+<H3><A NAME="ch01_ 75">
+fstopgm
+</A></H3>
+
+<P>fstopgm&#151;Convert a Usenix FaceSaver file into a portable graymap
+</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>
+fstopgm [fsfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+<P>Reads a Usenix FaceSaver file as input. Produces a portable graymap as output.
+</P>
+
+<P>FaceSaver files sometimes have rectangular pixels. Although
+fstopgm won't rescale them into square pixels for you, it will
+give you the precise pnmscale command that will do the job. Because of this, reading a FaceSaver image is a two-step
+process. First you do
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+fstopgm &gt; /dev/null
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>This will tell you whether you need to use
+pnmscale. Then use one of the following pipelines:
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+fstopgm | pgmnorm
+fstopgm | pnmscale -whatever | pgmnorm
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>To go to PBM, you want something more like one of these:
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+fstopgm | pnmenlarge 3 | pgmnorm | pgmtopbm
+fstopgm | pnmenlarge 3 | pnmscale &lt;whatever&gt; | pgmnorm | pgmtopbm
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>You want to enlarge when going to a bitmap because otherwise you lose information; but enlarging by more than 3 does
+not look good.
+</P>
+
+<P>FaceSaver is a registered trademark of Metron Computerware Ltd. of Oakland, CA.
+</P>
+
+<P><B>
+SEE ALSO
+</B></P>
+
+<P>pgmtofs(1), pgm(5), pgmnorm(1), pnmenlarge(1),
+pnmscale(1), pgmtopbm(1)
+</P>
+
+<P><B>
+AUTHOR
+</B></P<P>Copyright &quot; 1989 by Jef Poskanzer
+</P>
+
+<P>6 April 1989
+</P>
+
+<H3><A NAME="ch01_ 76">
+ftp
+</A></H3>
+
+<P>ftp&#151;ARPAnet file transfer program
+</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>
+ftp [-v] [-d] [-i] [-n] [-g] [host]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+<P>ftp is the user interface to the ARPAnet standard File Transfer Protocol. The program allows a user to transfer files to
+and from a remote network site.
+</P>
+
+<P>Options may be specified at the command line, or to the command interpreter.
+</P>
+
+<A NAME="PAGENUM-148"><P>Page 148</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+-v
+</TD><TD>
+Verbose option forces ftp to show all responses from the remote server, as well
+as report on data transfer statistics.
+</TD></TR><TR><TD>
+-n
+</TD><TD>
+Restrains ftp from attempting auto-login upon initial connection. If auto-login
+is enabled, ftp will check the (see below) file in the user's home directory for an
+entry describing an account on the remote machine. If no entry exists,
+ftp will prompt for the remote machine login name (default is the user identity on the local
+machine), and, if necessary, prompt for a password and an account with which to login.
+</TD></TR><TR><TD>
+-i
+</TD><TD>
+Turns off interactive prompting during multiple file transfers.
+</TD></TR><TR><TD>
+-d
+</TD><TD>
+Enables debugging.
+</TD></TR><TR><TD>
+-g
+</TD><TD>
+Disables filename globbing.
+</TD></TR></TABLE>
+
+
+<P>The client host with which ftp is to communicate may be specified on the command line. If this is done,
+ftp will immediately attempt to establish a connection to an FTP server on that host; otherwise,
+ftp will enter its command interpreter and await instructions from the user. When
+ftp is awaiting commands from the user, the prompt
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+ftp&gt;
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>is provided to the user. The following commands are recognized
+by ftp :
+</P>
+
+<TABLE>
+
+<TR><TD>
+! [command] [args]
+</TD><TD>
+Invoke an interactive shell on the local machine. If there are arguments, the first
+is taken to be a command to execute directly, with the rest of the arguments as
+its arguments.
+</TD></TR><TR><TD>
+$ macro-name [args]
+</TD><TD>
+Execute the macro
+macro-name that was defined with the macdef
+command. Arguments are passed to the macro unglobbed.
+</TD></TR><TR><TD>
+account [passwd]
+</TD><TD>
+Supply a supplemental password required by a remote system for access to
+resources once a login has been successfully completed. If no argument is included, the
+user will be prompted for an account password in a nonechoing input mode.
+</TD></TR><TR><TD>
+append local-file [remote-file]
+</TD><TD>
+Append a local file to a file on the remote machine. If
+remote-file is left unspecified, the local filename is used in naming the remote file after being altered by any
+ntrans or nmap setting. File transfer uses the current settings for
+type, format, mode, and structure.
+</TD></TR><TR><TD>
+ascii
+</TD><TD>
+Set the file transfer type to network ASCII. This is the default type.
+</TD></TR><TR><TD>
+bell
+</TD><TD>
+Arrange that a bell be sounded after each file transfer command is completed.
+</TD></TR><TR><TD>
+binary
+</TD><TD>
+Set the file transfer type to support binary image transfer.
+</TD></TR><TR><TD>
+bye
+</TD><TD>
+Terminate the FTP session with the remote server and exit
+ftp. An end of file will also terminate the session and exit.
+</TD></TR><TR><TD>
+case
+</TD><TD>
+Toggle remote computer filename case mapping during
+mget commands. When case is on (default is off), remote computer filenames with all letters in upper case
+are written in the local directory with the letters mapped to lowercase.
+</TD></TR><TR><TD>
+cd remote-directory
+</TD><TD>
+Change the working directory on the remote machine to
+remote-directory.
+</TD></TR><TR><TD>
+cdup
+</TD><TD>
+Change the remote machine working directory to the parent of the current
+remote machine working directory.
+</TD></TR><TR><TD>
+chmod mode file-name
+</TD><TD>
+Change the permission modes of the file
+file-name on the remote system to mode.
+</TD></TR><TR><TD>
+close
+</TD><TD>
+Terminate the FTP session with the remote server, and return to the
+command interpreter. Any defined macros are erased.
+</TD></TR><TR><TD>
+cr
+</TD><TD>
+Toggle carriage return stripping during ASCII type file retrieval. Records
+are denoted by a carriage return/linefeed sequence during ASCII type file
+transfer. When cr is on (the default), carriage returns are stripped from this sequence
+to conform with the UNIX single linefeed record delimiter. Records on
+non-UNIX remote systems may contain single linefeeds; when an ASCII type transfer is
+made, these linefeeds may be distinguished from a record delimiter only when
+cr is off.
+</TD></TR><TR><TD>
+delete remote-file
+</TD><TD>
+Delete the file
+remote-file on the remote machine.
+</TD></TR></TABLE>
+
+
+
+<P><CENTER>
+<a href="0143-0145.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0149-0149.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

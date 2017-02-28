@@ -1,0 +1,341 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0111-0113.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0116-0118.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-114"><P>Page 114</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+query-type
+</TD><TD>
+The type of information (DNS query type) that you are requesting. If omitted, the default is
+a (T_A = address). The following types are recognized:
+</TD></TR></TABLE>
+
+<TABLE>
+
+<TR><TD>
+Type
+</TD><TD>
+Example
+</TD><TD>
+Description
+</TD></TR><TR><TD>
+a
+</TD><TD>
+T_A
+</TD><TD>
+Network address
+</TD></TR><TR><TD>
+any
+</TD><TD>
+T_ANY
+</TD><TD>
+All/any information about specified domain
+</TD></TR><TR><TD>
+mx
+</TD><TD>
+T_MX
+</TD><TD>
+Mail exchanger for the domain
+</TD></TR><TR><TD>
+ns
+</TD><TD>
+T_NS
+</TD><TD>
+Name servers
+</TD></TR><TR><TD>
+soa
+</TD><TD>
+T_SOA
+</TD><TD>
+Zone of authority record
+</TD></TR><TR><TD>
+hinfo
+</TD><TD>
+T_HINFO
+</TD><TD>
+Host information
+</TD></TR><TR><TD>
+axfr
+</TD><TD>
+T_AXFR
+</TD><TD>
+Zone transfer (must ask an authoritative server)
+</TD></TR><TR><TD>
+txt
+</TD><TD>
+T_TXT
+</TD><TD>
+Arbitrary number of strings
+</TD></TR></TABLE>
+
+<P>(See RFC 1035 for the complete list.)</P>
+
+
+<TABLE>
+
+<TR><TD>
+query-class
+</TD><TD>
+The network class requested in the query. If omitted, the default is
+in (C_IN = Internet). The following classes are recognized:
+</TD></TR></TABLE>
+
+<TABLE>
+
+<TR><TD>
+in
+</TD><TD>
+C_IN
+</TD><TD>
+Internet class domain
+</TD></TR><TR><TD>
+any
+</TD><TD>
+C_ANY
+</TD><TD>
+All/any class information
+</TD></TR></TABLE>
+
+<P>(See RFC 1035 for the complete list.)</P>
+
+<CENTER>
+<TABLE BGCOLOR="#FFFF99">
+<TR><TD><B>
+NOTE
+</B></TD></TR>
+<TR><TD>
+<BLOCKQUOTE>
+any can be used to specify a class and/or a type of query.
+dig will parse the first occurrence of any to mean
+query-type = T_ANY.
+<BR><BR>
+To specify query-class = C_ANY you must either specify
+any twice, or set query-class using _c option. (See &quot;Other
+Options,&quot; next.)
+</BLOCKQUOTE></TD></TR>
+</TABLE></CENTER>
+
+<P><B>
+OTHER OPTIONS
+</B></P>
+
+
+<TABLE>
+
+<TR><TD>
+%ignored-comment
+</TD><TD>
+% is used to include an argument that is simply not parsed. This may be useful if running
+dig in batch mode. Instead of resolving every
+@server-domain-name in a list of queries, you can avoid
+the overhead of doing so, and still have the domain name on the command line as a
+reference. Example:
+dig @128.9.0.32 %venera.isi.edu mx isi.edu
+</TD></TR><TR><TD>
+_&lt;dig option&gt;
+</TD><TD>
+ _ is used to specify an option that affects the operation of
+dig. The following options are currently available (although not guaranteed to be useful):
+</TD></TR></TABLE>
+
+<TABLE>
+
+<TR><TD>
+_x dot-notation-address
+</TD><TD>
+Convenient form to specify inverse address mapping. Instead of
+dig 32.0.9.128.in-addr.arpa one can simply use dig -x 128.9.0.32
+</TD></TR><TR><TD>
+_f file
+</TD><TD>
+File for dig batch mode. The file contains a list of
+query specifications (dig command lines) which are to be
+executed successively. Lines beginning with ;, #, or
+\n are ignored. Other options may still appear on the command line, and will be
+in effect for each batch query.
+</TD></TR><TR><TD>
+_T time
+</TD><TD>
+Time in seconds between start of successive queries when
+running in batch mode. Can be used to keep two or more batch
+dig commands running roughly in sync. Default is zero.
+</TD></TR></TABLE>
+
+<A NAME="PAGENUM-115"><P>Page 115</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+_p port
+</TD><TD>
+Port number. Query a name server listening to a nonstandard
+port number. Default is 53.
+</TD></TR><TR><TD>
+_P[ping-string]
+</TD><TD>
+After query returns, execute a
+ping(8) command for response time comparison. This rather unelegantly makes a call to the shell.
+The last three lines of statistics is printed for the command:
+</TD></TR><TR><TD>
+ping _s server_name 56 3
+</TD><TD>
+If the optional ping string is present, it replaces
+ping _s in the shell command.
+</TD></TR><TR><TD>
+_t query-type
+</TD><TD>
+Specify type of query. May specify either an integer value to
+be included in the type field or use the abbreviated mnemonic
+as discussed earlier (mx = T_MX).
+</TD></TR><TR><TD>
+_c query-class
+</TD><TD>
+Specify class of query. May specify either an integer value to
+be included in the class field or use the abbreviated mnemonic
+as discussed earlier (in = C_IN).
+</TD></TR></TABLE>
+
+
+<TABLE>
+
+<TR><TD>
+_envsav
+</TD><TD>
+This flag specifies that the dig environment (defaults, print options, and so on), after all of
+the arguments are parsed, should be saved to a file to become the default environment. Useful if you
+do not like the standard set of defaults and do not desire to include a large number of options
+each time dig is used. The environment consists of resolver state variable flags, timeout, and retries
+as well as the flags detailing dig output (see below). If the shell environment variable
+LOCALDEF is set to the name of a file, this is where the default
+dig environment is saved. If not, the file DiG.env
+is created in the current working directory.
+</TABLE>
+
+<CENTER>
+<TABLE BGCOLOR="#FFFF99">
+<TR><TD><B>
+NOTE
+</B></TD></TR>
+<TR><TD>
+<BLOCKQUOTE>
+LOCALDEF is specific to the dig resolver, and will not affect operation
+of the standard resolver library.
+</BLOCKQUOTE></TD></TR>
+</TABLE></CENTER>
+<TABLE>
+<TR><TD>
+</TD><TD>
+Each time dig is executed, it looks for
+./DiG.env or the file specified by the shell
+environment variable LOCALDEF. If such file exists and is readable, then the environment is restored from this
+file before any arguments are parsed.
+</TD></TR><TR><TD>
+_envset
+</TD><TD>
+This flag only affects batch query runs. When
+_envset is specified on a line in a dig batch file,
+the dig environment after the arguments are parsed, becomes the default environment for the
+duration of the batch file, or until the next line which specifies
+_envset.
+</TD></TR><TR><TD>
+_[no]stick
+</TD><TD>
+This flag only affects batch query runs. It specifies that the
+dig environment (as read initially or set by
+_envset switch) is to be restored before each query (line) in a
+dig batch file. The default _nostick means that the dig environment does not stick, hence options specified on a single line in a
+dig batch file will remain in effect for subsequent lines (that is, they are not restored to the
+sticky default).
+</TD></TR><TR><TD>
++&lt;query option&gt;
+</TD><TD>
++ is used to specify an option to be changed in the query packet or to change
+dig output specifics. Many of these are the same parameters accepted by
+nslookup(8). If an option requires a parameter, the form is as follows:
++keyword[=value]
+Most keywords can be abbreviated. Parsing of the + options is very simplistic&#151;a value must not
+be separated from its keyword by whitespace. The following keywords are currently available:
+</TD></TR></TABLE>
+
+
+<TABLE>
+
+<TR><TD>
+Keyword Abbreviation
+</TD><TD>
+Meaning (Default)
+</TD></TR><TR><TD>
+[no]debug (deb)
+</TD><TD>
+Turn on/off debugging mode[deb]
+</TD></TR><TR><TD>
+[no]d2
+</TD><TD>
+Turn on/off extra debugging mode[nod2]
+</TD></TR><TR><TD>
+[no]recurse (rec)
+</TD><TD>
+Use/don't use recursive lookup[rec]
+</TD></TR><TR><TD>
+retry=# (ret)
+</TD><TD>
+Set number of retries to # [4]
+</TD></TR></TABLE>
+
+<!-- CODE SNIP //-->
+<PRE>
+                                       continues
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+
+<P><CENTER>
+<a href="0111-0113.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0116-0118.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

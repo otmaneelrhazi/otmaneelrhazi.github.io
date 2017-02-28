@@ -1,0 +1,384 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0353-0355.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0359-0363.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-356"><P>Page 356</P></A>
+
+
+<P>If the fontfile is a PBM file, it is created in a very specific way. In your window system of choice, display the following
+text in the desired (fixed-width) font:
+</P>
+
+<!-- CODE //-->
+<PRE>
+M &quot;,/^ [`jpqy| M
+/ !&quot;#$%&amp;'()*+ /
+&lt; ,-./01234567 &lt;
+&gt; 89:;&lt;=&gt;?@ABC &gt;
+@ DEFGHIJKLMNO @
+PQRSTUVWXYZ[
+{ \]^ `abcdefg {
+} hijklmnopqrs }
+~ tuvwxyz{|}~~
+M &quot;,/^ [`jpqy| M
+</PRE>
+<!-- END CODE //-->
+
+<P>Do a screen grab or window dump of that text, using for instance
+xwd, xgrabsc, or screen-dump. Convert the result into
+a PBM file. If necessary, use pnmcut to remove everything except the text. Finally, run it through
+pnmcrop to make sure the edges are right up against the text.
+pbmtext can figure out the sizes and spacings from that.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>pbm(5), pnmcut(1), pnmcrop(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright&quot; 1993 by Jef Poskanzer and George Phillips
+</P>
+<P>26 October 1993
+</P>
+
+<H3><A NAME="ch01_ 210">
+pbmto10x
+</A></H3>
+<P>pbmto10x&#151;Convert a portable bitmap into Gemini 10X printer graphics
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pbmto10x [-h][pbmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pbmto10x reads a portable bitmap as input and produces a file of Gemini 10X printer graphics as output. The 10X's
+printer codes are alleged to be similar to the Epson codes.
+</P>
+
+<P>Note that there is no 10xtopbm tool; this transformation is one-way.
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+<P>The resolution is normally 60H by 72V. If the -h
+flag is specified, resolution is 120H by 144V. You may find it useful
+to rotate landscape images before printing.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>pbm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright &quot; 1990 by Ken Yap1
+</P>
+
+<P>January 1990
+</P>
+
+<A NAME="PAGENUM-357"><P>Page 357</P></A>
+
+
+<H3><A NAME="ch01_ 211">
+pbmto4425
+</A></H3>
+
+<P>pbmto4425&#151;Display PBM images on an AT&amp;T 4425 terminal
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pbmto4425 [pbmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>Pbmto4425 displays PBM format images on an AT&amp;T 4425 ASCII terminal using that terminal's mosaic graphics
+character set. The program should also work with other VT100-like terminals with mosaic graphics character sets such as the C.
+Itoh CIT-101, but it has not yet been tested on terminals other than the 4425.
+</P>
+
+<P>Pbmto4425 puts the terminal into 132-column mode to achieve the maximum resolution of the terminal. In this mode
+the terminal has a resolution of 264 columns by 69 rows. The pixels have an aspect ratio of 1:2.6; therefore, an image should
+be processed before being displayed in a manner such as this:
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+% pnmscale _xscale 2.6 pnmfile \
+| pnmscale _xysize 264 69 \
+| ppmtopgm \
+| pgmtopbm \
+| pbmto4425
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright &quot; 1993 by Robert Perlberg
+</P>
+
+<H3><A NAME="ch01_ 212">
+pbmtoascii
+</A></H3>
+
+<P>pbmtoascii&#151;Convert a portable bitmap into ASCII graphics
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pbmtoascii [-1x2|-2x4][pbmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pbmtoascii reads a portable bitmap as input and produces a somewhat crude ASCII graphic as output.
+</P>
+
+<P>Note that there is no asciitopbm tool; this transformation is one-way.
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+<P>The -1x2 and -2x4 flags provide two alternate ways for the bits to get mapped to characters. With
+1x2, the default, each character represents a group of 1 bit across by 2 bits down. With
+-2x4, each character represents 2 bits across by 4 bits
+down. With the 1x2 mode you can see the individual bits, so it's useful for previewing small bitmaps on a nongraphics
+terminal. The 2x4 mode lets you display larger bitmaps on a standard 80-column display, but it obscures bit-level details.
+2x4 mode is also good for displaying graymaps. pnmscale -width 158 | pgmnorm | pgmtopbm
+-thresh should give good results.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>pbm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright &quot; 1988, 1992 by Jef Poskanzer
+</P>
+
+<P>20 March 1992
+</P>
+
+<A NAME="PAGENUM-358"><P>Page 358</P></A>
+
+
+<H3><A NAME="ch01_ 213">
+pbmtoatk
+</A></H3>
+<P>pbmtoatk&#151;Convert portable bitmap to Andrew Toolkit raster object
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pbmtoatk [pbmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pbmtoatk reads a portable bitmap as input and produces an Andrew Toolkit raster object as output.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>atktopbm(1), pbm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright &quot; 1991 by Bill Janssen
+</P>
+
+<P>26 September 1991
+</P>
+
+<H3><A NAME="ch01_ 214">
+pbmtobg
+</A></H3>
+
+<P>pbmtobg&#151;Convert a portable bitmap into BitGraph graphics
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pbmtobg [rasterop][x y]&lt; pbmfile
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pbmtobg reads a portable bitmap as input and produces BBN BitGraph terminal display pixel data (DPD) sequence as output.
+</P>
+
+<P>The rasterop can be specified on the command line. If this is omitted,
+3 (replace) will be used. A position in (x,y)
+coordinates can also be specified. If both are given, the
+rasterop comes first. The portable bitmap is always taken from the
+standard input.
+</P>
+
+<P>Note that there is no bgtopbm tool.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>pbm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright &quot; 1989 by Mike Parker
+</P>
+
+<P>16 May 1989
+</P>
+
+<H3><A NAME="ch01_ 215">
+pbmtocmuwm
+</A></H3>
+<P>pbmtocmuwm&#151;Convert a portable bitmap into a CMU window manager bitmap
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pbmtocmuwm [pbmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pbmtocmuwm reads a portable bitmap as input and produces a CMU window manager bitmap as output.
+</P>
+
+
+
+<P><CENTER>
+<a href="0353-0355.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0359-0363.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

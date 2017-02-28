@@ -1,0 +1,342 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0429-0431.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0434-0434.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-432"><P>Page 432</P></A>
+
+<TABLE>
+
+<TR><TD>
+Short
+</TD><TD>
+Long
+</TD><TD>
+Description<BR>
+</TD></TR><TR><TD>
+P
+</TD><TD>
+ppid
+</TD><TD>
+Parent process ID
+</TD></TR><TR><TD>
+r
+</TD><TD>
+rss
+</TD><TD>
+Resident set size
+</TD></TR><TR><TD>
+R
+</TD><TD>
+resident
+</TD><TD>
+Resident pages
+</TD></TR><TR><TD>
+s
+</TD><TD>
+size
+</TD><TD>
+Memory size in kilobytes
+</TD></TR><TR><TD>
+S
+</TD><TD>
+share
+</TD><TD>
+Amount of shared pages
+</TD></TR><TR><TD>
+t
+</TD><TD>
+tty
+</TD><TD>
+The minor device number of tty
+</TD></TR><TR><TD>
+T
+</TD><TD>
+start_time
+</TD><TD>
+Time process was started
+</TD></TR><TR><TD>
+U
+</TD><TD>
+uid
+</TD><TD>
+User ID number
+</TD></TR><TR><TD>
+u
+</TD><TD>
+user
+</TD><TD>
+Username
+</TD></TR><TR><TD>
+v
+</TD><TD>
+vsize
+</TD><TD>
+Total VM size in bytes
+</TD></TR><TR><TD>
+y
+</TD><TD>
+priority
+</TD><TD>
+Kernel scheduling priority
+</TD></TR></TABLE>
+
+<P><B>
+FIELD DESCRIPTIONS
+</B></P>
+
+<TABLE>
+
+<TR><TD>
+PRI
+</TD><TD>
+This is the counter field in the task
+struct. It is the time in HZ of the process's possible time slice.
+</TD></TR><TR><TD>
+NI
+</TD><TD>
+Standard UNIX nice value; a positive value means less cpu time.
+</TD></TR><TR><TD>
+SIZE
+</TD><TD>
+Virtual image size; size of
+text+data+stack.
+</TD></TR><TR><TD>
+RSS
+</TD><TD>
+Resident set size; kilobytes of program in memory.
+</TD></TR><TR><TD>
+WCHAN
+</TD><TD>
+Name of the kernel function where the process is sleeping, with the
+sys stripped from the function name. If<BR>
+/boot/psdatabase does not exist, it is just a hex number instead.
+</TD></TR><TR><TD>
+STAT
+</TD><TD>
+Information about the status of the process. The first field is
+R for runnable, S for sleeping, D for
+uninterruptible sleep, T for stopped or traced, or
+Z for a zombie process. The second field contains
+W if the process has no resident pages. The third field is
+N if the process has a positive nice value (NI field).
+</TD></TR><TR><TD>
+TT
+</TD><TD>
+Controlling tty.
+</TD></TR><TR><TD>
+PAGEIN
+</TD><TD>
+Number of major page faults (page faults that cause pages to be read from disk, including pages read from
+the buffer cache).
+</TD></TR><TR><TD>
+TRS
+</TD><TD>
+Text resident size.
+</TD></TR><TR><TD>
+SWAP
+</TD><TD>
+Kilobytes (or pages if _p is used) on swap device.
+</TD></TR><TR><TD>
+SHARE
+</TD><TD>
+Shared memory.
+</TD></TR></TABLE>
+
+<P><B>
+UPDATING
+</B></P>
+<P>This proc-based ps works by reading the files in the
+proc filesystem, mounted on /proc. This ps does not need to be
+suid kmem or have any privileges to run. Do not give this
+ps any special permissions.
+</P>
+<P>You will need to update the /boot/psdatabase file by running
+/usr/sbin/psupdate to get meaningful information from
+the WCHAN field. This should be done every time you compile a new kernel.
+</P>
+
+<P><B>
+NOTES
+</B>
+</P>
+<P>The member used_math of task_struct is not shown, since
+crt0.s checks to see if math is present. This causes the
+math flag to be set for all processes, and so it is worthless.
+</P>
+
+<P>Programs swapped out to disk will be shown without command-line arguments, and unless the
+c option is given, in parentheses.
+</P>
+
+<P>%CPU shows the cputime/realtime percentage. It will not add up to 100 percent unless you are lucky. It is time used
+divided by the time the process has been running.
+</P>
+
+<P>The SIZE and RSS fields don't count the page tables and the
+task struct of a proc; this is at least 12k of memory that
+is always resident. SIZE is the virtual size of the
+proc (code+data+stack).
+</P>
+
+
+<A NAME="PAGENUM-433"><P>Page 433</P></A>
+
+<P><B>
+BUGS
+</B></P>
+<P>tty names are hard-coded: virtual consoles are
+v1, v2,&#133;; serial lines are s0 and s1; pty's are
+pp0, pp1 &#133; pq0, pq1, &#133;.
+</P>
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>ps was originally written by Branko Lankester
+(lankeste@fwi.uva.nl) Michael K. Johnson
+(johnsonm@sunsite.unc.edu) rewrote it significantly to use the
+proc filesystem, changing a few things in the process. Michael
+Shields (mjshield@nyx.cs.du.edu) added the
+multiple-pids feature. Charles
+Blake(cblake@ucsd.edu) added multilevel sorting and
+is the current maintainer of the proc-ps suite.
+</P>
+
+<P>Cohesive Systems, 27 July 1994
+</P>
+
+<H3><A NAME="ch01_ 335">
+psbb
+</A></H3>
+
+<P>psbb&#151;Extract bounding box from PostScript document
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+psbb file
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>psbb reads file, which should be a PostScript document conforming to the document structuring conventions and looks
+for a %%BoundingBox comment. If it finds one, it prints a line
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+llx lly urx ury
+</PRE>
+<!-- END CODE SNIP //-->
+<P>on the standard output and exits with zero status. If it doesn't find such a line or if the line is invalid, it prints a message
+and exits with nonzero status.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+grops(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>Groff Version 1.09, 6 August 1992
+</P>
+
+<H3><A NAME="ch01_ 336">
+psidtopgm
+</A></H3>
+<P>psidtopgm&#151;Convert PostScript image data into a portable graymap
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+psidtopgm width height bits/sample [imagedata]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>psidtopgm reads the image data from a PostScript file as input and produces a portable graymap as output.
+</P>
+<P>This is a very simple and limited program, and is here only because so many people have asked for it. To use it you have
+to manually extract the readhexstring data portion from your PostScript file, and then give the width, height, and
+bits/sample on the command line. Before you attempt this, you should at least read the description of the
+image operator in the PostScript Language Reference Manual.
+</P>
+<P>It would probably not be too hard to write a script that uses this filter to read a specific variety of PostScript image, but
+the variation is too great to make a general-purpose reader. Unless, of course, you want to write a full-fledged
+PostScript interpreter&#133;
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pnmtops(1), pgm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+
+<P><CENTER>
+<a href="0429-0431.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0434-0434.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

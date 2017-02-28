@@ -1,0 +1,187 @@
+<HTML>
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0031-0033.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0035-0036.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-34"><P>Page 34</P></A>
+
+
+<P>
+<B>MODIFIERS</B>
+</P>
+
+<P>After the optional word designator, you can add a sequence of one or more of the following modifiers, each preceded by a
+:</P>
+
+<TABLE>
+
+<TR><TD>
+h
+</TD><TD>
+Remove a trailing pathname component, leaving only the head.
+</TD></TR><TR><TD>
+r
+</TD><TD>
+Remove a trailing suffix of the form .xxx, leaving the basename.
+</TD></TR><TR><TD>
+e
+</TD><TD>
+Remove all but the trailing suffix.
+</TD></TR><TR><TD>
+t
+</TD><TD>
+Remove all leading pathname components, leaving the tail.
+</TD></TR><TR><TD>
+p
+</TD><TD>
+Print the new command but do not execute it.
+</TD></TR><TR><TD>
+q
+</TD><TD>
+Quote the substituted words, escaping further substitutions.
+</TD></TR><TR><TD>
+x
+</TD><TD>
+Quote the substituted words as with q, but break into words at blanks and newlines.
+</TD></TR><TR><TD>
+s/old/new/
+</TD><TD>
+Substitute new for the first occurrence of
+old in the event line. Any delimiter can be used in place
+of /. The final delimiter is optional if it is the last character of the event line. The delimiter may
+be quoted in old and new with a single backslash.
+If &amp; appears in new, it is replaced by old. A
+single backslash will quote the &amp;.
+</TD></TR><TR><TD>
+&amp;
+</TD><TD>
+Repeat the previous substitution.
+</TD></TR><TR><TD>
+g
+</TD><TD>
+Cause changes to be applied over the entire event line. This is used in conjunction with
+:s (for example, :gs/old/new/) or :&amp;. If used with
+:s, any delimiter can be used in place of /, and the
+final delimiter is optional if it is the last character of the event line.
+</TD></TR></TABLE>
+
+
+<B>
+<P>ARITHMETIC EVALUATION</P>
+</B>
+
+<P>The shell allows arithmetic expressions to be evaluated, under certain circumstances. (See the
+let built-in command and &quot;Arithmetic Expansion.&quot;) Evaluation is done in long integers with no check for overflow, though division by 0 is trapped
+and flagged as an error. The following list of operators is grouped into levels of equal-precedence operators. The levels are
+listed in order of decreasing precedence.</P>
+
+<TABLE>
+
+<TR><TD>
+_ +
+</TD><TD>
+Unary minus and plus
+</TD></TR><TR><TD>
+! ~
+</TD><TD>
+Logical and bitwise negation
+</TD></TR><TR><TD>
+* / %
+</TD><TD>
+Multiplication, division, remainder
+</TD></TR><TR><TD>
++ _
+</TD><TD>
+Addition, subtraction
+</TD></TR><TR><TD>
+&lt;&lt; &gt;&gt;
+</TD><TD>
+Left and right bitwise shifts
+</TD></TR><TR><TD>
+&lt;= &gt;= &lt;&gt;
+</TD><TD>
+Comparison
+</TD></TR><TR><TD>
+== !=
+</TD><TD>
+Equality and inequality
+</TD></TR><TR><TD>
+&amp;
+</TD><TD>
+Bitwise AND
+</TD></TR><TR><TD>
+^
+</TD><TD>
+Bitwise exclusive OR
+</TD></TR><TR><TD>
+|     Bitwise OR
+</TD><TD>
+&amp;&amp;
+</TD></TR><TR><TD>
+Logical AND
+</TD><TD>
+||
+</TD></TR><TR><TD>
+Logical OR
+</TD><TD>
+= *= /= %= += _= &lt;&lt;= &gt;&gt;=&amp;=^=|=
+</TD></TR><TR><TD>
+Assignment
+</TD></TR></TABLE>
+
+<P>Shell variables are allowed as operands; parameter expansion is performed before the expression is evaluated. The value of
+a parameter is coerced to a long integer within an expression. A shell variable need not have its integer attribute turned on
+to be used in an expression.</P>
+
+<P>Constants with a leading 0 are interpreted as octal numbers. A leading
+0x or 0X denotes hexadecimal. Otherwise, numbers take the form
+[base#]n, where base is a decimal number between 2 and 36 representing the arithmetic base, and
+n is a number in that base. If base is omitted, then base 10 is used.</P>
+
+<P>Operators are evaluated in order of precedence. Subexpressions in parentheses are evaluated first and may override
+the precedence rules.</P>
+
+
+
+<P><CENTER>
+<a href="0031-0033.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0035-0036.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

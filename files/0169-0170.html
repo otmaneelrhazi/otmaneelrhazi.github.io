@@ -1,0 +1,347 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0167-0168.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0171-0172.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-169"><P>Page 169</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+exp(expr)
+</TD><TD>
+The exponential function.
+</TD></TR><TR><TD>
+int(expr)
+</TD><TD>
+ Truncates to integer.
+</TD></TR><TR><TD>
+log(expr)
+</TD><TD>
+The natural logarithm function.
+</TD></TR><TR><TD>
+rand()
+</TD><TD>
+Returns a random number between 0 and 1.
+</TD></TR><TR><TD>
+sin(expr)
+</TD><TD>
+ Returns the sine in radians.
+</TD></TR><TR><TD>
+sqrt(expr)
+</TD><TD>
+The square root function.
+</TD></TR><TR><TD>
+srand(expr)
+</TD><TD>
+Use expr as a new seed for the random number generator. If no
+expr is provided, the time of day will be used. The return value is the previous seed for the random number generator.
+</TD></TR></TABLE>
+
+
+<P><B>
+STRING FUNCTIONS
+</B></P>
+
+<P>awk has the following predefined string functions:
+</P>
+
+<TABLE>
+
+<TR><TD>
+gsub(r, s, t)
+</TD><TD>
+For each substring matching the regular expression
+r in the string t, substitute the string s, and return the number of substitutions. If
+t is not supplied, use $0.
+</TD></TR><TR><TD>
+index(s, t)
+</TD><TD>
+Returns the index of the string
+t in the string s,or 0 if t is not present.
+</TD></TR><TR><TD>
+length(s)
+</TD><TD>
+Returns the length of the string
+s, or the length of $0 if s is not supplied.
+</TD></TR><TR><TD>
+match(s, r)
+</TD><TD>
+Returns the position in s where the regular expression
+r occurs, or 0 if u is not present, and sets the values of
+RSTART and RLENGTH.
+</TD></TR><TR><TD>
+split(s, a, r)
+</TD><TD>
+Splits the string s into the array
+a on the regular expression r, and returns the number
+of fields. If r is omitted, FS is used instead. The array
+a is cleared first.
+</TD></TR><TR><TD>
+sprintf(fmt, expr-list)
+</TD><TD>
+Prints expr-list according to
+fmt, and returns the resulting string.
+</TD></TR><TR><TD>
+sub(r, s, t)
+</TD><TD>
+Just like gsub(), but only the first matching substring is replaced.
+</TD></TR><TR><TD>
+substr(s, i, n)
+</TD><TD>
+Returns the n-character substring of
+s starting at i. If n is omitted, the rest of s is used.
+</TD></TR><TR><TD>
+tolower(str)
+</TD><TD>
+Returns a copy of the string
+str, with all the uppercase characters in str translated to
+their corresponding lowercase counterparts. Nonalphabetic characters are left unchanged.
+</TD></TR><TR><TD>
+toupper(str)
+</TD><TD>
+Returns a copy of the string
+str, with all the lowercase characters in str translated to
+their corresponding uppercase counterparts. Nonalphabetic characters are left unchanged.
+</TD></TR></TABLE>
+
+
+<P><B>
+TIME FUNCTIONS
+</B></P>
+
+<P>Since one of the primary uses of awk programs is processing log files that contain time stamp information,
+gawk provides the following two functions for obtaining time stamps and formatting them.
+</P>
+
+<TABLE>
+
+<TR><TD>
+systime()
+</TD><TD>
+Returns the current time of day as the number of seconds since the Epoch (Midnight
+UTC, January 1, 1970 on systems).
+</TD></TR><TR><TD>
+strftime(format, timestamp)
+</TD><TD>
+Formats
+timestamp according to the specification in format.
+The timestamp should be of the same form as returned by
+systime(). If timestamp is missing, the current time of day is
+used. See the specification for the strftime() function in C for the format conversions that
+are guaranteed to be available. A public-domain version of
+strftime(3) and a man page for it are shipped with
+gawk; if that version was used to build gawk, then all of the
+conversions described in that man page are available to
+gawk.
+</TD></TR></TABLE>
+
+<P><B>
+STRING CONSTANTS
+</B></P>
+
+<P>String constants in awk are sequences of characters enclosed between double quotes
+(&quot;). Within strings, certain escape sequences
+are recognized, as in C. These are
+</P>
+
+<TABLE>
+
+<TR><TD>
+\\
+</TD><TD>
+A literal backslash.
+</TD></TR><TR><TD>
+\a
+</TD><TD>
+The &quot;alert&quot; character; usually the ASCII BEL character.
+</TD></TR><TR><TD>
+\b
+</TD><TD>
+Backspace.
+</TD></TR><TR><TD>
+\f
+</TD><TD>
+Formfeed.
+</TD></TR><TR><TD>
+\n
+</TD><TD>
+Newline.
+</TD></TR></TABLE>
+
+<A NAME="PAGENUM-170"><P>Page 170</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+\r
+</TD><TD>
+Carriage return.
+</TD></TR><TR><TD>
+\t
+</TD><TD>
+Horizontal tab.
+</TD></TR><TR><TD>
+\v
+</TD><TD>
+Vertical tab.
+</TD></TR><TR><TD>
+\xhex digits
+</TD><TD>
+The character represented by the string of hexadecimal digits following the
+\x. As in C, all following hexadecimal digits are considered part of the escape sequence. (This feature should tell us something
+about language design by committee.) For example,
+&quot;\x1B&quot; is the ASCII ESC (escape) character.
+</TD></TR><TR><TD>
+\ddd
+</TD><TD>
+The character represented by the 1-, 2-, or 3-digit sequence of octal digits. For example,
+&quot;\033&quot; is the ASCII ESC (escape) character.
+</TD></TR><TR><TD>
+\c
+</TD><TD>
+The literal character c.
+</TD></TR></TABLE>
+
+
+<P>The escape sequences may also be used inside constant regular expressions (for example,
+/[\\t\f\n\r\v]/ matches whitespace characters).
+</P>
+
+<P><B>
+FUNCTIONS
+</B></P>
+
+<P>Functions in awk are defined as follows:
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+function name(parameter list) { statements }
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>Functions are executed when called from within the action parts of regular pattern-action statements. Actual
+parameters supplied in the function call are used to instantiate the formal parameters declared in the function. Arrays are passed
+by reference, other variables are passed by value.
+</P>
+
+<P>Functions were not originally part of the awk language, so the provision for local variables is rather clumsy: They are
+declared as extra parameters in the parameter list. The convention is to separate local variables from real parameters by extra spaces
+in the parameter list. For example
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+function f(p, q, a, b) { # a &amp; b are local
+..... }
+/abc/ { ... ; f(1, 2) ; ... }
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>The left parenthesis in a function call is required to immediately follow the function name, without any
+intervening whitespace. This is to avoid a syntactic ambiguity with the concatenation operator. This restriction does not apply to
+the built-in functions listed earlier.
+</P>
+
+<P>Functions may call each other and may be recursive. Function parameters used as local variables are initialized to the
+null string and the number zero upon function invocation.
+</P>
+
+<P>The word func may be used in place of function.
+</P>
+
+<P><B>
+EXAMPLES
+</B></P>
+
+<P>Print and sort the login names of all users:
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+BEGIN { FS = &quot;:&quot; }
+{ print $1 j &quot;sort&quot; }
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>Count lines in a file:
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+{ nlines++ }
+END { print nlines }
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+<P>Precede each line by its number in the file:
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+{ print FNR, $0 }
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+<P>Concatenate and line number (a variation on a theme):
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+{ print NR, $0 }
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+
+
+
+
+<P><CENTER>
+<a href="0167-0168.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0171-0172.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

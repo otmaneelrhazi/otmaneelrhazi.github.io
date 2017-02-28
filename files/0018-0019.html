@@ -1,0 +1,230 @@
+<HTML>
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0017-0017.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0020-0021.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-18"><P>Page 18</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+</TD><TD>
+normally !. The second character is the quick substitution character, which is used
+as shorthand for rerunning the previous command entered, substituting one string
+for another in the command. The default is ^. The optional third character is
+the character that signifies that the remainder of the line is a comment, when found
+as the first character of a word, normally #. The history comment character
+causes history substitution to be skipped for the remaining words on the line. It does
+not necessarily cause the shell parser to treat the rest of the line as a comment.
+</TD></TR><TR><TD>
+nolinks
+</TD><TD>
+If set, the shell does not follow symbolic links when executing commands
+that change the current working directory. It uses the physical directory structure
+instead. By default, bash follows the logical chain of directories when performing
+commands that change the current directory, such as
+cd. See also the description of the _P option to the
+set builtin (&quot;Shell Built-in Commands&quot;).
+</TD></TR><TR><TD>
+hostname_completion_file HOSTFILE
+</TD><TD>
+Contains the name of a file in the same format as
+/etc/hosts that should be read when the shell needs to complete a hostname. The file may be changed
+interactively; the next time hostname completion is attempted
+bash adds the contents of the new file to the already existing database.
+</TD></TR><TR><TD>
+noclobber
+</TD><TD>
+If set, bash does not overwrite an existing file with the
+&gt;, &gt;&amp;, and &lt;&gt; redirection operators. This variable may be overridden when creating output files by using
+the redirection operator &gt;| instead of &gt;. (See also the
+_C option to the set built-in command.)
+</TD></TR><TR><TD>
+auto_resume
+</TD><TD>
+This variable controls how the shell interacts with the user and job control. If
+this variable is set, single word simple commands without redirections are treated
+as candidates for resumption of an existing stopped job. There is no ambiguity
+allowed; if there is more than one job beginning with the string typed, the job most
+recently accessed is selected. The name of a stopped job, in this context, is the command
+line used to start it. If set to the value exact, the string supplied must match the name
+of a stopped job exactly; if set to substring, the string supplied needs to match
+a substring of the name of a stopped job. The
+substring value provides functionality analogous to the
+%? job ID. (See &quot;Job Control,&quot; later in this manual page.) If set
+to any other value, the supplied string must be a prefix of a stopped job's name;
+this provides functionality analogous to the % job
+id.
+</TD></TR><TR><TD>
+no_exit_on_failed_exec
+</TD><TD>
+If this variable exists, a noninteractive shell will not exit if it cannot execute the
+file specified in the exec built-in command. An interactive shell does not exit if
+exec fails.
+</TD></TR><TR><TD>
+cdable_vars
+</TD><TD>
+If this is set, an argument to the
+cd built-in command that is not a directory is assumed to be the name of a variable whose value is the directory to change to.
+</TD></TR></TABLE>
+
+<B>
+<P>EXPANSION</P>
+</B>
+
+<P>Expansion is performed on the command line after it has been split into words. There are seven kinds of
+expansion performed: brace expansion, tilde expansion, parameter and variable expansion, command substitution, arithmetic
+expansion, word splitting, and pathname expansion.</P>
+
+<P>The order of expansions is as follows: brace expansion, tilde expansion, parameter, variable, command, and
+arithmetic substitution (done in a left_to_right fashion), word splitting, and pathname expansion.</P>
+
+<P>On systems that can support it, there is an additional expansion available: process substitution.</P>
+
+<P>Only brace expansion, word splitting, and pathname expansion can change the number of words of the expansion;
+other expansions expand a single word to a single word. The single exception to this is the expansion of
+&quot;$@&quot;, as explained earlier. (See &quot;Parameters.&quot;)</P>
+
+
+
+<A NAME="PAGENUM-19"><P>Page 19</P></A>
+
+
+
+<P>
+<b>BRACE EXPANSION</b>
+</P>
+
+<P>Brace expansion is a mechanism by which arbitrary strings may be generated. This mechanism is similar to
+pathname expansion, but the filenames generated need not exist. Patterns to be brace expanded take the form of an optional
+preamble, followed by a series of comma-separated strings between a pair of braces, followed by an optional postamble. The preamble
+is prepended to each string contained within the braces, and the postamble is then appended to each resulting
+string, expanding left to right.</P>
+
+<P>Brace expansions may be nested. The results of each expanded string are not sorted; left to right order is preserved.
+For example, a{d,c,b}e expands into ade ace abe.</P>
+
+<P>Brace expansion is performed before any other expansions, and any characters special to other expansions are preserved in
+the result. It is strictly textual. bash does not apply any syntactic interpretation to the context of the expansion or the
+text between the braces.</P>
+<P>A correctly formed brace expansion must contain unquoted opening and closing braces, and at least one unquoted
+comma. Any incorrectly formed brace expansion is left unchanged.</P>
+<P>This construct is typically used as shorthand when the common prefix of the strings to be generated is longer than in
+the preceding example, such as</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+mkdir /usr/local/src/bash/{old,new,dist,bugs}
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>or</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+chown root /usr/{ucb/{ex,edit},lib/{ex?.?*,how_ex}}
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>Brace expansion introduces a slight incompatibility with traditional versions of
+sh, the Bourne shell. sh does not treat opening or closing braces specially when they appear as part of a word, and preserves them in the output.
+bash removes braces from words as a consequence of brace expansion. For example, a word entered to
+sh as file{1,2} appears identically in the output. The same word is output as
+file1 file2 after expansion by bash. If strict compatibility with
+sh is desired, start bash with the
+_nobraceexpansion flag (see &quot;Options,&quot; earlier in this manual page) or disable brace expansion with the
++o braceexpand option to the set command. (See &quot;Shell Built-in Commands.&quot;)
+</P>
+
+<P>
+<b>TILDE EXPANSION</b>
+</P>
+
+<P>If a word begins with a tilde character (~), all of the characters preceding the first slash (or all characters, if there is no
+slash) are treated as a possible login name. If this login name is the null string, the tilde is replaced with the value of the
+parameter HOME. If HOME is unset, the home directory of the user executing the shell is substituted instead.
+</P>
+
+<P>If a + follows the tilde, the value of PWD replaces the tilde and
++ If a _ follows, the value of OLDPWD is substituted. If the
+value following the tilde is a valid login name, the tilde and login name are replaced with the home directory associated with
+that name. If the name is invalid, or the tilde expansion fails, the word is unchanged.
+</P>
+
+<P>Each variable assignment is checked for unquoted instances of tildes following
+a : or =. In these cases, tilde substitution is also performed. Consequently, one may use pathnames with tildes in assignments to
+PATH, MAILPATH, and CDPATH, and the shell assigns the expanded value.
+</P>
+
+<P>
+<B>PARAMETER EXPANSION</B>
+</P>
+
+<P>The $ character introduces parameter expansion, command substitution, or arithmetic expansion. The parameter name
+or symbol to be expanded may be enclosed in braces, which are optional but serve to protect the variable to be expanded
+from characters immediately following it which could be interpreted as part of the name.
+</P>
+
+<TABLE>
+
+<TR><TD>
+${parameter}
+</TD><TD>
+The value of parameter is substituted. The braces are required when
+parameter is a positional parameter with more than one digit, or when
+parameter is followed by a character that is not to be interpreted as
+part of its name.
+</TD></TR></TABLE>
+
+<P>
+In each of the following cases, word is subject to tilde expansion, parameter expansion, command substitution, and
+arithmetic expansion. bash tests for a parameter that is unset or null; omitting the colon results in a test only for a parameter that
+is unset.</P>
+
+
+
+
+
+<P><CENTER>
+<a href="0017-0017.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0020-0021.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

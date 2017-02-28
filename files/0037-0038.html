@@ -1,0 +1,279 @@
+<HTML>
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0035-0036.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0039-0039.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-37"><P>Page 37</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+</TD><TD>
+\a
+</TD><TD>
+Alert (bell)
+</TD></TR><TR><TD>
+</TD><TD>
+\b
+</TD><TD>
+Backspace
+</TD></TR><TR><TD>
+</TD><TD>
+\c
+</TD><TD>
+Suppress trailing newline
+</TD></TR><TR><TD>
+</TD><TD>
+\f
+</TD><TD>
+Form feed
+</TD></TR><TR><TD>
+</TD><TD>
+\n
+</TD><TD>
+Newline
+</TD></TR><TR><TD>
+</TD><TD>
+\r
+</TD><TD>
+Carriage return
+</TD></TR><TR><TD>
+</TD><TD>
+\t
+</TD><TD>
+Horizontal tab
+</TD></TR><TR><TD>
+</TD><TD>
+\v
+</TD><TD>
+Vertical tab
+</TD></TR><TR><TD>
+</TD><TD>
+\\
+</TD><TD>
+Backslash
+</TD></TR><TR><TD>
+</TD><TD>
+\nnn
+</TD><TD>
+The character whose ASCII code is
+nnn (octal)
+</TD></TR></TABLE>
+
+
+<TABLE>
+
+<TR><TD>
+enable [_n][_all][name ...]
+</TD><TD>
+Enable and disable builtin shell commands. This allows the execution of a
+disk command that has the same name as a shell builtin without specifying a
+full pathname. If _n is used, each name is
+disabled; otherwise, names are enabled. For example, to use the test binary found via the
+PATH instead of the shell builtin version, type enable -n
+test. If no arguments are given, a list of all enabled shell builtins
+is printed. If only _n is supplied, a list of all disabled builtins is printed. If only
+_all is supplied, the list printed includes all builtins, with an indication of whether or
+not each is enabled. enable accepts _a as a synonym for
+_all. The return value is 0 unless a name is not a shell builtin.
+</TD></TR><TR><TD>
+eval [arg ...]
+</TD><TD>
+The args are read and concatenated together into a single command. This
+command is then read and executed by the shell, and its exit status is returned as the value
+of the eval command. If there are no args, or only null arguments,
+eval returns True.
+<P>exec [[_] command [arguments]]     If command is specified, it replaces the shell. No new process is created. The
+arguments become the arguments to command. If the first argument is
+_, the shell places a dash in the zeroth arg passed to command. This is what
+login does. If the file cannot be executed for some reason, a noninteractive shell exits, unless the shell
+variable no_exit_on_failed_exec exists, in which case it returns failure. An interactive
+shell returns failure if the file cannot be executed. If command is not specified,
+any redirections take effect in the current shell, and the return status is
+0.
+</TD></TR><TR><TD>
+exit [n]
+</TD><TD>
+Cause the shell to exit with a status of
+n. If n is omitted, the exit status is that of the last command executed. A trap on
+exit is executed before the shell terminates.
+</TD></TR><TR><TD>
+export [_nf][name[=word]] ...
+</TD><TD>
+The supplied
+names are marked for automatic export to the environment of
+</TD></TR><TR><TD>
+export _p
+</TD><TD>
+subsequently executed commands. If the
+_f option is given, the names refer to functions. If no names are given, or if the
+_p option is supplied, a list of all names that are exported in this shell is printed. The
+_n option causes the export property to be removed from the named variables. An argument of
+&#151; disables option checking for the rest of the arguments.
+export returns an exit status of 0 unless an
+illegal option is encountered, one of the names is not a legal shell variable name, or
+_f is supplied with a name that is not a function.
+</TD></TR><TR><TD>
+fc [_e ename][_nlr][first][last]
+</TD><TD>
+Fix command. In the first form, a range of commands from
+first to last is selected
+</TD></TR><TR><TD>
+fc _s [pat=rep][cmd]
+</TD><TD>
+from the history list.
+first and last may be specified as a string (to locate the
+last command beginning with that string) or as a number (an index into the history
+list, where a negative number is used as an offset from the current command number).
+If last is not specified, it is set to the current command for listing (so that
+fc _l      _10 prints the last 10 commands) and to
+first otherwise. If first is not specified, it is set to the previous command for editing and
+_16 for listing.
+</TD></TR><TR><TD>
+</TD><TD>
+The _n flag suppresses the command numbers when listing. The
+-r flag reverses the order of the commands. If the
+_l flag is given, the commands are listed on
+standard output. Otherwise, the editor given by
+ename is invoked on a file containing those commands. If
+ename is not given, the value of the FCEDIT variable is used, and
+the
+</TD></TR></TABLE>
+
+<A NAME="PAGENUM-38"><P>Page 38</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+</TD><TD>
+value of EDITOR if FCEDIT is not set. If neither variable is set,
+vi is used. When editing is complete, the edited commands are echoed and executed.
+</TD></TR><TR><TD>
+</TD><TD>
+In the second form, command is reexecuted after each instance of
+pat is replaced by rep. A useful alias to use with this is
+r=fc _s, so that typing r cc runs the last command beginning with
+cc and typing r reexecutes the last command.
+</TD></TR><TR><TD>
+</TD><TD>
+If the first form is used, the return value is
+0 unless an illegal option is encountered or first or
+last specify history lines out of range. If the _e option is supplied,
+the return value is the value of the last command executed or failure if an error
+occurs with the temporary file of commands. If the second form is used, the return status
+is that of the command reexecuted, unless cmd does not specify a valid history line,
+in which case fc returns failure.
+</TD></TR><TR><TD>
+fg [jobspec]
+</TD><TD>
+Place jobspec in the foreground, and make it the current job. If
+jobspec is not present, the shell's notion of the current job is used.
+The return value is that of the command placed into the foreground, or failure if run when job control is
+disabled or, when run with job control enabled, if
+jobspec does not specify a valid job or jobspec specifies a job that was started without job control.
+</TD></TR><TR><TD>
+getopts optstring name [args]
+</TD><TD>
+getopts is used by shell procedures to parse positional parameters.
+optstring contains the option letters to be recognized; if a letter is followed by a colon, the option
+is expected to have an argument, which should be separated from it by
+whitespace. Each time it is invoked, getopts places the next option in the shell variable
+name, initializing name if it does not exist, and the index of the next argument to
+be processed into the variable OPTIND. OPTIND is initialized to
+1 each time the shell or a shell script is invoked.
+When an option requires an argument, getopts places
+that argument into the variable OPTARG. The shell does not reset
+OPTIND automatically; it must be manually reset between multiple calls to
+getopts within the same shell invocation if a new set of parameters is to be used.
+</TD></TR><TR><TD>
+</TD><TD>
+getopts can report errors in two ways. If the first character of
+optstring is a colon, silent error reporting is used. In normal operation, diagnostic messages are
+printed when illegal options or missing option arguments are encountered. If the
+variable OPTERR is set to 0, no error message will be displayed, even if the first character
+of optstring is not a colon.
+</TD></TR><TR><TD>
+</TD><TD>
+If an illegal option is seen, getopts places a question mark
+(?) into name and, if not silent, prints an error message and unsets
+OPTARG. If getopts is silent, the option character found is placed in
+OP-TARG and no diagnostic message is printed.
+</TD></TR><TR><TD>
+</TD><TD>
+If a required argument is not found, and
+getopts is not silent, a question mark (?) is placed in
+name, OPTARG is unset, and a diagnostic message is printed. If
+getopts is silent, then a colon (:) is placed in
+name and OPTARG is set to the option character found.
+</TD></TR><TR><TD>
+</TD><TD>
+getopts normally parses the positional parameters, but if more arguments are
+given in args, getopts parses those instead.
+getopts returns True if an option, specified or unspecified, is found. It returns
+False if the end of options is encountered or an
+error occurs.
+</TD></TR><TR><TD>
+hash [_r][name]
+</TD><TD>
+For each name, the full pathname of the command is determined and
+remembered. The -r option causes the shell to forget all remembered locations. If no
+arguments are given, information about remembered commands is printed. An argument of
+&#151; disables option checking for the rest of the arguments. The return status is
+True unless a name is not found or an illegal option is supplied.
+</TD></TR><TR><TD>
+help [pattern]
+</TD><TD>
+Display helpful information about built-in commands. If
+pattern is specified, help gives detailed help on
+all commands matching pattern; otherwise, a list of
+the builtins is printed. The return status is 0 unless no command matches pattern.
+</TD></TR></TABLE>
+
+
+
+
+
+<P><CENTER>
+<a href="0035-0036.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0039-0039.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

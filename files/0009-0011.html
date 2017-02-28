@@ -1,0 +1,432 @@
+<HTML>
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0007-0008.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0012-0012.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-9"><P>Page 9</P></A>
+
+
+<B>
+<P>OPTIONS</P>
+</B>
+
+<TABLE>
+
+<TR><TD>
+_a|_al|_as
+</TD><TD>
+Turn on assembly listings; _al, listing only,
+_as, symbols only, -a, everything.
+</TD></TR><TR><TD>
+_D
+</TD><TD>
+This option is accepted only for script compatibility with calls to other assemblers;
+it has no effect on as.
+</TD></TR><TR><TD>
+_f
+</TD><TD>
+&quot;Fast&quot;_skip preprocessing (assume source is compiler output).
+</TD></TR><TR><TD>
+_I\path
+</TD><TD>
+Add path to the search list for
+.include directives.
+</TD></TR><TR><TD>
+_K
+</TD><TD>
+Issue warnings when difference tables altered for long displacements.
+</TD></TR><TR><TD>
+_L
+</TD><TD>
+Keep (in symbol table) local symbols, starting with L.
+</TD></TR><TR><TD>
+_o\objfile
+</TD><TD>
+Name the object-file output from
+as.
+</TD></TR><TR><TD>
+_R
+</TD><TD>
+Fold data section into text section.
+</TD></TR><TR><TD>
+_v
+</TD><TD>
+Announce as version.
+</TD></TR><TR><TD>
+_W
+</TD><TD>
+Suppress warning messages.
+</TD></TR><TR><TD>
+__\|\files...
+</TD><TD>
+Source files to assemble, or standard input
+(__).
+</TD></TR><TR><TD>
+_Avar
+</TD><TD>
+(When configured for Intel 960.) Specify which variant of the 960 architecture is
+the target.
+</TD></TR><TR><TD>
+_b
+</TD><TD>
+(When configured for Intel 960.) Add code to collect statistics about branches taken.
+</TD></TR><TR><TD>
+_no-relax
+</TD><TD>
+(When configured for Intel 960.) Do not alter compare-and-branch instructions
+for long displacements; error if necessary.
+</TD></TR><TR><TD>
+_l
+</TD><TD>
+(When configured for Motorola 68000.) Shorten references to undefined symbols
+to one word instead of two.
+</TD></TR><TR><TD>
+_mc68000|_mc68010|_mc68020
+</TD><TD>
+(When configured for Motorola 68000.) Specify which processor in the
+68000 family is the target (default 68020).
+</TD></TR></TABLE>
+
+<P>Options may be in any order, and may be before, after, or between filenames. The order of filenames is significant.
+</P>
+
+<P>The double hyphens command (&#151;) by itself names the standard input file explicitly, as one of the files for
+as to assemble.
+</P>
+
+<P>Except for __, any command line argument that begins with a hyphen
+(_) is an option. Each option changes the behavior
+of as. No option changes the way another option works. An option is a hyphen followed by one or more letters; the case of
+the letter is important. All options are optional.
+</P>
+
+<P>The _o option expects exactly one filename to follow. The filename may either immediately follow the option's
+letter (compatible with older assemblers) or it may be the next command argument (GNU standard).
+</P>
+
+<P>These two command lines are equivalent:
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+as _o my_object_file.o mumble.s
+
+as _omy_object_file.o mumble.s
+</PRE>
+<!-- END CODE SNIP //-->
+
+<B>
+<P>SEE ALSO</P>
+</B>
+
+<P>as entry in info; Using as: The GNU Assembler;
+gcc(1), ld(1).
+</P>
+
+<B>
+<P>COPYING</P>
+</B>
+
+<P>Copyright &quot; 1991, 1992 Free Software Foundation, Inc. Permission is granted to make and distribute verbatim copies
+of this manual provided the copyright notice and this permission notice are preserved on all copies. Permission is granted
+to copy and distribute modified versions of this manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a permission notice identical to this one.
+</P>
+
+<P>Permission is granted to copy and distribute translations of this manual into another language, under the above
+conditions for modified versions, except that this permission notice may be included in translations approved by the Free
+Software Foundation instead of in the original English.
+</P>
+<P>
+Cygnus Support, 21 January 1992
+</P>
+<A NAME="PAGENUM-10"><P>Page 10</P></A>
+
+
+<H3><A NAME="ch01_ 11">
+asciitopgm
+</A></H3>
+
+<P>asciitopgm&#151;Convert ASCII graphics into a portable graymap
+</P>
+
+<B>
+<P>SYNOPSIS</P>
+</B>
+
+<!-- CODE SNIP //-->
+<PRE>
+asciitopgm [-d divisor] height width [asciifile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<B>
+<P>DESCRIPTION</P>
+</B>
+
+<P>Reads ASCII data as input. Produces a portable graymap with pixel values that are an approximation of the brightness of
+the ASCII characters, assuming black-on-white printing. In other words, a capital
+M is very dark, a period is very light, and a space is white. Input lines that are fewer than
+width characters are automatically padded with spaces.
+</P>
+
+<P>The divisor argument is a floating-point number by which the output pixels are divided; the default value is
+1.0. This can be used to adjust the brightness of the graymap; for example, if the image is too dim, reduce the divisor.
+</P>
+
+<P>In keeping with (I believe) FORTRAN line-printer conventions, input lines beginning with a
++ (plus) character are assumed to overstrike the previous line, allowing a larger range of gray values.
+</P>
+
+<P>This tool contradicts the message in the
+pbmtoascii manual: &quot;Note that there is no
+asciitopbm tool&#151;this transformation is one-way.&quot;
+</P>
+
+<B>
+<P>BUGS</P>
+</B>
+
+<P>The table of ASCII-to-gray values is subject to interpretation, and, of course, depends on the typeface intended for the input.
+</P>
+
+<B>
+<P>SEE ALSO</P>
+</B>
+
+<P>pbmtoascii(1), pgm(5)
+
+<B>
+<P>AUTHOR</P>
+</B>
+
+<P>Wilson H. Bent, Jr. (whb@usc.edu)
+</P>
+
+<P>
+26 December 1994
+</P>
+
+<H3><A NAME="ch01_ 12">
+atktopbm
+</A></H3>
+
+<P>atktopbm&#151;Convert Andrew Toolkit raster object to portable bitmap
+</P>
+
+<B>
+<P>SYNOPSIS</P>
+</B>
+
+<!-- CODE SNIP //-->
+<PRE>
+atktopbm [atkfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<B>
+<P>DESCRIPTION</P>
+</B>
+
+<P>atktopbm reads an Andrew Toolkit raster object as input and produces a portable bitmap as output.
+</P>
+
+<B>
+<P>SEE ALSO</P>
+</B>
+
+<!-- CODE SNIP //-->
+<PRE>
+pbmtoatk(1), pbm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<B>
+<P>AUTHOR</P>
+</B>
+
+<P>Copyright &quot; 1991 by Bill Janssen
+</P>
+
+<P>
+26 September 1991
+</P>
+
+<A NAME="PAGENUM-11"><P>Page 11</P></A>
+
+
+<H3><A NAME="ch01_ 13">
+bash
+</A></H3>
+
+<P>bash&#151;GNU Bourne_again shell
+</P>
+
+<B>
+<P>SYNOPSIS</P>
+</B>
+
+<!-- CODE SNIP //-->
+<PRE>
+bash [options] [file]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<B>
+<P>DESCRIPTION</P>
+</B>
+
+<P>bash is an sh_compatible command language interpreter that executes commands read from the standard input or from a
+file. bash also incorporates useful features from the Korn and C shells
+(ksh and csh).
+</P>
+
+<P>bash is ultimately intended to be a conformant implementation of the IEEE POSIX Shell and Tools specification
+(IEEE Working Group 10032).
+</P>
+
+<B>
+<P>OPTIONS</P>
+</B>
+
+<P>In addition to the single_character shell options documented in the description of the
+set built-in command, bash interprets the following flags when it is invoked:
+</P>
+
+<TABLE>
+
+<TR><TD>
+_c string
+</TD><TD>
+If the _c flag is present, then commands are read from
+string. If there are arguments after the string, they are assigned to the positional parameters, starting with
+$0.
+</TD></TR><TR><TD>
+_i
+</TD><TD>
+If the _i flag is present, the shell is interactive.
+</TD></TR><TR><TD>
+_s
+</TD><TD>
+If the _s flag is present, or if no arguments remain after option processing, then commands
+are read from the standard input. This option allows the positional parameters to be set
+when invoking an interactive shell.
+</TD></TR><TR><TD>
+_
+</TD><TD>
+A single _ signals the end of options and disables further option processing. Any arguments
+after the _ are treated as filenames and arguments. An argument of
+&#151; is equivalent to an argument
+of _.
+</TD></TR></TABLE>
+
+<P>bash also interprets a number of multicharacter options. To be recognized, these options must appear on the command
+line before the single_character options.
+</P>
+
+<TABLE>
+
+<TR><TD>
+_norc
+</TD><TD>
+Do not read and execute the personal initialization file
+~/.bashrc if the shell is interactive. This option is on by default if the shell is invoked as
+sh.
+</TD></TR><TR><TD>
+_noprofile
+</TD><TD>
+Do not read either the system_wide startup file
+/etc/profile or any of the personal initialization files
+~/.bash_profile, ~/.bash_login, or ~/.profile. By default,
+bash normally reads these files when it is invoked as a login shell. (See the &quot;Invocation&quot; section, later in this manual page.)
+</TD></TR><TR><TD>
+_rcfile file
+</TD><TD>
+Execute commands from file instead of the standard personal initialization file
+~/.bashrc, if the shell is interactive. (See &quot;Invocation.&quot;)
+</TD></TR><TR><TD>
+_version
+</TD><TD>
+Show the version number of this instance of
+bash when starting.
+</TD></TR><TR><TD>
+_quiet
+</TD><TD>
+Do not be verbose when starting up (do not show the shell version or any other
+information). This is the default.
+</TD></TR><TR><TD>
+_login
+</TD><TD>
+Make bash act as if it had been invoked as a login shell.
+</TD></TR><TR><TD>
+_nobraceexpansion
+</TD><TD>
+Do not perform curly brace expansion. (See &quot;Brace Expansion,&quot; later in this manual page.)
+</TD></TR><TR><TD>
+_nolineediting
+</TD><TD>
+Do not use the GNU readline library to read command lines if interactive.
+</TD></TR><TR><TD>
+_posix
+</TD><TD>
+Change the behavior of bash where the default operation differs from the POSIX
+1003.2 standard to match the standard.
+</TD></TR></TABLE>
+
+<B>
+<P>ARGUMENTS</P>
+</B>
+
+<P>If arguments remain after option processing, and neither the
+_c nor the _s option has been supplied, the first argument
+is assumed to be the name of a file containing shell commands. If
+bash is invoked in this fashion, is set to the name of the
+file, and the positional parameters are set to the remaining arguments.
+bash reads and executes commands from this file,
+then exits. bash's exit status is the exit status of the last command executed in the script.
+</P>
+
+
+
+<P><CENTER>
+<a href="0007-0008.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0012-0012.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

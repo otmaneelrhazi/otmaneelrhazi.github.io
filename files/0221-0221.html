@@ -1,0 +1,175 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0219-0220.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0222-0223.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-221"><P>Page 221</P></A>
+
+
+<P>In the following description, each argument must be a single word;
+field is used for a single uppercase or lowercase
+letter naming a field; fields is used for a sequence of such letters;
+m and n are used for a nonnegative numbers; string
+is used for an arbitrary string; filename is used for the name of a file.
+</P>
+
+<TABLE>
+
+<TR><TD>
+abbreviate*fieldsstring1
+</TD><TD>
+Abbreviate the first names of fields. An initial letter will be separated from another
+</TD></TR><TR><TD>
+string2string3string4
+</TD><TD>
+initial letter by string1, from the last name by string2, and from anything else
+(such as a von or de) by string3. These default to a period followed by a space. In
+a hyphenated first name, the initial of the first part of the
+name will be separated from the hyphen by string4; this defaults to a period. No attempt is made to handle
+any ambiguities that might result from abbreviation. Names are abbreviated
+before sorting and before label construction.
+</TD></TR><TR><TD>
+abbreviate-label-ranges*string
+</TD><TD>
+Three or more adjacent labels that refer to consecutive references will be
+abbreviated to a label consisting of the first label, followed by
+string, followed by the last label. This is mainly useful with numeric labels. If
+string is omitted it defaults to _.
+</TD></TR><TR><TD>
+accumulate*
+</TD><TD>
+Accumulate references instead of writing out each reference as it is
+encountered. Accumulated references will be written out whenever a reference of the form:
+<!-- CODE SNIP //-->
+<PRE>
+.[
+$LIST$
+.]
+</PRE>
+<!-- END CODE SNIP //-->
+is encountered, after all input files have been processed, and whenever an
+.R1 line is recognized.
+</TD></TR><TR><TD>
+annotate*fieldstring
+</TD><TD>
+field is an annotation; print it at the end of the reference as a paragraph preceded
+by the line
+</TD></TR><TR><TD>
+</TD><TD>
+.string
+</TD></TR><TR><TD>
+</TD><TD>
+If macro is omitted, it will default to AP;if
+field is also omitted, it will default to X. Only one
+field can be an annotation.
+</TD></TR><TR><TD>
+articlesstring ...
+</TD><TD>
+These are definite or indefinite articles, and should be ignored at the beginning of T
+</TD></TR><TR><TD>
+string ...
+</TD><TD>
+fields when sorting. Initially,
+the, a, and an are recognized as articles.
+</TD></TR><TR><TD>
+bibliographyfilename ...
+</TD><TD>
+Write out all the references contained in the bibliographic databases
+filename ...
+</TD></TR><TR><TD>
+bracket-labelstring
+</TD><TD>
+In the text, bracket each label with
+string1 and string2. An occurrence of string2
+</TD></TR><TR><TD>
+1string2string3
+</TD><TD>
+immediately followed by
+string1 will be turned into string3. The default behavior is
+bracket-label \*([. \*(.] &quot;, &quot;
+</TD></TR><TR><TD>
+capitalizefields
+</TD><TD>
+Convert fields to caps and small caps.
+</TD></TR><TR><TD>
+compatible*
+</TD><TD>
+Recognize .R1 and .R2 even when followed by a character other than space
+or newline.
+</TD></TR><TR><TD>
+databasefilename...
+</TD><TD>
+Search the bibliographic databases
+filename... For each filename if an index
+filename.i created by gindxbib(1) exists, then it will be searched instead; each
+index can cover multiple databases.
+</TD></TR><TR><TD>
+date-as-label*string
+</TD><TD>
+string is a label expression that specifies a string with which to replace the
+D field after constructing the label. See &quot;Label Expressions,&quot; later in this manual page, for
+a description of label expressions. This command is useful if you do not want
+explicit labels in the reference list, but instead want to handle any necessary
+disambiguation by qualifying the date in some way. The label used in the text would typically
+be some combination of the author and date. In most cases, you should also use the
+no-label-in-reference command. For example,
+</TD></TR><TR><TD>
+</TD><TD>
+date-as-label D.+yD.y%a*D.-y
+would attach a disambiguating letter to the year part of the
+D field in the reference.
+</TD></TR><TR><TD>
+default-database*
+</TD><TD>
+The default database should be searched. This is the default behavior, so the
+negative version of this command is more useful.
+refer determines whether the default database should be searched on the first occasion that it needs to do a search. Thus,
+a no-default-database command must be given before then, in order to be effective.
+</TD></TR></TABLE>
+
+
+
+
+<P><CENTER>
+<a href="0219-0220.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0222-0223.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

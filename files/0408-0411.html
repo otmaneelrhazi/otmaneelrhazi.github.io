@@ -1,0 +1,522 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0407-0407.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0412-0414.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-408"><P>Page 408</P></A>
+
+
+<H3><A NAME="ch01_ 300">
+ppmhist
+</A></H3>
+<P>ppmhist&#151;Print a histogram of a portable pixmap
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ppmhist [ppmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>ppmhist reads a portable pixmap as input and generates a histogram of the colors in the pixmap.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ppm(5), pgmhist(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright&quot; 1989 by Jef Poskanzer.
+</P>
+
+<P>3 April 1989
+</P>
+
+<H3><A NAME="ch01_ 301">
+ppmmake
+</A></H3>
+<P>ppmmake&#151;Create a pixmap of a specified size and color
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ppmmake color width height
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>ppmmake produces a portable pixmap of the specified color, width, and height.
+</P>
+<P>The color can be specified in five ways:
+</P>
+
+<UL>
+<LI>     A name, assuming that a pointer to an X11-style color names file was compiled in.
+<LI>     An X11-style hexadecimal specifier:
+rgb:r/g/b, where r, g, and b are each 1- to 4-digit hexadecimal numbers.
+<LI>     An X11-style decimal specifier:
+rgbi:r/g/b, where r, g, and b are floating-point numbers between 0 and 1.
+<LI>     For backwards compatibility, an old-X11-style hexadecimal number:
+#rgb, #rrggbb, #rrrgggbbb, or #rrrrggggbbbb.
+<LI>     For backwards compatibility, a triplet of numbers separated by
+commas: r,g,b, where r, g, and b are
+floating-point numbers between 0 and 1. (This style was added before MIT came up with the similar
+rgbi style.)
+</UL>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ppm(5), pbmmake(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright&quot; 1991 by Jef Poskanzer.
+</P>
+
+<P>24 September 1991
+</P>
+
+<H3><A NAME="ch01_ 302">
+ppmmix
+</A></H3>
+<P>ppmmix&#151;Blend together two portable pixmaps
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ppmmix fadefactor ppmfile1 ppmfile2
+</PRE>
+<!-- END CODE SNIP //-->
+
+<A NAME="PAGENUM-409"><P>Page 409</P></A>
+
+
+<P><B>
+DESCRIPTION
+</B></P>
+<P>ppmmix reads two portable pixmaps as input and mixes them together using the specified fade factor. The fade factor may
+be in the range from 0.0 (only ppmfile1's image data) to 1.0 (only
+ppmfile2's image data). Anything in between gains a
+smooth blend between the two images.
+</P>
+<P>The two pixmaps must have the same size.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ppm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright&quot; 1993 by Frank Neumann.
+</P>
+
+<P>16 November 1993
+</P>
+
+<H3><A NAME="ch01_ 303">
+ppmnorm
+</A></H3>
+<P>ppmnorm&#151;Normalize the contrast in a portable pixmap
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ppmnorm[-bpercent N | -bvalue N][-wpercent N | -wvalue N][ppmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>ppmnorm reads a portable pixmap as input; normalizes the contrast by forcing the lightest pixels to white, the darkest pixels
+to black, and linearly rescaling the ones in between; and produces a portable pixmap as output.
+</P>
+<P>It works by computing the relative gray level of each pixel as
+with ppmtopgm, and uses those values to scale the RGB
+levels. Note that this is different from using
+pgmnorm on the individual red, green, and blue graymaps (as produced by
+ppmtorgb3) and recombining them.
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+<P>By default, the darkest two percent of all pixels are mapped to black, and the lightest one percent are mapped to white.
+You can override these percentages by using the
+-bpercent and -wpercent flags, or you can specify the exact pixel values to
+be mapped by using the -bvalue and -wvalue flags. Appropriate numbers for the flags can be gotten from the
+ppmhist tool. If you just want to enhance the contrast, then choose values at elbows in the histogram; for example, if value 29 represents
+3 percent of the image but value 30 represents 20 percent, choose
+30 for bvalue. If you want to lighten the image, then
+set bvalue to 0 and just fiddle with wvalue; similarly, to darken the image, set
+wvalue to maxval and play with bvalue.
+</P>
+<P>All flags can be abbreviated to their shortest unique prefix.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pgmnorm(1), ppmhist(1), ppm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Wilson H. Bent, Jr. (whb@usc.edu), heavily based on the
+pgmnorm filter by Jef Poskanzer.
+</P>
+
+<P>7 October 1993
+</P>
+
+<H3><A NAME="ch01_ 304">
+ppmntsc
+</A></H3>
+<P>ppmntsc&#151;Make a portable pixmap look like it is taken from an American
+TV show
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ppmntsc dimfactor [ppmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<A NAME="PAGENUM-410"><P>Page 410</P></A>
+
+
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>ppmntsc reads a portable pixmap as input and dims every other row of image data down by the specified dim factor.
+This factor may be in the range of 0.0 (the alternate lines are totally black) to 1.0 (original image).
+</P>
+<P>This creates an effect similar to what I saw once in the video clip &quot;You Could be Mine&quot; by Guns'n' Roses. In the scene
+I'm talking about you can see John Connor on his motorbike, looking up from the water trench (?) he's standing in. While
+the camera pulls back, the image becomes &quot;normal&quot; by brightening up the alternate rows of it. I thought this would be
+an interesting effect to try in MPEG. I did not yet check this out, however. Try for yourself.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ppm(5), ppmdim(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright&quot; 1993 by Frank Neumann.
+</P>
+<P>16 November 1993
+</P>
+
+<H3><A NAME="ch01_ 305">
+ppmpat
+</A></H3>
+<P>ppmpat&#151;Make a pretty pixmap
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ppmpat -gingham2|-g2|-gingham3| -g3|-madras|-tartan| -poles|-squig|-camo|
+ -anticamo width height
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>ppmpat produces a portable pixmap of the specified width and height, with a pattern in it.
+</P>
+<P>This program is mainly to demonstrate use of the
+ppmdraw routines, a simple but powerful drawing library. See the
+ppmdraw.h include file for more information on using these routines. Still, some of the patterns can be rather pretty. If you have a
+color workstation, something like ppmpat -squig 300 300 | &quot;ppmquant
+128&quot; should generate a nice background.
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+<P>The different flags specify various different pattern types:
+</P>
+<TABLE>
+
+<TR><TD>
+-gingham2
+</TD><TD>
+A gingham check pattern. Can be tiled.
+</TD></TR><TR><TD>
+-gingham3
+</TD><TD>
+A slightly more complicated gingham. Can be tiled.
+</TD></TR><TR><TD>
+-madras
+</TD><TD>
+A madras plaid. Can be tiled.
+</TD></TR><TR><TD>
+-tartan
+</TD><TD>
+A tartan plaid. Can be tiled.
+</TD></TR><TR><TD>
+-poles
+</TD><TD>
+Color gradients centered on randomly placed poles. May need to be run through
+ppmquant.
+</TD></TR><TR><TD>
+-squig
+</TD><TD>
+Squiggly tubular pattern. Can be tiled. May need to be run through
+ppmquant.
+</TD></TR><TR><TD>
+-camo
+</TD><TD>
+Camouflage pattern. May need to be run through
+ppmquant.
+</TD></TR><TR><TD>
+-anticamo
+</TD><TD>
+Anticamouflage pattern; like
+-camo, but ultra-bright colors. May need to be run through
+ppmquant.
+</TD></TR></TABLE>
+
+<P>All flags can be abbreviated to their shortest unique prefix.
+</P>
+
+<P><B>
+REFERENCES
+</B>
+</P>
+<P>Some of the patterns are from &quot;Designer's Guide to Color 3&quot; by Jeanne Allen.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>pnmtile(1), ppmquant(1), ppm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<A NAME="PAGENUM-411"><P>Page 411</P></A>
+
+
+<P><B>
+AUTHOR
+</B></P>
+<P>Copyright&quot; 1989 by Jef Poskanzer.
+</P>
+
+<P>4 September 1989
+</P>
+
+<H3><A NAME="ch01_ 306">
+ppmquant
+</A></H3>
+<P>ppmquant&#151;Quantize the colors in a portable pixmap down to a specified number
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ppmquant [-floyd|-fs] ncolors [ppmfile]
+ppmquant [-floyd|-fs] -map mapfile [ppmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>ppmquant reads a portable pixmap as input. It chooses
+ncolors colors to best represent the image, maps the existing colors
+to the new ones, and writes a portable pixmap as output.
+</P>
+<P>The quantization method is Heckbert's &quot;median cut.&quot;
+</P>
+<P>Alternately, you can skip the color-choosing step by specifying your own set of colors with the
+-map flag. The mapfile is just a ppm file; it can be any shape, all that matters is the colors in it. For instance, to quantize down to the 8-color IBM
+TTL color set, you might use the following:
+</P>
+
+<!-- CODE //-->
+<PRE>
+P3
+8 1
+255
+0 0 0
+255 0 0
+0 255 0
+0 0 255
+255 255 0
+255 0 255
+0 255 255
+255 255 255
+</PRE>
+<!-- END CODE //-->
+
+<P>If you want to quantize one pixmap to use the colors in another one, just use the second one as the mapfile. You don't
+have to reduce it down to only one pixel of each color, just use it as is.
+</P>
+<P>The -floyd/-fs flag enables a Floyd-Steinberg error diffusion step. Floyd-Steinberg gives vastly better results on
+images where the unmodified quantization has banding or other artifacts, especially when going to a small number of colors such
+as the preceding IBM set. However, it does take substantially more CPU time, so the default is
+off.
+</P>
+<P>All flags can be abbreviated to their shortest unique prefix.
+</P>
+
+<P><B>
+REFERENCES
+</B>
+</P>
+<P>&quot;Color Image Quantization for Frame Buffer Display,&quot; by Paul Heckbert,
+SIGGRAPH '82 Proceedings, page 297.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ppmquantall(1), pnmdepth(1), ppmdither(1), ppm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright&quot; 1989, 1991 by Jef Poskanzer.
+</P>
+
+<P>12 January 1991
+</P>
+
+
+
+<P><CENTER>
+<a href="0407-0407.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0412-0414.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

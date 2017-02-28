@@ -1,0 +1,274 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0183-0183.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0186-0187.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-184"><P>Page 184</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+_Wimplicit
+</TD><TD>
+Warn whenever a function or parameter is implicitly declared.
+</TD></TR><TR><TD>
+_Wreturn_type
+</TD><TD>
+Warn whenever a function is defined with a
+return-type that defaults to int. Also warn about any
+return statement with no return-value in a function whose
+return-type is not void.
+</TD></TR><TR><TD>
+_Wunused
+</TD><TD>
+Warn whenever a local variable is unused aside from its declaration, whenever a function
+is declared static but never defined, and whenever a statement computes a result that is
+explicitly not used.
+</TD></TR><TR><TD>
+_Wswitch
+</TD><TD>
+Warn whenever a switch statement has an index of enumeral type and lacks a case for one
+or more of the named codes of that enumeration. (The presence of a default label prevents
+this warning.) case labels outside the enumeration range also provoke warnings when this option
+is used.
+</TD></TR><TR><TD>
+_Wcomment
+</TD><TD>
+Warn whenever a comment-start sequence
+/ appears in a comment.
+</TD></TR><TR><TD>
+_Wtrigraphs
+</TD><TD>
+Warn if any trigraphs are encountered (assuming they are enabled).
+</TD></TR><TR><TD>
+_Wformat
+</TD><TD>
+Check calls to printf and scanf, and so on, to make sure that the arguments supplied
+have types appropriate to the format string specified.
+</TD></TR><TR><TD>
+_Wchar_subscripts
+</TD><TD>
+Warn if an array subscript has type
+char. This is a common cause of error, as
+programmers often forget that this type is signed on some machines.
+</TD></TR><TR><TD>
+_Wuninitialized
+</TD><TD>
+An automatic variable is used without first being initialized.<BR>
+ These warnings are possible only in optimizing compilation, because they require data
+flow information that is computed only when optimizing. If you don't specify
+_O, you simply won't get these warnings.<BR>
+   These warnings occur only for variables that are candidates for register allocation.
+Therefore, they do not occur for a variable that is declared volatile, or whose address is taken, or whose
+size is other than 1, 2, 4, or 8 bytes. Also, they do not occur for structures, unions, or arrays,
+even when they are in registers.<BR>
+   Note that there may be no warning about a variable that is used only to compute a value
+that itself is never used, because such computations may be deleted by data flow analysis before
+the warnings are printed.<BR>
+   These warnings are made optional because GNU CC is not smart enough to see all the
+reasons why the code might be correct despite appearing to have an error. Here is one example of
+how this can happen:
+<!-- CODE //-->
+<PRE>
+{
+int x;
+switch (y)
+{
+case 1: x = 1;
+break;
+case 2: x = 4;
+break;
+case 3: x = 5;
+}
+foo (x);
+}
+</PRE>
+<!-- END CODE //-->
+<PRE>
+{
+int save_y;
+if (change_y) save_y =y,y =new_y;
+...
+if (change_y)y =save_y;
+}
+</PRE>
+<!-- END CODE SNIP //-->
+This has no bug because save_y is used only if it is set.<BR>
+Some spurious warnings can be avoided if you declare as volatile all the functions you use
+that never return.
+</TD></TR></TABLE>
+
+
+<A NAME="PAGENUM-185"><P>Page 185</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+_Wparentheses
+</TD><TD>
+Warn if parentheses are omitted in certain contexts.
+</TD></TR><TR><TD>
+_Wtemplate_debugging
+</TD><TD>
+When using templates in a C++ program, warn if debugging is not yet fully available
+(C++ only).
+</TD></TR><TR><TD>
+_Wall
+</TD><TD>
+All of the preceding _W options combined. These are all the options that pertain to usage
+that we recommend avoiding and that we believe is easy to avoid, even in conjunction with macros.
+</TD></TR></TABLE>
+
+<P>The remaining _W... options are not implied by
+_Wall because they warn about constructions that we consider reasonable
+to use, on occasion, in clean programs.
+</P>
+
+
+<TABLE>
+
+<TR><TD>
+_Wtraditional
+</TD><TD>
+Warn about certain constructs that behave differently in traditional and ANSI C:<BR>
+Macro arguments occurring within string constants in the macro body. These would
+substitute the argument in traditional C, but are part of the constant in ANSI C.<BR>
+A function declared external in one block and then used after the end of the block.<BR>
+A switch statement has an operand of type
+long.
+</TD></TR><TR><TD>
+_Wshadow
+</TD><TD>
+Warn whenever a local variable shadows another local variable.
+</TD></TR><TR><TD>
+_Wid_clash_len
+</TD><TD>
+Warn whenever two distinct identifiers match in the first
+len characters. This may help you prepare a program that will compile with certain obsolete, brain-damaged compilers.
+</TD></TR><TR><TD>
+_Wpointer_arith
+</TD><TD>
+Warn about anything that depends on the size of a function type or of void. GNU C
+assigns these types a size of 1, for convenience in calculations with void pointers and pointers
+to functions.
+</TD></TR><TR><TD>
+_Wcast_qual
+</TD><TD>
+Warn whenever a pointer is cast so as to remove a type qualifier from the target type.
+For example, warn if a const char is cast to an ordinary
+char.
+</TD></TR><TR><TD>
+_Wcast_align
+</TD><TD>
+Warn whenever a pointer is cast such that the required alignment of the target is increased.
+For example, warn if a char is cast to an int on machines where integers can only be accessed
+at two- or four-byte boundaries.
+</TD></TR><TR><TD>
+_Wwrite_strings
+</TD><TD>
+Give string constants the type
+const char[ length ] so that copying the address of one into
+a non-const char pointer will get a warning. These warnings will help you find at compile
+time code that can try to write into a string constant, but only if you have been very careful
+about using const in declarations and prototypes. Otherwise, it will just be a nuisance; this is why
+we did not make _Wall request these warnings.
+</TD></TR><TR><TD>
+_Wconversion
+</TD><TD>
+Warn if a prototype causes a type conversion that is different from what would happen to
+the same argument in the absence of a prototype. This includes conversions of fixed point
+to floating and vice versa, and conversions changing the width or signedness of a fixed
+point argument except when the same as the default promotion.
+</TD></TR><TR><TD>
+_Waggregate_return
+</TD><TD>
+Warn if any functions that return structures or unions are defined or called. (In
+languages where you can return an array, this also elicits a warning.)
+</TD></TR><TR><TD>
+_Wstrict_prototypes
+</TD><TD>
+Warn if a function is declared or defined without specifying the argument types. (An
+old-style function definition is permitted without a warning if preceded by a declaration which
+specifies the argument types.)
+</TD></TR><TR><TD>
+_Wmissing_prototypes
+</TD><TD>
+Warn if a global function is defined without a previous prototype declaration. This warning
+is issued even if the definition itself provides a prototype. The aim is to detect global
+functions that fail to be declared in header files.
+</TD></TR><TR><TD>
+_Wmissing_declarations
+</TD><TD>
+Warn if a global function is defined without a previous declaration. Do so even if the
+definition itself provides a prototype. Use this option to detect global functions that are not declared
+in header files.
+</TD></TR><TR><TD>
+_Wredundant-decls
+</TD><TD>
+Warn if anything is declared more than once in the same scope, even in cases where
+multiple declaration is valid and changes nothing.
+</TD></TR><TR><TD>
+_Wnested-externs
+</TD><TD>
+Warn if an extern declaration is encountered within an function.
+</TD></TR><TR><TD>
+_Wenum_clash
+</TD><TD>
+Warn about conversion between different enumeration types (C++ only).
+</TD></TR><TR><TD>
+_Woverloaded_virtual
+</TD><TD>
+(C++ only.) In a derived class, the definitions of virtual functions must match the type
+signature of a virtual function declared in the base class. Use this option to request warnings when
+a derived class declares a function that may be an erroneous attempt to define a virtual
+function;
+</TD></TR></TABLE>
+
+
+
+
+<P><CENTER>
+<a href="0183-0183.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0186-0187.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

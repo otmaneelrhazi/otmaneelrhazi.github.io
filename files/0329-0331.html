@@ -1,0 +1,385 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0326-0328.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0332-0334.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-329"><P>Page 329</P></A>
+
+
+<H3><A NAME="ch01_ 182">
+mrd
+</A></H3>
+
+<P>mrd&#151;Remove an MS-DOS subdirectory
+</P>
+
+<P><B>SYNOPSIS</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>mrd [ -v ] msdosdirectory [ msdosdirectories... ]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>DESCRIPTION</B></P>
+
+
+<P>mrd removes a directory from an MS-DOS FILESystem.
+mmd will allow the following command-line option:
+
+<TABLE>
+
+<TR><TD>
+v
+</TD><TD>
+Verbose mode. Display the directory name as it is removed.
+</TD></TR></TABLE>
+
+<P>An error occurs if the directory does not exist or is not empty.
+</P>
+
+<P><B>SEE ALSO</B></P>
+
+
+<!-- CODE SNIP //-->
+<PRE>mtools(1), mmd(1), mdeltree(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>Local
+</P>
+
+<H3><A NAME="ch01_ 183">
+mread
+</A></H3>
+
+<P>mread&#151;Read (copy) an MS-DOS file to UNIX
+</P>
+
+<P><B>SYNOPSIS</B></P>
+
+
+<!-- CODE SNIP //-->
+<PRE>mread [ -tnvmoOsSrRA ] msdosfile unixfile
+mread [ -tnvmoOsSrRA ] msdosfile [ msdosFILES... ] unixdirectory
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>DESCRIPTION</B></P>
+
+<P>This command is obsolete, and only supplied for backwards compatibility reasons with old scripts. Use
+mcopy instead.
+</P>
+
+<P><B>SEE ALSO</B></P>
+
+
+<!-- CODE SNIP //-->
+<PRE>mcopy(1), mtype(1), mtools(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<H3><A NAME="ch01_ 184">mren</A></H3>
+
+<P>mren&#151;Rename or move an existing MS-DOS file or subdirectory
+</P>
+
+<P><B>SYNOPSIS</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>mren [ -voOsSrRA ] sourcefile targetfile
+
+mmove [ -voOsSrRA ] sourcefile [ sourceFILES... ] targetdirectory
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>DESCRIPTION</B></P>
+
+
+<P>mren renames an existing file on an MS-DOS FILESystem.
+</P>
+
+<P>Mren will allow the following command-line option:
+</P>
+
+<P>voOsSrRA     Verbose mode. Display the new filename if the name supplied is invalid.
+
+<P>If the first syntax is used (only one
+sourcefile), and if the target name doesn't contain any slashes or colons, the file
+(or subdirectory) will be renamed in the same directory, instead of being moved to the current
+mcd directory as would be the case with mmove. Unlike the MS-DOS version of
+REN, mren can be used to rename directories.
+</P>
+
+<A NAME="PAGENUM-330"><P>Page 330</P></A>
+
+
+<P><B>BUGS</B></P>
+
+<P>Unlike the MS-DOS version of REN, mren can be used to rename directories.
+</P>
+
+<P><B>SEE ALSO</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>mcd(1)
+</PRE>
+<!-- END CODE SNIP //-->
+<P>Local
+</P>
+
+<H3><A NAME="ch01_ 185">
+mtest
+</A></H3>
+
+
+<P>mtest&#151;Test the mtools configuration FILES
+</P>
+
+<P><B>SYNOPSIS</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>mtest
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>DESCRIPTION</B></P>
+
+<P>mtest reads the mtools configuration FILES and prints the cumulative configuration to
+stdout. The output can be used as a configuration file itself (although you might want to remove redundant clauses). You may use this program to convert
+old-style configuration FILES into new style configuration FILES.
+</P>
+
+<P><B>SEE ALSO</B></P>
+
+
+<!-- CODE SNIP //-->
+<PRE>mtools(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>Local
+</P>
+
+<H3><A NAME="ch01_ 186">
+mtools
+</A></H3>
+
+<P>mtools&#151;A collection of tools for manipulating MS-DOS FILES
+</P>
+
+<P><B>SYNOPSIS</B></P>
+
+
+<P>The mtools are
+</P>
+
+<P>mattrib&#151;Change MS-DOS file attribute flags
+</P>
+
+<P>mbadblocks&#151;Test a floppy disk, and mark the bad blocks in the FAT
+</P>
+
+<P>mcd&#151;Change MS-DOS directory
+</P>
+
+<P>mcopy&#151;Copy MS-DOS FILES to/from UNIX
+</P>
+
+<P>mdel&#151;Delete an MS-DOS file
+</P>
+
+<P>mdir&#151;Display an MS-DOS directory
+</P>
+
+<P>mformat&#151;Add an MS-DOS FILESystem to a low-level formatted floppy disk
+</P>
+
+<P>mlabel&#151;Make an MS-DOS volume label
+</P>
+
+<P>mmd&#151;Make an MS-DOS subdirectory
+</P>
+
+<P>mmount&#151;Mount an MS-DOS disk
+</P>
+
+<P>mrd&#151;Remove an MS-DOS subdirectory
+</P>
+
+<P>mmove&#151;Move or rename an MS-DOS file or subdirectory
+</P>
+
+<P>mren&#151;Rename an existing MS-DOS file
+</P>
+
+<P>mtype&#151;Display contents of an MS-DOS file
+</P>
+
+<P>mtest&#151;Test and display the configuration
+</P>
+
+<A NAME="PAGENUM-331"><P>Page 331</P></A>
+
+
+<P><B>DESCRIPTION</B></P>
+
+<P>mtools is a public domain collection of programs to allow UNIX systems to read, write, and manipulate FILES on an
+MS-DOS FILESystem (typically a floppy disk). Where reasonable, each program attempts to emulate the MS-DOS equivalent
+command. However, unnecessary restrictions and oddities of DOS are not emulated. For instance, it is possible to move
+subdirectories from one subdirectory to another.
+</P>
+
+<P>MS-DOS filenames are optionally composed of a drive letter followed by a colon, a subdirectory, and a filename.
+Filenames without a drive letter refer to UNIX FILES. Subdirectory names can use either the
+/ or \ separator. The use of the \ separator or wildcards will require the names to be enclosed in quotes to protect them from the shell. (Note: Wildcards in
+UNIX filenames should not be enclosed in quotes, because here users want the shell to expand them.)
+</P>
+
+<P><B>Differences with MS-DOS</B></P>
+
+<P>The regular expression &quot;pattern matching&quot; routines follow the UNIX-style rules. For example,
+* matches all MS-DOS FILES in lieu of *.*. The archive, hidden, read-only, and system attribute bits are ignored during pattern matching.
+</P>
+
+<P>All OPTIONS use the - (minus) flag, not / as you'd expect in MS-DOS.
+</P>
+
+<P>Most mtools commands allow multiple filename parameters, which doesn't follow MS-DOS conventions, but which is
+more user friendly.
+</P>
+
+<P><B>Working Directory</B></P>
+
+<P>The mcd command is used to establish the device and the current working directory (relative to the MS-DOS
+FILESystem); otherwise, the default is assumed to be
+A:/. However, unlike MS-DOS, there is only one working directory, and not one
+per drive.
+</P>
+
+<P><B>VFAT-Style Long Filenames</B></P>
+
+<P>This version of mtools supports VFAT-style long filenames. If a UNIX filename is too long to fit in a short DOS name, it
+is stored as a VFAT long name, and a companion short name is generated. This short name is what you see when you
+examine the disk with a pre-7.0 version of DOS. The following table shows some EXAMPLES of short names:
+</P>
+
+<TABLE>
+
+<TR><TD>
+UNIX Name
+</TD><TD>
+MS-DOS Name
+</TD><TD>
+Reason for the Change
+</TD></TR><TR><TD>
+thisisatest
+</TD><TD>
+THISISAT
+</TD><TD>
+Filename too long
+</TD></TR><TR><TD>
+alain.knaff
+</TD><TD>
+ALAIN.KNA
+</TD><TD>
+Extension too long
+</TD></TR><TR><TD>
+prn.txt
+</TD><TD>
+XRN.TXT
+</TD><TD>
+PRN is a device name
+</TD></TR><TR><TD>
+.abc
+</TD><TD>
+X.ABC
+</TD><TD>
+Null filename
+</TD></TR><TR><TD>
+hot+cold
+</TD><TD>
+HOTXCOLD
+</TD><TD>
+Illegal character
+</TD></TR></TABLE>
+	
+	
+<P>The initial UNIX-style filename (whether long or short) is also called
+primary name, and the derived short name is also
+called secondary name.
+</P>
+
+
+<P>Example:
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>mcopy /etc/motd a:Reallylongname
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>mtools creates a VFAT entry for Reallylongname, and uses
+REALLYLO as a short name. Reallylongname is the primary name,
+and REALLYLO is the secondary name.
+</P>
+
+<P>In this example:
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>copy /etc/motd a:motd
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>motd fits into the DOS filename limits. mtools doesn't need to derivate another name.
+motd is the primary name, and there is no secondary name.
+</P>
+
+<P>In a nutshell: The primary name is the long name, if one exists, or the short name if there is no long name.
+</P>
+
+
+
+<P><CENTER>
+<a href="0326-0328.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0332-0334.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

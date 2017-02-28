@@ -1,0 +1,192 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0432-0433.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0435-0439.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-434"><P>Page 434</P></A>
+
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright&quot; 1989 by Jef Poskanzer.
+</P>
+
+<P>2 August 1989
+</P>
+
+<H3><A NAME="ch01_ 337">
+pstopnm
+</A></H3>
+<P>pstopnm&#151;Convert a PostScript file into a portable anymap
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE //-->
+<PRE>
+pstopnm [_forceplain][_help][_llx s][_lly s][_landscape][_portrait][_nocrop]
+[_pbm |_pgm |_ppm][_urx s][_ury s][_verbose][_xborder n][_xmax n][_xsize f]
+[_yborder f][_ymax n][_ysize n] psfile[.ps]
+</PRE>
+<!-- END CODE //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pstopnm reads a PostScript file as input and produces portable anymap files as output. This program is just a useful shell
+script that runs GhostScript to render a PostScript into one or more
+pnm files. pstopnm will create as many files as the number
+of pages in the PostScript document. If the input file is named
+psfile.ps, the name of the files will be
+psfile001.ppm, psfile002.ppm, and so on.
+</P>
+<P>The program maps a rectangular portion of the PostScript document into an image file according to the
+command-line options. The selected area will always be centered in the output file, and may have borders around it. The image area to
+be extracted from the PostScript file and rendered into a portable anymap is defined by four numbers, the lower-left corner
+and the upper-right corner x and y coordinates. These coordinates are usually specified by the
+BoundingBox comment in the PostScript file header, but they can be overridden by the user by specifying one or more of the following flags:
+_llx, _lly,
+_urx, and _ury. The presence and thickness of a border to be left around the image area is controlled by the use of the flags
+_xborder and _yborder. If BoundingBox parameters are not found, and image area coordinates are not specified on
+the command line, default values are used. Unless both output file width and height are specified via the
+_xsize and _ysize flags, the program will map the document into the output image by preserving its aspect ratio.
+</P>
+
+
+<P><B>
+OPTIONS
+</B>
+</P>
+<TABLE>
+
+<TR><TD>
+_forceplain
+</TD><TD>
+Forces the output file to be a plain (in other words, not &quot;raw&quot;) portable anymap.
+</TD></TR><TR><TD>
+_help
+</TD><TD>
+Prints the command syntax.
+</TD></TR><TR><TD>
+_llx bx
+</TD><TD>
+Selects bx as the lower left corner x coordinate (in inches).
+</TD></TR><TR><TD>
+_lly by
+</TD><TD>
+Selects by as the lower left corner y coordinate (in inches).
+</TD></TR><TR><TD>
+_landscape
+</TD><TD>
+Renders the image in landscape mode.
+</TD></TR><TR><TD>
+_portrait
+</TD><TD>
+Renders the image in portrait mode.
+</TD></TR><TR><TD>
+_nocrop
+</TD><TD>
+Does not crop the output image dimensions to match the PostScript image area dimensions.
+</TD></TR><TR><TD>
+_pbm _pgm _ppm
+</TD><TD>
+Selects the format of the output file. By default, all files are rendered as portable pixmaps
+(ppm format).
+</TD></TR><TR><TD>
+_urx tx
+</TD><TD>
+Selects tx as the upper-right corner x coordinate (in inches).
+</TD></TR><TR><TD>
+_ury ty
+</TD><TD>
+Selects ty as the upper-right corner y coordinate (in inches).
+</TD></TR><TR><TD>
+_verbose
+</TD><TD>
+Prints processing information to
+stdout.
+</TD></TR><TR><TD>
+_xborder frac
+</TD><TD>
+Specifies that the border width along the Y axis should be
+frac times the document width as specified by the bounding box comment in the PostScript file header. The default value is
+0.1.
+</TD></TR><TR><TD>
+_xmax xs
+</TD><TD>
+Specifies that the maximum output image width should have a size less or equal to
+xs pixels (default: 612).
+</TD></TR><TR><TD>
+_xsize xs
+</TD><TD>
+Specifies that the output image width must be exactly
+xs pixels.
+</TD></TR><TR><TD>
+_yborder frac
+</TD><TD>
+Specifies that the border width along the X axis should be
+frac times the document width as specified by the bounding box comment in the PostScript file header. The default value is
+0.1.
+</TD></TR><TR><TD>
+_ymax ys
+</TD><TD>
+Specifies that the maximum output image height should have a size less or equal to
+ys pixels (default: 792).
+</TD></TR><TR><TD>
+_ysize ys
+</TD><TD>
+Specifies that the output image height must be exactly
+ys pixels.
+</TD></TR></TABLE>
+
+
+
+
+<P><CENTER>
+<a href="0432-0433.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0435-0439.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

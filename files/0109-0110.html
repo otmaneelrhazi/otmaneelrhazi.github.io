@@ -1,0 +1,299 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0107-0108.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0111-0113.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-109"><P>Page 109</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+cbs=bytes
+</TD><TD>
+Convert bytes bytes at a time.
+</TD></TR><TR><TD>
+skip=blocks
+</TD><TD>
+Skip blocks ibs-sized blocks at start of input.
+</TD></TR><TR><TD>
+seek=blocks
+</TD><TD>
+Skip blocks obs-sized blocks at start of output.
+</TD></TR><TR><TD>
+count=blocks
+</TD><TD>
+Copy only blocks ibs-sized input blocks.
+</TD></TR><TR><TD>
+conv=conversion[,conversion...]
+</TD><TD>
+Convert the file as specified by the conversion arguments.
+</TD></TR></TABLE>
+
+
+<P>Conversions:</P>
+
+<TABLE>
+
+<TR><TD>
+ascii
+</TD><TD>
+Convert EBCDIC to ASCII.
+</TD></TR><TR><TD>
+ebcdic
+</TD><TD>
+Convert ASCII to EBCDIC.
+</TD></TR><TR><TD>
+ibm
+</TD><TD>
+Convert ASCII to alternate EBCDIC.
+</TD></TR><TR><TD>
+block
+</TD><TD>
+Pad newline-terminated records to size of
+cbs, replacing newline with trailing spaces.
+</TD></TR><TR><TD>
+unblock
+</TD><TD>
+Replace trailing spaces in cbs-sized block with newline.
+</TD></TR><TR><TD>
+lcase
+</TD><TD>
+Change uppercase characters to lowercase.
+</TD></TR><TR><TD>
+ucase
+</TD><TD>
+Change lowercase characters to uppercase.
+</TD></TR><TR><TD>
+swab
+</TD><TD>
+Swap every pair of input bytes. Unlike the UNIX
+dd, this works when an odd number of bytes are read. If the input file contains an odd number of bytes, the
+last byte is simply copied (since there is nothing to swap it with).
+</TD></TR><TR><TD>
+noerror
+</TD><TD>
+Continue after read errors.
+</TD></TR><TR><TD>
+notrunc
+</TD><TD>
+Do not truncate the output file.
+</TD></TR><TR><TD>
+sync
+</TD><TD>
+Pad every input block to size of ibs with trailing NULLs.
+</TD></TR></TABLE>
+
+<P>
+                                           GNU File Utilities
+</P>
+
+<H3><A NAME="ch01_ 52">
+depmod, modprobe
+</A></H3>
+
+<P>depmod, modprobe&#151;Handle loadable modules automatically</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+<!-- CODE //-->
+<PRE>
+depmod [_a]
+depmod module1.o module2.o ...
+
+modprobe module.o [symbol=value ...]
+modprobe _t tag pattern
+modprobe _a _t tag pattern modprobe _l [ _t tag ] pattern
+modprobe _r module
+modprobe _c
+</PRE>
+<!-- END CODE //-->
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+<P>These utilities are intended to make a Linux modular kernel manageable for all users, administrators, and
+distribution maintainers.
+</P>
+
+<P>depmod creates a makefile-like dependency file, based on the symbols it finds in the set of modules mentioned on
+the command line (or in a default place). This dependency file can later be used by
+modprobe to automatically load the relevant module(s).
+</P>
+
+<P>modprobe is used to load a set of modules&#151;either a single module, a stack of dependent modules, or all modules that
+are marked with a specified tag.
+</P>
+
+<P>modprobe will automatically load all base modules needed in a module stack, as described by the dependency file
+modules.dep. If the loading of one of these modules fails, the whole current stack of modules will be unloaded (by
+rmmod) automatically.
+</P>
+
+<P>modprobe has two ways of loading modules. One way (the probe mode) will try to load a module out of a list (defined
+by pattern). It stops loading as soon as one module load successfully. This can be used to autoload one Ethernet driver out of
+a list, for example. The other way is to load all modules from a list. This can be used to load some modules at boot time.
+</P>
+
+<A NAME="PAGENUM-110"><P>Page 110</P></A>
+
+
+<P>With the option -r, modprobe will automatically unload a stack of modules, similar to the way
+rmmod -r does.
+</P>
+
+<P>Option -l combined with option -t lists all available modules of a certain type. An enhanced
+mount command could use the command:
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+modprobe -l -t fs
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>to get the list of all file system drivers available and on request load the proper one. So, the
+mount command could become more generic as well. (The
+kerneld solves this without changing the mount utility.)
+</P>
+
+<P>Option -c will print all configuration (default + configuration file).</P>
+
+<P>The normal use of depmod is to include the line
+/sbin/depmod -a in one of the rc-files in
+/etc/rc.d, so that the correct module dependencies will be available immediately after booting the system.
+</P>
+
+<P>Option -d puts depmod in debug mode. It outputs all commands it is issuing.</P>
+
+<P>Option -e outputs the list of unresolved symbol for each module, Normally,
+depmod only outputs the list of unloadable modules.</P>
+
+<P>Option -v outputs the list of all processed modules.</P>
+
+<P>Modules may be located at different place in the filesystem, but there will always be some need to override this, especially
+for module developers. We expect some official standard will emerge, defined by the FSSTND. Until that time, you might
+as well use this suggested directory structure.
+</P>
+
+<P><B>
+CONFIGURATION
+</B></P>
+
+<P>The behavior of depmod and modprobe can be adjusted by the (optional) configuration file
+/etc/conf.modules.
+</P>
+
+<P>The configuration file consists of a set of lines. All empty lines, and all text on a line after a
+#, will be ignored. Lines may be continued by ending the line with a
+\. The remaining lines should all conform to one of the following formats:
+</P>
+
+<!-- CODE //-->
+<PRE>
+keep
+parameter=value
+options module symbol=value ...
+alias module real_name
+pre-install module command ...
+install module command ...
+post-install module command ...
+pre-remove module command ...
+remove module command ...
+post-remove module command ...
+parameter=value options module symbol=value ... alias module real_name
+</PRE>
+<!-- END CODE //-->
+
+
+<P>All values in the parameter lines will be processed by a shell, which means that shell tricks like wildcards and
+commands enclosed in backquotes can be used:
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+path[misc]=/lib/modules/1.1.5?/misc
+path[net]=/lib/modules/'uname -r'/net
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+<P>Parameters may be repeated multiple times.</P>
+
+<P>These are the legal parameters:</P>
+
+
+<TABLE>
+
+<TR><TD>
+depfile=DEPFILE_PATH
+</TD><TD>
+This is the path to the dependency file that will be created by
+depmod and used by modprobe.
+</TD></TR><TR><TD>
+path=SOME_PATH
+</TD><TD>
+The path parameter specifies a directory to search for the modules.
+</TD></TR><TR><TD>
+path[tag]=SOME_PATH
+</TD><TD>
+The path parameter can carry an optional tag. This tells us a little more about the purpose of
+the modules in this directory and allows some automated operations by
+modprobe. The tag is appended to the path keyword enclosed in square brackets. If the tag is missing, the tag
+misc is assumed. One very useful tag is boot, which can be used to mark all modules that should be loaded at boot time.
+</TD></TR></TABLE>
+
+<P>
+If the configuration file /etc/conf.modules is missing, or if any parameter is not overridden, the following defaults
+are assumed:
+</P>
+
+
+
+
+<P><CENTER>
+<a href="0107-0108.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0111-0113.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

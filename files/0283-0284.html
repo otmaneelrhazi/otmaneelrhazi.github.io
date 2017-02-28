@@ -1,0 +1,325 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0281-0282.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0285-0286.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-283"><P>Page 283</P></A>
+
+
+
+<P>input. file1 and file2 should be already sorted in increasing order (not numerically) on the join fields; unless the
+_t option is given, they should be sorted ignoring blanks at the start of the line, as
+sort does when given the _b option.
+</P>
+
+<P>The defaults are the following: The join field is the first field in each line; fields in the input are separated by one or
+more blanks, with leading blanks on the line ignored; fields in the output are separated by a space; each output line consists of
+the join field, the remaining fields from file1, then the remaining fields from
+file2.
+</P>
+
+<P><B>
+OPTIONS
+</B></P>
+
+<TABLE>
+
+<TR><TD>
+_a file-number
+</TD><TD>
+Print a line for each unpairable line in file
+file-number (either 1 or 2), in addition to the
+normal output.
+</TD></TR><TR><TD>
+_e string
+</TD><TD>
+Replace empty output fields (those that are missing in the input) with
+string.
+</TD></TR><TR><TD>
+_1, _j1 field
+</TD><TD>
+Join on field field (a positive integer) of file 1.
+</TD></TR><TR><TD>
+_2, _j2 field
+</TD><TD>
+Join on field field (a positive integer) of file 2.
+</TD></TR><TR><TD>
+_j field
+</TD><TD>
+Equivalent to _1 field _2 field.
+</TD></TR><TR><TD>
+_o field-list...
+</TD><TD>
+Construct each output line according to the format in
+field-list. Each element in field-list consists of a file number (either 1 or 2), a period, and a field number (a positive integer).
+The elements in the list are separated by commas or blanks. Multiple
+field-list arguments can be given after a single
+_o option; the values of all lists given with _o are concatenated together.
+</TD></TR><TR><TD>
+_t char
+</TD><TD>
+Use character char as the input and output field separator.
+</TD></TR><TR><TD>
+_v file-number
+</TD><TD>
+Print a line for each unpairable line in file
+file-number (either 1 or 2), instead of the normal output.
+</TD></TR></TABLE>
+
+
+<P>In addition, when GNU join is invoked with exactly one argument, the following OPTIONS are recognized:
+</P>
+
+<TABLE>
+
+<TR><TD>
+--help
+</TD><TD>
+Print a usage message on standard output and exit successfully.
+</TD></TR><TR><TD>
+--version
+</TD><TD>
+Print version information on standard output, then exit successfully.
+</TD></TR></TABLE>
+
+<P>
+                                                GNU Text Utilities
+</P>
+
+<H3><A NAME="ch01_ 135">
+kill
+</A></H3>
+
+<P>kill&#151;Terminate a process
+</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>
+kill [ _s signal | _p ] [-a]pid ...
+kill -l [ signal ]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+<P>kill sends the specified signal to the specified process. If no signal is specified, the
+TERM signal is sent. The TERM signal will kill processes that do not catch this signal. For other processes, if may be necessary to use the
+KILL(9) signal because this signal cannot be caught.
+</P>
+
+<P>Most modern shells have a built-in kill function.
+</P>
+
+<P><B>
+OPTIONS
+</B></P>
+
+<TABLE>
+
+<TR><TD>
+pid ...
+</TD><TD>
+Specify the list of processes that kill
+should signal. Each pid can be a process ID, or a process name.
+</TD></TR><TR><TD>
+_s
+</TD><TD>
+Specify the signal to send. The signal may be given as a signal name or number.
+</TD></TR><TR><TD>
+_p
+</TD><TD>
+Specify that kill should only print the process ID
+(pid) of the named process, and should not send it a signal.
+</TD></TR><TR><TD>
+_l
+</TD><TD>
+Print a list of signal names. These are found in
+/usr/include/linux/signal.h.
+</TD></TR></TABLE>
+
+<P><B>
+SEE ALSO
+</B></P>
+
+<P>bash(1), tcsh(1), kill(2), sigvec(2)
+</P>
+
+<A NAME="PAGENUM-284"><P>Page 284</P></A>
+
+
+<P><B>
+AUTHOR
+</B></P>
+
+<P>Taken from BSD 4.4. The ability to translate process names to process ids was added by Salvatore
+Valente (&lt;svalente@mit.edu&gt;).
+</P>
+
+<P>
+                                  Linux Utilities, 14 October 1994
+</P>
+
+<H3><A NAME="ch01_ 136">
+killall
+</A></H3>
+
+<P>killall&#151;Kill processes by name
+</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>
+killall [_iv][_signal] name ...
+killall [_l]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+<P>killall sends a signal to all processes running any of the specified commands. If no signal name is specified,
+SIGTERM is sent.
+</P>
+
+<P>Signals can be specified either by name (for example,
+_HUP) or by number (for example, _1). Signal 0 (check if a process
+exists) can only be specified by number.
+</P>
+
+<P>If the command name contains a slash (/), processes executing that particular file will be selected for killing, independent
+of their name.
+</P>
+
+<P>killall returns a nonzero return code if no process has been killed for any of the listed commands. If at least one process
+has been killed for each command, killall returns zero.
+</P>
+
+<P>A killall process never kills itself (but may kill other
+killall processes).
+</P>
+
+<P><B>
+OPTIONS
+</B></P>
+
+<TABLE>
+
+<TR><TD>
+_i
+</TD><TD>
+Interactively ask for confirmation of killing.
+</TD></TR><TR><TD>
+_l
+</TD><TD>
+List all known signal names.
+</TD></TR><TR><TD>
+_v
+</TD><TD>
+Report if the signal was successfully sent.
+</TD></TR></TABLE>
+
+<P><B>
+FILES
+</B></P>
+
+<P>/proc     Location of the proc FILESystem
+</P>
+
+<P><B>
+KNOWN BUGS
+</B></P>
+
+<P>Killing by file only works for executables that are kept open during execution; that is, impure executables can't be killed
+this way.
+</P>
+
+<P><B>
+AUTHOR
+</B></P>
+
+<P>Werner Almesberger (almesber@di.epfl.ch)
+</P>
+
+<P><B>
+SEE ALSO
+</B></P>
+
+<P>kill(1), fuser(1), ps(1), kill(2)
+</P>
+
+<P>
+                                          Linux, 11 October 1994
+</P>
+
+<H3><A NAME="ch01_ 137">
+ksyms
+</A></H3>
+
+<P>ksyms&#151;Shows the exported kernel symbols
+</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>
+ksyms [_a][_h][_m]
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+
+<P><CENTER>
+<a href="0281-0282.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0285-0286.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

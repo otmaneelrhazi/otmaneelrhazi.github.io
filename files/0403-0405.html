@@ -1,0 +1,387 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0400-0402.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0406-0406.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-403"><P>Page 403</P></A>
+
+
+<P>Often conversion from ppm to pgm will yield an image with contrast too low for good printer output. The program
+maximizes contrast between the gray levels' output.
+</P>
+<P>A ppm input of n colors is read, and a pgm of n gray levels is written. The gray levels take on the values
+0...n-1, while maxval takes on n-1.
+</P>
+<P>The mapping from color to stepped grayscale can be performed in order of input pixel intensity, or input pixel
+frequency (number of repetitions).
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+<TABLE>
+
+<TR><TD>
+-frequency
+</TD><TD>
+Sort input colors by the number of times a color appears in the input, before mapping to evenly
+distributed gray levels of output.
+</TD></TR><TR><TD>
+-intensity
+</TD><TD>
+Sort input colors by their grayscale intensity, before mapping to evenly distributed gray levels of
+output. This is the default.
+</TD></TR></TABLE>
+
+<P><B>
+BUGS
+</B>
+</P>
+<P>Helpful only for images with a very small number of colors. Perhaps should have been an option to
+ppmtopgm(1).
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ppmtopgm(1), ppmhist(1), ppm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright&quot; 1993 by Dan Stromberg.
+</P>
+
+<P>22 July 1992
+</P>
+
+<H3><A NAME="ch01_ 297">
+ppmdither
+</A></H3>
+<!-- CODE SNIP //-->
+<PRE>ppmdither&#151;Ordered dither for color images
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ppmdither [-dim dimension][-red shades][-green shades][-blue shades][ppmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>ppmdither reads a portable pixmap as input, and applies dithering to it to reduce the number of colors used down to
+the specified number of shades for each primary. The default number of shades is
+red=5, green=9, blue=5, for a total of 225 colors. To convert the image to a binary RGB format suitable for color printers, use
+-red 2 -green 2 -blue 2. The maximum number of colors that can be used is 256 and can be computed as the product of the number of red, green, and blue shades.
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+<TABLE>
+
+<TR><TD>
+-dim
+</TD><TD>
+dimension
+</TD><TD>
+The size of the dithering matrix. Must be a power of 2.
+</TD></TR><TR><TD>
+-red
+</TD><TD>
+shades
+</TD><TD>
+The number of red shades to be used; minimum of 2.
+</TD></TR><TR><TD>
+-green
+</TD><TD>
+shades
+</TD><TD>
+The number of green shades to be used; minimum of 2.
+</TD></TR><TR><TD>
+-blue
+</TD><TD>
+shades
+</TD><TD>
+The number of blue shades to be used; minimum of 2.
+</TD></TR></TABLE>
+
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pnmdepth(1), ppmquant(1), ppm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright&quot; 1991 by Christos Zoulas.
+</P>
+<P>14 July 1991
+</P>
+
+<A NAME="PAGENUM-404"><P>Page 404</P></A>
+
+
+<H3><A NAME="ch01_ 298">
+ppmflash
+</A></H3>
+<P>ppmflash&#151;Brighten a picture up to complete white-out
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ppmflash flashfactor [ppmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>ppmflash reads a portable pixmap as input and increases its brightness by the specified
+flashfactor up to a total white-out image. The
+flashfactor may be in the range from 0.0 (original picture's brightness) to 1.0 (full white-out, The
+Second After).
+</P>
+<P>As pnmgamma does not do the brightness correction in the way I wanted it, I wrote this small program.
+</P>
+<P>This program is similar to ppmbrighten, but not exactly the same.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ppm(5), ppmdim(1), pnmgamma(1), ppmbrighten(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright&quot; 1993 by Frank Neumann.
+</P>
+<P>16 November 1993
+</P>
+
+<H3><A NAME="ch01_ 299">
+ppmforge
+</A></H3>
+<P>ppmforge&#151;Fractal forgeries of clouds, planets, and starry skies
+</P>
+
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE //-->
+<PRE>
+ppmforge [-clouds][-night][-dimension dimen][-hour hour][-inclination|-tilt angle]
+[-mesh size][-power factor][-glaciers level][-ice level][-saturation sat]
+[-seed seed] [-stars fraction][-xsize|-width width][-ysize|-height height]
+</PRE>
+<!-- END CODE //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>ppmforge generates three kinds of &quot;random fractal forgeries,&quot; the term coined by Richard F. Voss of the IBM Thomas<BR>
+J. Watson Research Center for seemingly realistic pictures of natural objects generated by simple algorithms
+embodying randomness and fractal self-similarity. The techniques used by
+ppmforge are essentially those given by Voss, particularly
+the technique of spectral synthesis explained in more detail by Dietmar Saupe. (The &quot;See Also&quot; subsection provides
+more detailed information about these men's work.)
+</P>
+<P>The program generates two varieties of pictures, planets and clouds, which are just different renderings of data generated
+in an identical manner, illustrating the unity of the fractal structure of these very different objects. A third type of picture,
+a starry sky, is synthesized directly from pseudorandom numbers.
+</P>
+<P>The generation of planets or clouds begins with the preparation of an array of random data in the frequency domain.
+The size of this array, the mesh size, can be set with the
+-mesh option; the larger the mesh, the more realistic the pictures, but
+the calculation time and memory requirement increases as the square of the mesh size. The fractal dimension, which you
+can specify with the -dimension option, determines the roughness of the terrain on the planet or the scale of detail in the
+clouds. As the fractal dimension is increased, more high frequency components are added into the random mesh.
+</P>
+<P>After the mesh is generated, an inverse two-dimensional Fourier transform is performed upon it. This converts the
+original random frequency domain data into spatial amplitudes. You scale the real components that result from the Fourier
+transform into numbers from 0 to 1 associated with each point on the mesh. You can further modify this number by applying a
+power law scale to it with the -power option. Unity scale leaves the numbers unmodified; a power scale of 0.5 takes the square
+root
+</P>
+
+<A NAME="PAGENUM-405"><P>Page 405</P></A>
+
+
+<P>of the numbers in the mesh, while a power scale of 3 replaces the numbers in the mesh with their cubes. Power law scaling
+is best envisioned by thinking of the data as representing the elevation of terrain; powers less than one yield landscapes
+with vertical scarps that look like glacial-carved valleys; powers greater than one make fairy-castle spires (which require large
+mesh sizes and high resolution for best results).
+</P>
+
+<P>After these calculations, you have an array of the specified size containing numbers that range from 0 to 1. The pixmaps
+are generated as follows:
+</P>
+
+<TABLE>
+
+<TR><TD>
+Clouds
+</TD><TD>
+A color map is created that ranges from pure blue to white by increasing admixture (desaturation) of blue
+with white. Numbers less than 0.5 are colored blue, and numbers between 0.5 and 1.0 are colored with
+corresponding levels of white, with 1.0 being pure white.
+</TD></TR><TR><TD>
+Planet
+</TD><TD>
+The mesh is projected onto a sphere. Values less than 0.5 are treated as water and values between 0.5 and 1.0
+as land. The water areas are colored based on the water depth; land, based on its elevation. The random depth
+data are used to create clouds over the oceans. An atmosphere approximately like the Earth's is simulated; its
+light absorption is calculated to create a blue cast around the limb of the planet. A function that rises from 0 to 1
+based on latitude is modulated by the local elevation to generate polar ice caps&#151;high altitude terrain carries
+glaciers farther from the pole. Based on the position of the star
+with respect to the observer, the apparent color of
+each pixel of the planet is calculated by ray-tracing from the star to the planet to the observer and applying a
+lighting model that sums ambient light and diffuse reflection (for most planets ambient light is zero, as their primary
+star is the only source of illumination). Additional random data are used to generate stars around the planet.
+</TD></TR><TR><TD>
+Night
+</TD><TD>
+A sequence of pseudorandom numbers is used to generate stars with a user-specified density.
+</TD></TR></TABLE>
+
+<P>Cloud pictures always contain 256 or fewer colors and may be displayed on most color-mapped devices without
+further processing. Planet pictures often contain tens of thousands of colors that must be compressed with
+ppmquant or ppmdither before encoding in a color-mapped format. If the display resolution is high enough,
+ppmdither generally produces better-looking planets.
+ppmquant tends to create discrete color bands, particularly in the oceans, which are unrealistic and
+distracting. The number of colors in starry sky pictures generated with the
+-night option depends on the value specified for<BR>
+-saturation. Small values limit the color temperature distribution of the stars and reduce the number of colors in the
+image. If the -saturation is set to 0, none of the stars will be colored and the resulting image will never contain more than
+256 colors. Night sky pictures with many different star colors often look best when color-compressed by
+pnmdepth rather than ppmquant or ppmdither.Try newmaxval
+settings of 63, 31, or 15 with pnmdepth to reduce the number of colors in the picture
+to 256 or fewer.
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+<TABLE>
+
+<TR><TD>
+-clouds
+</TD><TD>
+Generate clouds. A pixmap of fractal clouds is generated. Selecting clouds sets the
+default for fractal dimension to 2.15 and power scale factor to
+0.75.
+</TD></TR><TR><TD>
+-dimension dimen
+</TD><TD>
+Sets the fractal dimension to the specified
+dimen, which may be any floating-point value between 0 and 3. Higher fractal dimensions create more &quot;chaotic&quot; images, which
+require higher resolution output and a larger FFT mesh size to look good. If no dimension
+is specified, 2.4 is used when generating planets and
+2.15 for clouds.
+</TD></TR><TR><TD>
+-glaciers level
+</TD><TD>
+The floating-point level setting controls the extent to which terrain elevation causes ice
+to appear at lower latitudes. The default value of
+0.75 makes the polar caps extend toward the equator across high terrain and forms glaciers in the highest mountains, as on Earth.
+Higher values make ice sheets that cover more and more of the land surface, simulating planets
+in the midst of an ice age. Lower values tend to be boring, resulting in unrealistic
+geometrically precise ice cap boundaries.
+</TD></TR><TR><TD>
+-hour hour
+</TD><TD>
+When generating a planet, hour is used as the hour angle at the central meridian. If
+you specify -hour 12, for example, the planet will be fully illuminated, corresponding
+to high noon at the longitude at the center of the screen. You can specify any floating-point
+value between 0 and 24 for hour, but values which place most of the planet in darkness (0 to
+4 and 20 to 24) result in crescents which, while pretty, don't give you many illuminated
+pixels for the amount of computing that's required. If no
+-hour option is specified, a random hour angle is chosen, biased so that only 25 percent of the images generated will be crescents.
+</TD></TR></TABLE>
+
+
+
+
+<P><CENTER>
+<a href="0400-0402.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0406-0406.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

@@ -1,0 +1,398 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0332-0334.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0338-0339.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-335"><P>Page 335</P></A>
+
+<TABLE>
+
+<TR><TD>
+_S, --suffix backup-suffix
+</TD><TD>
+The suffix used for making simple backup FILES can be set with the
+SIMPLE_BACKUP_SUFFIX ENVIRONMENT variable, which can be overridden by this option. If neither of those is
+given, the default is ~, as it is in Emacs.
+</TD></TR><TR><TD>
+_V, --version-control
+{numbered,existing,simple}
+</TD><TD>
+The type of backups made can be set with the
+VERSION_CONTROL ENVIRONMENT variable, which
+can be overridden by this option. If
+VERSION_CONTROL is not set and this option is not
+given, the default backup type is existing. The value of the
+VERSION_CONTROL ENVIRONMENT variable and the argument to this option are like the GNU Emacs
+version-control variable; they also recognize synonyms that are more descriptive.
+</TD></TR><TR><TD>
+</TD><TD>
+The valid values are the following (unique abbreviations are accepted):
+</TD></TR><TR><TD>
+</TD><TD>
+t or numbered--Always make numbered backups.
+</TD></TR><TR><TD>
+</TD><TD>
+nil or existing--Make numbered backups of FILES that already have them, simple backups
+of the others.
+</TD></TR><TR><TD>
+</TD><TD>
+never or simple&#151;Always make simple backups.
+</TD></TR><TR><TD>
+</TD><TD>
+</TD></TR></TABLE>
+<P>
+GNU File Utilities
+</P>
+
+<H3><A NAME="ch01_ 189">
+mwrite
+</A></H3>
+
+<P>mwrite&#151;Low-level write (copy) a UNIX file to MS-DOS
+</P>
+
+<P><B>SYNOPSIS</B></P>
+
+
+<!-- CODE SNIP //-->
+<PRE>mwrite [ -tnvmoOsSrRA ] unixfile msdosfile
+
+mwrite [ -tnvmoOsSrRA ] unixfile [ unixFILES... ] msdosdirectory
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>DESCRIPTION</B></P>
+
+<P>This command is obsolete and only supplied for backward compatibility reasons with old scripts. Use
+mcopy instead.
+</P>
+
+<P><B>SEE ALSO</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>mcopy(1), mtools(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>Local
+</P>
+
+<H3><A NAME="ch01_ 190">
+namei
+</A></H3>
+
+<P>namei&#151;Follow a pathname until a terminal point is found
+</P>
+
+<P><B>SYNOPSIS</B></P>
+
+
+<!-- CODE SNIP //-->
+<PRE>namei [-mx] pathname [ pathname ... ]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>DESCRIPTION</B></P>
+
+<P>namei uses its arguments as pathnames to any type of UNIX file (symlinks, FILES, directories, and so forth).
+namei then follows each pathname until a terminal point is found (a file, directory, char device, and so on). If it finds a symbolic link, the
+user shows the link, and starts following it, indenting the output to show the context.
+</P>
+
+<P>This program is useful for finding too many levels of symbolic
+links problems.
+</P>
+
+<P>For each line output, namei outputs the following characters to identify the file types found:
+</P>
+
+<TABLE>
+
+<TR><TD>
+f:
+</TD><TD>
+The pathname the user is currently trying to resolve
+</TD></TR><TR><TD>
+d
+</TD><TD>
+Directory
+</TD></TR><TR><TD>
+l
+</TD><TD>
+Symbolic link (both the link and its contents are output)
+</TD></TR><TR><TD>
+s
+</TD><TD>
+Socket
+</TD></TR></TABLE>
+
+<A NAME="PAGENUM-336"><P>Page 336</P></A>
+
+<TABLE>
+
+<TR><TD>
+b
+</TD><TD>
+Block device
+</TD></TR><TR><TD>
+c
+</TD><TD>
+Character device
+</TD></TR><TR><TD>
+-
+</TD><TD>
+Regular file
+</TD></TR><TR><TD>
+?
+</TD><TD>
+An error of some kind
+</TD></TR></TABLE>
+
+<P>Namei prints an informative message when the maximum number of symbolic links this system can have has been exceeded.
+</P>
+
+<P><B>OPTIONS</B></P>
+
+<TABLE>
+
+<TR><TD>
+-x
+</TD><TD>
+Show mount point directories with a D rather than a
+d.
+</TD></TR><TR><TD>
+-m
+</TD><TD>
+Show the mode bits of each file type in the style of
+ls(1), for example, rwxr-xr-x.
+</TD></TR></TABLE>
+
+<P><B>AUTHOR</B></P>
+
+
+<P>Roger Southwick (rogers@amadeus.wr.tek.com)
+</P>
+
+<P><B>BUGS</B></P>
+
+
+<P>To be discovered
+</P>
+
+<P><B>CAVEATS</B></P>
+
+<P>namei will follow an infinite loop of symbolic links forever. To escape, use
+SIGINT (usually ^C).
+</P>
+
+<P><B>SEE ALSO</B>
+
+<!-- CODE SNIP //-->
+<PRE>ls(1), stat(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>Local
+</P>
+
+<H3><A NAME="ch01_ 191">
+newaliases
+</A></H3>
+
+<P>newaliases&#151;Rebuild the database for the mail aliases file
+</P>
+
+<P><B>SYNOPSIS</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>newaliases
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>DESCRIPTION</B></P>
+
+<P>newaliases rebuilds the random access database for the mail aliases file. It must be run each time it is changed in order for
+the change to take effect.
+</P>
+
+<P><B>
+SEE ALSO
+</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>aliases(5), sendmail(8)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>HISTORY</B></P>
+
+<P>The newaliases command appeared in BSD 4.0.
+</P>
+
+<P>BSD 4, 30 July 1991
+</P>
+
+<H3><A NAME="ch01_ 192">newgrp</A></H3>
+
+<P>newgrp&#151;Log in to a new group
+</P>
+
+<P><B>SYNOPSIS</B></P>
+
+
+<!-- CODE SNIP //-->
+<PRE>newgrp [ group ]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<A NAME="PAGENUM-337"><P>Page 337</P></A>
+
+<P><B>DESCRIPTION</B></P>
+
+<P>newgrp changes the group identification of its caller, analogously to
+login(1). The same person remains logged in, and<BR>
+the current directory is unchanged, but calculations of access permissions to FILES are performed with respect to the
+new group ID.
+</P>
+
+<P>If no group is specified, the GID is changed to the login GID.
+</P>
+
+<P><B>FILES</B></P>
+
+
+<!-- CODE SNIP //-->
+<PRE>/etc/group
+/etc/passwd
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+<P><B>SEE ALSO</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>login(1), group(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>Linux 0.99, 9 October 1993
+</P>
+
+<H3>
+nl
+</H3>
+
+<P>nl&#151;Number lines of FILES
+</P>
+
+<P><B>SYNOPSIS</B></P>
+
+
+<!-- CODE //-->
+<PRE>nl [_h header-style] [_b body-style] [_f footer-style] [_p] [_d cc]
+[_v start-number] [_i increment] [_l lines] [_s line-separator]
+[_w line-no-width] [_n {ln,rn,rz}] [--header-numbering=style]
+[--body-numbering=style] [--footer-numbering=style]
+[--first-page=number] [--page-increment=number] [--no-renumber]
+[--join-blank-lines=number] [--number-separator=string]
+[--number-width=number] [--number-format={ln,rn,rz}]
+[--section-delimiter=cc] [--help] [--version] [file...]
+</PRE>
+<!-- END CODE //-->
+
+<P><B>DESCRIPTION</B></P>
+
+
+<P>This manual page documents the GNU version of
+nl. nl copies each given file, or the standard input if none are given
+or when a file named _ is given, to the standard output, with line numbers added to some or all of the lines.
+</P>
+
+<P>nl considers its input to be composed of logical pages; by default, the line number is reset to
+1 at the top of each logical page. nl treats all of the input FILES as a single document; it does not reset line numbers or logical pages between FILES.
+</P>
+
+<P>A logical page consists of three sections: header, body, and footer. Any of the sections can be empty. Each can be
+numbered in a different style from the others.
+</P>
+
+<P>The beginnings of the sections of logical pages are indicated in the input file by a line containing nothing except one of
+the following delimiter strings:
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>\:\:\: start of header
+\:\: start of body
+\: start of footer
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>The two characters from which these strings are made can be changed with an option (see the next subsection), but
+the pattern and length of each string cannot be changed.
+</P>
+
+<P>The section delimiter strings are replaced by an empty line on output. Any text that comes before the first section
+delimiter string in the input file is considered to be part of a body section, so a file that does not contain any section delimiter strings
+is considered to consist of a single body section.
+</P>
+
+<P><B>OPTIONS</B></P>
+
+<TABLE>
+
+<TR><TD>
+_h, --header-numbering=style
+</TD><TD>
+See--footer-numbering.
+</TD></TR><TR><TD>
+_b, --body-numbering=style
+</TD><TD>
+See--footer-numbering.
+</TD></TR></TABLE>
+
+
+
+
+<P><CENTER>
+<a href="0332-0334.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0338-0339.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

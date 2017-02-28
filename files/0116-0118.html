@@ -1,0 +1,452 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0114-0115.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0119-0121.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-116"><P>Page 116</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+Keyword Abbreviation
+</TD><TD>
+Meaning (Default)
+</TD></TR><TR><TD>
+time=# (ti)
+</TD><TD>
+Set timeout length to # seconds [4]
+</TD></TR><TR><TD>
+[no]ko
+</TD><TD>
+Keep open option (implies vc) [noko]
+</TD></TR><TR><TD>
+[no]vc
+</TD><TD>
+Use/don't use virtual circuit [novc]
+</TD></TR><TR><TD>
+[no]defname (def)
+</TD><TD>
+Use/don't use default domain name [def]
+</TD></TR><TR><TD>
+[no]search (sea)
+</TD><TD>
+Use/don't use domain search list [sea]
+</TD></TR><TR><TD>
+domain=NAME (do)
+</TD><TD>
+Set default domain name to NAME
+</TD></TR><TR><TD>
+[no]ignore (i)
+</TD><TD>
+Ignore/don't ignore trunc. errors [noi]
+</TD></TR><TR><TD>
+[no]primary (pr)
+</TD><TD>
+Use/don't use primary server [nopr]
+</TD></TR><TR><TD>
+[no]aaonly (aa)
+</TD><TD>
+Authoritative query only flag [noaa]
+</TD></TR><TR><TD>
+[no]sort (sor)
+</TD><TD>
+Sort resource records [nosor]
+</TD></TR><TR><TD>
+[no]cmd
+</TD><TD>
+Echo parsed arguments [cmd]
+</TD></TR><TR><TD>
+[no]stats (st)
+</TD><TD>
+Print query statistics [st]
+</TD></TR><TR><TD>
+[no]Header (H)
+</TD><TD>
+Print basic header [H]
+</TD></TR><TR><TD>
+[no]header (he)
+</TD><TD>
+Print header flags [he]
+</TD></TR><TR><TD>
+[no]ttlid (tt)
+</TD><TD>
+Print TTLs [tt]
+</TD></TR><TR><TD>
+[no]cl
+</TD><TD>
+Print class info [nocl]
+</TD></TR><TR><TD>
+[no]qr
+</TD><TD>
+Print outgoing query [noqr]
+</TD></TR><TR><TD>
+[no]reply (rep)
+</TD><TD>
+Print reply [rep]
+</TD></TR><TR><TD>
+[no]ques (qu)
+</TD><TD>
+Print question section [qu]
+</TD></TR><TR><TD>
+[no]answer (an)
+</TD><TD>
+Print answer section [an]
+</TD></TR><TR><TD>
+[no]author (au)
+</TD><TD>
+Print authoritative section [au]
+</TD></TR><TR><TD>
+[no]addit (ad)
+</TD><TD>
+Print additional section [ad]
+</TD></TR><TR><TD>
+pfdef
+</TD><TD>
+Set to default print flags
+</TD></TR><TR><TD>
+pfmin
+</TD><TD>
+Set to minimal default print flags
+</TD></TR><TR><TD>
+pfset=#
+</TD><TD>
+Set print flags to # (# can be hex/octal/decimal)
+</TD></TR><TR><TD>
+pfand=#
+</TD><TD>
+Bitwise and print flags with #
+</TD></TR><TR><TD>
+pfor=#
+</TD><TD>
+Bitwise or print flags with #
+</TD></TR></TABLE>
+
+<P>
+The retry and time options affect the retransmission strategy used by resolver library when sending datagram queries.
+The algorithm is as follows:
+</P>
+
+<!-- CODE //-->
+<PRE>
+August 30, 1990
+for i = 0 to retry _ 1
+for j = 1 to num_servers
+send_query
+wait((time * (2**i)) / num_servers)
+end
+end
+</PRE>
+<!-- END CODE //-->
+
+<P>Note that dig always uses a value of 1 for num_servers.</P>
+
+<P><B>
+DETAILS
+</B></P>
+
+<P>dig once required a slightly modified version of the
+BIND resolver (3) library. BIND's resolver has (as of
+BIND 4.9) been augmented to work properly with dig. Essentially,
+dig is a straightforward (albeit not pretty) effort of parsing arguments
+and setting appropriate parameters. dig uses resolver routines
+res_init(), res_mkquery(), res_send() as well as accessing
+_res structure.
+</P>
+
+<A NAME="PAGENUM-117"><P>Page 117</P></A>
+
+
+
+<P><B>
+FILES
+</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>
+/etc/resolv.conf
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>Initial domain name and name server addresses
+</P>
+
+<P><B>
+ENVIRONMENT
+</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>
+LOCALRES file to use in place of /etc/resolv.conf
+LOCALDEF default environment file
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B></P>
+
+<P>Steve Hotz (hotz@isi.edu)</P>
+
+<P><B>
+ACKNOWLEDGMENTS
+</B></P>
+
+<P>dig uses functions from nslookup(8) authored by Andrew Cherenson.</P>
+
+
+<P><B>
+BUGS
+</B></P>
+
+<P>dig has a serious case of &quot;creeping featurism,&quot; the result of considering several potential uses during its development. It
+would probably benefit from a rigorous diet. Similarly, the print flags and granularity of the items they specify make evident
+their rather ad hoc genesis.
+</P>
+
+<P>dig does not consistently exit nicely (with appropriate status) when a problem occurs somewhere in the resolver (Most of
+the common exit cases are handled.) This is particularly annoying when running in batch mode. If it exits abnormally (and is
+not caught), the entire batch aborts; when such an event is trapped,
+dig simply continues with the next query.
+</P>
+
+<P><B>
+SEE ALSO
+</B></P>
+
+<P>named(8), resolver(3), resolver(5), nslookup(8)</P>
+
+<P>
+                                          30 August 1990
+</P>
+
+<H3><A NAME="ch01_ 55">
+dnsquery
+</A></H3>
+
+<P>dnsquery&#151;Query domain name servers using resolver</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>
+dnsquery [-n nameserver] [-t type] [-c class] [-r retry] [-p retry period]
+[-d] [-s] [-v] host
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+<P>The dnsquery program is a general interface to nameservers via
+BIND resolver library calls. The program supports queries to
+the nameserver with an opcode of QUERY. This program is intended to be a replacement or supplement to programs like
+nstest, nsquery, and nslookup. All arguments except for
+host and ns are treated without case-sensitivity.
+</P>
+
+<B></P>
+OPTIONS
+</H4>
+
+<TABLE>
+
+<TR><TD>
+_n
+</TD><TD>
+The nameserver to be used in the query. Nameservers can appear as either Internet addresses of the
+form w.x.y.z or can appear as domain names. (default: as specified in
+/etc/resolv.conf)
+</TD></TR><TR><TD>
+_t
+</TD><TD>
+The type of resource record of interest. Types include:
+</TD></TR></TABLE>
+
+<BLOCKQOTE>
+A     Address<BR>
+NS    Nameserver<BR>
+CNAME Canonical name<BR>
+PTR   Domain name pointer<BR>
+SOA   Start of authority<BR>
+</BLOCKQUOTE>
+
+<A NAME="PAGENUM-118"><P>Page 118</P></A>
+
+
+<BLOCKQUOTE>
+WKS     Well-known service<BR>
+HINFO     Host information<BR>
+MINFO     Mailbox information<BR>
+MX     Mail exchange<BR>
+RP     Responsible person<BR>
+MG     Mail group member<BR>
+AFSDB     DCE or AFS server<BR>
+ANY     Wildcard<BR>
+</BLOCKQUOTE>
+<P>
+<P>
+<P>
+<P>
+<P>
+
+<CENTER>
+<TABLE BGCOLOR="#FFFF99">
+<TR><TD><B>
+NOTE
+</B></TD></TR>
+<TR><TD>
+<BLOCKQUOTE>
+Any case may be used (the default is ANY)
+</BLOCKQUOTE></TD></TR>
+</TABLE></CENTER>
+</P>
+_c
+</TD></TR><TR><TD>
+The class of resource records of interest. Classes include the following:
+</TD></TR></TABLE>
+
+<BLOCKQUOTE>
+IN     Internet<BR>
+HS     Hesiod<BR>
+CHAOS  Chaos<BR>
+ANY    Wildcard<BR>
+</BLOCKQUOTE>
+<P>
+<P>
+<P>
+<P>
+<P>
+
+<CENTER>
+<TABLE BGCOLOR="#FFFF99">
+<TR><TD><B>
+NOTE
+</B></TD></TR>
+<TR><TD>
+<BLOCKQUOTE>
+Any case may be used (the default is IN).
+</BLOCKQUOTE></TD></TR>
+</TABLE></CENTER>
+</P>
+-r
+<C>
+The number of times to retry if the nameserver is not responding. (default: 4)
+<C>
+_p
+<C>
+Period to wait before timing out. (default: RES_TIMEOUT) options field. (default: any answer)
+<C>
+_d
+<C>
+Turn on debugging. This sets the RES_DEBUG bit of the resolver's options field. (default: no debugging)
+<C>
+_s
+<C>
+Use a stream rather than a packet. This uses a TCP stream connection with the nameserver rather than
+a UDP datagram. This sets the RES_USEVC bit of the resolver's options field. (default:
+UDP)
+<C>
+_v
+<C>
+Synonym for the s flag.
+<C>
+host
+<C>
+The name of the host (or domain) of interest.
+</TBL>
+
+
+<P><B>
+FILES
+</B></P>
+
+<TABLE>
+
+<TR><TD>
+/etc/resolv.conf
+</TD><TD>
+To get the default ns and search lists.
+</TD></TR><TR><TD>
+&lt;arpa/nameser.h&gt;
+</TD><TD>
+List of usable RR types and classes
+</TD></TR><TR><TD>
+&lt;resolv.h&gt;
+</TD><TD>
+List of resolver flags
+</TD></TR></TABLE>
+
+<P><B>
+SEE ALSO
+</B></P>
+
+
+<P>nslookup(8), nstest(1), nsquery(1), named(8), resolver(5)</P>
+
+<P><B>
+DIAGNOSTICS
+</B></P>
+
+
+<P>If the resolver fails to answer the query and debugging has not been turned on,
+dnsquery will simply print a message like this:
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+Query failed (rc = 1) : Unknown host
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>The value of the return code is supplied by h_errno.</P>
+
+
+
+
+<P><CENTER>
+<a href="0114-0115.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0119-0121.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

@@ -1,0 +1,288 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0287-0288.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0291-0292.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-289"><P>Page 289</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+</TD><TD>
+You can meaningfully use _A more than once on a command line, if an architecture
+family allows combination of target architectures; each use will add another pair of name
+variants to search for when _l specifies a library.
+</TD></TR><TR><TD>
+_b input-format
+</TD><TD>
+Specify the binary format for input object FILES that follow this option on the command
+line. You don't usually need to specify this, as ld
+is configured to expect as a default input format the most usual format on each machine.
+input-format is a text string, the name of a
+partic-ular format supported by the BFD libraries.
+</TD></TR><TR><TD>
+</TD><TD>
+format input-format
+</TD></TR><TR><TD>
+</TD><TD>
+has the same effect, as does the script command
+TARGET.
+</TD></TR><TR><TD>
+</TD><TD>
+You may want to use this option if you are linking FILES with an unusual binary format.
+You can also use _b to switch FORMATS explicitly (when linking object FILES of different
+FORMATS), by including
+</TD></TR><TR><TD>
+</TD><TD>
+  _b input-format
+</TD></TR><TR><TD>
+</TD><TD>
+before each group of object FILES in a particular format.
+The default format is taken from the ENVIRONMENT variable
+GNUTARGET. You can also define the input format from a script, using the command
+TARGET.
+</TD></TR><TR><TD>
+_Bstatic
+</TD><TD>
+This flag is accepted for command-line compatibility with the SunOS linker, but has
+no effect on ld.
+</TD></TR><TR><TD>
+_c commandfile
+</TD><TD>
+Directs ld to read link commands from the file
+commandfile. These commands will completely override
+ld's default link format (rather than adding to it);
+commandfile must specify everything necessary to describe the target format.
+</TD></TR><TR><TD>
+</TD><TD>
+You may also include a script of link commands directly in the command line by
+bracketing it between { and } characters.
+</TD></TR><TR><TD>
+_d, _dc, _dp
+</TD><TD>
+These three OPTIONS are equivalent; multiple forms are supported for compatibility
+with other linkers. Use any of them to make ld assign space to common symbols even if
+a relocatable output file is specified (_r). The script command
+FORCE_COMMON_ALLOCATION has the same effect.
+</TD></TR><TR><TD>
+-defsym symbol= expression
+</TD><TD>
+Create a global symbol in the output file, containing the absolute address given
+by expression. You may use this option as many times as necessary to define multiple
+symbols in the command line. A limited form of arithmetic is supported for the
+expression in this context; you may give a hexadecimal constant or the name of an existing symbol, or use
++ and _ to add or subtract hexadecimal constants or symbols. If you need more
+elaborate expressions, consider using the linker command language from a script.
+</TD></TR><TR><TD>
+-e entry
+</TD><TD>
+Use entry as the explicit symbol for beginning execution of your program, rather than
+the default entry point.
+</TD></TR><TR><TD>
+_F, -Fformat
+</TD><TD>
+Some older linkers used this option throughout a compilation toolchain for
+specifying object-file format for both input and output object FILES.
+ld's mechanisms (the _b or _format OPTIONS for input FILES, the
+TARGET command in linker scripts for output FILES, the
+GNUTARGET ENVIRONMENT variable) are more flexible, but it accepts (and ignores) the
+_F option flag for compatibility with scripts written to call the old linker.
+</TD></TR><TR><TD>
+_format input_format
+</TD><TD>
+Synonym for _b
+input_format.
+</TD></TR><TR><TD>
+_g
+</TD><TD>
+Accepted, but ignored; provided for compatibility with other tools.
+</TD></TR><TR><TD>
+_G size
+</TD><TD>
+Set the maximum size of objects to be optimized using the GP register to
+size under MIPS ECOFF. Ignored for other object file FORMATS.
+</TD></TR><TR><TD>
+--help
+</TD><TD>
+Print a summary of the command-line OPTIONS on the standard output and exit. This
+option and --version begin with two hyphens instead of one for compatibility with other
+GNU programs. The other OPTIONS start with only one hyphen for compatibility with
+other linkers.
+</TD></TR><TR><TD>
+_i
+</TD><TD>
+Perform an incremental link (same as option
+_r).
+</TD></TR></TABLE>
+
+
+<A NAME="PAGENUM-290"><P>Page 290</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+_lar
+</TD><TD>
+Add an archive file ar to the list of FILES to link. This option may be used any number
+of times. ld will search its path list for occurrences of
+lib ar .a for every ar specified.
+</TD></TR><TR><TD>
+_Lsearchdir
+</TD><TD>
+This command adds path searchdir
+to the list of paths that ld will search for
+archive libraries. You may use this option any number of times.
+</TD></TR><TR><TD>
+</TD><TD>
+The default set of paths searched (without being specified with
+_L) depends on what emulation mode ld is using, and in some cases also on how it was configured. The
+paths can also be specified in a link script with the
+SEARCH_DIR command.
+</TD></TR><TR><TD>
+_M
+</TD><TD>
+Print (to the standard output file) a link map&#151;diagnostic in-formation about
+where symbols are mapped by ld, and information on global common storage allocation.
+</TD></TR><TR><TD>
+_Map mapfile
+</TD><TD>
+Print to the file mapfile a link map&#151;diagnostic information about where symbols
+are mapped by ld, and information on global common storage allocation.
+</TD></TR><TR><TD>
+_m emulation
+</TD><TD>
+Emulate the emulation linker. You can list the available emulations with the
+--verbose option. This option overrides the compiled-in default, which is the system for which
+you configured ld.
+</TD></TR><TR><TD>
+_N
+</TD><TD>
+Specifies readable and writable text and
+data sections. If the output format supports UNIX-style magic numbers, the output is marked as
+OMAGIC.
+</TD></TR><TR><TD>
+</TD><TD>
+When you use the _N option, the linker does not page-align the data segment.
+</TD><TR><TR><TD>
+_n
+</TD><TD>
+Sets the text segment to be read-only, and
+NMAGIC is written if possible.
+</TD><TR><TR><TD>
+_noinhibit_exec
+</TD><TD>
+Normally, the linker will not produce an output file if it encounters errors during the
+link process. With this flag, you can specify that you wish the output file retained even
+after nonfatal errors.
+</TD><TR><TR><TD>
+_o output output
+</TD><TD>
+output is a name for the program produced by
+ld; if this option is not specified, the name
+a.out is used by default. The script command OUTPUT
+can also specify the output filename.
+</TD><TR><TR><TD>
+_oformat output_format
+</TD><TD>
+Specify the binary format for the output object file. You don't usually need to specify
+this, as ld is configured to produce as a default output format the most usual format on
+each machine. output-format is a text string, the name of a particular format supported by
+the BFD libraries. The script command
+OUTPUT_FORMAT can also specify the output format,
+but this option overrides it.
+</TD><TR><TR><TD>
+_R filename file
+</TD><TD>
+Read symbol names and their addresses from
+filename, but do not relocate it or include it in the output. This allows your output file to refer symbolically to absolute locations
+of memory defined in other programs.
+</TD><TR><TR><TD>
+_relax
+</TD><TD>
+An option with machine-dependent effects. Currently this option is only supported on
+the H8/300.
+</TD></TR><TR><TD>
+</TD><TD>
+On some platforms, use this option to perform global optimizations that become
+possible when the linker resolves addressing in your program, such as relaxing address modes
+and synthesizing new instructions in the output object file.
+</TD></TR><TR><TD>
+</TD><TD>
+On platforms where this is not supported,
+_relax is accepted, but has no effect.
+</TD><TR><TR><TD>
+_r
+</TD><TD>
+Generates relocatable output, that is, an output file that can in turn serve as input to
+ld. This is often called partial linking. As a side effect, in ENVIRONMENTs that support
+standard UNIX magic numbers, this option also sets the output file's magic number to
+OMAGIC. If this option is not specified, an absolute file is produced. When linking C++ programs,
+this option will not resolve references to constructors;
+_Ur is an alternative.
+</TD></TR><TR><TD>
+</TD><TD>
+This option does the same as _i.
+</TD><TR><TR><TD>
+_S
+</TD><TD>
+Omits debugger symbol information (but not all symbols) from the output file.
+</TD><TR><TR><TD>
+_s
+</TD><TD>
+Omits all symbol information from the output file.
+</TD><TR><TR><TD>
+_sort_common
+</TD><TD>
+Normally, when ld places the global common symbols in the appropriate output sections,
+it sorts them by size. First come all the one-byte symbols, then all the two bytes, then all
+the four bytes, and then everything else. This is to prevent gaps between symbols due
+to alignment constraints. This option disables that sorting.
+</TD></TR></TABLE>
+
+
+
+<P><CENTER>
+<a href="0287-0288.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0291-0292.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

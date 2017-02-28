@@ -1,0 +1,304 @@
+<HTML>
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0040-0041.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0044-0044.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-42"><P>Page 42</P></A>
+
+<TABLE>
+
+<TR><TD>
+</TD><TD>
+_p
+</TD><TD>
+Turn on privileged mode. In this mode, the
+$ENV file is not processed, and shell functions are not inherited from
+the environment. This is enabled automatically on startup if
+the effective user (group) ID is not equal to the real user
+(group) ID. Turning this option off causes the effective user and
+group IDs to be set to the real user and group IDs.
+</TD></TR><TR><TD>
+</TD><TD>
+_t
+</TD><TD>
+Exit after reading and executing one command.
+</TD></TR><TR><TD>
+</TD><TD>
+_u
+</TD><TD>
+Treat unset variables as an error when performing
+parameter expansion. If expansion is attempted on an unset variable,
+the shell prints an error message, and, if not interactive, exits
+with a non_zero status.
+</TD></TR><TR><TD>
+</TD><TD>
+_v
+</TD><TD>
+Print shell input lines as they are read.
+</TD></TR><TR><TD>
+</TD><TD>
+_x
+</TD><TD>
+After expanding each simple command,
+bash displays the expanded value of PS4, followed by the command and
+its expanded arguments.
+</TD></TR><TR><TD>
+</TD><TD>
+_l
+</TD><TD>
+Save and restore the binding of
+name in a for name [in word] command. (See &quot;Shell Grammar,&quot; earlier in this manual page.)
+</TD></TR><TR><TD>
+</TD><TD>
+_d
+</TD><TD>
+Disable the hashing of commands that are looked up
+for execution. Normally, commands are remembered in a
+hash table, and once found, do not have to be looked up again.
+</TD></TR><TR><TD>
+</TD><TD>
+_C
+</TD><TD>
+The effect is as if the shell command
+noclobber= had been executed. (See &quot;Shell Variables.&quot;)
+</TD></TR><TR><TD>
+</TD><TD>
+_H
+</TD><TD>
+Enable ! style history substitution. This flag is on by
+default when the shell is interactive.
+</TD></TR><TR><TD>
+</TD><TD>
+_P
+</TD><TD>
+If set, do not follow symbolic links when
+performing commands such as cd that change the current directory.
+The physical directory is used instead.
+</TD></TR><TR><TD>
+</TD><TD>
+&#151;
+</TD><TD>
+If no arguments follow this flag, then the positional
+parameters are unset. Otherwise, the positional parameters are set to
+the args, even if some of them begin with a _.
+</TD></TR><TR><TD>
+</TD><TD>
+_
+</TD><TD>
+Signal the end of options, cause all remaining
+args to be assigned to the positional parameters. The
+_x and _v options are turned off. If there are no
+args, the positional parameters remain unchanged.
+</TD></TR><TR><TD>
+</TD><TD>
+</TD><TD>
+The flags are off by default unless otherwise noted. Using
++ rather than _ causes these flags to be turned off. The flags
+can also be specified as options to an invocation of the shell.
+The current set of flags may be found in $_. After the
+option arguments are processed, the remaining n
+args are treated as values for the positional parameters
+and are assigned, in order, to $1, $2, ... $n. If no options or
+args are supplied, all shell variables are printed. The return status is always
+True unless an illegal option is encountered.
+
+</TD></TR></TABLE>
+
+
+<TABLE>
+
+<TR><TD>
+shift [n]
+</TD><TD>
+The positional parameters from n+1
+... are renamed to .... Parameters represented by the numbers
+$# down to $#_n+1 are unset. If n is 0, no parameters are changed.
+If n is not given, it is assumed to be 1. n must be a non-negative number less than
+or equal to $#. If n is greater than $#, the positional parameters are not changed.
+The return status is greater than 0 if n is greater than or less than
+0; otherwise 0.
+</TD></TR><TR><TD>
+suspend [_f]
+</TD><TD>
+Suspend the execution of this shell until it receives a
+SIG-CONT signal. The _f option says not to complain if this is a
+login shell; just suspend anyway. The return status
+is
+
+</TD></TR></TABLE>
+
+<A NAME="PAGENUM-43"><P>Page 43</P></A>
+
+<TABLE>
+
+<TR><TD>
+</TD><TD>
+0 unless the shell is a login shell and _f is not supplied, or if job control is
+not enabled.
+</TD></TR><TR><TD>
+test expr[expr]
+</TD><TD>
+Return a status of 0 (True) or
+1 (False) depending on the evaluation of the conditional expression
+expr. Expressions may be unary or binary. Unary
+expressions are often used to examine the status of a file. There are string operators and
+numeric comparison operators as well. Each operator and operand must be a
+separate argument. If file is of the form
+/dev/fd/n, then file descriptor n is checked.
+</TD></TR><TR><TD>
+</TD><TD>
+_b file&#151;True if file exists and is block special.
+</TD></TR><TR><TD>
+</TD><TD>
+_c file&#151;True if file exists and is character special.
+</TD></TR><TR><TD>
+</TD><TD>
+_d file&#151;True if file exists and is a directory.
+</TD></TR><TR><TD>
+</TD><TD>
+_e file&#151;True if file exists.
+</TD></TR><TR><TD>
+</TD><TD>
+_f file&#151;True if file exists and is a regular file.
+</TD></TR><TR><TD>
+</TD><TD>
+_g file&#151;True if file exists and is set-group-id.
+</TD></TR><TR><TD>
+</TD><TD>
+_k file&#151;True if file has its &quot;sticky&quot; bit set.
+</TD></TR><TR><TD>
+</TD><TD>
+_L file&#151;True if file exists and is a symbolic link.
+</TD></TR><TR><TD>
+</TD><TD>
+_p file&#151;True if file exists and is a named pipe.
+</TD></TR><TR><TD>
+</TD><TD>
+_r file&#151;True if file exists and is readable.
+</TD></TR><TR><TD>
+</TD><TD>
+_s file&#151;True if file exists and has a size greater than zero.
+</TD></TR><TR><TD>
+</TD><TD>
+_S file&#151;True if file exists and is a socket.
+</TD></TR><TR><TD>
+</TD><TD>
+_t fd&#151;True if fd is opened on a terminal.
+</TD></TR><TR><TD>
+</TD><TD>
+_u file&#151;True if file exists and its set-user-id bit is set.
+</TD></TR><TR><TD>
+</TD><TD>
+_w file&#151;True if file exists and is writable.
+</TD></TR><TR><TD>
+</TD><TD>
+_x file&#151;True if file exists and is executable.
+</TD></TR><TR><TD>
+</TD><TD>
+_O file&#151;True if file exists and is owned by the effective user ID.
+</TD></TR><TR><TD>
+</TD><TD>
+_G file&#151;True if file exists and is owned by the effective group ID.
+</TD></TR><TR><TD>
+</TD><TD>
+file1 _nt file2&#151;True if file1 is newer (according to modification date)
+than file2.
+</TD></TR><TR><TD>
+</TD><TD>
+file1 _ot file2&#151;True if file1 is older than
+file2.
+</TD></TR><TR><TD>
+</TD><TD>
+file1 _ef file&#151;True if file1 and
+file2 have the same device and inode numbers.
+</TD></TR><TR><TD>
+</TD><TD>
+_z string&#151;True if the length of
+string is zero.
+</TD></TR><TR><TD>
+</TD><TD>
+-n string&#151;True if the length of
+string is non_zero.
+</TD></TR><TR><TD>
+</TD><TD>
+string1 = string2&#151;True if the strings are equal.
+</TD></TR><TR><TD>
+</TD><TD>
+string1 != string2&#151;True if the strings are not equal.
+</TD></TR><TR><TD>
+</TD><TD>
+! expr&#151;True if expr is False.
+</TD></TR><TR><TD>
+</TD><TD>
+expr1 _a expr2&#151;True if both
+expr1 AND expr2 are True.
+</TD></TR><TR><TD>
+</TD><TD>
+expr1 _o expr2&#151;True if either
+expr1 OR expr2 is True.
+</TD></TR><TR><TD>
+</TD><TD>
+arg1 OP arg2 OP is one of _eq, _ne,
+_lt, _le, _gt, or _ge. These arithmetic binary operators return
+True if arg1 is equal, not-equal, less-than,
+less-than-or-equal, greater-than, or greater-than-or-equal than
+arg2, respectively. Arg1 and arg2 may be positive integers, negative integers, or the special
+expression _l string, which evaluates to the length of
+string.
+</TD></TR><TR><TD>
+times
+</TD><TD>
+Print the accumulated user and system times for the shell and for processes run
+from the shell. The return status is 0.
+</TD></TR><TR><TD>
+trap [_l][arg][sigspec]
+</TD><TD>
+The command arg is to be read and executed when the shell receives
+signal(s) sigspec. If arg is absent or _, all specified signals are reset to their original values
+(the
+</TD></TR></TABLE>
+
+
+
+<P><CENTER>
+<a href="0040-0041.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0044-0044.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

@@ -1,0 +1,297 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0253-0254.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0257-0258.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-255"><P>Page 255</P></A>
+
+
+
+<P>If an iteration count and/or a byte count is specified, a single slash must be placed after the iteration count and/or before
+the byte count to disambiguate them. Any whitespace before or after the slash is ignored.
+</P>
+
+<P>The format is required and must be surrounded by double quote (&quot; &quot;) marks. It is interpreted as an
+fprintf-style format string (see fprintf(3)) with the following exceptions:
+</P>
+
+<UL>
+<LI>     An asterisk (*) may not be used as a field width or precision.
+<LI>     A byte count or field precision is required for each
+s conversion character (unlike the fprintf(3) default, which
+prints the entire string if the precision is unspecified).
+<LI>     The conversion characters h, l, n, p, and
+q are not supported.
+<LI>     The single-character escape sequences described in the C standard are supported:
+</UL>
+
+<TABLE>
+
+<TR><TD>
+NUL
+</TD><TD>
+\0
+</TD></TR><TR><TD>
+Alert character
+</TD><TD>
+\a
+</TD></TR><TR><TD>
+Backspace
+</TD><TD>
+\b
+</TD></TR><TR><TD>
+Form-feed
+</TD><TD>
+\f
+</TD></TR><TR><TD>
+Newline
+</TD><TD>
+\n
+</TD></TR><TR><TD>
+Carriage return
+</TD><TD>
+\r
+</TD></TR><TR><TD>
+Tab
+</TD><TD>
+\t
+</TD></TR><TR><TD>
+Vertical tab
+</TD><TD>
+\v
+</TD></TR></TABLE>
+
+<P>hexdump also supports the following additional conversion strings:
+</P>
+
+<TABLE>
+
+<TR><TD>
+a[dox]
+</TD><TD>
+Display the input offset, cumulative across input FILES, of the next byte to be displayed. The appended
+characters d, o, and x specify the display base as decimal, octal, or hexadecimal respectively.
+</TD></TR><TR><TD>
+A[dox]
+</TD><TD>
+Identical to the a conversion string except that it is only performed once, when all of the input data has
+been processed.
+</TD></TR><TR><TD>
+c
+</TD><TD>
+Output characters in the default character set. Nonprinting characters are displayed in three-character,
+zero-padded octal, except for those representable by standard escape notation (see preceding list), which are
+displayed as two-character strings.
+</TD></TR><TR><TD>
+p
+</TD><TD>
+Output characters in the default character set. Nonprinting characters are displayed as a single period.
+</TD></TR><TR><TD>
+u
+</TD><TD>
+Output U.S. ASCII characters, with the exception that control characters are displayed using the lowercase
+names in the following mini-table. Characters greater than
+0xff, hexadecimal, are displayed as hexadecimal strings.
+</TD></TR></TABLE>
+
+<!-- CODE //-->
+<PRE>
+   000 nul     001 soh     002 stx     003 etx     004 eot     005 enq
+   006 ack     007 bel     008 bs      009 ht      00A lf      00B vt
+   00C ff      00D cr      00E so      00F si      010 dle     011 dc1
+   012 dc2     013 dc3     014 dc4     015 nak     016 syn     017 etb
+   018 can     019 em      01A sub     01B esc     01C fs      01D gs
+   01E rs      01F us      0FF del
+</PRE>
+<!-- END CODE //-->
+
+
+<P>The default and supported byte counts for the conversion characters are as follows:
+</P>
+
+<TABLE>
+
+<TR><TD>
+%_c, %_p, %_u, %c
+</TD><TD>
+One-byte counts only.
+</TD></TR><TR><TD>
+%d, %i, %o, %u, %X, %x
+</TD><TD>
+Four-byte default; one-, two-, and four-byte counts supported.
+</TD></TR><TR><TD>
+%E, %e, %f, %G, %g
+</TD><TD>
+Eight-byte default, four-byte counts supported.
+</TD></TR></TABLE>
+
+<P>The amount of data interpreted by each format string is the sum of the data required by each format unit, which is
+the iteration count times the byte count, or the iteration count times the number of bytes required by the format if the
+byte count is not specified.
+</P>
+
+<P>The input is manipulated in blocks; a block is defined as the largest amount of data specified by any format string.
+Format strings interpreting less than an input block's worth of data, whose last format unit both interprets some number of
+bytes and does not have a specified iteration count, have the iteration count incremented until the entire input block has
+been processed or there is not enough data remaining in the block to satisfy the format string.
+</P>
+
+<A NAME="PAGENUM-256"><P>Page 256</P></A>
+
+
+<P>If, either as a result of user specification or
+hexdump modifying the iteration count as described, an iteration count is
+greater than one, no trailing whitespace characters are output during the last iteration.
+</P>
+
+<P>It is an error to specify a byte count as well as multiple conversion characters or strings unless all but one of the
+conversion characters or strings is a or A. If, as a result of the specification of the
+-n option or end-of-file being reached, input data
+only partially satisfies a format string, the input block is zero-padded sufficiently to display all available data (that is, any
+format units overlapping the end of data will display some number of the zero bytes).
+</P>
+
+<P>Further output by such format strings is replaced by an equivalent number of spaces. An equivalent number of spaces
+is defined as the number of spaces output by an s conversion character with the same field width and precision as the
+original conversion character or conversion string but with any
++, &quot; &quot;, # conversion flag characters removed, and referencing a
+NULL string.
+</P>
+
+<P>If no format strings are specified, the default display is equivalent to specifying the
+-x option.
+</P>
+
+<P>hexdump exits 0 on success and &gt;0 if an error occurred.
+</P>
+
+<P><B>
+EXAMPLES
+</B></P>
+
+<P>Display the input in perusal format:
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+&quot;%06.6_ao &quot; 12/1 &quot;%3_u &quot;
+&quot;\t\t&quot; &quot;%_p &quot;
+&quot;\n&quot;
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>Implement the _x option:
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+&quot;%07.7_Ax\n&quot;
+&quot;%07.7_ax &quot; 8/2 &quot;%04x &quot; &quot;\n&quot;
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+SEE ALSO
+</B></P>
+
+<P>adb(1)
+</P>
+
+<P>
+18 April 1994
+</P>
+
+<H3><A NAME="ch01_ 111">
+hipstopgm
+</A></H3>
+
+<P>hipstopgm&#151;Convert a HIPS file into a portable graymap
+</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>
+hipstopgm [hipsfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+<P>Hipstopgm reads a HIPS file as input and produces a portable graymap as output.
+</P>
+
+<P>If the HIPS file contains more than one frame in sequence,
+hipstopgm will concatenate all the frames vertically.
+</P>
+
+<P>HIPS is a format developed at the Human Information Processing Laboratory, NYU.
+</P>
+
+<P><B>
+SEE ALSO
+</B></P>
+
+<P>pgm(5)
+</P>
+
+<P><B>
+AUTHOR
+</B></P>
+
+<P>Copyright &quot; 1989 by Jef Poskanzer
+</P>
+
+<P>
+24 August 1989
+</P>
+
+
+
+<P><CENTER>
+<a href="0253-0254.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0257-0258.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

@@ -1,0 +1,132 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0403-0405.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0407-0407.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-406"><P>Page 406</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+-ice level
+</TD><TD>
+Sets the extent of the polar ice caps to the given floating-point
+level. The default level of 0.4 produces ice caps similar to those of the Earth. Smaller values reduce the amount of
+ice, while larger -ice settings create more prominent ice caps. Sufficiently large values, such
+as 100 or more, in conjunction with small settings for
+-glaciers (try 0.1) create &quot;ice balls&quot;
+like Europa.
+</TD></TR><TR><TD>
+-inclination|-tilt angle
+</TD><TD>
+The inclination angle of the planet with regard to its primary star is set to
+angle, which can be any floating-point value from -90 to 90. The inclination angle can be thought of
+as specifying, in degrees, the &quot;season&quot; the planet is presently experiencing or, more
+precisely, the latitude at which the star transits the zenith at local noon. If 0, the planet is at
+equinox; the star is directly overhead at the equator. Positive values represent summer in the
+northern hemisphere, negative values summer in the southern hemisphere. The Earth's
+inclination angle, for example, is about 23.5 at the June solstice, 0 at the equinoxes in March
+and September, and -23.5 at the December solstice. If no inclination angle is specified,
+a random value between -21.6 and 21.6 degrees is chosen.
+</TD></TR><TR><TD>
+-mesh size
+</TD><TD>
+A mesh of size by size will be used for the fast Fourier transform (FFT). Note
+that memory requirements and computation speed increase as the square of
+size; if you double the mesh size, the program will use four times the memory and run four times as long.
+The default mesh is 256x256, which produces reasonably good looking pictures while using half
+a megabyte for the 256x256 array of single precision complex numbers required by the
+FFT. On machines with limited memory capacity, you may have to reduce the mesh size to
+avoid running out of RAM. Increasing the mesh size produces better looking pictures;
+the difference becomes particularly noticeable when generating high-resolution images
+with relatively high fractal dimensions (between 2.2 and 3).
+</TD></TR><TR><TD>
+-night
+</TD><TD>
+A starry sky is generated. The stars are created by the same algorithm used for the stars
+that surround planet pictures, but the output consists exclusively of stars.
+</TD></TR><TR><TD>
+-power factor
+</TD><TD>
+Sets the power factor used to scale elevations synthesized from the FFT to
+factor, which can be any floating-point number greater than zero. If no factor is specified, a default of
+1.2 is used if a planet is being generated, or
+0.75 if clouds are selected by the -clouds option.
+The result of the FFT image synthesis is an array of elevation values between 0 and 1.
+A nonunity power factor exponentiates each of these elevations to the specified power.
+For example, a power factor of 2 squares each value, while a power factor of
+0.5 replaces each with its square root. (Note that exponentiating values between 0 and 1 yields values
+that remain within that range.) Power factors less than 1 emphasize large-scale
+elevation changes at the expense of small variations. Power factors greater than 1 increase the roughness of
+the terrain and, like high fractal dimensions, may require a larger FFT mesh size or
+higher screen resolution to look good.
+</TD></TR><TR><TD>
+-saturation sat
+</TD><TD>
+Controls the degree of color saturation of the stars that surround planet pictures and
+fill starry skies created with the -night option. The default value of
+125 creates stars that resemble the sky as seen by the human eye from Earth's surface. Stars are dim; only
+the brightest activate the cones in the human retina, causing color to be perceived.
+Higher values of sat approximate the appearance of stars from Earth orbit, where better
+dark adaptation, absence of sky glow, and the concentration of light from
+a given star onto a smaller area of the retina thanks to the lack of atmospheric turbulence enhances
+the perception of color. Values greater than 250 create &quot;science fiction&quot; skies that, while
+pretty, don't occur in this universe.
+</TD></TR></TABLE>
+
+
+<P>     Thanks to the inverse square law combined with nature's love of mediocrity, there
+are many, many dim stars for every bright one. This population relationship is
+accurately reflected in the skies created by
+ppmforge. Dim, low mass stars live much longer than
+bright, massive stars; consequently there are many reddish stars for every blue giant. This
+relationship is preserved by ppmforge. You can reverse the proportion, simulating the sky as seen in
+a starburst galaxy, by specifying a negative sat value.
+</P>
+
+
+
+<P><CENTER>
+<a href="0403-0405.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0407-0407.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

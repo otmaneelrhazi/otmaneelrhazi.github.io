@@ -1,0 +1,289 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0310-0311.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0314-0314.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-312"><P>Page 312</P></A>
+
+
+<P><B>BUGS</B></P>
+
+
+<P>See the chapter &quot;Problems and BUGS&quot; in
+The GNU Make Manual.
+</P>
+
+<P><B>AUTHOR</B></P>
+
+<P>This manual page contributed by Dennis Morse of Stanford University. It has been reworked by Roland McGrath.
+</P>
+
+<P>GNU, 22 August 1989
+</P>
+
+<H3><A NAME="ch01_ 158">
+makedepend
+</A></H3>
+
+<P>makedepend&#151;Create dependencies in makeFILES
+</P>
+
+<P><B>SYNOPSIS</B></P>
+
+<!-- CODE //-->
+<PRE WIDTH="1">makedepend [ _Dname=def ][_Dname ][_Iincludedir ][_Yincludedir ][_a ]
+[_fmakefile ][_oobjsuffix ][_pobjprefix ][_sstring ][_wwidth ][_v ][_m ]
+[__otherOPTIONS __ ] sourcefile . . .
+</PRE>
+<!-- END CODE //-->
+
+<P><B>DESCRIPTION</B></P>
+
+
+<P>makedepend reads each sourcefile in sequence and parses it like a C-preprocessor, processing all
+#include, #define, #undef, #ifdef, #ifndef, #endif,
+#if and #else directives so that it can correctly tell which
+#include, directives would be used in a compilation. Any
+#include, directives can reference FILES having other
+#include directives, and parsing will occur in these
+FILES as well.
+</P>
+
+<P>Every file that a source file includes, directly or indirectly, is what
+makedepend calls a dependency. These dependencies are
+then written to a makefile in such a way that
+make(1) will know which object FILES must be recompiled when a dependency
+has changed.
+</P>
+
+<P>By default, makedepend places its output in the file named
+makefile if it exists; otherwise, Makefile. An alternate makefile
+may be specified with the _f option. It first searches the makefile for the line:
+</P>
+
+<!-- CODE SNIP //-->
+<PRE># DO NOT DELETE THIS LINE __ make depend depends on it.
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>or one provided with the _s option, as a delimiter for the dependency output. If it finds it, it will delete everything
+following this to the end of the makefile and put the output after this line. If it doesn't find it, the program will append the string
+to the end of the makefile and place the output following that. For each
+sourcefile appearing on the command line,
+makedepend puts lines in the makefile of the form:
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>sourcefile.o: dfile . . .
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>where sourcefile.o is the name from the command line with its suffix replaced with
+.o, and dfile is a dependency discovered in a
+#include directive while parsing sourcefile or one of the FILES it included.
+</P>
+
+<P><B>Example</B></P>
+
+<P>Normally, makedepend will be used in a makefile target so that typing
+makedepend will bring the dependencies up-to-date
+for the makefile. For example,
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>SRCS = file1.c file2.c . . .
+CFLAGS = _O _DHACK _I../foobar _xyz
+depend:
+makedepend __ $(CFLAGS) __ $(SRCS)
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+<P><B>OPTIONS</B></P>
+
+
+<P>makedepend will ignore any option that it does not understand so that you may use the same arguments that you would
+for cc(1).
+</P>
+
+
+<TABLE>
+
+<TR><TD>
+_Dname=def or
+</TD><TD>
+Define. This places a definition for
+name in makedepend's symbol table. Without =def, the symbol becomes
+</TD></TR><TR><TD>
+_Dname
+</TD><TD>
+defined as 1.
+</TD></TR></TABLE>
+
+
+<A NAME="PAGENUM-313"><P>Page 313</P></A>
+
+<TABLE>
+
+<TR><TD>
+_Iincludedir
+</TD><TD>
+Include directory. This option tells
+makedepend to prepend includedir to its list of directories to
+search when it encounters a #include directive. By default,
+makedepend only searches the standard include directories (usually
+/usr/include and possibly a compiler-dependent directory).
+</TD></TR><TR><TD>
+_Yincludedir
+</TD><TD>
+Replace all of the standard include directories with the single specified include directory; you can omit
+the includedir to simply prevent searching the standard include directories.
+</TD></TR><TR><TD>
+_a
+</TD><TD>
+Append the dependencies to the end of the file instead of replacing them.
+</TD></TR><TR><TD>
+_fmakefile
+</TD><TD>
+Filename. This allows you to specify an alternate makefile in which
+makedepend can place its output.
+</TD></TR><TR><TD>
+_oobjsuffix
+</TD><TD>
+Object file suffix. Some systems may have object FILES whose suffix is something other than
+.o. This option allows you to specify another suffix, such as
+.b with -o.b or :obj with -o:obj and so forth.
+</TD></TR><TR><TD>
+_pobjprefix
+</TD><TD>
+Object file prefix. The prefix is prepended to the name of the object file. This is usually used to designate
+a different directory for the object file. The default is the empty string.
+</TD></TR><TR><TD>
+_sstring
+</TD><TD>
+Starting string delimiter. This option permits you to specify a different string for
+makedepend to look for in the makefile.
+</TD></TR><TR><TD>
+_wwidth
+</TD><TD>
+Line width. Normally, makedepend will ensure that every output line that it writes will be no wider than
+78 characters for the sake of readability. This option enables you to change this width.
+</TD></TR><TR><TD>
+_v
+</TD><TD>
+Verbose operation. This option causes makedepend
+to emit the list of FILES included by each input file
+on standard output.
+</TD></TR><TR><TD>
+_m
+</TD><TD>
+Warn about multiple inclusion. This option causes
+makedepend to produce a warning if any input file includes another file more than once. In previous versions of
+makedepend, this was the default behavior; the default has been changed to better match the behavior of the C compiler, which does not
+consider multiple inclusion to be an error. This option is provided for backwards compatibility, and to aid
+in debugging problems related to multiple inclusion.
+</TD></TR><TR><TD>
+__ OPTIONS __
+</TD><TD>
+If makedepend encounters a double hyphen
+(__) in the argument list, then any unrecognized
+argument following it will be silently ignored; a second double hyphen terminates this special treatment. In this
+way, makedepend can be made to safely ignore esoteric compiler arguments that might normally be found in
+a CFLAGS make macro. (See the preceding &quot;Example&quot; section.) All OPTIONS that
+makedepend recognizes and that appear between the pair of double hyphens are processed normally.
+</TD></TR></TABLE>
+
+<P><B>Algorithm</B></P>
+
+
+<P>The approach used in this program enables it to run an order of magnitude faster than any other dependency generator
+I have ever seen. Central to this performance are two assumptions: that all FILES compiled by a single makefile will be
+compiled with roughly the same -I and -D OPTIONS; and that most FILES in a single directory will include largely the same FILES.
+
+
+<P>Given these assumptions, makedepend expects to be called once for each makefile, with all source FILES that are maintained
+by the makefile appearing on the command line. It parses each source and include file exactly once, maintaining an
+internal symbol table for each. Thus, the first file on the command line will take an amount of time proportional to the amount
+of time that a normal C preprocessor takes. But on subsequent FILES, if it encounters an include file that it has already parsed,
+it does not parse it again.
+</P>
+
+<P>For example, imagine you are compiling two FILES,
+file1.c and file2.c; they both include the header file
+header.h, and the file header.h in turn includes the FILES
+def1.h and def2.h. When you run the command:
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>makedepend file1.c file2.c
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>makedepend will parse file1.c and consequently,
+header.h and then def1.h and def2.h. It then decides that the
+dependencies for this file are
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>file1.o: header.h def1.h def2.h
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>But when the program parses file2.c and discovers that it, too, includes
+header.h, it does not parse the file, but simply
+adds header.h, def1.h, and def2.h to the list of dependencies for
+file2.o.
+</P>
+
+<P><B>SEE ALSO</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>cc(1), make(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+
+<P><CENTER>
+<a href="0310-0311.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0314-0314.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

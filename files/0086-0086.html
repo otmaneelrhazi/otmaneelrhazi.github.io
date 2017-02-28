@@ -1,0 +1,167 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0084-0085.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0087-0088.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-86"><P>Page 86</P></A>
+
+
+<P>The contents of the output files are determined by the pattern arguments. An error occurs if a pattern argument refers to
+a nonexistent line of the input file, such as if no remaining line matches a given regular expression. After all the given
+patterns have been matched, any remaining output is copied into one last output file. The types of pattern arguments are
+</P>
+<TABLE>
+
+<TR><TD>
+line
+</TD><TD>
+Create an output file containing the current line up to (but not including) line
+line (a positive integer) of the input file. If followed by a repeat count, also create an output file containing
+the next line lines of the input file once for each repeat.
+</TD></TR><TR><TD>
+/regexp/[offset]
+</TD><TD>
+Create an output file containing the current line up to (but not including) the next line of
+the input file that contains a match for regexp. The optional offset is a
++ or _ followed by a positive integer. If it is given, the input up to the matching line plus or minus offset is put into the
+output file, and the line after that begins the next section of input.
+</TD></TR><TR><TD>
+%regexp%[offset]
+</TD><TD>
+Like the previous type, except that it does not create an output file, so that section of the input
+file is effectively ignored.
+</TD></TR><TR><TD>
+{repeat-count}
+</TD><TD>
+Repeat the previous pattern
+repeat-count (a positive integer) additional times. An asterisk may
+be given in place of the (integer) repeat count, in which case the preceding pattern is repeated as
+many times as necessary until the input is exhausted.
+</TD></TR></TABLE>
+
+
+
+
+<P>The output filenames consist of a prefix followed by a suffix. By default, the suffix is merely an ascending linear sequence
+of two-digit decimal numbers starting with 00 and ranging up to 99; however, this default may be overridden by either the
+&#151;digits option or by the &#151;suffix_format option. (See &quot;Options,&quot; next.) In any case, concatenating the output files in
+sorted order by filename produces the original input file, in order. The default output filename prefix is
+xx.
+</P>
+
+
+<P>By default, if csplit encounters an error or receives a hangup, interrupt, quit, or terminate signal, it removes any output
+files that it has created so far before it exits.
+</P>
+
+
+<P><B>
+OPTIONS
+</B></P>
+
+
+<TABLE>
+<TR><TD>
+_f, &#151;prefix=prefix
+</TD><TD>
+Use prefix as the output filename prefix string.
+</TD><TR><TR><TD>
+_b, &#151;suffix_format=suffix
+</TD><TD>
+Use suffix as the output filename suffix string. When this option is specified, the suffix
+string must include exactly one printf(3) style conversion specification (such as
+%d, possibly including format specification flags, a field width, a precision specifications, or all of these kinds
+of modifiers). The conversion specification must be suitable for converting a binary
+integer argument to readable form. Thus, only d, i,
+u, o, x, and X format specifiers are allowed. The entire suffix string is given (with the current output file number) to
+sprintf(3) to form the filename suffixes for each of the individual output files in turn. Note that when this option
+is used, the &#151;digits option is ignored.
+</TD><TR><TR><TD>
+_n, &#151;digits=digits
+</TD><TD>
+Use output filenames containing numbers that are
+digits digits long instead of the default 2.
+</TD><TR><TR><TD>
+_k, &#151;keep-files
+</TD><TD>
+Do not remove output files when errors are encountered.
+</TD><TR><TR><TD>
+_z, &#151;elide_empty_files
+</TD><TD>
+Suppress the generation of
+zero-length output files. (In cases where the section delimiters of
+the input file are supposed to mark the first lines of each of the sections, the first output file
+will generally be a zero-length file unless you use this option.) Note that the output file
+sequence numbers will always run consecutively, starting from 0, even in cases where
+zero-length output sections are suppressed due to the use of this option.
+</TD><TR><TR><TD>
+_s, _q, &#151;silent, &#151;quiet
+</TD><TD>
+Do not print counts of output file sizes.
+</TD><TR><TR><TD>
+&#151;help
+</TD><TD>
+Print a usage message and exit with a nonzero status.
+</TD><TR><TR><TD>
+&#151;version
+</TD><TD>
+Print version information on standard output, then exit.
+</TD></TR>
+</TBL>
+
+<P>
+                                                GNU Text Utilities
+</P>
+
+
+
+
+
+
+
+
+
+
+<P><CENTER>
+<a href="0084-0085.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0087-0088.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

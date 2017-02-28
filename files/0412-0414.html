@@ -1,0 +1,405 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0408-0411.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0415-0417.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-412"><P>Page 412</P></A>
+
+
+<H3><A NAME="ch01_ 307">
+ppmquantall
+</A></H3>
+<P>ppmquantall&#151;Run ppmquant on a bunch of files all at once, so they share a common colormap
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ppmquantall ncolors ppmfile ...
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>ppmquantall takes a bunch of portable pixmap as input. It chooses
+ncolors colors to best represent all of the images, maps
+the existing colors to the new ones, and overwrites the input files with the new quantized versions.
+</P>
+<P>Verbose explanation: Say you have a dozen pixmaps that you want to display on the screen all at the same time. Your
+screen can only display 256 different colors, but the pixmaps have a total of a thousand or so different colors. For a single
+pixmap, you solve this problem with ppmquant; this script solves it for multiple pixmaps. All it does is concatenate them together
+into one big pixmap, run ppmquant on that, and then split it up into little pixmaps again.
+</P>
+<P>(Note that another way to solve this problem is to preselect a set of colors and then use
+ppmquant's -map option to separately quantize each pixmap to that set.)
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ppmquant(1), ppm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+BUGS
+</B>
+</P>
+<P>It's a csh script. csh scripts are not portable to System V. Scripts in general are not portable to non-UNIX environments.
+</P>
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright&quot; 1991 by Jef Poskanzer.
+</P>
+
+<P>27 July 1990
+</P>
+
+<H3><A NAME="ch01_ 308">
+ppmqvga
+</A></H3>
+<P>ppmqvga&#151;8-plane quantization
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ppmqvga [ options ] [ input file ]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>ppmqvga quantizes PPM files to eight planes, with optional Floyd-Steinberg dithering. Input is a PPM file from the
+file named, or standard input if no file is provided.
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+<TABLE>
+
+<TR><TD>
+-d
+</TD><TD>
+dither
+</TD><TD>
+Apply Floyd-Steinberg dithering to the data
+</TD></TR><TR><TD>
+-q
+</TD><TD>
+quiet
+</TD><TD>
+Produces no progress reporting, and no terminal output unless an error occurs.
+</TD></TR><TR><TD>
+-v
+</TD><TD>
+verbose
+</TD><TD>
+Produces additional output describing the number of colors found, and some information on the
+resulting mapping. May be repeated to generate loads of internal table output, but generally only useful once.
+</TD></TR></TABLE>
+
+<P><B>
+EXAMPLES
+</B></P>
+<!-- CODE SNIP //-->
+<PRE>
+ppmqvga -d my_image.ppm | ppmtogif &gt;my_image.gif
+
+tgatoppm zombie.tga | ppmqvga | ppmtotif &gt; zombie.tif
+</PRE>
+<!-- END CODE SNIP //-->
+
+<A NAME="PAGENUM-413"><P>Page 413</P></A>
+
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ppmquant
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>Diagnostics
+<P>Error messages if problems; various levels of optional progress reporting.
+</P>
+
+<P><B>
+AUTHORS
+</B>
+</P>
+<P>Original by Lyle Rains (lrains@netcom.com) as
+ppmq256 and ppmq256fs combined; documented and enhanced by Bill
+Davidsen (davidsen@crd.ge.com).
+</P>
+
+<P><B>
+COPYRIGHT
+</B></P>
+<P>Copyright&quot; 1991, 1992 by Bill Davidsen, all rights reserved. The program and documentation may be freely distributed
+by anyone in source or binary format. Please clearly note any changes.
+</P>
+
+<P>Local
+</P>
+
+<H3><A NAME="ch01_ 309">
+ppmrelief
+</A></H3>
+<P>ppmrelief&#151;Run a Laplacian relief filter on a portable pixmap
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ppmrelief [ppmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>ppmrelief reads a portable pixmap as input, does a Laplacian relief filter, and writes a portable pixmap as output.
+</P>
+
+<P>The Laplacian relief filter is described in Beyond
+Photography by Holzmann, equation 3.19. It's a sort of edge-detection.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pgmbentley(1), pgmoil(1), ppm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright&quot; 1990 by Wilson Bent
+(whb@hoh-2.att.com).
+</P>
+
+<P>11 January 1991
+</P>
+
+<H3><A NAME="ch01_ 310">
+ppmshift
+</A></H3>
+<P>ppmshift&#151;Shift lines of a portable pixmap left or right by a random amount
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ppmshift shift [ppmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>ppmshift reads a portable pixmap as input and shifts every row of image data to the left or right by a certain amount.
+The shift parameter determines by how many pixels a row is to be shifted at most.
+</P>
+<P>Another one of those effects I intended to use for MPEG tests. Unfortunately, this program will not help me here&#151;it
+creates patterns that are too random to be used for animations. Still, it might give interesting results on still images.
+</P>
+
+<A NAME="PAGENUM-414"><P>Page 414</P></A>
+
+
+<P><B>
+EXAMPLE
+</B></P>
+
+<P>Check this out: Save your favorite model's picture from something like
+alt.binaries.pictures.supermodels (okay, or from any other picture source), convert it to
+ppm, and process it like this, assuming the picture is
+800&#165;600 pixels:
+</P>
+
+<OL>
+<LI>          Take the upper half and leave it like it is:
+pnmcut 0 0 800 300 cs.ppm &gt;upper.ppm.
+<LI>          Take the lower half, flip it upside down, dim it, and distort it a little:
+pnmcut 0 300 800 300 cs.ppm | pnmflip -tb | ppmdim 0.7 | ppmshift 10
+&gt;lower.ppm.
+<LI>          Concatenate the two pieces: pnmcat -tb upper.ppm lower.ppm
+&gt;newpic.ppm.
+</OL>
+
+
+<P>The resulting picture looks like the image being reflected on a water surface with slight ripples.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ppm(5), pnmcut(1), pnmflip(1), ppmdim(1),
+pnmcat(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright&quot; 1993 by Frank Neumann.
+</P>
+
+<P>16 November 1993
+</P>
+
+<H3><A NAME="ch01_ 311">
+ppmspread
+</A></H3>
+<P>ppmspread&#151;Displace a portable pixmap's pixels by a random amount
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ppmspread amount [ppmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>ppmspread reads a portable pixmap as input and moves every pixel around a bit relative to its original position.
+amount determines by how many pixels a pixel is to be moved around at most.
+</P>
+<P>Pictures processed with this filter will seem to be somewhat dissolved or unfocussed (although they appear more coarse
+than images processed by something like pnmconvol).
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ppm(5), pnmconvol(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright&quot; 1993 by Frank Neumann.
+</P>
+
+<P>16 November 1993
+</P>
+
+<H3><A NAME="ch01_ 312">
+ppmtoacad
+</A></H3>
+<P>ppmtoacad&#151;Convert portable pixmap to AutoCAD database or slide
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ppmtoacad [-dxb][-poly][-background colour][-white][-aspect ratio][-8][ppmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>ppmtoacad reads a portable pixmap as input. Produces an AutoCAD slide file or binary database import (DXB) file as
+output. If no ppmfile is specified, input is read from standard input.
+</P>
+
+
+
+<P><CENTER>
+<a href="0408-0411.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0415-0417.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

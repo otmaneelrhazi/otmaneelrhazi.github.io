@@ -1,0 +1,182 @@
+<HTML>
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0063-0064.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0066-0067.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-65"><P>Page 65</P></A>
+
+
+<P><B>
+OPTIONS
+</B></P>
+
+
+<TABLE>
+
+<TR><TD>
+_rrev
+</TD><TD>
+Check in revision rev.
+</TD></TR><TR><TD>
+_r
+</TD><TD>
+The bare _r option (without any revision) has an unusual meaning in
+ci. With other RCS commands, a bare -r option specifies the most recent revision on the default branch, but with
+ci, a bare -r option reestablishes the default behavior of releasing a lock and removing the working
+file, and is used to override any default _l or _u options established by shell aliases or scripts.
+</TD></TR><TR><TD>
+_l[rev]
+</TD><TD>
+Works like -r, except it performs an additional
+co _l for the deposited revision. Thus, the deposited revision is immediately checked out again and locked. This is useful for saving a
+revision although one wants to continue editing it after the checkin.
+</TD></TR><TR><TD>
+_u[rev]
+</TD><TD>
+Works like _l, except that the deposited revision is not locked. This lets one read the working
+file immediately after checkin.
+</TD></TR></TABLE>
+
+
+<P>The _l, bare -r, and _u options are mutually exclusive and silently override each other. For
+example, ci _u -r is equivalent to ci -r because bare
+-r overrides _u.
+</P>
+
+
+<TABLE>
+
+<TR><TD>
+_f[rev]
+</TD><TD>
+Forces a deposit; the new revision is deposited even it is not different from the preceding one.
+</TD></TR><TR><TD>
+_k[rev]
+</TD><TD>
+Searches the working file for keyword values to determine its revision number, creation date,
+state, and author&#151;see co(1)&#151;and assigns these values to the deposited revision, rather than
+computing them locally. It also generates a default login message noting the login of the caller and the
+actual checkin date. This option is useful for software distribution. A revision that is sent to several
+sites should be checked in with the _k option at these sites to preserve the original number, date,
+author, and state. The extracted keyword values and the default log message can be overridden with
+the options _d, _m, _s, _w, and any option that carries a revision number.
+</TD></TR><TR><TD>
+_q[rev]
+</TD><TD>
+Quiet mode; diagnostic output is not printed. A revision that is not different from the
+preceding one is not deposited, unless _f is given.
+</TD></TR><TR><TD>
+-i[rev]
+</TD><TD>
+Initial checkin; report an error if the RCS file already exists. This avoids race conditions in
+certain applications.
+</TD></TR><TR><TD>
+_j[rev]
+</TD><TD>
+Just check in and do not initialize; report an error if the RCS file does not already exist.
+</TD></TR><TR><TD>
+_I[rev]
+</TD><TD>
+Interactive mode; the user is prompted and questioned even if the standard input is not a terminal.
+</TD></TR><TR><TD>
+_d[date]
+</TD><TD>
+Uses date for the checkin date and time. The date is specified in free format as explained in
+co(1). This is useful for lying about the checkin date, and for
+_k if no date is available. If date is empty, the working file's time of last modification is used.
+</TD></TR><TR><TD>
+_M[rev]
+</TD><TD>
+Set the modification time on any new working file to be the date of the retrieved revision.
+For example, ci _d _M _u f does not alter f's modification time, even if
+f's contents change due to keyword substitution. Use this option with care; it can confuse
+make(1).
+</TD></TR><TR><TD>
+_mmsg
+</TD><TD>
+Uses the string msg as the log message for all revisions checked in. By convention, log messages
+that start with # are comments and are ignored by programs like GNU
+emacs's vc package. Also, log messages that start with
+clumpname (followed by whitespace) are meant to be clumped together
+if possible, even if they are associated with different files; the
+clumpname label is used only for clumping, and is not considered to be part of the log message itself.
+</TD></TR><TR><TD>
+_nname
+</TD><TD>
+Assigns the symbolic name to the number of the checked-in revision.
+ci prints an error message if that name is already assigned to another number.
+</TD></TR><TR><TD>
+_Nname
+</TD><TD>
+Same as _n, except that it overrides a previous assignment of name.
+</TD></TR><TR><TD>
+_sstate
+</TD><TD>
+Sets the state of the checked-in revision to the identifier state. The default state is
+Exp.
+</TD></TR><TR><TD>
+_tfile
+</TD><TD>
+Writes descriptive text from the contents of the named file into the RCS file, deleting the
+existing text. The file cannot begin with _.
+</TD></TR><TR><TD>
+_t_string
+</TD><TD>
+Write descriptive text from the string into the RCS file, deleting the existing text.
+</TD></TR></TABLE>
+
+
+
+<P>The _t option, in both its forms, has effect only during an initial checkin; it is silently ignored otherwise.</P>
+
+<P>During the initial checkin, if _t is not given,
+ci obtains the text from standard input, terminated by end-of-file or by a
+line containing a dot (.) by itself. The user is prompted for the text if interaction is possible; see
+_I.
+</P>
+
+
+
+
+<P><CENTER>
+<a href="0063-0064.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0066-0067.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

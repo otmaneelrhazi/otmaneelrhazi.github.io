@@ -1,0 +1,534 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0426-0428.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0432-0433.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-429"><P>Page 429</P></A>
+
+<P><B>
+DESCRIPTION
+</B></P>
+<P>ppmtoyuvsplit reads a portable pixmap as input and produces three raw
+files&#151;basename.Y, basename.U, and
+basename.V&#151;as output. These files are the subsampled raw YUV representation of the input pixmap, as required by the Stanford
+MPEG code. The subsampling is done by arithmetic mean of 4 pixels colors into one. The YUV values are scaled according
+to CCIR.601, as assumed by MPEG.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>mpeg(1), ppm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright&quot; 1993 by Andre Beck
+(AndreBeck@IRS.Inf.TU-Dresden.de). Based on
+ppmtoyuv.c.
+</P>
+
+<P>9 September 1993
+</P>
+
+<H3><A NAME="ch01_ 333">
+pr
+</A></H3>
+<P>pr&#151;Convert text files for printing
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE //-->
+<PRE>
+pr [+PAGE] [_COLUMN] [_abcdfFmrtv] [_e[in-tab-char[in-tab-width]]] [_h header]
+[_i[out-tab-char[out-tab-width]]] [_l page-length] [_n[number-separator[digits]]]
+[_o left-margin] [_s[column-separator]] [_w page-width] [--help] [-- version] [file...]
+</PRE>
+<!-- END CODE //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>This manual page documents the GNU version of
+pr. pr prints on the standard output a paginated and
+optionally multicolumn copy of the text files given on the command line, or of the standard input if no files are given or when
+the filename _ is encountered. Form feeds in the input cause page breaks in the output.
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+<TABLE>
+
+<TR><TD>
+PAGE
+</TD><TD>
+Begin printing with page PAGE.
+</TD></TR><TR><TD>
+_COLUMN
+</TD><TD>
+Produce COLUMN-column output and print columns down. The column width is
+automatically decreased as COLUMN increases; unless you use the
+_w option to increase the page width as well, this option might cause some columns to be truncated.
+</TD></TR><TR><TD>
+_a
+</TD><TD>
+Print columns across rather than down.
+</TD></TR><TR><TD>
+_b
+</TD><TD>
+Balance columns on the last page.
+</TD></TR><TR><TD>
+_c
+</TD><TD>
+Print control characters using hat notation (for example, ^G); print other unprintable characters
+in octal backslash notation.
+</TD></TR><TR><TD>
+_d
+</TD><TD>
+Double-space the output.
+</TD></TR><TR><TD>
+_e[in-tab-char
+</TD><TD>
+Expand tabs to spaces on input. Optional argument
+in-tab-char is the input tab character, default
+</TD></TR><TR><TD>
+[in-tab-width]]
+</TD><TD>
+tab. Optional argument in-tab-width
+is the input tab character's width, default 8.
+</TD></TR><TR><TD>
+_F, _f
+</TD><TD>
+Use a form feed instead of newlines to separate output pages.
+</TD></TR><TR><TD>
+_h header
+</TD><TD>
+Replace the filename in the header with the string
+header.
+</TD></TR><TR><TD>
+--help
+</TD><TD>
+Print a usage message and exit with a nonzero status.
+</TD></TR><TR><TD>
+_i[out-tab-char
+</TD><TD>
+Replace spaces with tabs on
+output. Optional argument out-tab-char is the output tab character,
+</TD></TR><TR><TD>
+[out-tab-width]]
+</TD><TD>
+default tab. Optional argument
+out-tab-width is the output tab character's width, default
+8.
+</TD></TR><TR><TD>
+_l page-length
+</TD><TD>
+Set the page length to
+page-length lines. The default is 66. If
+page-length is less than 10, the headers and footers are omitted, as if the
+_t option had been given.
+</TD></TR><TR><TD>
+_m
+</TD><TD>
+Print all files in parallel, one in each column.
+</TD></TR></TABLE>
+
+
+<A NAME="PAGENUM-430"><P>Page 430</P></A>
+
+<TABLE>
+
+<TR><TD>
+_n[number-separator
+</TD><TD>
+Precede each column with
+a line number; with parallel files, precede each line with a line number.
+</TD></TR><TR><TD>
+[digits]]
+</TD><TD>
+Optional argument number-separator
+is the character to print after each number, default
+tab. Optional argument digits is the number of digits per line number, default
+5.
+</TD></TR><TR><TD>
+_o left-margin
+</TD><TD>
+Offset each line with a margin
+left-margin spaces wide. The total page width is this offset plus
+the width set with the _w option.
+</TD></TR><TR><TD>
+_r
+</TD><TD>
+Do not print a warning message when an argument file cannot be opened. Failure to open a
+file still makes the exit status nonzero, however.
+</TD></TR><TR><TD>
+_s[column-separator]
+</TD><TD>
+Separate columns by the single character
+column-separator, default tab, instead of spaces.
+</TD></TR><TR><TD>
+_t
+</TD><TD>
+Do not print the 5-line header and the 5-line trailer that are normally on each page, and do not
+fill out the bottoms of pages (with blank lines or form feeds).
+</TD></TR><TR><TD>
+_v
+</TD><TD>
+Print unprintable characters in octal backslash notation.
+</TD></TR><TR><TD>
+--version
+</TD><TD>
+Print version information on standard output then exit.
+</TD></TR><TR><TD>
+_w page-width
+</TD><TD>
+Set the page width to page-width
+columns. The default is 72.
+</TD></TR></TABLE>
+
+<P>GNU Text Utilities
+</P>
+
+<H3><A NAME="ch01_ 334">
+ps
+</A></H3>
+<P>ps&#151;Report process status
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ps [_][lujsvmaxScewhrnu][txx][O[+|-]k1[[+|-]k2...]] [pids]
+</PRE>
+<!-- END CODE SNIP //-->
+<P>There are also two long options:
+<!-- CODE SNIP //-->
+<PRE>
+--sortX[+|-]key[,[+|-]key[,...]]
+
+--help
+</PRE>
+<!-- END CODE SNIP //-->
+<P>More long options are on the way&#133;
+</P>
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>ps gives a snapshot of the current processes. If you want a repetitive update of this status, use
+top. This man page documents the /proc-based version of
+ps, or tries to.
+</P>
+
+<P><B>
+COMMAND-LINE OPTIONS
+</B></P>
+
+<P>Command-line arguments may optionally be preceded by a
+_, but there is no need for it. There are also some long options
+in GNU style; see the following subsection for those.
+</P>
+
+<TABLE>
+
+<TR><TD>
+l
+</TD><TD>
+Long format.
+</TD></TR><TR><TD>
+u
+</TD><TD>
+User format: gives username and start time.
+</TD></TR><TR><TD>
+j
+</TD><TD>
+Jobs format: pgid sid.
+</TD></TR><TR><TD>
+s
+</TD><TD>
+Signal format.
+</TD></TR><TR><TD>
+v
+</TD><TD>
+vm format.
+</TD></TR><TR><TD>
+m
+</TD><TD>
+Displays memory information (combine with
+p flag to get number of pages).
+</TD></TR><TR><TD>
+f
+</TD><TD>
+Forest family tree format for command line.
+</TD></TR><TR><TD>
+a
+</TD><TD>
+Show processes of other users too.
+</TD></TR><TR><TD>
+x
+</TD><TD>
+Show processes without controlling terminal.
+</TD></TR><TR><TD>
+S
+</TD><TD>
+Add child cpu time and page faults.
+</TD></TR><TR><TD>
+c
+</TD><TD>
+Command name from task struct.
+</TD></TR><TR><TD>
+e
+</TD><TD>
+Show environment after command line and +.
+</TD></TR></TABLE>
+
+
+<A NAME="PAGENUM-431"><P>Page 431</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+w
+</TD><TD>
+Wide output: don't truncate command lines to fit on one line.
+</TD></TR><TR><TD>
+h
+</TD><TD>
+No header.
+</TD></TR><TR><TD>
+r
+</TD><TD>
+Running procs only.
+</TD></TR><TR><TD>
+n
+</TD><TD>
+Numeric output for USER and WCHAN.
+</TD></TR><TR><TD>
+txx
+</TD><TD>
+Only procs with controlling tty xx; use for
+xx the same letters as shown in the TT field. The
+tty name must be given immediately after the option, with no intervening space,
+for example, ps -tv1.
+</TD></TR><TR><TD>
+O[+|-]k1[,[+|-]k2[,...]]
+</TD><TD>
+Order the process listing according to the multilevel sort specified by the sequence of
+short keys from SORT KEYS, k1, k2, &#133;. Default order specifications exist for each of the
+various formats of ps. These are overridden by a user-specified ordering. The
++ is quite optional, merely reiterating the default direction on a key.
+- reverses direction only on the key it precedes. As with
+t and pids, the O option must be the last option in a single
+command argument, but specifications in successive arguments are catenated.
+</TD></TR><TR><TD>
+pids
+</TD><TD>
+List only the specified processes; they are comma-delimited. The list must be
+given immediately after the last option in a single command-line argument, with no
+intervening space, for example, ps -j1,4,5. Lists specified in subsequent arguments are catenated,
+for example, ps -l1,23,4 5 6 will list all of the processes 1-6 in long format.
+</TD></TR></TABLE>
+
+<P><B>
+LONG COMMAND-LINE OPTIONS
+</B></P>
+
+<P>These options are preceded by a double hyphen.
+</P>
+<TABLE>
+
+<TR><TD>
+--sortX[+|-]key[,
+</TD><TD>
+Choose a multiletter key from the
+SORTKEYS section. X may be any convenient separator
+</TD></TR><TR><TD>
+[+|-]key[,...]]
+</TD><TD>
+character. To be GNU-ish, use
+=. The + is really optional because default direction
+is increasing numerical or lexicographic order. Example:<BR>
+ps -jax _sort=uid,-ppid,+pid
+</TD></TR><TR><TD>
+--help
+</TD><TD>
+Get a help message that summarizes the usage and gives a list of supported sort keys.
+This list may be more up-to-date than this man page.
+</TD></TR></TABLE>
+
+<P><B>
+SORT KEYS
+</B></P>
+
+<P>Note that the values used in sorting are the internal values
+ps uses and not the &quot;cooked&quot; values used in some of the
+output format fields. If someone wants to volunteer to write special comparison functions for the cooked values,&#133;;-)
+</P>
+
+<TABLE>
+
+<TR><TD>
+Short
+</TD><TD>
+Long
+</TD><TD>
+Description
+</TD></TR><TR><TD>
+c
+</TD><TD>
+cmd
+</TD><TD>
+Simple name of executable
+</TD></TR><TR><TD>
+C
+</TD><TD>
+cmdline
+</TD><TD>
+Full command line
+</TD></TR><TR><TD>
+f
+</TD><TD>
+flags
+</TD><TD>
+Flags as in long format F field
+</TD></TR><TR><TD>
+g
+</TD><TD>
+pgrp
+</TD><TD>
+Process group ID
+</TD></TR><TR><TD>
+G
+</TD><TD>
+tpgid
+</TD><TD>
+Controlling tty process group ID
+</TD></TR><TR><TD>
+j
+</TD><TD>
+cutime
+</TD><TD>
+Cumulative user time
+</TD></TR><TR><TD>
+J
+</TD><TD>
+cstime
+</TD><TD>
+Cumulative system time
+</TD></TR><TR><TD>
+k
+</TD><TD>
+utime
+</TD><TD>
+User time
+</TD></TR><TR><TD>
+K
+</TD><TD>
+stime
+</TD><TD>
+System time
+</TD></TR><TR><TD>
+m
+</TD><TD>
+min_flt
+</TD><TD>
+Number of minor page faults
+</TD></TR><TR><TD>
+M
+</TD><TD>
+maj_flt
+</TD><TD>
+Number of major page faults
+</TD></TR><TR><TD>
+n
+</TD><TD>
+cmin_flt
+</TD><TD>
+Cumulative minor page faults
+</TD></TR><TR><TD>
+N
+</TD><TD>
+cmaj_flt
+</TD><TD>
+Cumulative major page faults
+</TD></TR><TR><TD>
+o
+</TD><TD>
+session
+</TD><TD>
+Session ID
+</TD></TR><TR><TD>
+p
+</TD><TD>
+pid
+</TD><TD>
+Process ID
+</TD></TR></TABLE>
+
+<!-- CODE SNIP //-->
+<PRE>
+continues
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+
+<P><CENTER>
+<a href="0426-0428.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0432-0433.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

@@ -1,0 +1,312 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0245-0246.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0249-0250.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-247"><P>Page 247</P></A>
+
+
+
+<TABLE>
+
+<TR><TD>
+el16
+</TD><TD>
+Use of the el request with no matching ie request.
+</TD></TR><TR><TD>
+scale32
+</TD><TD>
+Meaningless scaling indicators.
+</TD></TR><TR><TD>
+range64
+</TD><TD>
+Out of range arguments.
+</TD></TR><TR><TD>
+syntax128
+</TD><TD>
+Dubious syntax in numeric expressions.
+</TD></TR><TR><TD>
+di256
+</TD><TD>
+Use of di or da without an argument when there is no current diversion.
+</TD></TR><TR><TD>
+mac512
+</TD><TD>
+Use of undefined strings, macros, and diversions. When an undefined string, macro, or diversion is
+used, that string is automatically defined as empty. So, in most cases, at most one warning will be given for
+each name.
+</TD></TR><TR><TD>
+reg1024
+</TD><TD>
+Use of undefined number registers. When an undefined number register is used, that register is
+automatically defined to have a value of 0. A definition is automatically made with a value of
+0. So, in most cases, at most one warning will be given for use of a particular name.
+</TD></TR><TR><TD>
+tab2048
+</TD><TD>
+Inappropriate use of a tab character. Either use of a tab character where a number was expected, or use
+of tab character in an unquoted macro argument.
+</TD></TR><TR><TD>
+right-brace4096
+</TD><TD>
+Use of \g where a number was expected.
+</TD></TR><TR><TD>
+missing8192
+</TD><TD>
+Requests that are missing nonoptional arguments.
+</TD></TR><TR><TD>
+input16384
+</TD><TD>
+Illegal input characters.
+</TD></TR><TR><TD>
+escape32768
+</TD><TD>
+Unrecognized escape sequences. When an unrecognized escape sequence is encountered, the
+escape character is ignored.
+</TD></TR><TR><TD>
+space65536
+</TD><TD>
+Missing space between a request or macro and its argument. This warning will be given when
+an undefined name longer than two characters is encountered, and the first two characters of the name
+make a defined name. The request or macro will not be invoked. When this warning is given, no macro
+is automatically defined. This is enabled by default. This warning will never occur in compatibility mode.
+</TD></TR><TR><TD>
+font131072
+</TD><TD>
+Nonexistent fonts. This is enabled by default.
+</TD></TR><TR><TD>
+ig262144
+</TD><TD>
+Illegal escapes in text ignored with the
+ig request. These are conditions that are errors when they do
+not occur in ignored text.
+</TD></TR></TABLE>
+
+
+<P>There are also names that can be used to refer to groups of WARNINGS:
+</P>
+
+<TABLE>
+
+<TR><TD>
+all
+</TD><TD>
+All WARNINGS except di, mac, and reg. It is intended that this covers all WARNINGS that are useful
+with traditional macro packages.
+</TD></TR><TR><TD>
+w
+</TD><TD>
+All WARNINGS.
+</TD></TR></TABLE>
+
+<P><B>
+INCOMPATIBILITIES
+</B></P>
+
+<P>Long names cause some INCOMPATIBILITIES. UNIX
+troff will interpret
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+.dsabcd
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>as defining a string ab with contents cd. Normally, GNU
+troff will interpret this as a call of a macro named
+dsabcd. Also UNIX troff will interpret \*[ or \n[ as references to a string or number register called
+[. In GNU troff, however, this will normally be interpreted as the start of a long name. In
+compatibility mode GNU troff will interpret these things in
+the traditional way. In compatibility mode, however, long names are not recognized. Compatibility mode can be turned on
+with the _C command-line option, and turned on or off with the
+cp request. The number register \n(.C is 1 if compatibility
+mode is on, 0 otherwise.
+</P>
+
+<P>GNU troff does not allow the use of the escape sequences in names of strings, macros, diversions, number registers, fonts,
+or ENVIRONMENTs; UNIX troff does. The \A escape sequence may be helpful in avoiding use of these escape sequences in names.
+</P>
+
+<P>Fractional point sizes cause one noteworthy incompatibility. In UNIX
+troff the ps request ignores scale indicators and so
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+.ps 10u
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>will set the pointsize to 10 points, whereas in GNU
+troff it will set the pointsize to 10 scaled points.
+</P>
+
+<A NAME="PAGENUM-248"><P>Page 248</P></A>
+
+
+<P>In GNU troff there is a fundamental difference between unformatted, input characters, and formatted, output
+characters. Everything that affects how an output character will be output is stored with the character; after an output character has
+been constructed, it is unaffected by any subsequent requests that are executed, including
+bd, cs, tkf, tr, or fp requests. Normally output characters are constructed from input characters at the moment immediately before the character is added to
+the current output line. Macros, diversions, and strings are all, in fact, the same type of object; they contain lists of
+input characters and output characters in any combination. An output character does not behave like an input character for
+the purposes of macro processing; it does not inherit any of the special properties that the input character from which it
+was constructed might have had. For example, this:
+</P>
+
+
+<!-- CODE SNIP //-->
+<PRE>
+.di x
+\\\\
+.br
+.di
+.x
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>will print \\ in GNU troff; each pair of input
+\s is turned into one output \ and the resulting output
+\s are not interpreted as escape characters when they are reread. UNIX
+troff would interpret them as escape characters when they were reread
+and would end up printing one \. The correct way to obtain a printable
+\ is to use the \e escape sequence: this will always print
+a single instance of the current escape character, regardless of whether or not it is used in a diversion; it will also work in
+both GNU troff and UNIX troff. If you wish for some reason to store in a diversion an escape sequence that will be
+interpreted when the diversion is reread, you can either use the traditional
+\! transparent output facility, or, if this is unsuitable, the
+new \? escape sequence.
+</P>
+
+<P><B>
+ENVIRONMENT
+</B></P>
+
+
+<TABLE>
+
+<TR><TD>
+GROFF_TMAC_PATH
+</TD><TD>
+A colon-separated list of directories in which to search for macro FILES.
+</TD></TR><TR><TD>
+GROFF_TYPESETTER
+</TD><TD>
+Default device.
+</TD></TR><TR><TD>
+GROFF_FONT_PATH
+</TD><TD>
+A colon-separated list of directories in which to search for the
+devname directory. troff will search in directories given in the
+_F option before these, and in standard directories
+(:/usr/lib/groff/font, :/usr/lib/font, and
+:/usr/lib/font) after these.
+</TD></TR></TABLE>
+
+
+<P><B>
+FILES
+</B></P>
+
+<TABLE>
+
+<TR><TD>
+/usr/lib/groff/font/devname/DESC
+</TD><TD>
+</TD></TR><TR><TD>
+/usr/lib/groff/tmac/troffrc
+</TD><TD>
+Initialization file
+</TD></TR><TR><TD>
+/usr/lib/groff/tmac/tmac.name
+</TD><TD>
+Macro FILES
+</TD></TR><TR><TD>
+/usr/lib/groff/font/devname/DESC
+</TD><TD>
+Device DESCRIPTION file for device name
+</TD></TR><TR><TD>
+/usr/lib/groff/font/devname/F
+</TD><TD>
+Font file for font F of device name
+</TD></TR></TABLE>
+
+<P><B>
+SEE ALSO
+</B></P>
+
+<P>groff(1) gtbl(1), gpic(1), geqn(1), grops(1),
+grodvi(1), grotty(1), groff_font(5), groff_out(5),
+groff_char(7)
+</P>
+
+<P>
+Groff Version 1.09, 14 February 1994
+</P>
+
+<H3><A NAME="ch01_ 107">
+gzip, gunzip, zcatgzip, gunzip, zcat
+</A></H3>
+
+<P>gzip, gunzip, zcatgzip, gunzip, zcat&#151;Compress or expand FILES
+</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>
+gzip [ _acdfhlLnNrtvV19 ][_Ssuffix] [ name ... ]
+gunzip [ _acfhlLnNrtvV ][_Ssuffix] [ name ... ]
+zcat [ _fhLV ][name ... ]
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+
+
+<P><CENTER>
+<a href="0245-0246.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0249-0250.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

@@ -1,0 +1,439 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0371-0374.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0378-0380.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-375"><P>Page 375</P></A>
+
+
+<P><B>
+Options
+</B></P>
+
+<TABLE>
+
+<TR><TD>
+-lr
+</TD><TD>
+A left to right ramp
+</TD></TR><TR><TD>
+-tb
+</TD><TD>
+A top to bottom ramp
+</TD></TR><TR><TD>
+-rectangle
+</TD><TD>
+A rectangular ramp
+</TD></TR><TR><TD>
+-ellipse
+</TD><TD>
+An elliptical ramp
+</TD></TR></TABLE>
+
+<P>All flags can be abbreviated to their shortest unique prefix.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<P>pnmarith(1), pgm(5)
+</P>
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright &quot; 1989 by Jef Poskanzer.
+</P>
+
+<P>24 November 1989
+</P>
+
+<H3><A NAME="ch01_ 249">
+pgmtexture
+</A></H3>
+<P>pgmtexture&#151;Calculate textural features on a portable graymap
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pgmtexture [-d d][pgmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pgmtexture reads a portable graymap as input. Calculates textural features based on spatial dependence matrices at 0, 45,
+90, and 135 degrees for a distance d (default = 1). Textural features include
+</P>
+
+<TABLE>
+
+<TR><TD>
+(1)
+Angular Second Moment
+</TD><TD>
+(2)
+</TD></TR><TR><TD>
+Contrast
+</TD><TD>
+</TD></TR><TR><TD>
+(3)
+</TD><TD>
+Correlation
+</TD></TR><TR><TD>
+(4)
+</TD><TD>
+Variance
+</TD></TR><TR><TD>
+(5)
+</TD><TD>
+Inverse Difference Moment
+</TD></TR><TR><TD>
+(6)
+</TD><TD>
+Sum Average
+</TD></TR><TR><TD>
+(7)
+</TD><TD>
+Sum Variance
+</TD></TR><TR><TD>
+(8)
+</TD><TD>
+Sum Entropy
+</TD></TR><TR><TD>
+(9)
+</TD><TD>
+Entropy
+</TD></TR><TR><TD>
+(10)
+</TD><TD>
+Difference Variance
+</TD></TR><TR><TD>
+(11)
+</TD><TD>
+Difference Entropy
+</TD></TR><TR><TD>
+(12, 13)
+</TD><TD>
+Information Measures of Correlation
+</TD></TR><TR><TD>
+(14)
+</TD><TD>
+Maximal Correlation Coefficient
+</TD></TR></TABLE>
+
+
+<P>Algorithm taken from &quot;Textural Features for Image Classification,&quot;
+IEEE Transactions on Systems, Man, and
+Cybertinetics, R.M. Haralick, K. Shanmugam, and I. Dinstein, 1973. SMC-3(6):610_621.
+</P>
+
+<P><B>
+BUGS
+</B>
+</P>
+<P>The program can run incredibly slowly for large images (larger than
+64&#165;64) and command-line options are limited.
+The method for finding the maximal correlation coefficient, which requires finding the second largest
+eigenvalue of a matrix Q, does not always converge.
+</P>
+
+<P><B>
+REFERENCES
+</B>
+</P>
+<P>IEEE Transactions on Systems, Man, and
+Cybertinetics, SMC-3(6):610_621.
+</P>
+
+<A NAME="PAGENUM-376"><P>Page 376</P></A>
+
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>pgm(5), pnmcut(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright &quot; 1991 by Texas Agricultural Experiment Station, employer-for-hire of James Darrell McCauley.
+</P>
+
+<P>22 August 1991
+</P>
+
+<H3><A NAME="ch01_ 250">
+pgmtofs
+</A></H3>
+<P>pgmtofs&#151;Convert portable graymap to Usenix FaceSaver format
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pgmtofs [pgmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pgmtofs reads a portable graymap as input. Produces Usenix FaceSaver format as output.
+</P>
+
+<P>FaceSaver is a registered trademark of Metron Computerware Ltd. of Oakland, CA.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+fstopgm(1), pgm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright&quot; 1991 by Jef Poskanzer.
+</P>
+
+<P>18 May 1990
+</P>
+
+<H3><A NAME="ch01_ 251">
+pgmtolispm
+</A></H3>
+<P>pgmtolispm&#151;Convert a portable graymap into Lisp machine format
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pgmtolispm [pgmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pgmtolispm reads a portable graymap as input and produces a Lisp machine bitmap as output.
+</P>
+
+<P>This is the file format read by the
+tv:read-bit-array-file function on TI Explorer and Symbolics Lisp machines.
+</P>
+
+<P>Given a PGM (instead of a PBM), a multiplane image will be output. This is probably not useful unless you have a
+color Lisp machine.
+</P>
+
+<P>Multiplane bitmaps on Lisp machines are color; but the
+lispm image file format does not include a colormap, so it must
+be treated as a graymap instead. This is unfortunate.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+lispmtopgm(1), pgm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+BUGS
+</B>
+</P>
+<P>Output width is always rounded up to the nearest multiple of 32; this might not always be what you want, but it probably
+is (arrays that are not modulo 32 cannot be passed to the
+lispm BITBLT function, and thus cannot easily be displayed on the screen).
+</P>
+
+<P>No color.
+</P>
+
+<A NAME="PAGENUM-377"><P>Page 377</P></A>
+
+
+<P><B>
+Author
+</B></P>
+
+<P>Copyright &quot; 1991 by Jamie Zawinski and Jef Poskanzer.
+</P>
+
+<P>6 March 1990
+</P>
+
+<H3><A NAME="ch01_ 252">
+pgmtopbm
+</A></H3>
+<P>pgmtopbm&#151;Convert a portable graymap into a portable bitmap
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pgmtopbm [-floyd|-fs|-threshold |-hilbert |-dither8|-d8|-cluster3
+|-c3|-cluster4|-c4 |-cluster8|-c8][-value val][-clump size][pgmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pgmtopbm reads a portable graymap as input and produces a portable bitmap as output.
+</P>
+<P>Note that there is no pbmtopgm converter because any
+pgm program can read PBM files automagically.
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+<P>The default quantization method is boustrophedonic Floyd-Steinberg error diffusion
+(-floyd or -fs). Also available are simple thresholding
+(-threshold); Bayer's ordered dither (-dither8) with a
+16&#165;16 matrix; and three different sizes of 45-degree clustered-dot dither
+(-cluster3, -cluster4, -cluster8). A space-filling curve halftoning method using the
+Hilbert curve is also available. (-hilbert).
+</P>
+
+<P>Floyd-Steinberg will almost always give the best looking results; however, looking good is not always what you want.
+For instance, thresholding can be used in a pipeline with the
+pnmconvol tool, for tasks like edge and peak detection.
+And clustered-dot dithering gives a newspaper-like look, a useful special effect. The
+-value flag alters the thresholding value for Floyd-Steinberg and simple thresholding. It should be a real number between 0 and 1. Above 0.5 means darker
+images; below 0.5 means lighter.
+</P>
+
+<P>The Hilbert curve method is useful for processing images before display on devices that do not render individual
+pixels distinctly (like laser printers). This dithering method can give better results than the dithering usually done by the
+laser printers themselves. The -clump flag alters the number of pixels in a clump. This is usually an integer between 2 and
+100 (default 5). Smaller clump sizes smear the image less and are less grainy, but seem to loose some grayscale linearity.
+Typically, a PGM image will have to be scaled to fit on a laser printer page (2400
+&#165; 3000 pixels for an A4 300dpi page), and
+then dithered to a PBM image before being converted to a PostScript file. A printing pipeline might look something like this:
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+pnmscale -xysize 2400 3000 image.pgm | pgmtopbm -hil | pnmtops -scale 0.25 image.ps
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>All flags can be abbreviated to their shortest unique prefix.
+</P>
+
+<P><B>
+REFERENCES
+</B>
+</P>
+<P>The only reference you need for this stuff is Digital
+Halftoning by Robert Ulichney, MIT Press, ISBN 0-262-21009-6.
+</P>
+
+<P>The Hilbert curve space filling method is taken from &quot;Digital Halftoning with Space Filling Curves&quot; by Luiz
+Velho, Computer Graphics Volume 25, Number 4, proceedings of SIGRAPH '91, page 81. ISBN 0-89791-436-8
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pbmreduce(1), pgm(5), pbm(5), pnmconvol(1),
+pnmscale(1), pnmtops(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright &quot; 1989 by Jef Poskanzer.
+</P>
+
+<P>26 July 1988
+</P>
+
+
+
+<P><CENTER>
+<a href="0371-0374.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0378-0380.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

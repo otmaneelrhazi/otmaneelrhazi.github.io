@@ -1,0 +1,411 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0420-0422.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0426-0428.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-423"><P>Page 423</P></A>
+
+
+<P><B>
+SEE ALSO
+</B></P>
+<!-- CODE SNIP //-->
+<PRE>
+picttoppm(1), ppm(5), mcvert(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright&quot; 1990 by Ken Yap
+(ken@cs.rocester.edu).
+</P>
+
+<P>15 April 1990
+</P>
+
+<H3><A NAME="ch01_ 323">
+ppmtopj
+</A></H3>
+<P>ppmtopj&#151;Convert a portable pixmap to an HP PaintJet file
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE //-->
+<PRE>
+ppmtopj [-gamma val][-xpos val][-ypos val][-back dark|lite][-rle][-center]
+[-render none|snap|bw|dither|diffuse|monodither|monodiffuse|clusterdither|
+monoclusterdither][ppmfile]
+</PRE>
+<!-- END CODE //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>ppmtopj reads a portable pixmap as input and converts it into a format suitable to be printed by an HP PaintJet printer.
+</P>
+<P>For best results, the input file should be in 8-color RGB form; that is, it should have only the eight binary combinations
+of full-on and full-off primaries. You could get this by sending the input file through
+ppmquant -map with a mapfile such as
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+P3
+8 1
+255
+0 0 0 2550 0 02550 0 0 255
+255 255 0 255 0 255 0 255 255 255 255 255
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>Or else you could use ppmdither -red 2 -green 2 -blue
+2.
+</P>
+
+
+<P><B>
+OPTIONS
+</B>
+</P>
+<TABLE>
+
+<TR><TD>
+-rle
+</TD><TD>R
+un-length encode the image. (This can result in larger images.)
+</TD></TR><TR><TD>
+-back
+</TD><TD>
+Enhance the foreground by indicating if the background is light or dark compared to the foreground.
+</TD></TR><TR><TD>
+-render alg
+</TD><TD>
+Use an internal rendering algorithm (default
+dither).
+</TD></TR><TR><TD>
+-gamma int
+</TD><TD>
+Gamma correct the image using the
+integer parameter as a gamma (default 0).
+</TD></TR><TR><TD>
+-center
+</TD><TD>
+Center the image to an 8.5 by 11 page.
+</TD></TR><TR><TD>
+-xpos pos
+</TD><TD>
+Move by pos pixels in the x direction.
+</TD></TR><TR><TD>
+-ypos pos
+</TD><TD>
+Move by pos pixels in the y direction.
+</TD></TR></TABLE>
+
+<P><B>
+REFERENCES
+</B>
+</P>
+<P>HP PaintJet XL Color Graphics Printer User's Guide
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pnmdepth(1), ppmquant(1), ppmdither(1), ppm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+BUGS
+</B>
+</P>
+<P>Most of the options have not been tested because of the price of the paper.
+</P>
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright&quot; 1991 by Christos Zoulas.
+</P>
+<P>13 July 1991
+</P>
+
+<A NAME="PAGENUM-424"><P>Page 424</P></A>
+
+
+<H3><A NAME="ch01_ 324">
+ppmtopjxl
+</A></H3>
+<P>ppmtopjxl&#151;Convert a portable pixmap into an HP PaintJet XL PCL file
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE //-->
+<PRE>
+ppmtopjxl [-nopack] [-gamma &lt;n&gt; ] [-presentation] [-dark] [-diffuse]
+[-cluster] [-dither] [-xshift &lt;s&gt; ] [-yshift &lt;s&gt; ] [-xshift &lt;s&gt; ] [-yshift &lt;s&gt; ]
+[-xsize|-width|-xscale &lt;s&gt; ] [-ysize|-height|-yscale &lt;s&gt; ] [ppmfile]
+</PRE>
+<!-- END CODE //-->
+
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>ppmtopjxl reads a portable pixmap as input and produces a PCL file suitable for printing on an HP PaintJet XL printer
+as output.
+</P>
+<P>The generated file is not suitable for printing on a normal PrintJet printer. The
+_nopack option generates a file that does not use the normal TIFF 4.0 compression method. This file might be printable on a normal PaintJet printer (not an XL).
+</P>
+<P>The _gamma option sets the gamma correction for the image. The useful range for the PaintJet XL is approximately 0.6<BR>
+to 1.5.
+</P>
+<P>The rendering algorithm used for images can be altered with the
+-dither, -cluster, and -diffuse options. These
+options select ordered dithering, clustered ordered dithering, or error diffusion, respectively. The
+_dark option can be used to enhance images with a dark background when they are reduced in size. The
+_presentation option turns on presentation mode, in which two passes are made over the paper to increase ink density. This should be used only for images
+where quality is critical.
+</P>
+<P>The image can be resized by setting the _xsize and
+_ysize options. The parameter to either of these options is interpreted
+as the number of dots to set the width or height to, but an optional dimension of
+pt (points), dp (decipoints), in (inches), or cm (centimeters) may be appended. If only one dimension is specified, the other will be scaled appropriately.
+</P>
+<P>The options _width and _height are synonyms of _xsize
+and _ysize.
+</P>
+<P>The _xscale and _yscale options can alternatively be used to scale the image by a simple factor.
+</P>
+<P>The image can be shifted on the page by using the
+_xshift and _yshift options. These move the image the
+specified dimensions right and down.
+</P>
+
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ppm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Angus Duggan
+</P>
+
+<P>14 March 1991
+</P>
+
+<H3><A NAME="ch01_ 325">
+ppmtopuzz
+</A></H3>
+<P>ppmtopuzz&#151;Convert a portable pixmap into an X11 puzzle file
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ppmtopuzz [ppmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>ppmtopuzz reads a portable pixmap as input and produces an X11 puzzle file as output. A puzzle file is for use with the
+puzzle program included with the X11 distribution;
+puzzle's -picture flag lets you specify an image file.
+</P>
+
+<A NAME="PAGENUM-425"><P>Page 425</P></A>
+
+
+<P><B>
+SEE ALSO
+</B></P>
+<!-- CODE SNIP //-->
+<PRE>
+ppm(5), puzzle(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright&quot; 1991 by Jef Poskanzer.
+</P>
+<P>22 August 1990
+</P>
+
+<H3><A NAME="ch01_ 326">
+ppmtorgb3
+</A></H3>
+<P>ppmtorgb3&#151;Separate a portable pixmap into three portable graymaps
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ppmtorgb3 [ppmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>ppmtorgb3 reads a portable pixmap as input and writes three portable graymaps as output, one each for red, green, and blue.
+</P>
+<P>The output filenames are constructed by taking the input filename, stripping off any extension, and appending
+.red, .grn, and .blu. For example, separating
+lenna.ppm would result in lenna.red, lenna.grn, and
+lenna.blu. If the input comes from stdin, the names are
+noname.red, noname.grn, and noname.blu.
+</P>
+
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+rgb3toppm(1), ppmtopgm(1), pgmtoppm(1), ppm(5),
+pgm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright&quot; 1991 by Jef Poskanzer.
+</P>
+
+<P>10 January 1991
+</P>
+
+<H3><A NAME="ch01_ 327">
+ppmtosixel
+</A></H3>
+<P>ppmtosixel&#151;Convert a portable pixmap into DEC sixel format
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ppmtosixel [-raw][-margin][ppmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>ppmtosixel reads a portable pixmap as input and produces sixel commands (SIX) as output. The output is formatted for
+color printing, for example, for a DEC LJ250 color inkjet printer.
+</P>
+<P>If RGB values from the PPM file do not have
+maxval=100, the RGB values are rescaled. A printer control header and a
+color assignment table begin the SIX file. Image data is written in a compressed format by default. A printer control footer
+ends the image file.
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+<TABLE>
+
+<TR><TD>
+-raw
+</TD><TD>
+If specified, each pixel will be explicitly described in the image file. If
+-raw is not specified, output will default to compressed format in which identical adjacent pixels are replaced by
+repeat pixel commands. A raw file is often an order of magnitude larger than a compressed file and prints much slower.
+</TD></TR><TR><TD>
+-margin
+</TD><TD>
+If -margin is not specified, the image will start at the left margin (of the window, paper, or whatever). If
+-margin is specified, a 1.5 inch left margin will offset the image.
+</TD></TR></TABLE>
+
+
+
+<P><CENTER>
+<a href="0420-0422.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0426-0428.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

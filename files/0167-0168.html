@@ -1,0 +1,384 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0165-0166.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0169-0170.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-167"><P>Page 167</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+*/%
+</TD><TD>
+Multiplication, division, and modulus.
+</TD></TR><TR><TD>
++_!
+</TD><TD>
+Unary plus, unary minus, and logical negation.
+</TD></TR><TR><TD>
+^
+</TD><TD>
+Exponentiation (** may also be used, and **=
+for the assignment operator).
+</TD></TR><TR><TD>
+++ __
+</TD><TD>
+Increment and decrement, both prefix and postfix.
+</TD></TR><TR><TD>
+$
+</TD><TD>
+Field reference.
+</TD></TR></TABLE>
+
+<P><B>
+CONTROL STATEMENTS
+</B></P>
+
+<P>The control statements are as follows:
+</P>
+
+<!-- CODE //-->
+<PRE>
+if (condition) statement [ else statement ]
+while (condition) statement
+do statement while (condition)
+for (expr1; expr2; expr3) statement
+for (var in array) statementbreak
+ continue
+ delete array[index]
+delete array
+exit [ expression ]
+{ statements }
+</PRE>
+<!-- END CODE //-->
+
+
+<P><B>
+I/O STATEMENTS
+</B></P>
+
+<P>The input/output statements are as follows:
+</P>
+
+
+<TABLE>
+
+<TR><TD>
+close(filename)
+</TD><TD>
+Close file (or pipe, see paragraph following this list).
+</TD></TR><TR><TD>
+getline
+</TD><TD>
+Set $0 from next input record; set
+NF, NR, FNR.
+</TD></TR><TR><TD>
+getline &lt;file
+</TD><TD>
+Set $0 from next record of
+file; set NF.
+</TD></TR><TR><TD>
+getline var
+</TD><TD>
+Set var from next input record; set
+NF, FNR.
+</TD></TR><TR><TD>
+getline var &lt;file
+</TD><TD>
+Set var from next record of
+file.
+</TD></TR><TR><TD>
+next
+</TD><TD>
+Stop processing the current input record. The next input record is read and processing
+starts over with the first pattern in the awk program. If the end of the input data is reached,
+the END block(s), if any, are executed.
+</TD></TR><TR><TD>
+next file
+</TD><TD>
+Stop processing the current input file. The next input record read comes from the
+next input file. FILENAME is updated, FNR is reset to
+1, and processing starts over with the first pattern in the
+awk program. If the end of the input data is reached, the
+END block(s), if any, are executed.
+</TD></TR><TR><TD>
+print
+</TD><TD>
+Prints the current record.
+</TD></TR><TR><TD>
+print expr-list
+</TD><TD>
+Prints expressions. Each expression is separated by the value of the
+OFS variable. The output record is terminated with the value of the
+ORS variable.
+</TD></TR><TR><TD>
+print expr-list &gt;file
+</TD><TD>
+Prints expressions on
+file. Each expression is separated by the value of the
+OFS variable. The output record is terminated with the value of the
+ORS variable.
+</TD></TR><TR><TD>
+printf fmt, expr-list
+</TD><TD>
+Format and print.
+</TD></TR><TR><TD>
+printf fmt, expr-list &gt;file
+</TD><TD>
+Format and print on
+file.
+</TD></TR><TR><TD>
+system(cmd-line)
+</TD><TD>
+Execute the command
+cmd-line, and return the exit status. (This may not be available on
+-POSIX systems.)
+</TD></TR></TABLE>
+
+
+<P>Other input/output redirections are also allowed. For
+print and printf, &gt;&gt;file appends output to the
+file, while | command writes on a pipe. In a similar fashion,
+command | getline pipes into getline. The getline command will return
+0 on end of file, and _1 on an error.
+</P>
+
+<P><B>
+THE PRINTF STATEMENT
+</B></P>
+
+<P>The awk versions of the printf statement and
+sprintf() function accept the following conversion specification formats:
+</P>
+
+<TABLE>
+
+%c
+<TR><TD>
+An ASCII character. If the argument used for
+%c is numeric, it is treated as a character and
+printed. Otherwise, the argument is assumed to be a string, and the only first character of that string is printed.
+</TD></TR></TABLE>
+
+<A NAME="PAGENUM-168"><P>Page 168</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+%d
+</TD><TD>
+A decimal number (the integer part).
+</TD></TR><TR><TD>
+%i
+</TD><TD>
+Just like %d.
+</TD></TR><TR><TD>
+%e
+</TD><TD>
+A floating-point number of the form
+[_]d.ddddddE[+_]dd.
+</TD></TR><TR><TD>
+%f
+</TD><TD>
+A floating-point number of the form
+[_]ddd.dddddd.
+</TD></TR><TR><TD>
+%g
+</TD><TD>
+Use e or f conversion, whichever is shorter, with nonsignificant zeros suppressed.
+</TD></TR><TR><TD>
+%o
+</TD><TD>
+An unsigned octal number (again, an integer).
+</TD></TR><TR><TD>
+%s
+</TD><TD>
+A character string.
+</TD></TR><TR><TD>
+%x
+</TD><TD>
+An unsigned hexadecimal number (an integer).
+</TD></TR><TR><TD>
+%X
+</TD><TD>
+Like %x, but using ABCDEF instead of abcdef.
+</TD></TR><TR><TD>
+%%
+</TD><TD>
+A single % character; no argument is converted.
+</TD></TR></TABLE>
+
+<P>There are optional, additional parameters that may lie between the
+% and the control letter:
+</P>
+
+<TABLE>
+
+<TR><TD>
+_
+</TD><TD>
+The expression should be left-justified within its field.
+</TD></TR><TR><TD>
+width
+</TD><TD>
+The field should be padded to this width. If the number has a leading zero, then the field will be
+padded with zeros. Otherwise, it is padded with blanks. This applies even to the nonnumeric output formats.
+</TD></TR><TR><TD>
+.prec
+</TD><TD>
+A number indicating the maximum width of strings or digits to the right of the decimal point.
+</TD></TR></TABLE>
+
+<P>The dynamic width and prec capabilities of the C
+printf() routines are supported. A * in place of either the
+width or prec specifications will cause their values to be taken from the argument list to
+printf or sprintf().
+</P>
+
+
+<P><B>
+SPECIAL FILEMANES
+</B></P>
+
+<P>When doing I/O redirection from either print or
+printf into a file, or via getline from a file,
+gawk recognizes certain special filenames internally. These filenames allow access to open file descriptors inherited from
+gawk's parent process (usually the shell). Other special filenames provide access information about the running
+gawk process. The filenames are
+</P>
+
+
+<TABLE>
+
+<TR><TD>
+/dev/pid
+</TD><TD>
+Reading this file returns the process ID of the current process, in decimal, terminated with a newline.
+</TD></TR><TR><TD>
+/dev/ppid
+</TD><TD>
+Reading this file returns the parent process ID of the current process, in decimal, terminated with
+a newline.
+</TD></TR><TR><TD>
+/dev/pgrpid
+</TD><TD>
+Reading this file returns the process group ID of the current process, in decimal, terminated with
+a newline.
+</TD></TR><TR><TD>
+/dev/user
+</TD><TD>
+Reading this file returns a single record terminated with a newline. The fields are separated with blanks.
+$1 is the value of the getuid(2) system call, $2 is the value of the
+geteuid(2) system call, $3 is the value of the
+getgid(2) system call, and $4 is the value of the
+getegid( 2) system call. If there are any additional
+fields, they are the group IDs returned by
+getgroups(2). Multiple groups may not be supported on all systems.
+</TD></TR><TR><TD>
+/dev/stdin
+</TD><TD>
+The standard input.
+</TD></TR><TR><TD>
+/dev/stdout
+</TD><TD>
+The standard output.
+</TD></TR><TR><TD>
+/dev/stderr
+</TD><TD>
+The standard error output.
+</TD></TR><TR><TD>
+/dev/fd/n
+</TD><TD>
+The file associated with the open file descriptor
+n.
+</TD></TR></TABLE>
+
+
+<P>These are particularly useful for error messages. For example, you could use
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+print &quot;You blew it!&quot; &gt; &quot;/dev/stderr&quot;
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>whereas you would otherwise have to use
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+print &quot;You blew it!&quot; j &quot;cat 1&gt;&amp;2&quot;
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+<P>These filenames may also be used on the command line to name data files.
+</P>
+
+<P><B>
+NUMERIC FUNCTIONS
+</B></P>
+
+<P>awk has the following predefined arithmetic functions:
+</P>
+
+<TABLE>
+
+<TR><TD>
+atan2(y, x)
+</TD><TD>
+Returns the arctangent of y/x in radians.
+</TD></TR><TR><TD>
+cos(expr)
+</TD><TD>
+Returns the cosine in radians.
+</TD></TR></TABLE>
+
+
+
+<P><CENTER>
+<a href="0165-0166.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0169-0170.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

@@ -1,0 +1,300 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0206-0207.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0210-0212.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-208"><P>Page 208</P></A>
+
+<P>This code will accept any of the following as equivalent:
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+cmd -aoarg file file
+cmd -a -o arg file file
+cmd -oarg -a file file
+cmd -a -oarg -- file file
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+
+
+<P>sh(1), getopt(3)
+</P>
+<P><B>
+DIAGNOSTICS
+</B>
+</P>
+
+<P>getopt prints an error message on the standard error output when it encounters an option letter not included in
+optstring.
+</P>
+<P><B>
+HISTORY
+</B>
+</P>
+
+<P>Written by Henry Spencer, working from a Bell Labs manual page. Behavior believed identical to the Bell version.
+</P>
+<P><B>
+BUGS
+</B>
+</P>
+
+
+<P>Whatever getopt(3) has.
+</P>
+<P>Arguments containing whitespace or embedded shell meta characters generally will not survive intact; this looks easy to
+fix but isn't.
+</P>
+<P>The error message for an invalid option is identified as coming from
+getopt rather than from the shell procedure
+containing the invocation of getopt; this, again, is hard to fix.
+</P>
+<P>The precise best way to use the set command to set the arguments without disrupting the value(s) of shell options
+varies from one shell version to another.
+</P>
+<P>21 June 1993
+</P>
+
+<H3><A NAME="ch01_ 87">
+giftopnm
+</A></H3>
+
+<P>giftopnm&#151;Convert a GIF file into a portable anymap
+</P>
+
+<P><B>
+SINOPSIS
+</B>
+</P>
+
+
+<!-- CODE SNIP //-->
+<PRE>
+giftopnm [-verbose][-comments][-image N][GIFfile]
+</PRE>
+<!-- END CODE SNIP //-->
+<P><B>
+DESCRIPTION
+</B>
+</P>
+
+
+<P>Reads a GIF file for input, and outputs portable anymap.
+</P>
+<P><B>
+OPTIONS
+</B>
+</P>
+
+
+<TABLE>
+
+<TR><TD>
+-verbose
+</TD><TD>
+Produces verbose output about the GIF file input.
+</TD></TR><TR><TD>
+-comments
+</TD><TD>
+Only outputs GIF89 comment fields.
+</TD></TR><TR><TD>
+-image
+</TD><TD>
+Outputs the specified GIF image from the input GIF archive (where
+N is 1, 2, 20...). Normally, there is only one image per file, so this option is not needed.
+</TD></TR></TABLE>
+
+
+<P>All flags can be abbreviated to their shortest unique prefix.
+</P>
+
+<P><B>
+BUGS
+</B>
+</P>
+
+
+
+<P>This does not correctly handle the Plain Text Extension of the GIF89 standard, since I did not have any example input
+files containing them.
+</P>
+
+<A NAME="PAGENUM-209"><P>Page 209</P></A>
+
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+
+
+
+<P>ppmtogif(1), ppm(5)
+</P>
+
+<P><B>
+AUTHOR
+</B>
+</P>
+
+
+<P>Copyright &quot; 1993 by David Koblas (koblas@netcom.com)
+</P>
+
+<P>29 September 1993
+</P>
+
+<H3><A NAME="ch01_ 88">
+gindxbib
+</A></H3>
+<P>gindxbib&#151;Make inverted index for bibliographic databases
+</P>
+
+<P><B>
+SINOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+gindxbib [_vw] [_c file] [_d dir] [_f file] [_h n] [_i string]
+[_k n] [_l n] [_n n] [_o file] [_t n] [filename ...]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+
+
+
+<P>gindxbib makes an inverted index for the bibliographic databases in
+filename... for use with grefer(1), glookbib(1),
+and lkbib(1). The index will be named filename.i; the index is written to a temporary file which is then renamed to this. If
+no filenames are given on the command line because the
+_f option has been used, and no _o option is given, the index will
+be named Ind.i.
+</P>
+<P>Bibliographic databases are divided into records by blank lines. Within a record, each fields starts with a
+% character at the beginning of a line. Fields have a one-letter name that follows the
+% character.
+</P>
+
+<P>The values set by the _c, _n, _l, and _t options are stored in the index; when the index is searched, keys will be discarded
+and truncated in a manner appropriate to these options; the original keys will be used for verifying that any record found
+using the index actually contains the keys. This means that a user of an index need not know whether these options were used
+in the creation of the index, provided that not all the keys to be searched for would have been discarded during indexing
+and that the user supplies at least the part of each key that would have remained after being truncated during indexing. The
+value set by the _i option is also stored in the index and will be used in verifying records found using the index.
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+
+
+
+<TABLE>
+
+<TR><TD>
+_v
+</TD><TD>Print the version number.
+</TD></TR><TR><TD>
+_w
+</TD><TD>Index whole files. Each file is a separate record.
+</TD></TR><TR><TD>
+_cfile
+</TD><TD>Read the list of common words from
+file instead of /usr/lib/groff/eign.
+</TD></TR><TR><TD>
+_ddir
+</TD><TD>Use dir as the pathname of the current working directory to store in the index, instead of the path
+printed by pwd(1). Usually dir will be a symbolic link that points to the directory printed by
+pwd(1).
+</TD></TR><TR><TD>
+_ffile
+</TD><TD>Read the files to be indexed from
+file. If file is _, files will be read from the standard input. The
+_f option can be given at most once.
+</TD></TR><TR><TD>
+_istring
+</TD><TD>Don't index the contents of fields whose names are in
+string. Initially, string is XYZ.
+</TD></TR><TR><TD>
+_hn
+</TD><TD>Use the first prime greater than or equal to
+n for the size of the hash table. Larger values of
+n will usually make searching faster, but will make the index larger and
+gindxbib use more memory. Initially, n is 997.
+</TD></TR><TR><TD>
+_kn
+</TD><TD>Use at most n keys per input record. Initially,
+n is 100.
+</TD></TR><TR><TD>
+_ln
+</TD><TD>Discard keys that are shorter than n. Initially,
+n is 3.
+</TD></TR><TR><TD>
+_nn
+</TD><TD>Discard the n most common words. Initially,
+n is 100.
+</TD></TR><TR><TD>
+_obasename
+</TD><TD>The index should be named
+basename.i.
+</TD></TR><TR><TD>
+_tn
+</TD><TD>Truncate keys to n. Initially, n is 6.
+</TD></TR></TABLE>
+
+
+
+<P><CENTER>
+<a href="0206-0207.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0210-0212.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

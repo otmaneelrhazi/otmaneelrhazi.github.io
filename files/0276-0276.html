@@ -1,0 +1,139 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0273-0275.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0277-0277.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-276"><P>Page 276</P></A>
+
+
+<P>The _B and _C OPTIONS control how ispell handles run-together words, such as
+notthe for not the. If _B is specified, such words will be considered errors, and
+ispell will list variations with an inserted blank or hyphen as possible replacements. If
+_C is specified, run-together words will be considered to be legal compounds, so long as both components are in
+the dictionary, and each component is at least as long as a language-dependent minimum (three characters, by default). This
+is useful for languages such as German and Norwegian, where many compound words are formed by concatenation. (Note
+that compounds formed from three or more root words will still be considered errors). The default for this option is
+language-dependent; in a multilingual installation, the default may vary depending on which dictionary you choose.
+</P>
+
+<P>The _P and _m OPTIONS control when ispell automatically generates suggested root/affix combinations for possible addition
+to your personal dictionary. (These are the entries in the &quot;guess&quot; list that are preceded by question marks.) If
+_P is specified, such guesses are displayed only if
+ispell cannot generate any possibilities that match the current dictionary. If
+_m is specified, such guesses are always displayed. This can be useful if the dictionary has a limited word list, or a word list with few
+suffixes. However, you should be careful when using this option, as it can generate guesses that produce illegal words. The default
+for this option is controlled by the dictionary file used.
+</P>
+
+<P>The _S option suppresses ispell's normal behavior of sorting the list of possible replacement words. Some people may
+prefer this, since it somewhat enhances the probability that the correct word will be low-numbered.
+</P>
+
+<P>The _d option is used to specify an alternate hashed dictionary file, other than the default. If the filename does not contain
+a /, the library directory for the default dictionary file is prefixed; thus, to use a dictionary in the local directory
+-d ./xxx.hash must be used. This is useful to allow dictionaries for alternate languages. Unlike previous versions of
+ispell, a dictionary of
+/dev/null is illegal because the dictionary contains the affix table. If you need an effectively empty dictionary, create a
+one-entry list with an unlikely string (for example,
+&quot;qqqqq&quot;).
+</P>
+
+<P>The _p option is used to specify an alternate personal dictionary file. If the filename does not begin with
+/, $HOME is prefixed. Also, the shell variable
+WORDLIST may be set, which renames the personal dictionary in the same manner. The command
+line overrides any WORDLIST setting. If neither the
+_p switch nor the WORDLIST ENVIRONMENT variable is given,
+ispell will search for a personal dictionary in both the current directory and
+$HOME, creating one in $HOME if none is found. The preferred name
+is constructed by appending .ispell to the base name of the hash file. For example, if you use the English dictionary,
+your personal dictionary would be named
+.ispell_english. However, if the file
+.ispell_words exists, it will be used as the
+personal dictionary regardless of the language hash file chosen. This feature is included primarily for backwards compatibility.
+</P>
+
+<P>If the _p option is not specified, ispell will look for personal dictionaries in both the current directory and the
+home directory. If dictionaries exist in both places, they will be merged. When words are added to the personal dictionary, they
+will be written to the current directory if a dictionary already existed in that place; otherwise, they will be written to
+the dictionary in the home directory.
+</P>
+
+<P>The _w option may be used to specify characters other than alphabetics that may also appear in words. For
+instance, _w &quot;&amp;&quot; will allow &quot;AT&amp;T&quot; to be picked up. Underscores are useful in many technical documents. There is an admittedly
+crude provision in this option for 8-bit international characters. Nonprinting characters may be specified in the usual way
+by inserting a backslash followed by the octal character code, for example, \014 for a form feed. Alternatively, if
+n appears in the character string, the (up to) three characters following are a decimal code, 0_255, for the character. For example, to
+include bells and form feeds in your words (an admittedly silly thing to do, but aren't most pedagogical EXAMPLES):
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+n007n012
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>Numeric digits other than the three following n are simply numeric characters. Use of
+n does not conflict with anything because actual alphabetics have no meaning; alphabetics are already accepted.
+ispell will typically be used with input from a file, meaning that preserving parity for possible 8-bit characters from the input text is okay. If you specify the
+-l option, and actually type text from the terminal, this may create problems if your
+stty settings preserve parity.
+</P>
+
+<P>The _W option may be used to change the length of words that
+ispell always accepts as legal. Normally, ispell will accept
+all one-character words as legal, which is equivalent to specifying
+_W 1. (The default for this switch is actually controlled by
+the MINWORD installation option, so it may vary at your installation.) If you want all words to be checked against the
+dictionary, regardless of length, you might want to specify
+_W 0. On the other hand, if your document specifies to accept all words
+of three letters or less, then regardless of the setting of this option,
+ispell will only generate words that are in the dictionary
+as suggested replacements for words; this prevents the list from becoming too long. Obviously, this option can be
+very
+</P>
+
+
+
+<P><CENTER>
+<a href="0273-0275.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0277-0277.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

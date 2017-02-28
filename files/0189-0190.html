@@ -1,0 +1,266 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0188-0188.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0191-0192.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-189"><P>Page 189</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+</TD><TD>
+enables the same software cache, but when the compiler determines that the context of the
+last function compiled would yield the same access
+privileges of the next function to compile, it preserves the cache. This is most helpful when defining many member functions for the
+same class: with the exception of member functions which are friends of other classes, each
+member function has exactly the same access privileges as every other, and the cache need not be flushed.
+</TD></TR><TR><TD>
+_fno_default_inline
+</TD><TD>
+Don't make member functions inline by default merely because they are defined inside the
+class scope (C++ only).
+</TD></TR><TR><TD>
+_fno_defer_pop
+</TD><TD>
+Always pop the arguments to each function call as soon as that function returns. For
+machines which must pop arguments after a function call, the compiler normally lets
+arguments accumulate on the stack for several function calls and pops them all at once.
+</TD></TR><TR><TD>
+_fforce_mem
+</TD><TD>
+Force memory operands to be copied into registers before doing arithmetic on them. This
+may produce better code by making all memory references potential common subexpressions.
+When they are not common subexpressions, instruction combination should eliminate the
+separate register-load. I am interested in hearing about the difference this makes.
+</TD></TR><TR><TD>
+_fforce_addr
+</TD><TD>
+Force memory address constants to be copied into registers before doing arithmetic on
+them.<BR>
+ This may produce better code just as
+_fforce_mem may. I am interested in hearing about
+the difference this makes.
+</TD></TR><TR><TD>
+_fomit_frame_pointer
+</TD><TD>
+Don't keep the frame pointer in a register for functions that don't need one. This avoids
+the instructions to save, set up and restore frame pointers; it also makes an extra register available
+in many functions. It also makes debugging impossible on most machines.<BR>
+On some machines, such as the VAX, this flag has no effect because the standard
+calling sequence automatically handles the frame pointer and nothing is saved by pretending it
+doesn't exist. The machine-description macro
+FRAME_POINTER_REQUIRED controls whether a target machine supports this flag.
+</TD></TR><TR><TD>
+_finline_functions
+</TD><TD>
+Integrate all simple functions into their callers. The compiler heuristically decides
+which functions are simple enough to be worth integrating in this way.<BR>
+If all calls to a given function are integrated, and the function is declared
+static, then gcc normally does not output the function as assembler code in its own right.
+</TD></TR><TR><TD>
+_fcaller_saves
+</TD><TD>
+Enable values to be allocated in registers that will be clobbered by function calls, by
+emitting extra instructions to save and restore the registers around such calls. Such allocation is
+done only when it seems to result in better code than would otherwise be produced.<BR>
+This option is enabled by default on certain machines, usually those which have no
+call-preserved registers to use instead.
+</TD></TR><TR><TD>
+_fkeep_inline_functions
+</TD><TD>
+Even if all calls to a given function are integrated, and the function is declared
+static, nevertheless output a separate runtime callable version of the function.
+</TD></TR><TR><TD>
+_fno_function_cse
+</TD><TD>
+Do not put function addresses in registers; make each instruction that calls a constant
+function contain the function's address explicitly.<BR>
+This option results in less efficient code, but some strange hacks that alter the assembler
+output may be confused by the optimizations performed when this option is not used.
+</TD></TR><TR><TD>
+_fno_peephole
+</TD><TD>
+Disable any machine-specific peephole optimizations.
+</TD></TR><TR><TD>
+_ffast-math
+</TD><TD>
+This option allows gcc to violate some ANSI or IEEE specifications in the interest of
+optimizing code for speed. For example, it allows the compiler to assume arguments to the
+sqrt function are nonnegative numbers.<BR>
+This option should never be turned on by any
+_O option because it can result in incorrect output for programs which depend on an exact implementation of IEEE or ANSI
+rules/specifications for math functions.
+</TD></TR></TABLE>
+
+<P>The following options control specific optimizations. The
+_O2 option turns on all of these optimizations except
+_funroll_loops and _funroll_all_loops.
+</P>
+
+<P>The _O option usually turns on the
+_fthread_jumps and _fdelayed_branch options, but specific machines may change
+the default optimizations.
+</P>
+
+
+
+<A NAME="PAGENUM-190"><P>Page 190</P></A>
+
+
+<P>You can use the following flags in the rare cases when fine-tuning of optimizations to be performed is desired:
+</P>
+
+
+<TABLE>
+
+<TR><TD>
+_fstrength_reduce
+</TD><TD>
+Perform the optimizations of loop strength reduction and elimination of iteration variables.
+</TD></TR><TR><TD>
+_fthread_jumps
+</TD><TD>
+Perform optimizations where we check to see if a jump branches to a location where
+another comparison subsumed by the first is found. If so, the first branch is redirected to either
+the destination of the second branch or a point immediately following it, depending on
+whether the condition is known to be true or false.
+</TD></TR><TR><TD>
+_funroll_loops
+</TD><TD>
+Perform the optimization of loop unrolling. This is only done for loops whose number
+of iterations can be determined at compile time or runtime.
+</TD></TR><TR><TD>
+_funroll_all_loops
+</TD><TD>
+Perform the optimization of loop unrolling. This is done for all loops. This usually
+makes programs run more slowly.
+</TD></TR><TR><TD>
+_fcse_follow_jumps
+</TD><TD>
+In common subexpression elimination, scan through jump instructions when the target of
+the jump is not reached by any other path. For example, when CSE encounters an
+if statement with an else clause, CSE will follow the jump when the condition tested is false.
+</TD></TR><TR><TD>
+_fcse_skip_blocks
+</TD><TD>
+This is similar to
+_fcse_follow_jumps, but causes CSE to follow jumps which conditionally
+skip over blocks. When CSE encounters a simple if statement with no
+else clause, _fcse_skip_blocks causes CSE to follow the jump around the body of the
+if.
+</TD></TR><TR><TD>
+_frerun_cse_after_loop
+</TD><TD>
+Rerun common subexpression elimination after loop optimizations has been performed.
+</TD></TR><TR><TD>
+_felide_constructors
+</TD><TD>
+Elide constructors when this seems plausible (C++ only). With this flag, GNU C++ initializes
+y directly from the call to foo without going through a temporary in the following code:<BR>
+ A foo (); A y = foo ();<BR>
+ Without this option, GNU C++ first initializes y by calling the appropriate constructor for
+type A; then assigns the result of foo to a temporary; and, finally, replaces the initial value of
+y with the temporary.<BR>
+The default behavior
+(_fno_elide_constructors) is specified by the draft ANSI C++ standard.
+If your program's constructors have side effects, using
+_felide-constructors can make your program act differently, since some constructor calls may be omitted.
+</TD></TR><TR><TD>
+_fexpensive_optimizations
+</TD><TD>
+Perform a number of minor optimizations that are relatively expensive.
+</TD></TR><TR><TD>
+_fdelayed_branch
+</TD><TD>
+If supported for the target machine, attempt to reorder instructions to exploit instruction
+slots available after delayed branch instructions.
+</TD></TR><TR><TD>
+_fschedule_insns
+</TD><TD>
+If supported for the target machine, attempt to reorder instructions to eliminate execution
+stalls due to required data being unavailable. This helps machines that have slow floating point
+or memory load instructions by allowing other instructions to be issued until the result of the
+load or floating point instruction is required.
+</TD></TR><TR><TD>
+_fschedule_insns2
+</TD><TD>
+Similar to
+_fschedule_insns, but requests an additional pass of instruction scheduling
+after register allocation has been done. This is especially useful on machines with a relatively
+small number of registers and where memory load instructions take more than one cycle.
+</TD></TR></TABLE>
+
+<P><B>
+TARGET OPTIONS
+</B>
+</P>
+
+<P>By default, GNU CC compiles code for the same type of machine that you are using.
+</P>
+<P>However, it can also be installed as a cross-compiler, to compile for some other type of machine. In fact, several
+different configurations of GNU CC, for different target machines, can be installed side by side. Then you specify which one to
+use with the _b option.
+</P>
+<P>In addition, older and newer versions of GNU CC can be installed side by side. One of them (probably the newest) will
+be the default, but you may sometimes want to use another.
+</P>
+
+<TABLE>
+
+<TR><TD>
+_b machine
+</TD><TD>
+The argument machine specifies the target machine for compilation. This is useful when
+you have installed GNU CC as a cross-compiler.
+The value to use for machine is the same as was specified as the machine type when
+configuring GNU CC as a cross-compiler. For example, if a cross-compiler was configured with
+configure
+</TD></TR></TABLE>
+
+
+
+
+<P><CENTER>
+<a href="0188-0188.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0191-0192.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

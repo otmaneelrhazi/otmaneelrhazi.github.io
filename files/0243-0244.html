@@ -1,0 +1,275 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0242-0242.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0245-0246.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-243"><P>Page 243</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+.openastreamfilename
+</TD><TD>
+Like open, but if
+filename exists, append to it instead of truncating it.
+</TD></TR><TR><TD>
+.pnr
+</TD><TD>
+Print the names and contents of all currently defined number registers on
+stderr.
+</TD></TR><TR><TD>
+.psocommand
+</TD><TD>
+This behaves like the so request except that input comes from the standard output of
+command.
+</TD></TR><TR><TD>
+.ptr
+</TD><TD>
+Print the names and positions of all traps (not including input line traps and diversion traps)
+on stderr. Empty slots in the page trap list are printed as well, because they can affect the priority
+of subsequently planted traps.
+</TD></TR><TR><TD>
+.rcharc1c2...
+</TD><TD>
+Remove the definitions of characters
+c1, c2, ... This undoes the effect of a char request.
+</TD></TR><TR><TD>
+.rj, .rjn
+</TD><TD>
+Right justify the next n input lines. Without an argument, right justify the next input line.
+The number of lines to be right justified is available in the
+\n[.rj] register. This implicitly does .ce0. The
+ce request implicitly does .rj0.
+</TD></TR><TR><TD>
+.rnnxxyy
+</TD><TD>
+Rename number register xx to yy.
+</TD></TR><TR><TD>
+.shcc
+</TD><TD>
+Set the soft hyphen character to c. If
+c is omitted, the soft hyphen character will be set to
+the default \(hy. The soft hyphen character is the character that will be inserted when a word
+is hyphenated at a line break. If the soft hyphen character does not exist in the font of the
+character immediately preceding a potential break point, then the line will not be broken at that
+point. Neither definitions (specified with the
+char request) nor translations (specified with the
+tr request) are considered when finding the soft hyphen character.
+</TD></TR><TR><TD>
+.shiftn
+</TD><TD>
+In a macro, shift the arguments by
+n positions: argument i becomes argument i_n; arguments
+1 to n will no longer be available. If n is missing, arguments will be shifted by
+1. Shifting by negative amounts is currently undefined.
+</TD></TR><TR><TD>
+.specials1s2...
+</TD><TD>
+Fonts s1, s2 are special and will be searched for characters not in the current font.
+</TD></TR><TR><TD>
+.stynf
+</TD><TD>
+Associate style f with font position
+n. A font position can be associated either with a font or with
+a style. The current font is the index of a font position and
+so is also either a font or a style. When it is a style, the font that is actually used is the font the name of which is the concatenation of
+the name of the current family and the name of the current style. For example, if the current font is
+1 and font position 1 is associated with style R and the current font family is
+T, then font TR will be used. If the current font is not a
+style, then the current family is ignored. When the requests
+cs, bd, tkf, uf, or fspecial are applied to a style, then they will instead be applied to the member of
+the current family corresponding to that style. The default family can be set with the
+_f option. The styles command in the DESC file controls which font positions (if any) are initially associated
+with styles rather than fonts.
+</TD></TR><TR><TD>
+.tkffs1n1s2n2
+</TD><TD>
+Enable track kerning for font
+f. When the current font is f, the width of every character will
+be increased by an amount between n1 and n2; when the current point size is less than or equal to
+s1, the width will be increased by n1; when it is greater than or equal to
+s2, the width will be increased by n2; when the point size is greater than or equal to
+s1 and less than or equal to s2, the increase in width is a linear function of the point size.
+</TD></TR><TR><TD>
+.trffilename
+</TD><TD>
+Transparently output the contents of file
+filename. Each line is output as it would be were
+it preceded by \!; however, the lines are not subject to copy-mode interpretation. If the file does
+not end with a newline, then a newline will be added. For example, you can define a macro
+x containing the contents of file f, using
+<!-- CODE SNIP //-->
+<PRE>
+.dix
+.trff
+.di
+</PRE>
+<!-- END CODE SNIP //-->
+</TD></TR><TR><TD>
+</TD><TD>
+Unlike with the cf request, the file cannot contain characters such as
+NUL that are not legal troff input characters.
+</TD></TR><TR><TD>
+.trnt abcd
+</TD><TD>
+This is the same as the tr request except that the translations do not apply to text that is
+transparently throughput into a diversion with \!. For example,
+<!-- CODE SNIP //-->
+<PRE>
+.tr ab
+.di x
+\!.tm a
+.di
+.x
+</PRE>
+<!-- END CODE SNIP //-->
+</TD></TR></TABLE>
+
+<A NAME="PAGENUM-244"><P>Page 244</P></A>
+
+<TABLE>
+
+<TR><TD>
+</TD><TD>
+will print b; if trnt is used instead of
+tr, it will print a.
+</TD></TR><TR><TD>
+.troff
+</TD><TD>
+Make the n built-in condition false, and the
+t built-in condition true. This undoes the effect of
+the nroff request.
+</TD></TR><TR><TD>
+.vptn
+</TD><TD>
+Enable vertical position traps if n is nonzero, disable them otherwise. Vertical position traps
+are traps set by the wh or dt requests. Traps set by the
+it request are not vertical position traps. The parameter that controls whether vertical position traps are enabled is global. Initially,
+vertical position traps are enabled.
+</TD></TR><TR><TD>
+.warnn
+</TD><TD>
+Control warnings. n is the sum of the numbers associated with each warning that is to be
+enabled; all other warnings will be disabled. The number associated with each warning is listed in
+the &quot;Warnings&quot; subsection. For example, .warn
+0 will disable all warnings, and .warn 1 will disable
+all warnings except that about missing characters. If
+n is not given, all warnings will be enabled.
+</TD></TR><TR><TD>
+.whilecanything
+</TD><TD>
+While condition c is true, accept
+anything as input; c can be any condition acceptable to an
+if request; anything can comprise multiple lines if the first line starts with
+\{ and the last line ends with \}. See also the
+break and continue requests.
+</TD></TR><TR><TD>
+.writestreamanything
+</TD><TD>
+Write anything to the stream named
+stream. stream must previously have been the subject of
+an open request. anything is read in copy mode; a leading will be stripped.
+</TD></TR></TABLE>
+
+<P><B>
+EXTENDED REQUETS
+</B>
+</P>
+<TABLE>
+
+<TR><TD>
+.cffilename
+</TD><TD>
+When used in a diversion, this will embed in the diversion an object which, when reread, will
+cause the contents of filename to be transparently copied through to the output. In UNIX
+troff, the contents of filename are immediately copied through to the output regardless of whether there is
+a current diversion; this behavior is so anomalous that it must be considered a bug.
+</TD></TR><TR><TD>
+.evxx
+</TD><TD>
+If xx is not a number, this will switch to a named environment called
+xx. The environment should be popped with a matching
+ev request without any arguments, just as for numbered
+environments. There is no limit on the number of named environments; they will be created the first time
+that they are referenced.
+</TD></TR><TR><TD>
+.fpnf1f2
+</TD><TD>
+The fp request has an optional third argument. This argument gives the external name of the
+font, which is used for finding the font description file. The second argument gives the internal name
+of the font, which is used to refer to the font in
+troff after it has been mounted. If there is no
+third argument, then the internal name will be used as the external name. This feature allows you to
+use fonts with long names in compatibility mode.
+</TD></TR><TR><TD>
+.ssmn
+</TD><TD>
+When two arguments are given to the
+ss request, the second argument gives the sentence space
+size. If the second argument is not given, the sentence space size will be the same as the word space
+size. Like the word space size, the sentence space is in units of one twelfth of the
+spacewidth parameter for the current font. Initially, both the word space size and the sentence space size are 12.
+The sentence space size is used in two circumstances: If the end of a sentence occurs at the end of a
+line in fill mode, then both an interword space and a sentence space will be added; if two spaces
+follow the end of a sentence in the middle of a line, then the second space will be a sentence space.
+Note that the behavior of UNIX troff will be exactly that exhibited by GNU
+troff if a second argument is never given to the
+ss request. In GNU troff, as in UNIX troff, you should always follow
+a sentence with either a newline or two spaces.
+</TD></TR><TR><TD>
+.tan1n2...nnTr1r2...rn
+</TD><TD>
+Set tabs at positions
+n1, n2,...,nn and then set tabs at nn+r1, nn+r2,....,
+nn+rn and then at nn+rn+r1, nn+rn+r2,..., nn+rn+rn, and so on. For example,
+.ta T .5i will set tabs every half an inch.
+</TD></TR></TABLE>
+
+
+
+
+
+<P><CENTER>
+<a href="0242-0242.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0245-0246.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

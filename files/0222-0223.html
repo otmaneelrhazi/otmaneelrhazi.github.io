@@ -1,0 +1,306 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0221-0221.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0224-0224.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-222"><P>Page 222</P></A>
+
+<TABLE>
+
+<TR><TD>
+discard*fields
+</TD><TD>
+When the reference is read,
+fields should be discarded; no string definitions
+for fields will be output. Initially, fields are
+XYZ.
+</TD></TR><TR><TD>
+et-al*stringmn
+</TD><TD>
+Control use of et al in the evaluation of
+@ expressions in label expressions. If the number of authors needed to make the author sequence unambiguous is
+u and the total number of authors is t, then the last
+t _ u authors will be replaced by string, provided that
+t _ u is not less than m and t is not less than n. The default behavior
+is et-al &quot; et al&quot; 2 3.
+</TD></TR><TR><TD>
+includefilename
+</TD><TD>
+Include filename and interpret the contents as commands.
+</TD></TR><TR><TD>
+join-authorsstring1
+</TD><TD>
+This says how authors should be joined together. When there are exactly two
+</TD></TR><TR><TD>
+string2string3
+</TD><TD>
+authors, they will be joined with
+string1. When there are more than two authors, all but the last two will be joined with
+string2, and the last two authors will be joined with
+string3. If string3 is omitted, it will default to
+string1; if string2 is also omitted, it will also default to
+string1. For example,
+</TD></TR><TR><TD>
+</TD><TD>
+join-authors &quot; and &quot; &quot;, &quot; &quot;, and &quot;
+</TD></TR><TR><TD>
+</TD><TD>
+will restore the default method for joining authors.
+</TD></TR><TR><TD>
+label-in-reference*
+</TD><TD>
+When outputting the reference, define the string
+[F to be the reference's label. This is the default behavior; so the negative version of this command is more useful.
+</TD></TR><TR><TD>
+label-in-text*
+</TD><TD>
+For each reference, output a label in the text. The label will be separated from
+the surrounding text as described in the
+bracket-label command. This is the default behavior; so the negative version of this command is more useful.
+</TD></TR><TR><TD>
+labelstring
+</TD><TD>
+string is a label expression describing how to label each reference.
+</TD></TR><TR><TD>
+separate-label-second-parts
+</TD><TD>
+When merging two-part labels, separate the second part of the second label from the
+</TD></TR><TR><TD>
+string
+</TD><TD>
+first label with string. See the description of the
+&lt;&gt; label expression.
+</TD></TR><TR><TD>
+move-punctuation*
+</TD><TD>
+In the text, move any punctuation at the end of line past the label. It is usually
+a good idea to give this command unless you are using superscripted numbers
+as labels.
+</TD></TR><TR><TD>
+reverse*string
+</TD><TD>
+Reverse the fields whose names are in
+string. Each field name can be followed by a number that says how many such fields should be reversed. If no number is given
+for a field, all such fields will be reversed.
+</TD></TR><TR><TD>
+search-ignore*fields
+</TD><TD>
+While searching for keys in databases for which no index exists, ignore the
+contents of fields. Initially, fields XYZ are ignored.
+</TD></TR><TR><TD>
+search-truncate*n
+</TD><TD>
+Only require the first n characters of keys to be given. In effect, when searching for
+a given key, words in the database are truncated to the maximum of
+n and the length of the key. Initially, n is 6.
+</TD></TR><TR><TD>
+short-label*string
+</TD><TD>
+string is a label expression that specifies an alternative (usually shorter) style of
+label. This is used when the # flag is given in the citation. When using author-date
+style labels, the identity of the author or authors is sometimes clear from the context,
+and so it may be desirable to omit the author or authors from the label. The
+short-label command will typically be used to specify a label containing just a date and
+possibly a disambiguating letter.
+</TD></TR><TR><TD>
+sort*string
+</TD><TD>
+Sort references according to string. References will automatically be
+accumulated. string should be a list of field names, each followed by a number, indicating
+how many fields with the name should be used for sorting.
++ can be used to indicate that all the fields with the name should be used. Also,
+. can be used to indicate the references should be sorted using the (tentative) label. (The &quot;Label
+Expressions&quot; subsection describes the concept of a tentative label.)
+</TD></TR><TR><TD>
+sort-adjacent-labels*
+</TD><TD>
+Sort labels that are adjacent in the text according to their position in the
+reference list. This command should usually be given if the
+abbreviate-label-ranges command has been given, or if the label expression contains a
+&lt;&gt; expression. This will have no effect unless references are being accumulated.
+</TD></TR></TABLE>
+
+<A NAME="PAGENUM-223"><P>Page 223</P></A>
+
+
+<P><B>
+LABEL EXPRESSIONS
+</B>
+</P>
+
+<P>Label expressions can be evaluated both normally and tentatively. The result of normal evaluation is used for output.
+The result of tentative evaluation, called the tentative label, is used to gather the information that normal evaluation needs
+to disambiguate the label. Label expressions specified by the
+date-as-label and short-label commands are not
+evaluated tentatively. Normal and tentative evaluation are the same for all types of expression other than
+@, *, and % expressions. The following description applies to normal evaluation, except where otherwise specified.
+</P>
+
+<TABLE>
+
+<TR><TD>
+field, field n
+</TD><TD>
+The nth part of field. If n is omitted, it defaults to
+1.
+</TD></TR><TR><TD>
+`string'
+</TD><TD>
+The characters in string literally.
+</TD></TR><TR><TD>
+@
+</TD><TD>
+All the authors joined as specified by the
+join-authors command. The whole of each author's
+name will be used. However, if the references are sorted by author (that is the sort specification starts
+with A+), then authors' last names will be used instead, provided that this does not introduce ambiguity,
+and also an initial subsequence of the authors may be used instead of all the authors, again provided
+that this does not introduce ambiguity. The use of only the last name for the
+i-th author of some reference is considered to be ambiguous if there is some other reference, such that the first
+i - 1 authors of the references are the same, the
+i-th authors are not the same, but the i-th authors' last names are
+the same. A proper initial subsequence of the sequence of authors for some reference is considered to
+be ambiguous if there is a reference with some other sequence of authors that also has that subsequence
+as a proper initial subsequence. When an initial subsequence of authors is used, the remaining authors
+are replaced by the string specified by the et-al command; this command may also specify
+additional requirements that must be met before an initial subsequence can be used.
+@ tentatively evaluates to a canonical representation of the authors, such that authors that compare equally for sorting purpose
+will have the same representation.
+</TD></TR><TR><TD>
+%n, %a, %A, %i, %I
+</TD><TD>
+The serial number of the reference formatted according to the character following the
+%. The serial number of a reference is 1 plus the number of earlier references with same tentative label as
+this reference. These expressions tentatively evaluate to an empty string.
+</TD></TR><TR><TD>
+expr*
+</TD><TD>
+If there is another reference with the same tentative label as this reference, then
+expr; otherwise, an empty string. It tentatively evaluates to an empty string.
+</TD></TR><TR><TD>
+expr+n, expr_n
+</TD><TD>
+The first (+) or last (_) n uppercase or lowercase letters or digits of
+expr. troff special characters (such as \(`a) count as a single letter. Accent strings are retained but do not count toward the total.
+</TD></TR><TR><TD>
+expr.l
+</TD><TD>
+expr converted to lowercase.
+</TD></TR><TR><TD>
+expr.u
+</TD><TD>
+expr converted to uppercase.
+</TD></TR><TR><TD>
+expr.c
+</TD><TD>
+expr converted to caps and small caps.
+</TD></TR><TR><TD>
+expr.r
+</TD><TD>
+expr reversed so that the last name is first.
+</TD></TR><TR><TD>
+expr.a
+</TD><TD>
+expr with first names abbreviated. Note that fields specified in the
+abbreviate command are abbreviated before any labels are evaluated. Thus
+.a is useful only when you want a field to be abbreviated in
+a label but not in a reference.
+</TD></TR><TR><TD>
+expr.y
+</TD><TD>
+The year part of expr.
+</TD></TR><TR><TD>
+expr.+y
+</TD><TD>
+The part of expr before the year, or the whole of
+expr if it does not contain a year.
+</TD></TR><TR><TD>
+expr._y
+</TD><TD>
+The part of expr after the year, or an empty string if
+expr does not contain a year.
+</TD></TR><TR><TD>
+expr.n
+</TD><TD>
+The last name part of expr.
+</TD></TR><TR><TD>
+expr1expr2
+</TD><TD>
+expr1 except that if the last character of
+expr1 is _ then it will be replaced by expr2.
+</TD></TR><TR><TD>
+expr1 expr2
+</TD><TD>
+The concatenation of expr1 and
+expr2.
+</TD></TR><TR><TD>
+expr1|expr2
+</TD><TD>
+If expr1 is nonempty, then
+expr1; otherwise, expr2.
+</TD></TR><TR><TD>
+expr1&amp;expr2
+</TD><TD>
+If expr1 is nonempty, then
+expr2; otherwise, an empty string.
+</TD></TR><TR><TD>
+expr1?expr2:expr3
+</TD><TD>
+If expr1 is nonempty, then
+expr2; otherwise, expr3.
+</TD></TR><TR><TD>
+&lt;expr&gt;
+</TD><TD>
+The label is in two parts, which are separated by
+expr. Two adjacent two-part labels that have the
+same first part will be merged by appending the second part of the second label onto the first label
+separated by the string specified in the
+separate-label-second-parts command (initially, a comma followed by
+a
+</TD></TR></TABLE>
+
+
+
+<P><CENTER>
+<a href="0221-0221.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0224-0224.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

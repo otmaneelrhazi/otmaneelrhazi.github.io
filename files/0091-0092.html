@@ -1,0 +1,301 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0089-0090.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0093-0094.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-91"><P>Page 91</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+_b,&#151;bytes byte-list
+</TD><TD>
+Print only the bytes in positions listed in
+byte-list. Tabs and backspaces are treated like any other character; they
+take up one byte.
+</TD></TR><TR><TD>
+_c, &#151;characters character-list
+</TD><TD>
+Print only characters in positions listed in
+character-list. The same as _b for now, but internationalization will change that. Tabs and backspaces are treated like any
+other character; they take up one character.
+</TD></TR><TR><TD>
+_f, &#151;fields field-list
+</TD><TD>
+Print only the fields listed in field-list. Fields are separated by TAB by default.
+</TD></TR><TR><TD>
+_d, &#151;delimiter delim
+</TD><TD>
+For _f, fields are separated by the first character in
+delim instead of by TAB.
+</TD></TR><TR><TD>
+_n
+</TD><TD>
+Do not split multibyte characters (no-op for now).
+</TD></TR><TR><TD>
+_s, &#151;only-delimited
+</TD><TD>
+For _f, do not print lines that do not contain the field separator character.
+</TD></TR><TR><TD>
+&#151;help
+</TD><TD>
+Print a usage message and exit with a nonzero status.
+</TD></TR><TR><TD>
+&#151;version
+</TD><TD>
+Print version information on standard output then exit.
+</TD></TR></TABLE>
+
+<P>
+                                            GNU Text Utilities
+</P>
+
+
+<H3><A NAME="ch01_ 49">
+cvs
+</A></H3>
+
+<P>cvs&#151;Concurrent Versions System</P>
+
+<P><B>
+SYNOPSIS
+</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>
+cvs [ cvs_options ] cvs-command [ command_options ][command_args ]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B></P>
+
+<P>cvs is a front end to the rcs(1) revision control system, which extends the notion of revision control from a collection of
+files in a single directory to a hierarchical collection of directories consisting of revision controlled files. These directories and
+files can be combined together to form a software release.
+cvs provides the functions necessary to manage these software
+releases and to control the concurrent editing of source files among multiple software developers.
+</P>
+
+<P>cvs keeps a single copy of the master sources. This copy is called the source
+repository; it contains all the information to permit extracting previous software releases at any time based on either a symbolic revision tag, or a date in the past.
+</P>
+
+<P><B>
+ESSENTIAL COMMANDS
+</B></P>
+
+<P>cvs provides a rich variety of commands
+(cvs_command in the Synopsis), each of which often has a wealth of options, to
+satisfy the many needs of source management in distributed environments. However, you don't have to master every detail to
+do useful work with cvs; in fact, five commands are sufficient to use (and contribute to) the source repository.
+</P>
+
+
+<TABLE>
+
+<TR><TD>
+cvs checkout modules...
+</TD><TD>
+A necessary preliminary for most
+cvs work: creates your private copy of the source
+for modules (named collections of source; you can also use a path relative to the
+source repository here). You can work with this copy without interfering with others' work.
+At least one subdirectory level is always created.
+</TD></TR><TR><TD>
+cvs update
+</TD><TD>
+Execute this command from within your private source directory when you wish
+to update your copies of source files from changes that other developers have made to
+the source in the repository.
+</TD></TR><TR><TD>
+cvs add file...
+</TD><TD>
+Use this command to enroll new files in
+cvs records of your working directory. The files will be added to the repository the next time you run
+cvs commit. Note: You should use the cvs import command to bootstrap new sources into the source repository.
+cvs add is only used for new files to an already checked-out module.
+</TD></TR><TR><TD>
+cvs remove file...
+</TD><TD>
+Use this command (after erasing any files listed) to declare that you wish to
+eliminate files from the repository. The removal does not affect others until you
+run cvs commit.
+</TD></TR><TR><TD>
+cvs commit file...
+</TD><TD>
+Use this command when you wish to &quot;publish&quot; your changes to other developers,
+by incorporating them in the source repository.
+</TD></TR></TABLE>
+
+<A NAME="PAGENUM-92"><P>Page 92</P></A>
+
+
+<P><B>
+OPTIONS
+</B></P>
+
+<P>The cvs command line can include cvs_options, which apply to the overall
+cvs program; a cvs_command, which specifies a particular action on the source repository; and
+command_options and command_arguments to fully specify what the
+cvs_command will do.
+</P>
+<P>
+<P>
+<P>
+<P>
+<P>
+
+<CENTER>
+<TABLE BGCOLOR="#FFFF99">
+<TR><TD><B>
+WARNING
+</B></TD></TR>
+<TR><TD>
+<BLOCKQUOTE>
+You must be careful of precisely where you place options relative to the
+cvs_command. The same option can mean different things depending on whether it is in the
+cvs_options position (to the left of a cvs command) or in the
+command_options position (to the right of a cvs command).
+</BLOCKQUOTE></TD></TR>
+</TABLE></CENTER>
+</P>
+<P>There are only two situations where you may omit
+cvs_command: cvs _H or cvs _help elicits a list of available commands,
+and cvs _v or cvs _version displays version information on
+cvs itself.
+</P>
+
+<P><B>
+CVS OPTIONS
+</B></P>
+
+<P>As of release 1.6, cvs supports GNU style long options as well as short options. Only a few long options are
+currently supported; these are listed in brackets after the short options whose functions they duplicate.
+</P>
+
+<P>Use these options to control the overall cvs program:</P>
+
+
+<TABLE>
+
+<TR><TD>
+_H [_help]
+</TD><TD>
+Display usage information about the specified
+cvs command (but do not actually execute the command). If you don't specify a command name,
+cvs _H displays a summary of all the commands available.
+</TD></TR><TR><TD>
+_Q
+</TD><TD>
+Causes the command to be really quiet; the command will generate output only for
+serious problems.
+</TD></TR><TR><TD>
+_q
+</TD><TD>
+Causes the command to be somewhat quiet; informational messages, such as reports
+of recursion through subdirectories, are suppressed.
+</TD></TR><TR><TD>
+_b bindir
+</TD><TD>
+Use bindir as the directory where RCS programs are located. Overrides the setting of the
+RCSBIN environment variable. This value should be specified as an absolute pathname.
+</TD></TR><TR><TD>
+_d CVS_root_directory
+</TD><TD>
+Use CVS_root_directory as the root directory pathname of the master RCS source
+repository. Overrides the setting of the CVS-ROOT environment variable. This value should be specified as
+an absolute pathname.
+</TD></TR><TR><TD>
+_e editor
+</TD><TD>
+Use editor to enter revision log information. Overrides the setting of the
+CVSEDITOR and the EDITOR environment variables.
+</TD></TR><TR><TD>
+_f
+</TD><TD>
+Do not read the cvs startup file (~/.cvsrc).
+</TD></TR><TR><TD>
+_l
+</TD><TD>
+Do not log the cvs_command in the command history (but execute it anyway). See the
+description of the history command for information on command history.
+</TD></TR><TR><TD>
+_n
+</TD><TD>
+Do not change any files. Attempt to execute the
+cvs_command, but only to issue reports; do not remove, update, or merge any existing files, or create any new files.
+</TD></TR><TR><TD>
+_t
+</TD><TD>
+Trace program execution; display messages showing the steps of
+cvs activity. Particularly useful with _n to explore the potential impact of an unfamiliar command.
+</TD></TR><TR><TD>
+-r
+</TD><TD>
+Makes new working files read-only. Same effect as if the
+CVS-READ environment variable is set.
+</TD></TR><TR><TD>
+_v [_version]
+</TD><TD>
+Displays version and copyright information for cvs.
+</TD></TR><TR><TD>
+_w
+</TD><TD>
+Makes new working files read-write (default). Overrides the setting of the
+CVSREAD environment variable.
+</TD></TR><TR><TD>
+_z compression_level
+</TD><TD>
+When transferring files across the network use
+gzip with compression level compression_level to compress and decompress data as it is transferred. Requires the presence of the GNU
+gzip program in the current search path at both ends of the link.
+</TD></TR></TABLE>
+
+
+
+<P><CENTER>
+<a href="0089-0090.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0093-0094.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

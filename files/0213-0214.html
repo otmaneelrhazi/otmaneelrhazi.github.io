@@ -1,0 +1,259 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0210-0212.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0215-0216.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-213"><P>Page 213</P></A>
+
+
+
+<TABLE>
+
+<TR><TD>
+</TD><TD>
+.PS
+</TD></TR><TR><TD>
+</TD><TD>
+copy thru % circle at ($1,$2) % until &quot;END&quot;
+</TD></TR><TR><TD>
+</TD><TD>
+1 2
+</TD></TR><TR><TD>
+</TD><TD>
+3 4
+</TD></TR><TR><TD>
+</TD><TD>
+5 6
+</TD></TR><TR><TD>
+</TD><TD>
+END
+</TD></TR><TR><TD>
+</TD><TD>
+box
+</TD></TR><TR><TD>
+</TD><TD>
+.PE
+</TD></TR><TR><TD>
+</TD><TD>
+is equivalent to
+</TD></TR><TR><TD>
+</TD><TD>
+.PS
+</TD></TR><TR><TD>
+</TD><TD>
+circle at (1,2)
+</TD></TR><TR><TD>
+</TD><TD>
+circle at (3,4)
+</TD></TR><TR><TD>
+</TD><TD>
+circle at (5,6)
+</TD></TR><TR><TD>
+</TD><TD>
+box
+</TD></TR><TR><TD>
+</TD><TD>
+.PE
+</TD></TR><TR><TD>
+</TD><TD>
+The commands to be performed for each line can also be taken from a
+macro defined earlier by giving the name of the macro as the argument to
+thru.
+</TD></TR><TR><TD>
+reset variable1, variable2 ...
+</TD><TD>
+Reset predefined variables
+variable1, variable2 ... to their default values. If
+no arguments are given, reset all predefined variables to their default values. Note
+that assigning a value to scale also causes all predefined variables that control
+dimensions to be reset to their default values times the new value of scale.
+</TD></TR><TR><TD>
+plot expr [&quot;text&quot;]
+</TD><TD>
+This is a text object which is constructed by using as a format string for
+text sprintf with an argument of expr. If text is omitted, a format string of
+%g is used. Attributes can be specified in the same way as for a normal text object. Be very careful that
+you specify an appropriate format string; pic does only very limited checking of
+the string. This is deprecated in favor of sprintf.
+</TD></TR><TR><TD>
+variable:=expr
+</TD><TD>
+This is similar to = except
+variable must already be defined, and the value of
+variable will be changed only in the innermost block in which it is defined.
+(By contrast, = defines the variable in the current block if it is not already defined
+there, and then changes the value in the current block.)
+</TD></TR></TABLE>
+
+<P>Arguments of the form<BR>
+XanythingX
+</P>
+<P>are also allowed to be of the form:<BR>
+anything
+</P>
+<P>In this case, anything can contain balanced occurrences of
+and .BR. Strings may contain X or imbalanced occurrences of <BR>
+and .BR.
+</P>
+
+<P><B>
+EXPRESSIONS
+</B>
+</P>
+
+<P>The syntax for expressions has been significantly extended:
+</P>
+<!-- CODE //-->
+<PRE>
+x^y (exponentiation)
+sin(x)
+cos(x)
+atan2(y,x)
+log(x) (base 10)
+exp(x) (base 10, ie 10'-.4m'x'.4m')
+sqrt(x)
+int(x)
+rand() (return a random number between 0 and 1)
+rand(x) (return a random number between 1 and x; deprecated)
+max(e1,e2)
+min(e1,e2)
+!e
+</PRE>
+<!-- END CODE //-->
+
+<A NAME="PAGENUM-214"><P>Page 214</P></A>
+
+<!-- CODE //-->
+<PRE>
+e1 &amp;&amp; e2
+e1 || e2
+e1 == e2
+e1 != e2
+e1 &gt;= e2
+e1 &gt; e2
+e1 &lt;= e2
+e1 &lt; e2
+&quot;str1&quot;==&quot;str2&quot;
+&quot;str1&quot;!=&quot;str2&quot;
+</PRE>
+<!-- END CODE //-->
+
+<P>String comparison expressions must be parenthesized in some contexts to avoid ambiguity.
+</P>
+
+<P><B>
+OTHER CHANGES
+</B>
+</P>
+
+<P>A bare expression, expr, is acceptable as an attribute; it is equivalent to
+direxpr, where dir is the current direction. For example
+<!-- CODE SNIP //-->
+<PRE>
+line 2i
+</PRE>
+<!-- END CODE SNIP //-->
+<P>means draw a line 2 inches long in the current direction.
+</P>
+<P>The maximum width and height of the picture are taken from the variables
+maxpswid and maxpsht. Initially, these have values 8.5 and 11.
+</P>
+<P>Scientific notation is allowed for numbers. For example
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+x = 5e_2
+</PRE>
+<!-- END CODE SNIP //-->
+<P>Text attributes can be compounded. For example
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+&quot;foo&quot; above ljust
+</PRE>
+<!-- END CODE SNIP //-->
+<P>is legal.
+<P>There is no limit to the depth to which blocks can be examined. For example
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+[A: [B: [C: box ]]] with .A.B.C.sw at 1,2
+circle at last [].A.B.C
+</PRE>
+<!-- END CODE SNIP //-->
+<P>is acceptable.
+</P>
+<P>Arcs now have compass points determined by the circle of which the arc is a part.
+</P>
+<P>Circles and arcs can be dotted or dashed. In mode, splines can be dotted or dashed.
+</P>
+<P>Boxes can have rounded corners. The rad attribute specifies the radius of the quarter-circles at each corner. If no
+rad or diam attribute is given, a radius of boxrad is used. Initially,
+boxrad has a value of 0. A box with rounded corners can be dotted
+or dashed.
+</P>
+<P>The .PS line can have a second argument specifying a maximum height for the picture. If the width of zero is specified,
+the width will be ignored in computing the scaling factor for the picture. Note that GNU
+pic will always scale a picture by the same amount vertically as horizontally. This is different from the DWB 2.0
+pic, which may scale a picture by a different amount vertically than horizontally if a height is specified.
+</P>
+<P>Each text object has an invisible box associated with it. The compass points of a text object are determined by this box.
+The implicit motion associated with the object is also determined by this box. The dimensions of this box are taken from
+the width and height attributes; if the width attribute is not supplied, then the width will be taken to be
+textwid; if the height attribute is not supplied, then the height will be taken to be the number of text strings associated with the object
+times textht. Initially textwid and textht have a value of
+0.
+</P>
+<P>In places where a quoted text string can be used, an expression of the form:
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+sprintf(format,arg,...)
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+
+<P><CENTER>
+<a href="0210-0212.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0215-0216.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

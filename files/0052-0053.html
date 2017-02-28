@@ -1,0 +1,272 @@
+<HTML>
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0051-0051.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0054-0054.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-52"><P>Page 52</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+Flip Vertically
+</TD><TD>
+This command will flip the bitmap image with respect to the vertical axes. If
+a marked area of the grid is highlighted, it will operate only inside the marked
+area. Pressing V inside the bitmap window has the same effect.
+</TD></TR><TR><TD>
+Left
+</TD><TD>
+This command moves the bitmap image one pixel to the left. If a marked area of
+the grid is highlighted, it will operate only inside the marked area. Pressing
+LeftArrow inside the bitmap window has the same effect.
+</TD></TR><TR><TD>
+Fold
+</TD><TD>
+This command will fold the bitmap image so that the opposite corners
+become adjacent. This is useful when creating bitmap images for tiling. Pressing F inside
+the bitmap window has the same effect.
+</TD></TR><TR><TD>
+Right
+</TD><TD>
+This command moves the bitmap image one pixel to the right. If a marked area
+of the grid is highlighted, it will operate only inside the marked area. Pressing the
+right arrow inside the bitmap window has the same effect.
+</TD></TR><TR><TD>
+Rotate Left
+</TD><TD>
+This command rotates the bitmap image 90 degrees to the left (counter
+clockwise.) If a marked area of the grid is highlighted, it will operate only inside the
+marked area. Pressing L inside the bitmap window has the same effect.
+</TD></TR><TR><TD>
+Down
+</TD><TD>
+This command moves the bitmap image one pixel down. If a marked area of the
+grid is highlighted, it will operate only inside the marked area. Pressing the down
+arrow inside the bitmap window has the same effect.
+</TD></TR><TR><TD>
+Rotate Right
+</TD><TD>
+This command rotates the bitmap image 90 degrees to the right (clockwise.) If
+a marked area of the grid is highlighted, it will operate only inside the marked
+area. Pressing R inside the bitmap window has the same effect.
+</TD></TR><TR><TD>
+Point
+</TD><TD>
+This command will change the grid squares underneath the mouse pointer if
+a mouse button is being pressed down. If you drag the mouse button
+continuously, the line may not be continuous, depending on the speed of your system
+and frequency of mouse motion events.
+</TD></TR><TR><TD>
+Curve
+</TD><TD>
+This command will change the grid squares underneath the mouse pointer if
+a mouse button is being pressed down. If you drag the mouse button continuously,
+it will make sure that the line is continuous. If your system is slow or bitmap
+receives very few mouse motion events, it might behave quite strangely.
+</TD></TR><TR><TD>
+Line
+</TD><TD>
+This command will change the grid squares in a line between two squares. Once
+you press a mouse button in the grid window, bitmap will highlight the line from
+the square where the mouse button was initially pressed to the square where the
+mouse pointer is located. By releasing the mouse button, you will cause the change to
+take effect, and the highlighted line will disappear.
+</TD></TR><TR><TD>
+Rectangle
+</TD><TD>
+This command will change the grid squares in a rectangle between two
+squares. Once you press a mouse button in the grid window, bitmap will highlight
+the rectangle from the square where the mouse button was initially pressed to the
+square where the mouse pointer is located. By releasing the mouse button you will cause
+the change to take effect, and the highlighted rectangle will disappear.
+</TD></TR><TR><TD>
+Filled Rectangle
+</TD><TD>
+This command is identical to Rectangle, except at the end the rectangle will be
+filled rather than outlined.
+</TD></TR><TR><TD>
+Circle
+</TD><TD>
+This command will change the grid squares in a circle between two squares.
+Once you press a mouse button in the grid window, bitmap will highlight the circle
+from the square where the mouse button was initially pressed to the square where
+the mouse pointer is located. By releasing the mouse button you will cause the change
+to take effect, and the highlighted circle will disappear.
+</TD></TR><TR><TD>
+Filled Circle
+</TD><TD>
+This command is identical to Circle, except at the end the circle will be filled
+rather than outlined.
+</TD></TR><TR><TD>
+Flood Fill
+</TD><TD>
+This command will flood fill the connected area underneath the mouse
+pointer when you click on the desired square. Diagonally adjacent squares are not
+considered to be connected.
+</TD></TR></TABLE>
+
+
+
+<A NAME="PAGENUM-53"><P>Page 53</P></A>
+
+<TABLE>
+
+<TR><TD>
+Set Hot Spot
+</TD><TD>
+This command designates one square in the grid as the hot spot if this bitmap
+image is to be used for defining a cursor. Pressing a mouse button in the desired square
+will cause a diamond shape to be displayed.
+</TD></TR><TR><TD>
+Clear Hot Spot
+</TD><TD>
+This command removes any designated hot spot from the bitmap image.
+</TD></TR><TR><TD>
+Undo
+</TD><TD>
+This command will undo the last executed command. It has depth one, that
+is, pressing Undo after Undo will undo itself.
+</TD></TR></TABLE>
+
+
+<P><B>
+FILE MENU
+</B></P>
+
+
+<P>The File menu commands can be accessed by pressing the File button and selecting the appropriate menu entry, or
+by pressing the Ctrl key with another key. These commands deal with files and global bitmap parameters, such as
+size, basename, filename, and so forth.
+</P>
+
+<TABLE>
+
+<TR><TD>
+New
+</TD><TD>
+This command will clear the editing area and prompt for the name of the new file
+to be edited. It will not load in the new file.
+</TD></TR><TR><TD>
+Load
+</TD><TD>
+This command is used to load a new bitmap file into the bitmap editor. If
+the current image has not been saved, user will be asked whether to save or ignore
+the changes. The editor can edit only one file at a time. If you need interactive
+editing, run a number of editors and use the cut and paste mechanism as described later
+in this section. (See &quot;Cut and Paste.&quot;)
+</TD></TR><TR><TD>
+Insert
+</TD><TD>
+This command is used to insert a bitmap file into the image being currently
+edited. After being prompted for the filename, click inside the grid window and drag
+the outlined rectangle to the location where you want to insert the new file.
+</TD></TR><TR><TD>
+Save
+</TD><TD>
+This command will save the bitmap image. It will not prompt for the
+filename unless it is said to be &lt;none&gt;. If you leave the filename undesignated or _, the
+output will be piped to stdout.
+</TD></TR><TR><TD>
+Save As
+</TD><TD>
+This command will save the bitmap image after prompting for a new filename.
+It should be used if you want to change the filename.
+</TD></TR><TR><TD>
+Resize
+</TD><TD>
+This command is used to resize the editing area to the new number of pixels.
+The size should be entered in the width&Aacute;height format. The information in the
+image being edited will not be lost unless the new size is smaller that the current image
+size. The editor was not designed to edit huge files.
+</TD></TR><TR><TD>
+Rescale
+</TD><TD>
+This command is used to rescale the editing area to the new width and height.
+The size should be entered in the width&Aacute;height format. It will not do antialiasing
+and information will be lost if you rescale to the smaller sizes. Feel free to add you
+own algorithms for better rescaling.
+</TD></TR><TR><TD>
+Filename
+</TD><TD>
+This command is used to change the filename without changing the basename
+nor saving the file. If you specify _ for a filename, the output will be piped to stdout.
+</TD></TR><TR><TD>
+Basename
+</TD><TD>
+This command is used to change the basename, if a different one from the
+specified filename is desired.
+</TD></TR><TR><TD>
+Quit
+</TD><TD>
+This command will terminate the bitmap application. If the file was not saved,
+user will be prompted and asked whether to save the image or not. Quit is preferred
+over killing the process.
+</TD></TR></TABLE>
+
+
+<P><B>
+EDIT MENU
+</B></P>
+
+
+<P>The Edit menu commands can be accessed by pressing the Edit button and selecting the appropriate menu entry, or
+by pressing Meta key with another key. These commands deal with editing facilities such as grid, axes, zooming, cut and
+paste, and so on.
+
+<TABLE>
+
+<TR><TD>
+Image
+</TD><TD>
+This command will display the image being edited and its inverse in its actual size
+in a separate window. The window can be moved away to continue with
+editing. Pressing the left mouse button in the image window will cause it to disappear
+from the screen.
+</TD></TR></TABLE>
+
+
+
+
+<P><CENTER>
+<a href="0051-0051.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0054-0054.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

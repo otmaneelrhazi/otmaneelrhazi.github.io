@@ -1,0 +1,302 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0415-0417.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0420-0422.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-418"><P>Page 418</P></A>
+
+
+<!-- CODE SNIP //-->
+<PRE>
+ppmtoicr ppmfile &gt; filename
+cat filename
+</PRE>
+<!-- END CODE SNIP //-->
+<P>To display a GIF file using the protocol in a window titled after the input file, zoom the displayed image by a factor of
+2, and run-length encode the data:
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+giftoppm giffile | ppmtoicr -w giffile -r -e 2
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+BUGS
+</B>
+</P>
+<P>The protocol uses frequent fflush calls to speed up display. If the output is saved to a file for later display via
+cat, drawing will be much slower. In either case, increasing the Blocksize limit on the display will speed up transmission substantially.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<P>ppm(5)
+</P>
+<P>NCSA Telnet for the Macintosh, University of Illinois at Urbana-Champaign (1989)
+</P>
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright&quot; 1990 by Kanthan Pillay
+(svpillay@Princeton.EDU), Princeton University Computing and Information
+Technology
+</P>
+<P>30 July 1990
+</P>
+
+<H3><A NAME="ch01_ 316">
+ppmtoilbm
+</A></H3>
+<P>ppmtoilbm&#151;Convert a portable pixmap into an ILBM file
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE //-->
+<PRE>
+ppmtoilbm [-maxplanes|-mp N][-fixplanes|-fp N][-ham6|-ham8][-dcbits-dcplanesrgb]
+[-normal|-hamif|-hamforce|-24if|-24force| -dcif|-dcforce|-cmaponly] [-ecs|-aga]
+[- compress|-nocompress][-cmethod type][-mapppmfile] [-savemem][ppmfile]
+</PRE>
+<!-- END CODE //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>ppmtoilbm reads a portable pixmap as input and produces an ILBM file as output. Supported ILBM types are the following:
+</P>
+<P>Normal ILBMs with 1_16 planes
+</P>
+<P>Amiga HAM with 3_16 planes
+</P>
+<P>24-bit
+</P>
+<P>Colormap (BMHD and CMAP chunk only, nPlanes = 0)
+</P>
+<P>Unofficial direct color     1_16 planes for each color component
+</P>
+<P>Chunks written:     BMHD, CMAP, CAMG (only for HAM),
+BODY (not for colormap files) unofficial DCOL chunk for direct color ILBM
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+<P><B>
+OPTIONS
+</B>
+</P> marked with (*) can be prefixed with no, for example,
+-nohamif. All options can be abbreviated to their
+shortest unique prefix.
+</P>
+<TABLE>
+
+<TR><TD>
+-maxplanes | -mp n
+</TD><TD>
+(default 5, minimum 1, maximum 16) Maximum planes to write in a normal ILBM. If
+the pixmap does not fit into n planes, ppmtoilbm writes a HAM file (if
+-hamif is used), a 24-bit file (if -24if is used), a direct color file (if
+-dcif is used). or aborts with an error.
+</TD></TR><TR><TD>
+-fixplanes | -fp n
+</TD><TD>
+(min 1, max 16) If a normal ILBM is written, it will have exactly
+n planes.
+</TD></TR><TR><TD>
+-hambits | -hamplanes n
+</TD><TD>
+(default 6, min 3, max 16) Select number of planes for HAM picture. The current
+Amiga hardware supports 6 and 8 planes, so for now you should only use this values.
+</TD></TR></TABLE>
+
+
+<A NAME="PAGENUM-419"><P>Page 419</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+-normal (default)
+</TD><TD>
+Turns off -hamif/-24if/-dcif,
+-hamforce/-24force/-dcforce and -cmaponly. Also
+sets compression type to byterun1.
+</TD></TR><TR><TD>
+-hamif (*), -24if (*),
+</TD><TD>
+Write a HAM/24-bit/direct color file if the pixmap does not fit into
+maxplanes planes.
+</TD></TR><TR><TD>
+-dcif (*)
+-hamforce (*), -24force (*),
+</TD><TD>
+Write a HAM/24-bit/direct color file.
+</TD></TR><TR><TD>
+-dcforce (*)
+</TD><TD>
+</TD></TR><TR><TD>
+-dcbits | -dcplanes r g b
+</TD><TD>
+(default 5, min 1, max 16). Select number of bits for red, green, and blue in a direct
+color ILBM.
+</TD></TR><TR><TD>
+-ecs (default)
+</TD><TD>
+Shortcut for: -hamplanes 6 -maxplanes 5
+</TD></TR><TR><TD>
+-aga
+</TD><TD>
+Shortcut for: -hamplanes 8 -maxplanes 8
+</TD></TR><TR><TD>
+-ham6
+</TD><TD>
+Shortcut for: -hamplanes 6 -hamforce
+</TD></TR><TR><TD>
+-ham8
+</TD><TD>
+Shortcut for: -hamplanes 8 -hamforce
+</TD></TR><TR><TD>
+-compress (*) (default),
+</TD><TD>
+Compress the BODY chunk. The default compression method is
+byterun1. Compression
+</TD></TR><TR><TD>
+-cmethod none|byterun1
+</TD><TD>
+requires building the ILBM image in memory; turning compression off allows
+stream-writing of the image, but the resulting file will usually be 30 percent to 50 percent
+larger. Another alternative is the -savemem option; this will keep memory requirements
+for compression at a minimum, but is very slow.
+</TD></TR><TR><TD>
+-map ppmfile
+</TD><TD>
+Write a normal ILBM using the colors in
+ppmfile as the colormap. The colormap file also determines the number of planes; a
+-maxplanes or -fixplanes option is ignored.
+</TD></TR><TR><TD>
+-cmaponly
+</TD><TD>
+Write a colormap file: only BMHD and
+CMAP chunks, no BODY chunk, nPlanes = 0.
+</TD></TR><TR><TD>
+-savemem
+</TD><TD>
+See the -compress option.
+</TD></TR></TABLE>
+
+<P><B>
+BUGS
+</B>
+</P>
+<P>HAM pictures will always get a grayscale colormap; a real color selection algorithm might give better results. On the
+other hand, this allows row-by-row operation on HAM images, and all HAM images of the same depth (number of planes) share
+a common colormap, which is useful for building HAM animations.
+</P>
+
+<P><B>
+REFERENCES
+</B>
+</P>
+<P>Amiga ROM Kernel Reference Manual&#151;Devices (Third Edition), Addison Wesley, ISBN 0-201-56775-X
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ppm(5), ilbmtoppm(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHORS
+</B>
+</P>
+<P>Copyright&quot; 1989 by Jef Poskanzer; modified October 1993 by Ingo Wilken
+(Ingo.Wilken@informatik.uni-oldenburg.de).
+</P>
+<P>31 October 1993
+</P>
+
+<H3><A NAME="ch01_ 317">
+ppmtomap
+</A></H3>
+<P>ppmtomap&#151;Extract all colors from a portable pixmap
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ppmtomap [-sort][-square][ppmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>ppmtomap reads a portable pixmap as input and produces a portable pixmap as output, representing a colormap of the
+input file. All N different colors found are put in an NX1 portable pixmap. This colormap file can be used as a mapfile for
+ppmquant or ppmtogif.
+</P>
+
+
+
+<P><CENTER>
+<a href="0415-0417.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0420-0422.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

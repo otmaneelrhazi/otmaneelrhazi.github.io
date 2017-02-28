@@ -1,0 +1,277 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0298-0300.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0303-0304.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-301"><P>Page 301</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+/var/spool/output/*/cf*
+</TD><TD>
+Daemon control FILES.
+</TD></TR><TR><TD>
+/var/spool/output/*/df*
+</TD><TD>
+Data FILES specified in
+cf FILES.
+</TD></TR><TR><TD>
+/var/spool/output/*/tf*
+</TD><TD>
+Temporary copies of
+cf FILES.
+</TD></TR></TABLE>
+
+
+<P><B>SEE ALSO</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>lpq(1), lprm(1), pr(1), symlink(2), printcap(5),
+lpc(8), lpd(8)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>HISTORY</B></P>
+
+<P>The lpr command appeared in BSD 3.
+</P>
+
+<P><B>DIAGNOSTICS</B></P>
+
+
+<P>If you try to spool too large a file, it will be truncated.
+lpr will object to printing binary FILES. If a user other than root prints
+a file and spooling is disabled, lpr will print a message saying so and will not put jobs in the queue. If a connection to
+lpd(1) on the local machine cannot be made, lpr will say that the daemon cannot be started. DIAGNOSTICS may be printed in
+the daemon's log file regarding missing spool FILES by
+lpd(1).
+</P>
+
+<P><B>BUGS</B></P>
+
+<P>Fonts for troff(1) and TeX reside on the host with the printer. It is currently not possible to use local font libraries.
+</P>
+
+<P>BSD 4, 24 July 1991
+</P>
+
+<H3><A NAME="ch01_ 151">
+lprm
+</A></H3>
+
+<P>lprm&#151;Remove jobs from the line printer spooling queue
+</P>
+
+<P><B>SYNOPSIS</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>lprm [-P printer] [- job # ...] [user ...]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>DESCRIPTION</B></P>
+
+<P>lprm will remove a job, or jobs, from a printer's spool queue. Since the spooling directory is protected from users, using
+lprm is normally the only method by which a user may remove a job. The owner of a job is determined by the user's login
+name and hostname on the machine where the lpr(1) command was invoked.
+</P>
+
+<P>OPTIONS and arguments:
+
+<TABLE>
+
+<TR><TD>
+-P printer
+</TD><TD>
+Specify the queue associated with a specific printer; otherwise, the default printer is used.
+</TD></TR><TR><TD>
+-
+</TD><TD>
+If a single - is given, lprm will remove all jobs that a user owns. If the superuser employs this flag, the
+spool queue will be emptied entirely.
+</TD></TR><TR><TD>
+user
+</TD><TD>
+Causes lprm to attempt to remove any jobs queued belonging to that user (or users). This form of
+invoking lprm is useful only to the superuser.
+</TD></TR><TR><TD>
+job #
+</TD><TD>
+A user may dequeue an individual job by specifying its job number. This number may be obtained
+from the lpq(1) program. For example
+</TD></TR></TABLE>
+
+
+<!-- CODE SNIP //-->
+<PRE>     lpq _ -l
+     1st:ken                         [job#013ucbarpa]
+                         (standard input)         100 bytes
+     lprm 13
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>If neither arguments nor OPTIONS are given, lprm
+will delete the currently active job if it is owned by the user who
+invoked lprm.
+</P>
+
+<P>lprm announces the names of any FILES it removes and is silent if there are no jobs in the queue that match the request list.
+</P>
+
+<P>lprm will kill off an active daemon, if necessary, before removing any spooling FILES. If a daemon is killed, a new one
+is automatically restarted upon completion of file removals.
+</P>
+
+
+<A NAME="PAGENUM-302"><P>Page 302</P></A>
+
+
+<P><B>ENVIRONMENT</B></P>
+
+<P>If the following ENVIRONMENT variable exists, it is utilized by
+lprm:
+</P>
+
+<TABLE>
+
+<TR><TD>
+PRINTER
+</TD><TD>
+If the ENVIRONMENT variable PRINTER exists, and a printer has not been specified with the
+-P option, the default printer is assumed from
+PRINTER.
+</TD></TR></TABLE>
+
+<P><B>FILES</B></P>
+
+<TABLE>
+
+<TR><TD>
+/etc/printcap
+</TD><TD>
+Printer characteristics file
+</TD></TR><TR><TD>
+/var/spool/*
+</TD><TD>
+Spooling directories
+</TD></TR><TR><TD>
+/var/spool/*/lock
+</TD><TD>
+Lock file used to obtain the
+pid of the current daemon and the job number of the currently
+active job
+</TD></TR></TABLE>
+
+
+<P><B>SEE ALSO</B></P>
+
+<!-- CODE SNIP //-->
+<PRE>lpr(1), lpq(1), lpd(8)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>DIAGNOSTICS</B></P>
+
+<P>&quot;Permission denied&quot; if the user tries to remove FILES other than his own.
+</P>
+
+<P><B>BUGS</B></P>
+
+
+<P>Because there are race conditions possible in the update of the
+lock file, the currently active job may be incorrectly identified.
+</P>
+
+<P><B>HISTORY</B></P>
+
+<P>The lprm command appeared in BSD 3.0.
+</P>
+
+<P>BSD 4.2, 9 May 1991
+</P>
+
+<H3><A NAME="ch01_ 152">
+lptest
+</A></H3>
+
+<P>lptest&#151;Generate line printer ripple pattern
+</P>
+
+<P><B>SYNOPSIS</B></P>
+
+
+<!-- CODE SNIP //-->
+<PRE WIDTH="1">lptest [length] [count]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>DESCRIPTION</B></P>
+
+<P>lptest writes the traditional &quot;ripple test&quot; pattern on standard output. In 96 lines, this pattern will print all 96
+printable ASCII characters in each position. Although originally created to test printers, it is quite useful for testing terminals,
+driving terminal ports for debugging purposes, or any other task where a quick supply of random data is needed.
+</P>
+
+<P>The length argument specifies the output line length if the default length of 79 is inappropriate.
+</P>
+
+<P>The count argument specifies the number of output lines to be generated if the default count of
+200 is inappropriate. Note that if count is to be specified,
+length must also be specified.
+</P>
+
+<P><B>HISTORY</B></P>
+
+<P>lptest appeared in BSD 4.3.
+</P>
+
+<P>BSD 4.3, 9 May 1991
+</P>
+
+
+
+<P><CENTER>
+<a href="0298-0300.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0303-0304.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

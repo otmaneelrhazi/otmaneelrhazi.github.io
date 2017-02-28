@@ -1,0 +1,149 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0181-0182.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0184-0185.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-183"><P>Page 183</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+</TD><TD>
+For each subprogram to be run, the compiler driver first tries the
+_B prefix, if any. If that name is not found, or if
+_B was not specified, the driver tries two standard prefixes, which are
+/usr/lib/gcc/ and /usr/local/lib/gcc-lib/. If neither of those results in a filename that is found,
+the compiler driver searches for the unmodified program name, using the directories specified
+in your PATH environment variable.<BR>
+   The runtime support file libgcc.a is also searched for using the
+_B prefix, if needed. If it is not found there, the two standard prefixes (preceding paragraph) are tried, and that is all. The file
+is left out of the link if it is not found by those means. Most of the time, on most
+machines, libgcc.a is not actually necessary.<BR>
+    You can get a similar result from the environment variable
+GCC_EXEC_PREFIX; if it is defined, its value is used as a prefix in the same way. If both the
+_B option and the GCC_EXEC_PREFIX variable are present, the
+_B option is used first and the environment variable value second.
+</TD></TR></TABLE>
+
+
+<P><B>
+WARNING OPTIONS
+</B>
+</P>
+
+
+<P>Warnings are diagnostic messages that report constructions that are not inherently erroneous but are risky or suggest
+there may have been an error.
+</P>
+<P>These options control the amount and kinds of warnings produced by GNU CC:
+</P>
+
+<TABLE>
+
+<TR><TD>
+_fsyntax_only
+</TD><TD>
+Check the code for syntax errors, but don't emit any output.
+</TD></TR><TR><TD>
+_w
+</TD><TD>
+Inhibit all warning messages.
+</TD></TR><TR><TD>
+_Wno_import
+</TD><TD>
+Inhibit warning messages about the use of
+#import.
+</TD></TR><TR><TD>
+_pedantic
+</TD><TD>
+Issue all the warnings demanded by strict ANSI standard C; reject all programs that
+use forbidden extensions.<BR>
+ Valid ANSI standard C programs should compile properly with or without this option
+(though a rare few will require _ansi). However, without this option, certain GNU extensions
+and traditional C features are supported as well. With this option, they are rejected. There is
+no reason to use this option; it exists only to satisfy pedants.<BR>
+  _pedantic does not cause warning messages for use of the alternate keywords whose names
+begin and end with `__'. Pedantic warnings are also disabled in the expression that follows
+extension. However, only system header files should use these escape routes; application programs
+should avoid them.
+</TD></TR><TR><TD>
+_pedantic_errors
+</TD><TD>
+Like _pedantic, except that errors are produced rather than warnings.
+</TD></TR><TR><TD>
+_W
+</TD><TD>
+Print extra warning messages for these events:<BR>
+  A nonvolatile automatic variable might be changed by a call to
+longjmp. These warnings are possible only in optimizing compilation. The compiler sees only the calls to
+setjmp. It cannot know where longjmp will be called; in fact, a signal handler could call it at any point in the
+code. As a result, you may get a warning even when there is in fact no problem because
+longjmp cannot in fact be called at the place which would cause a problem.<BR>
+  A function can return either with or without a value. (Falling off the end of the function
+body is considered returning without a value.) For example, this function would evoke such
+a warning:
+<!-- CODE SNIP //-->
+<PRE>
+foo (a)
+{
+if (a &gt; 0)
+return a;
+}
+</PRE>
+<!-- END CODE SNIP //-->
+Spurious warnings can occur because GNU CC does not realize that certain
+functions (including abort and longjmp) will never return.<BR>
+An expression-statement or the left side of a comma expression contains no side effects.
+To suppress the warning, cast the unused expression to void. For example, an expression such
+as x[i,j] will cause a warning, but x[(void)i,j] will not.<BR>
+An unsigned value is compared against zero with
+&gt; or &lt;=.
+</TD></TR></TABLE>
+
+
+
+
+<P><CENTER>
+<a href="0181-0182.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0184-0185.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

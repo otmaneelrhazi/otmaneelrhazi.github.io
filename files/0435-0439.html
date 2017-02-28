@@ -1,0 +1,630 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0434-0434.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0440-0441.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-435"><P>Page 435</P></A>
+
+
+<P><B>
+BUGS
+</B></P>
+<P>The program will produce incorrect results with PostScript files that initialize the current transformation matrix. In
+these cases, page translation and rotation will not have any effect. To render these files, probably the best bet is to use the
+following flags:
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pstopnm -xborder 0 -yborder 0 -portrait -nocrop file.ps
+</PRE>
+<!-- END CODE SNIP //-->
+<P>Additional flags may be needed if the document is supposed to be rendered on a medium different from letter-size paper.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+gs(l), pstofits(l)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+COPYRIGHT
+</B></P>
+<P>Copyright&quot; 1992 Smithsonian Astrophysical Observatory. PostScript is a trademark of Adobe Systems Inc.
+</P>
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Alberto Accomazzi, WIPL, Center for Astrophysics
+</P>
+<P>28 December 1992
+</P>
+
+<H3><A NAME="ch01_ 338">
+pstree
+</A></H3>
+<P>pstree&#151;Display a tree of processes
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pstree [_a][_c][_h][_l][_p][_u][pid|user]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pstree shows running processes as a tree. The tree is rooted at either
+pid or init if pid is omitted. If a username is
+specified, all process trees rooted at processes owned by that user are shown.
+</P>
+<P>pstree visually merges identical branches by putting them in square brackets and prefixing them with the repetition
+count; for example,
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+           init-+-getty
+                |-getty
+                |-getty
+                `-getty
+</PRE>
+<!-- END CODE SNIP //-->
+<P>becomes</P>
+<!-- CODE SNIP //-->
+<PRE>
+           init--4*[getty]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+OPTIONS
+</B>
+</P>
+<TABLE>
+
+<TR><TD>
+_a
+</TD><TD>
+Show command-line arguments. If the command line of a process is swapped out, that process is shown
+in parentheses. _a implicitly disables compaction.
+</TD></TR><TR><TD>
+_c
+</TD><TD>
+Disable compaction of identical subtrees. By default, subtrees are compacted whenever possible.
+</TD></TR><TR><TD>
+_h
+</TD><TD>
+Highlight the current process and its ancestors. This is a no-op if the terminal doesn't support highlighting or
+if neither the current process nor any of its ancestors are in the subtree being shown.
+</TD></TR><TR><TD>
+_l
+</TD><TD>
+Display long lines. By default, lines are truncated to the display width or 132 if output is sent to a
+non-tty or if the display width is unknown.
+</TD></TR><TR><TD>
+_p
+</TD><TD>
+Show pids. pids are shown as decimal numbers in parentheses after each process name.
+_p implicitly disables compaction.
+</TD></TR><TR><TD>
+_u
+</TD><TD>
+Show uid transitions. Whenever the uid of a process differs from the
+uid of its parent, the new uid is shown in parentheses after the process name.
+</TD></TR></TABLE>
+
+<A NAME="PAGENUM-436"><P>Page 436</P></A>
+
+
+<P><B>
+FILES
+</B>
+</P>
+<P>/proc     Location of the proc filesystem
+</P>
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Werner Almesberger (almesber@di.epfl.ch)
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ps(1), top(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>Linux, 11 October 1994
+</P>
+
+<H3><A NAME="ch01_ 339">
+psupdate
+</A></H3>
+<P>psupdate&#151;Update the ps database of kernel offsets
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+psupdate [system path]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>psupdate updates the /boot/psdatabase file to correspond to the current kernel image system mapfile,
+/usr/src/linux/vmlinux by default.
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+<P>If your system mapfile is not
+/usr/src/linux/vmlinux, you may give the name of an alternate mapfile on the command line.
+</P>
+
+<P><B>
+FILES
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+/boot/psdatabase
+/usr/src/linux/vmlin
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ps(1), top(1), utmp(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHORS
+</B>
+</P>
+<P>Original code written by Branko Lankaster, horribly munged by Michael K. Johnson in a desperate effort to add
+/etc/psdatabase support to procps. Someday, it should be rewritten, and the support in
+ps for alternate namelists added. Anyone want to volunteer to be added to the &quot;Authors&quot; section?
+</P>
+<P>Cohesive Systems, 15 September 1993
+</P>
+
+<H3><A NAME="ch01_ 340">
+qrttoppm
+</A></H3>
+<P>qrttoppm&#151;Convert output from the QRT ray tracer into a portable pixmap
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+qrttoppm [qrtfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>qrttoppm reads a QRT file as input and produces a portable pixmap as output.
+</P>
+
+<A NAME="PAGENUM-437"><P>Page 437</P></A>
+
+
+<P><B>
+SEE ALSO
+</B></P>
+<!-- CODE SNIP //-->
+<PRE>
+ppm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright&quot; 1989 by Jef Poskanzer.
+</P>
+<P>25 August 1989
+</P>
+
+<H3><A NAME="ch01_ 341">
+quota
+</A></H3>
+<P>quota&#151;Display disk usage and limits
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+quota [ -guv | q ]
+quota [ -uv | q ] user
+quota [ -gv | q ] group
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>quota displays users' disk usage and limits. By default, only the user quotas are printed.
+</P>
+<TABLE>
+
+<TR><TD>
+_g
+</TD><TD>
+Print group quotas for the group of which the user is a member. The optional
+_u flag is equivalent to the default.
+</TD></TR><TR><TD>
+_v
+</TD><TD>
+Will display quotas on filesystems where no storage is allocated.
+</TD></TR><TR><TD>
+-q
+</TD><TD>
+Print a more terse message, containing only information on filesystems where usage is over quota.
+</TD></TR></TABLE>
+
+<P>Specifying both _g and _u displays both the user quotas and the group quotas (for the user).
+</P>
+<P>Only the superuser may use the _u flag and the optional
+user argument to view the limits of other users. Non-superusers
+can use the _g flag and optional group argument to view only the limits of groups of which they are members.
+</P>
+<P>The _q flag takes precedence over the _v flag.
+</P>
+<P>quota reports the quotas of all the filesystems listed in
+/etc/fstab. For filesystems that are NFS-mounted, a call to
+the rpc.rquotad on the server machine is performed to get the information. If
+quota exits with a nonzero status, one or more filesystems are over quota.
+</P>
+
+<P><B>
+FILES
+</B>
+</P>
+<TABLE>
+
+<TR><TD>
+quota.user
+</TD><TD>
+Located at the filesystem root with user quotas
+</TD></TR><TR><TD>
+quota.group
+</TD><TD>
+Located at the filesystem root with group quotas
+</TD></TR><TR><TD>
+/etc/fstab
+</TD><TD>
+To find filesystem names and locations
+</TD></TR></TABLE>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+quotactl(2), fstab(5), edquota(8), quotacheck(8),
+quotaon(8), repquota(8)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>8 January 1993
+</P>
+
+<H3><A NAME="ch01_ 342">
+ranlib
+</A></H3>
+<P>ranlib&#151;Generate index to archive
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+ranlib [ _v|_V] archive
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+<A NAME="PAGENUM-438"><P>Page 438</P></A>
+
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>ranlib generates an index to the contents of an archive and stores it in the archive. The index lists each symbol defined by
+a member of an archive that is a relocatable object file.
+</P>
+<P>You may use nm _s or nm --print-armap to list this index.
+</P>
+<P>An archive with such an index speeds up linking to the library, and allows routines in the library to call each other
+without regard to their placement in the archive.
+</P>
+<P>The GNU ranlib program is another form of GNU
+ar; running ranlib is completely equivalent to executing
+ar _s.
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+<TABLE>
+
+<TR><TD>
+_v
+</TD><TD>
+Print the version number of ranlib and exit
+</TD></TR></TABLE>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<P>binutils entry in info; The GNU Binary
+Utilities, Roland H. Pesch (October 1991); ar(1);
+nm(1).
+</P>
+
+<P><B>
+COPYING
+</B></P>
+<P>Copyright&quot; 1991 Free Software Foundation, Inc. Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice are preserved on all copies.
+</P>
+<P>Permission is granted to copy and distribute modified versions of this manual under the conditions for verbatim
+copying, provided that the entire resulting derived work is distributed under the terms of a permission notice identical to this one.
+</P>
+<P>Permission is granted to copy and distribute translations of this manual into another language, under the above
+conditions for modified versions, except that this permission notice may be included in translations approved by the Free
+Software Foundation instead of in the original English.
+</P>
+<P>Cygnus support, 5 November 1991
+</P>
+
+<H3><A NAME="ch01_ 343">
+rasttopnm
+</A></H3>
+<P>rasttopnm&#151;Convert a Sun raster file into a portable anymap
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+rasttopnm [rastfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>rasttopnm reads a Sun raster file as input and produces a portable anymap as output. The type of the output file depends
+on the input file&#151;if it's black and white, a
+pbm file is written; else if it's grayscale, a pgm
+file; else a ppm file. The program tells you which type it is writing.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>pnmtorast(1), pnm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright &quot; 1989, 1991 by Jef Poskanzer.
+</P>
+<P>13 January 1991
+</P>
+
+<A NAME="PAGENUM-439"><P>Page 439</P></A>
+
+
+<H3><A NAME="ch01_ 344">
+rawtopgm
+</A></H3>
+<P>rawtopgm&#151;Convert raw grayscale bytes into a portable graymap
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+rawtopgm [-headerskip N][-rowskip N][-tb|-topbottom][width height][imagedata]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>rawtopgm reads raw grayscale bytes as input and produces a portable graymap as output. The input file is just grayscale
+bytes. If you don't specify the width and height on the command line, the program will check the size of the image and try to
+make a quadratic image of it. It is an error to supply a non-quadratic image without specifying width and height. The
+maxval is assumed to be 255.
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+<TABLE>
+
+<TR><TD>
+-headerskip
+</TD><TD>
+If the file has a header, you can use this flag to skip over it.
+</TD></TR><TR><TD>
+-rowskip
+</TD><TD>
+If there is padding at the ends of the rows, you can skip it with this flag. Note that
+rowskip can be a real number. Amazingly, I once had an image with 0.376 bytes of padding per row. This turned out to be
+due to a file transfer problem, but I was still able to read the image.
+</TD></TR><TR><TD>
+-tb -topbottom
+</TD><TD>
+Flips the image upside down. The first pixel in a
+pgm file is in the lower-left corner of the image.
+For conversion from images with the first pixel in the upper-left corner (for example, the Molecular
+Dynamics and Leica confocal formats), this flips the image right. This is equivalent to
+rawtopgm [file] | pnmflip<BR>
+-tb.
+</TD></TR></TABLE>
+
+<P><B>
+BUGS
+</B>
+</P>
+<P>If you don't specify the image width and height, the program will try to read the entire image to a memory buffer. If you
+get a message that states that you are out of memory, try to specify the width and height on the command line. Also, the
+-tb option consumes much memory.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pgm(5), rawtoppm(1), pnmflip(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHORS
+</B>
+</P>
+<P>Copyright&quot; 1989 by Jef Poskanzer; modified June 1993 by Oliver Trepte
+(oliver@fysik4.kth.se).
+</P>
+<P>15 June 1993
+</P>
+
+<H3><A NAME="ch01_ 345">
+rawtoppm
+</A></H3>
+<P>rawtoppm&#151;Convert raw RGB bytes into a portable pixmap
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+rawtoppm[-headerskip N][-rowskip N][-rgb|-rbg|-grb |-gbr|-brg|-bgr ]
+[-interpixel|-interrow] width height [imagedata]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>rawtoppm reads raw RGB bytes as input and produces a portable pixmap as output. The input file is just RGB bytes. You
+have to specify the width and height on the command line because the program obviously can't get them from the file. The
+maxval is assumed to be 255. If the resulting image is upside down, run it through
+pnmflip -tb.
+</P>
+
+
+
+
+<P><CENTER>
+<a href="0434-0434.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0440-0441.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

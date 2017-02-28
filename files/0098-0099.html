@@ -1,0 +1,334 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0097-0097.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0100-0101.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-98"><P>Page 98</P></A>
+
+
+<P>
+the _m option, thus suppressing the editor invocation, or use the
+_F option to specify that the argument file contains the
+log message.
+</P>
+
+<P>The -r option can be used to commit to a particular symbolic or numeric revision within the RCS file. For example, to
+bring all your files up to the RCS revision 3.0 (including those that haven't changed), you might use
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+example% cvs commit -r3.0
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+<P>cvs will only allow you to commit to a revision that is on the main trunk (a revision with a single dot). However, you
+can also commit to a branch revision (one that has an even number of dots) with the
+-r option. To create a branch revision, one typically use the
+_b option of the rtag or tag commands. Then, either
+checkout or update can be used to base your sources
+on the newly created branch. From that point on, all
+commit changes made within these working sources will be
+automatically added to a branch revision, thereby not perturbing mainline development in any way. For example, if you had to create
+a patch to the 1.2 version of the product, even though the 2.0 version is already under development, you might use this:
+</P>
+
+<!-- CODE //-->
+<PRE>
+example% cvs rtag -b -rFCS1_2 FCS1_2 Patch product_module
+example% cvs checkout -rFCS1_2_Patch product module
+example% cd product module
+[[ hack away ]]
+example% cvs commit
+</PRE>
+<!-- END CODE //-->
+
+<P>Say you have been working on some extremely experimental software, based on whatever revision you happened to
+checkout last week. If others in your group would like to work on this software with you, but without disturbing mainline
+development, you could commit your change to a new branch. Others can then check out your experimental stuff and utilize the
+full benefit of cvs conflict resolution. The scenario might look like this:
+</P>
+
+<!-- CODE SNIP //-->
+<PRE>
+example% cvs tag -b EXPR1
+example% cvs update -rEXPR1
+[[ hack away ]]
+example% cvs commit
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>Others would simply do cvs checkout -rEXPR1
+whatever_module to work with you on the experimental change.
+</P>
+
+
+<!-- CODE SNIP //-->
+<PRE>
+diff [_kl][rcsdiff_options][[-r rev1 | _D
+date1][-r rev2 | _D date2]] [files...]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<TABLE>
+
+<TR><TD>
+Requires:
+</TD><TD>
+Working directory, repository
+</TD></TR><TR><TD>
+Changes:
+</TD><TD>
+Nothing
+</TD></TR></TABLE>
+
+<P>You can compare your working files with revisions in the source repository, with the
+cvs diff command. If you don't specify a particular revision, your files are compared with the revisions they were based on. You can also use the standard
+cvs command option -r to specify a particular revision to compare your files with. Finally, if you use
+-r twice, you can see differences between two revisions in the repository. You can also specify
+_D options to diff against a revision in the past.
+The -r and _D options can be mixed together with at most two options ever specified.
+</P>
+
+<P>See rcsdiff(1) for a list of other accepted options.
+</P>
+
+<P>If you don't specify any files, diff will display differences for all those files in the current directory (and its
+subdirectories, unless you use the standard option
+_l) that differ from the corresponding revision in the source repository (that is, files
+that you have changed), or that differ from the revision specified.
+</P>
+
+
+<!-- CODE SNIP //-->
+<PRE>
+export [_f lNnQq] -r rev | _D date [_d
+dir][_k kflag] module...
+</PRE>
+<!-- END CODE SNIP //-->
+
+<TABLE>
+
+<TR><TD>
+Requires:
+</TD><TD>
+Repository
+</TD></TR><TR><TD>
+Changes:
+</TD><TD>
+Current directory
+</TD></TR></TABLE>
+
+<P>This command is a variant of cvs checkout; use it when you want a copy of the source for
+module without the cvs administrative directories. For example, you might
+use cvs export to prepare source for shipment off-site. This command requires
+that you specify a date or tag (with _D or -r), so that you can count on reproducing the source you ship to others.
+</P>
+
+<P>The only nonstandard options are _d dir (write the source into directory
+dir) and _N (don't shorten module paths). These have the same meanings as the same options in
+cvs checkout.
+</P>
+
+
+<A NAME="PAGENUM-99"><P>Page 99</P></A>
+
+
+<P>
+The _kv option is useful when export is used. This causes any RCS keywords to be expanded such that an import done
+at some other site will not lose the keyword revision information. Other
+kflag options may be used with cvs export and are described in
+co(1).
+</P>
+
+
+<!-- CODE SNIP //-->
+<PRE>
+history [-report][_flags][_options
+args][files...]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<TABLE>
+
+<TR><TD>
+Requires:
+</TD><TD>
+The file $CVSROOT/CVSROOT/history
+</TD></TR><TR><TD>
+Changes:
+</TD><TD>
+Nothing
+</TD></TR></TABLE>
+
+<P>cvs keeps a history file that tracks each use of the
+checkout, commit, rtag, update, and release commands. You can use
+cvs history to display this information in various formats.</P>
+<P>
+<P>
+<P>
+<P>
+<P>
+
+<CENTER>
+<TABLE BGCOLOR="#FFFF99">
+<TR><TD><B>
+WARNING
+</B></TD></TR>
+<TR><TD>
+<BLOCKQUOTE>
+cvs history uses _f, _l, _n, and _p in ways that conflict with the descriptions in &quot;Common Command Options,&quot;
+earlier in this manual page.
+</BLOCKQUOTE></TD></TR>
+</TABLE></CENTER>
+</P>
+<P>Several options (shown as [_report] in the preceding bulleted code line) control what kind of report is generated:
+</P>
+
+<TABLE>
+
+<TR><TD>
+_c
+</TD><TD>
+Report on each time commit was used (that is, each time the repository was modified).
+</TD></TR><TR><TD>
+_m module
+</TD><TD>
+Report on a particular module. (You can meaningfully use
+_m more than once on the command line.)
+</TD></TR><TR><TD>
+_o
+</TD><TD>
+Report on checked-out modules.
+</TD></TR><TR><TD>
+_T
+</TD><TD>
+Report on all tags.
+</TD></TR><TR><TD>
+_x type
+</TD><TD>
+Extract a particular set of record types
+X from the cvs history. The types are indicated by single
+letters, which you may specify in combination. Certain commands have a single record type:
+check-out (type O), release (type F), and rtag (type
+T). One of four record types may result from an update:
+W, when the working copy of a file is deleted during update (because it was gone from the repository);
+U, when a working file was copied from the repository;
+G, when a merge was necessary and it succeeded; and
+C, when a merge was necessary but collisions were detected (requiring manual merging). Finally, one
+of three record types results from commit: M, when a file was modified;
+A, when a file is first added; and R, when a file is removed.
+</TD></TR><TR><TD>
+_e
+</TD><TD>
+Everything (all record types); equivalent to specifying _xMACFROGWUT.
+</TD></TR><TR><TD>
+_z zone
+</TD><TD>
+Use time zone zone when outputting history records. The zone name
+LT stands for local time; numeric offsets stand for hours and minutes ahead of UTC. For example,
++0530 stands for 5 hours and 30 minutes ahead of (that is, east of) UTC.
+</TD></TR></TABLE>
+
+<P>The options shown as _flags constrain the report without requiring option arguments:
+</P>
+
+<TABLE>
+
+<TR><TD>
+_a
+</TD><TD>
+Show data for all users. (The default is to show data only for the user executing
+cvs history.)
+</TD></TR><TR><TD>
+_l
+</TD><TD>
+Show last modification only.
+</TD></TR><TR><TD>
+_w
+</TD><TD>
+Show only the records for modifications done from the same working directory where
+cvs history is executing.
+</TD></TR></TABLE>
+
+<P>The options shown as _options args constrain the report based on an argument:</P>
+
+<TABLE>
+
+<TR><TD>
+_b str
+</TD><TD>
+Show data back to a record containing the string
+str in either the module name, the filename, or
+the repository path.
+</TD></TR><TR><TD>
+_D date
+</TD><TD>
+Show data since date.
+</TD></TR><TR><TD>
+_p repository
+</TD><TD>
+Show data for a particular source repository (you can specify several
+_p options on the same command line).
+</TD></TR><TR><TD>
+-r rev
+</TD><TD>
+Show records referring to revisions since the revision or tag named
+rev appears in individual RCS files. Each RCS file is searched for the revision or tag.
+</TD></TR><TR><TD>
+_t tag
+</TD><TD>
+Show records since tag tag was last added to the history file. This differs from the
+-r flag in that it reads only the history file, not the RCS files, and is much faster.
+</TD></TR><TR><TD>
+_u name
+</TD><TD>
+Show records for username.
+</TD></TR></TABLE>
+
+
+
+<P><CENTER>
+<a href="0097-0097.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0100-0101.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

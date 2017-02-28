@@ -1,0 +1,526 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0368-0370.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0375-0377.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-371"><P>Page 371</P></A>
+
+
+<P><B>
+AUTHOR
+</B></P>
+<P>John Walker<BR>
+Autodesk SA Avenue des Champs-Montants 14b<BR>
+CH-2074 MARIN<BR>
+Suisse/Schweiz/Svizzera/Svizra/Switzerland
+</P>
+
+<TABLE>
+
+<TR><TD>
+Usenet:
+</TD><TD>
+kelvin@Autodesk.com
+</TD></TR><TR><TD>
+Fax:
+</TD><TD>
+038/33 88 15
+</TD></TR><TR><TD>
+Voice:
+</TD><TD>
+038/33 76 33
+</TD></TR></TABLE>
+
+<P>Permission to use, copy, modify, and distribute this software and its documentation for any purpose and without fee
+is hereby granted, without any conditions or restrictions. This software is provided &quot;as is&quot; without express or implied warranty.
+</P>
+
+<P>PLUGWARE! If you like this kind of stuff, you may also enjoy James Gleick's &quot;Chaos&#151;The Software&quot; for
+MS-DOS, available for $59.95 from your local software store or directly from Autodesk, Inc., Attn: Science Series, 2320
+Marinship Way, Sausalito, CA 94965, USA. Telephone: 800-688-2344 toll-free or, outside the U.S. (415) 332-2344 Ext 4886.
+Fax: 415-289-4718. &quot;Chaos&#151;The Software&quot; includes a more comprehensive fractal forgery generator that creates
+three-dimensional landscapes as well as clouds and planets, plus five more modules that explore other aspects of Chaos. The
+user guide of more than 200 pages includes an introduction by James Gleick and detailed explanations by Rudy Rucker of
+the mathematics and algorithms used by each program.
+</P>
+
+<P>15 October 1991
+</P>
+
+<H3><A NAME="ch01_ 241">
+pgmedge
+</A></H3>
+<P>pgmedge&#151;Edge detect a portable graymap
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pgmedge [pgmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pgmedge reads a portable graymap as input, outlines the edges, and writes a portable graymap as output. Piping the
+result through pgmtopbm -threshold and playing with the threshold value will give a bitmap of the edges.
+</P>
+
+<P>The edge detection technique used is to take the Pythagorean sum of two Sobel gradient operators at 90 degrees to
+each other. For more details see Digital Image
+Processing by Gonzalez and Wintz, Chapter 7.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pgmenhance(1), pgmtopbm(1), pgm(5), pbm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+
+<P>Copyright &quot; 1991 by Jef Poskanzer.
+</P>
+
+<P>4 February 1990
+</P>
+
+<H3><A NAME="ch01_ 242">
+pgmenhance
+</A></H3>
+<P>pgmenhance&#151;Edge enhance a portable graymap
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pgmenhance [-N][pgmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+
+<A NAME="PAGENUM-372"><P>Page 372</P></A>
+
+
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pgmenhance reads a portable graymap as input, enhances the edges, and writes a portable graymap as output.
+</P>
+
+<P>The edge enhancing technique is taken from Philip R. Thompson's
+xim program, which took it from section 6 of
+Digital Halftones by Dot Diffusion, D. E. Knuth, ACM Transaction on
+Graphics Vol. 6, No. 4, October 1987, which in turn got
+it from two 1976 papers by J. F. Jarvis et. al.
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+<P>The optional -N flag should be a digit from 1 to 9. 1 is the lowest level of enhancement, 9 is the highest; the default is 9.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pgmedge(1), pgm(5), pbm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright &quot; 1989 by Jef Poskanzer.
+</P>
+
+<P>13 January 1989
+</P>
+
+<H3><A NAME="ch01_ 243">
+pgmhist
+</A></H3>
+<P>pgmhist&#151;Print a histogram of the values in a portable graymap
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pgmhist [pgmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pgmhist reads a portable graymap as input and prints a histogram of the gray values.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pgmnorm(1), pgm(5), ppmhist(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright &quot; 1989 by Jef Poskanzer
+</P>
+
+<P>28 February 1989
+</P>
+
+<H3><A NAME="ch01_ 244">
+pgmkernel
+</A></H3>
+<P>pgmkernel&#151;Generate a convolution kernel
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pgmkernel [ _weight w ] width [ height ]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pgmkernel generates a portable graymap array of size
+width x height (or width x width if height is not specified) to be used
+as a convolution file by pnmconvol. The data in the convolution array K are computed according to the formula:
+</P>
+
+
+
+<A NAME="PAGENUM-373"><P>Page 373</P></A>
+
+
+<P>where w is a coefficient specified via the _weight
+flag, and width and height are the X and Y filter sizes.
+</P>
+
+<P>The output PGM file is always written out in ASCII format.
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+<P>The optional -weight flag should be a real number greater than -1. The default value is
+6.0.
+</P>
+
+<P><B>
+BUGS
+</B>
+</P>
+<P>The computation time is proportional to width *
+height. This increases rapidly with the increase of the kernel size. A
+better approach could be to use a FFT in these cases.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pnmconvol(1), pnmsmooth(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Alberto Accomazzi (alberto@cfa.harvard.edu)
+</P>
+
+<P>10 December 1992
+</P>
+
+<H3><A NAME="ch01_ 245">
+pgmnoise
+</A></H3>
+<P>pgmnoise&#151;Create a graymap made up of white noise
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pgmnoise width height
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pgmnoise creates a portable graymap that is made up of random pixels with gray values in the range of
+0 to PGM_MAXMAXVAL (depends on the compilation, either
+255 or 65535). The graymap has a size of width *
+height pixels.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pgm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright &quot; 1993 by Frank Neumann
+</P>
+
+<P>16 November 1993
+</P>
+
+<H3><A NAME="ch01_ 246">
+pgmnorm
+</A></H3>
+<P>pgmnorm&#151;Normalize the contrast in a portable graymap
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pgmnorm[-bpercent N | -bvalue N][-wpercent N | -wvalue N][pgmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pgmnorm reads a portable graymap as input; normalizes the contrast by forcing the lightest pixels to white, the darkest pixels
+to black, and linearly rescaling the ones in between; and produces a portable graymap as output.
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+<P>By default, the darkest two percent of all pixels are mapped to black, and the lightest one percent are mapped to white.
+You can override these percentages by using the -bpercent
+and -wpercent flags, or you can specify the exact pixel values to
+be
+</P>
+
+<A NAME="PAGENUM-374"><P>Page 374</P></A>
+
+
+<P>
+mapped by using the -bvalue and -wvalue flags. Appropriate numbers for the flags can be gotten from the
+pgmhist tool. If you just want to enhance the contrast, then choose values at elbows in the histogram; for example, if value
+29 represents 3 percent of the image but value 30 represents 20 percent, choose
+30 for bvalue. If you want to lighten the image, then
+set bvalue to 0 and just fiddle with wvalue; similarly, to darken the image, set
+wvalue to maxval and play with bvalue.
+</P>
+
+<P>All flags can be abbreviated to their shortest unique prefix.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pgmhist(1), ppmnorm(1), pgm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Partially based on the fbnorm filter in Michael Mauldin's &quot;Fuzzy Pixmap&quot; package.
+</P>
+<P>Copyright&quot; 1989 by Jef Poskanzer.
+</P>
+
+<P>28 February 1989
+</P>
+
+<H3><A NAME="ch01_ 247">
+pgmoil
+</A></H3>
+<P>pgmoil&#151;Turn a portable graymap into an oil painting
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pgmoil [-n N][pgmfile]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pgmoil reads a portable graymap as input, does an &quot;oil transfer,&quot; and writes a portable graymap as output.
+</P>
+<P>The oil transfer is described in Beyond
+Photography by Holzmann, Chapter 4, photo 7. It's a sort of localized smearing.
+</P>
+
+<P><B>
+OPTIONS
+</B>
+</P>
+<P>The optional -n flag controls the size of the area smeared. The default value is
+3.
+</P>
+
+<P><B>
+BUGS
+</B>
+</P>
+<P>Takes a long time to run.
+</P>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pgmbentley(1), ppmrelief(1), pgm(5)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+AUTHOR
+</B>
+</P>
+<P>Copyright&quot; 1990 by Wilson Bent
+(whb@hoh-2.att.com).
+</P>
+
+<P>11 January 1991
+</P>
+
+<H3><A NAME="ch01_ 248">
+pgmramp
+</A></H3>
+<P>pgmramp&#151;Generate a grayscale ramp
+</P>
+
+<P><B>
+SYNOPSIS
+</B>
+</P>
+<!-- CODE SNIP //-->
+<PRE>
+pgmramp -lr|-tb | -rectangle|-ellipse width height
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+<P>pgmramp generates a graymap of the specified size containing a black-to-white ramp. These ramps are useful for
+multiplying with other images, using the pnmarith tool.
+</P>
+
+
+
+<P><CENTER>
+<a href="0368-0370.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0375-0377.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>

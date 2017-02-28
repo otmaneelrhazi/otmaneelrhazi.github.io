@@ -1,0 +1,324 @@
+<HTML>
+
+<HEAD>
+<TITLE>Linux Complete Command Reference:User Commands:EarthWeb Inc.-</TITLE>
+</HEAD>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+<SCRIPT>
+<!--
+function displayWindow(url, width, height) {
+        var Win = window.open(url,"displayWindow",'width=' + width +
+',height=' + height + ',resizable=1,scrollbars=yes');
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+ -->
+
+
+<!-- ISBN=0672311046 //-->
+<!-- TITLE=Linux Complete Command Reference//-->
+<!-- AUTHOR=Red Hat//-->
+<!-- PUBLISHER=Macmillan Computer Publishing//-->
+<!-- IMPRINT=Sams//-->
+<!-- CHAPTER=01 //-->
+<!-- PAGES=0001-0736 //-->
+<!-- UNASSIGNED1 //-->
+<!-- UNASSIGNED2 //-->
+
+<P><CENTER>
+<a href="0215-0216.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0219-0220.html">Next</A></CENTER></P>
+
+
+
+<A NAME="PAGENUM-217"><P>Page 217</P></A>
+
+
+<TABLE>
+
+<TR><TD>
+_s
+</TD><TD>
+A profile file gmon.sum is produced that represents the sum of the profile information in all the
+specified profile files. This summary profile file may be given to later executions of
+gprof (probably also with an _s) to accumulate profile data across several runs of an
+objfile file.
+</TD></TR><TR><TD>
+-v
+</TD><TD>
+Prints the version number for gprof, and then exits.
+</TD></TR><TR><TD>
+-z
+</TD><TD>
+Displays routines that have zero usage (as shown by call counts and accumulated time). This is
+useful with the _c option for discovering which routines were never called.
+</TD></TR></TABLE>
+
+<P><B>
+FILES
+</B>
+</P>
+
+
+
+<TABLE>
+
+<TR><TD>
+a.out
+</TD><TD>
+The name list and text space
+</TD></TR><TR><TD>
+gmon.out
+</TD><TD>
+Dynamic call graph and profile
+</TD></TR><TR><TD>
+gmon.sum
+</TD><TD>
+Summarized dynamic call graph and profile
+</TD></TR></TABLE>
+
+<P><B>
+SEE ALSO
+</B>
+</P>
+
+
+<!-- CODE SNIP //-->
+<PRE>monitor(3), profil(2), cc(1), prof(1)
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P>&quot;An Execution Profiler for Modular Programs,&quot; by S. Graham, P. Kessler, M.
+McKusick; Software&#151;Practice and Experience, Vol. 13, pp. 671-685, 1983.
+</P>
+
+<P>&quot;gprof: A Call Graph Execution Profiler,&quot; by S. Graham, P. Kessler, M.
+McKusick; Proceedings of the SIGPLAN '82 Symposium on Compiler
+Construction, SIGPLAN Notices, Vol. 17, No 6, pp. 120-126, June 1982.
+</P>
+
+<P><B>
+HISTORY
+</B>
+</P>
+
+<P>gprof appeared in 4.2 BSD.
+</P>
+<P><B>
+BUGS
+</B>
+</P>
+
+
+
+<P>The granularity of the sampling is shown, but remains statistical at best. We assume that the time for each execution of
+a function can be expressed by the total time for the function divided by the number of times the function is called. Thus,
+the time propagated along the call graph arcs to the function's parents is directly proportional to the number of times that arc
+is traversed.
+</P>
+
+<P>Parents that are not themselves profiled will have the time of their profiled children propagated to them, but they will
+appear to be spontaneously invoked in the call graph listing, and will not have their time propagated further. Similarly,
+signal catchers, even though profiled, will appear to be spontaneous (although for more obscure reasons). Any profiled children
+of signal catchers should have their times propagated properly, unless the signal catcher was invoked during the execution of
+the profiling routine, in which case all is lost.
+</P>
+
+<P>The profiled program must call exit(2) or return normally for the profiling information to be saved in the
+gmon.out file.
+</P>
+<P>29 January 1993
+</P>
+<H3><A NAME="ch01_ 95">
+grefer
+</A></H3>
+<P>grefer&#151;Preprocess bibliographic references for
+groff
+</P>
+
+<P><B>
+SINOPSIS
+</B>
+</P>
+
+
+<!-- CODE SNIP //-->
+<PRE>
+grefer [_benvCPRS] [_a n] [_c fields] [_f n] [_i fields] [_k field] [_l m,n] [_p filename] [_s fields] [_t n] [_B field.macro] [filename...]
+</PRE>
+<!-- END CODE SNIP //-->
+
+<P><B>
+DESCRIPTION
+</B>
+</P>
+
+
+
+<P>This file documents the GNU version of refer, which is part of the
+groff document formatting system. refer copies the contents of
+filename... to the standard output, except that lines between
+.[ and .] are interpreted as citations, and lines between
+.R1 and .R2 are interpreted as commands about how citations are to be processed.
+</P>
+
+<A NAME="PAGENUM-218"><P>Page 218</P></A>
+
+
+<P>Each citation specifies a reference. The citation can specify a reference that is contained in a bibliographic database by
+giving a set of keywords that only that reference contains. Alternatively, it can specify a reference by supplying a database record
+in the citation. A combination of these alternatives is also possible.
+</P>
+<P>For each citation, refer can produce a mark in the text. This mark consists of some label that can be separated from the
+text and from other labels in various ways. For each reference, it also outputs
+groff commands that can be used by a macro package to produce a formatted reference for each citation. The output of
+refer must therefore be processed using a suitable macro package. The
+_ms and _me macros are both suitable. The commands to format a citation's reference can be
+output immediately after the citation, or the references may be accumulated, and the commands output at some later point. If
+the references are accumulated, then multiple citations of the same reference will produce a single formatted reference.
+</P>
+<P>The interpretation of lines between .R1 and .R2 as commands is a new feature of GNU refer. Documents making use of
+this feature can still be processed by UNIX refer just by adding the lines:
+<!-- CODE SNIP //-->
+<PRE>
+.de R1
+.ig R2
+..
+</PRE>
+<!-- END CODE SNIP //-->
+<P>to the beginning of the document. This will cause
+troff to ignore everything between .R1 and .R2. The effect of
+some commands can also be achieved by options. These options are supported mainly for compatibility with UNIX refer. It
+is usually more convenient to use commands.
+</P>
+<P>refer generates .lf lines so that filenames and line numbers in messages produced by commands that read
+refer output will be correct; it also interprets lines beginning with
+.lf so that filenames and line numbers in the messages and
+.lf lines that it produces will be accurate even if the input has been preprocessed by a command such as
+gsoelim(1).
+</P>
+<P><B>
+OPTIONS
+</B>
+</P>
+
+
+
+<P>Most options are equivalent to commands (for a description of these commands, see &quot;Commands,&quot; later in this
+manual page):
+</P>
+
+<TABLE>
+
+<TR><TD>
+_b
+</TD><TD>
+no-label-in-text; no-label-in-reference
+</TD></TR><TR><TD>
+_e
+</TD><TD>
+accumulate
+</TD></TR><TR><TD>
+_n
+</TD><TD>
+no-default-database
+</TD></TR><TR><TD>
+_C
+</TD><TD>
+compatible
+</TD></TR><TR><TD>
+_P
+</TD><TD>
+move-punctuation
+</TD></TR><TR><TD>
+_S
+</TD><TD>
+label &quot;(A.n|Q) `, ` (D.y|D)&quot;; bracket-label &quot; (&quot; ) &quot;; &quot;
+</TD></TR><TR><TD>
+_an
+</TD><TD>
+reverse An
+</TD></TR><TR><TD>
+_cfields
+</TD><TD>
+capitalize fields
+</TD></TR><TR><TD>
+_fn
+</TD><TD>
+label %n
+</TD></TR><TR><TD>
+_ifields
+</TD><TD>
+search-ignore fields
+</TD></TR><TR><TD>
+_k
+</TD><TD>
+label L%a
+</TD></TR><TR><TD>
+_kfield
+</TD><TD>
+label field%a
+</TD></TR><TR><TD>
+_l
+</TD><TD>
+label A.nD.y%a
+</TD></TR><TR><TD>
+_lm
+</TD><TD>
+label A.n+mD.y%a
+</TD></TR><TR><TD>
+_l,n
+</TD><TD>
+label A.nD.y_n%a
+</TD></TR><TR><TD>
+_lm,n
+</TD><TD>
+label A.n+mD.y_n%a
+</TD></TR><TR><TD>
+_pfilename
+</TD><TD>
+database filename
+</TD></TR><TR><TD>
+_sspec
+</TD><TD>
+sort spec
+</TD></TR><TR><TD>
+_tn
+</TD><TD>
+search-truncate n
+</TD></TR></TABLE>
+
+
+<P>These options are equivalent to the following commands with the addition that the filenames specified on the command
+line are processed as if they were arguments to the
+bibliography command instead of in the normal way:
+</P>
+<TABLE>
+
+<TR><TD>
+_B
+</TD><TD>
+Annotate X AP; no-label-in-reference
+</TD></TR><TR><TD>
+_Bfield.macro
+</TD><TD>
+Annotate field macro; no-label-in-reference
+</TD></TR></TABLE>
+
+
+
+<P><CENTER>
+<a href="0215-0216.html">Previous</A> | <a href="../ewtoc.html">Table of Contents</A> | <a href="0219-0220.html">Next</A></CENTER></P>
+
+
+
+</td>
+</tr>
+</table>
+<!-- begin footer information -->
+
+
+
+
+</body></html>
